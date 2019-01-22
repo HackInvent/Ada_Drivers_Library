@@ -1,0 +1,135 @@
+with "../../boards/stm32h743_nucleo/stm32h743_nucleo.gpr";
+
+project Blink_STM32H743_nucleo is
+
+   for Create_Missing_Dirs use "True";
+   for Main use ("blink.adb");
+   type Lch_Type is
+      ("led", "lcd");
+   Lch : Lch_Type := external ("LCH");
+   type Rts_Type is
+      ("ravenscar-sfp", "ravenscar-full");
+   Rts_Profile : Rts_Type := external ("RTS_Profile");
+   type Loader_Type is
+      ("ROM");
+   Loader : Loader_Type := external ("LOADER_CACA", "ROM");
+   -- for Loader use "ROM";
+   type Build_Type is
+      ("Debug", "Production");
+   Platform_Build : Build_Type := external ("PLATFORM_BUILD");
+
+   case Lch is
+
+      when "led" =>
+
+         case Rts_Profile is
+
+            when "ravenscar-sfp" =>
+
+               case Loader is
+
+                  when "ROM" =>
+
+                     case Platform_Build is
+
+                        when "Debug" =>
+                           for Runtime ("ada") use "ravenscar-sfp-stm32h743nucleo";
+                           for Source_Dirs use ("./src");
+                           for Target use "arm-eabi";
+
+                        when "Production" =>
+                           for Runtime ("ada") use "ravenscar-sfp-stm32h743nucleo";
+                           for Source_Dirs use ("./src");
+                           for Target use "arm-eabi";
+                     end case;
+               end case;
+
+            when "ravenscar-full" =>
+               for Object_Dir use "../shared/draw/obj/stm32f769disco";
+               for Runtime ("ada") use Stm32H743_Nucleo'Runtime ("Ada");
+               for Source_Dirs use ("./src");
+         end case;
+
+      when "lcd" =>
+         for Object_Dir use "../shared/draw/obj/stm32f769disco";
+         for Runtime ("ada") use Stm32H743_Nucleo'Runtime ("Ada");
+         for Source_Dirs use ("./src");
+   end case;
+
+   package Ide is
+
+      case Lch is
+
+         when "led" =>
+
+            case Rts_Profile is
+
+               when "ravenscar-sfp" =>
+
+                  case Loader is
+
+                     when "ROM" =>
+
+                        case Platform_Build is
+
+                           when "Debug" =>
+                              for Connection_Tool use "openocd";
+                              for Connection_Config_File use "test.cfg";
+                              for Communication_Protocol use "extended-remote";
+                              for Program_Host use "localhost:3333";
+
+                           when "Production" =>
+
+                        end case;
+                  end case;
+
+               when "ravenscar-full" =>
+
+            end case;
+
+         when "lcd" =>
+
+      end case;
+   end Ide;
+
+   package Linker is
+
+      for Default_Switches ("ada") use
+        ("-Wl,--print-memory-usage","-Wl,-Map=map.txt");
+
+   end Linker;
+
+   package Builder is
+
+      case Platform_Build is
+
+         when "Debug" =>
+
+            case Rts_Profile is
+
+               when "ravenscar-sfp" =>
+
+                  case Loader is
+
+                     when "ROM" =>
+
+                        case Lch is
+
+                           when "led" =>
+
+                           when "lcd" =>
+
+                        end case;
+                  end case;
+
+               when "ravenscar-full" =>
+
+            end case;
+
+         when "Production" =>
+
+      end case;
+   end Builder;
+
+end Blink_STM32H743_nucleo;
+
