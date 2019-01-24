@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,38 +13,32 @@ package STM32_SVD.TIMs is
    -- Registers --
    ---------------
 
-   subtype CR1_CEN_Field is STM32_SVD.Bit;
-   subtype CR1_UDIS_Field is STM32_SVD.Bit;
-   subtype CR1_URS_Field is STM32_SVD.Bit;
-   subtype CR1_OPM_Field is STM32_SVD.Bit;
-   subtype CR1_ARPE_Field is STM32_SVD.Bit;
    subtype CR1_CKD_Field is STM32_SVD.UInt2;
-   subtype CR1_UIFREMAP_Field is STM32_SVD.Bit;
 
    --  control register 1
    type CR1_Register is record
       --  Counter enable
-      CEN            : CR1_CEN_Field := 16#0#;
+      CEN            : Boolean := False;
       --  Update disable
-      UDIS           : CR1_UDIS_Field := 16#0#;
+      UDIS           : Boolean := False;
       --  Update request source
-      URS            : CR1_URS_Field := 16#0#;
+      URS            : Boolean := False;
       --  One-pulse mode
-      OPM            : CR1_OPM_Field := 16#0#;
+      OPM            : Boolean := False;
       --  unspecified
       Reserved_4_6   : STM32_SVD.UInt3 := 16#0#;
       --  Auto-reload preload enable
-      ARPE           : CR1_ARPE_Field := 16#0#;
+      ARPE           : Boolean := False;
       --  Clock division
       CKD            : CR1_CKD_Field := 16#0#;
       --  unspecified
       Reserved_10_10 : STM32_SVD.Bit := 16#0#;
       --  UIF status bit remapping
-      UIFREMAP       : CR1_UIFREMAP_Field := 16#0#;
+      UIFREMAP       : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR1_Register use record
@@ -60,39 +54,32 @@ package STM32_SVD.TIMs is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype CR2_CCPC_Field is STM32_SVD.Bit;
-   subtype CR2_CCUS_Field is STM32_SVD.Bit;
-   subtype CR2_CCDS_Field is STM32_SVD.Bit;
    subtype CR2_MMS_Field is STM32_SVD.UInt3;
-   subtype CR2_TI1S_Field is STM32_SVD.Bit;
-   subtype CR2_OIS1_Field is STM32_SVD.Bit;
-   subtype CR2_OIS1N_Field is STM32_SVD.Bit;
-   subtype CR2_OIS2_Field is STM32_SVD.Bit;
 
    --  control register 2
    type CR2_Register is record
       --  Capture/compare preloaded control
-      CCPC           : CR2_CCPC_Field := 16#0#;
+      CCPC           : Boolean := False;
       --  unspecified
       Reserved_1_1   : STM32_SVD.Bit := 16#0#;
       --  Capture/compare control update selection
-      CCUS           : CR2_CCUS_Field := 16#0#;
+      CCUS           : Boolean := False;
       --  Capture/compare DMA selection
-      CCDS           : CR2_CCDS_Field := 16#0#;
+      CCDS           : Boolean := False;
       --  Master mode selection
       MMS            : CR2_MMS_Field := 16#0#;
       --  TI1 selection
-      TI1S           : CR2_TI1S_Field := 16#0#;
+      TI1S           : Boolean := False;
       --  Output Idle state 1
-      OIS1           : CR2_OIS1_Field := 16#0#;
+      OIS1           : Boolean := False;
       --  Output Idle state 1
-      OIS1N          : CR2_OIS1N_Field := 16#0#;
+      OIS1N          : Boolean := False;
       --  Output Idle state 2
-      OIS2           : CR2_OIS2_Field := 16#0#;
+      OIS2           : Boolean := False;
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR2_Register use record
@@ -110,8 +97,6 @@ package STM32_SVD.TIMs is
 
    subtype SMCR_SMS_Field is STM32_SVD.UInt3;
    subtype SMCR_TS_2_0_Field is STM32_SVD.UInt3;
-   subtype SMCR_MSM_Field is STM32_SVD.Bit;
-   subtype SMCR_SMS_3_Field is STM32_SVD.Bit;
    subtype SMCR_TS_4_3_Field is STM32_SVD.UInt2;
 
    --  slave mode control register
@@ -123,11 +108,11 @@ package STM32_SVD.TIMs is
       --  Trigger selection
       TS_2_0         : SMCR_TS_2_0_Field := 16#0#;
       --  Master/Slave mode
-      MSM            : SMCR_MSM_Field := 16#0#;
+      MSM            : Boolean := False;
       --  unspecified
       Reserved_8_15  : STM32_SVD.Byte := 16#0#;
       --  Slave mode selection bit 3
-      SMS_3          : SMCR_SMS_3_Field := 16#0#;
+      SMS_3          : Boolean := False;
       --  unspecified
       Reserved_17_19 : STM32_SVD.UInt3 := 16#0#;
       --  Trigger selection - bit 4:3
@@ -135,7 +120,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SMCR_Register use record
@@ -150,50 +135,38 @@ package STM32_SVD.TIMs is
       Reserved_22_31 at 0 range 22 .. 31;
    end record;
 
-   subtype DIER_UIE_Field is STM32_SVD.Bit;
-   subtype DIER_CC1IE_Field is STM32_SVD.Bit;
-   subtype DIER_CC2IE_Field is STM32_SVD.Bit;
-   subtype DIER_COMIE_Field is STM32_SVD.Bit;
-   subtype DIER_TIE_Field is STM32_SVD.Bit;
-   subtype DIER_BIE_Field is STM32_SVD.Bit;
-   subtype DIER_UDE_Field is STM32_SVD.Bit;
-   subtype DIER_CC1DE_Field is STM32_SVD.Bit;
-   subtype DIER_CC2DE_Field is STM32_SVD.Bit;
-   subtype DIER_COMDE_Field is STM32_SVD.Bit;
-   subtype DIER_TDE_Field is STM32_SVD.Bit;
-
    --  DMA/Interrupt enable register
    type DIER_Register is record
       --  Update interrupt enable
-      UIE            : DIER_UIE_Field := 16#0#;
+      UIE            : Boolean := False;
       --  Capture/Compare 1 interrupt enable
-      CC1IE          : DIER_CC1IE_Field := 16#0#;
+      CC1IE          : Boolean := False;
       --  Capture/Compare 2 interrupt enable
-      CC2IE          : DIER_CC2IE_Field := 16#0#;
+      CC2IE          : Boolean := False;
       --  unspecified
       Reserved_3_4   : STM32_SVD.UInt2 := 16#0#;
       --  COM interrupt enable
-      COMIE          : DIER_COMIE_Field := 16#0#;
+      COMIE          : Boolean := False;
       --  Trigger interrupt enable
-      TIE            : DIER_TIE_Field := 16#0#;
+      TIE            : Boolean := False;
       --  Break interrupt enable
-      BIE            : DIER_BIE_Field := 16#0#;
+      BIE            : Boolean := False;
       --  Update DMA request enable
-      UDE            : DIER_UDE_Field := 16#0#;
+      UDE            : Boolean := False;
       --  Capture/Compare 1 DMA request enable
-      CC1DE          : DIER_CC1DE_Field := 16#0#;
+      CC1DE          : Boolean := False;
       --  Capture/Compare 2 DMA request enable
-      CC2DE          : DIER_CC2DE_Field := 16#0#;
+      CC2DE          : Boolean := False;
       --  unspecified
       Reserved_11_12 : STM32_SVD.UInt2 := 16#0#;
       --  COM DMA request enable
-      COMDE          : DIER_COMDE_Field := 16#0#;
+      COMDE          : Boolean := False;
       --  Trigger DMA request enable
-      TDE            : DIER_TDE_Field := 16#0#;
+      TDE            : Boolean := False;
       --  unspecified
       Reserved_15_31 : STM32_SVD.UInt17 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DIER_Register use record
@@ -213,41 +186,32 @@ package STM32_SVD.TIMs is
       Reserved_15_31 at 0 range 15 .. 31;
    end record;
 
-   subtype SR_UIF_Field is STM32_SVD.Bit;
-   subtype SR_CC1IF_Field is STM32_SVD.Bit;
-   subtype SR_CC2IF_Field is STM32_SVD.Bit;
-   subtype SR_COMIF_Field is STM32_SVD.Bit;
-   subtype SR_TIF_Field is STM32_SVD.Bit;
-   subtype SR_BIF_Field is STM32_SVD.Bit;
-   subtype SR_CC1OF_Field is STM32_SVD.Bit;
-   subtype SR_CC2OF_Field is STM32_SVD.Bit;
-
    --  status register
    type SR_Register is record
       --  Update interrupt flag
-      UIF            : SR_UIF_Field := 16#0#;
+      UIF            : Boolean := False;
       --  Capture/compare 1 interrupt flag
-      CC1IF          : SR_CC1IF_Field := 16#0#;
+      CC1IF          : Boolean := False;
       --  Capture/Compare 2 interrupt flag
-      CC2IF          : SR_CC2IF_Field := 16#0#;
+      CC2IF          : Boolean := False;
       --  unspecified
       Reserved_3_4   : STM32_SVD.UInt2 := 16#0#;
       --  COM interrupt flag
-      COMIF          : SR_COMIF_Field := 16#0#;
+      COMIF          : Boolean := False;
       --  Trigger interrupt flag
-      TIF            : SR_TIF_Field := 16#0#;
+      TIF            : Boolean := False;
       --  Break interrupt flag
-      BIF            : SR_BIF_Field := 16#0#;
+      BIF            : Boolean := False;
       --  unspecified
       Reserved_8_8   : STM32_SVD.Bit := 16#0#;
       --  Capture/Compare 1 overcapture flag
-      CC1OF          : SR_CC1OF_Field := 16#0#;
+      CC1OF          : Boolean := False;
       --  Capture/compare 2 overcapture flag
-      CC2OF          : SR_CC2OF_Field := 16#0#;
+      CC2OF          : Boolean := False;
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register use record
@@ -264,33 +228,26 @@ package STM32_SVD.TIMs is
       Reserved_11_31 at 0 range 11 .. 31;
    end record;
 
-   subtype EGR_UG_Field is STM32_SVD.Bit;
-   subtype EGR_CC1G_Field is STM32_SVD.Bit;
-   subtype EGR_CC2G_Field is STM32_SVD.Bit;
-   subtype EGR_COMG_Field is STM32_SVD.Bit;
-   subtype EGR_TG_Field is STM32_SVD.Bit;
-   subtype EGR_BG_Field is STM32_SVD.Bit;
-
    --  event generation register
    type EGR_Register is record
       --  Write-only. Update generation
-      UG            : EGR_UG_Field := 16#0#;
+      UG            : Boolean := False;
       --  Write-only. Capture/compare 1 generation
-      CC1G          : EGR_CC1G_Field := 16#0#;
+      CC1G          : Boolean := False;
       --  Write-only. Capture/compare 2 generation
-      CC2G          : EGR_CC2G_Field := 16#0#;
+      CC2G          : Boolean := False;
       --  unspecified
       Reserved_3_4  : STM32_SVD.UInt2 := 16#0#;
       --  Write-only. Capture/Compare control update generation
-      COMG          : EGR_COMG_Field := 16#0#;
+      COMG          : Boolean := False;
       --  Write-only. Trigger generation
-      TG            : EGR_TG_Field := 16#0#;
+      TG            : Boolean := False;
       --  Write-only. Break generation
-      BG            : EGR_BG_Field := 16#0#;
+      BG            : Boolean := False;
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for EGR_Register use record
@@ -305,24 +262,18 @@ package STM32_SVD.TIMs is
    end record;
 
    subtype CCMR1_Output_CC1S_Field is STM32_SVD.UInt2;
-   subtype CCMR1_Output_OC1FE_Field is STM32_SVD.Bit;
-   subtype CCMR1_Output_OC1PE_Field is STM32_SVD.Bit;
    subtype CCMR1_Output_OC1M_Field is STM32_SVD.UInt3;
    subtype CCMR1_Output_CC2S_Field is STM32_SVD.UInt2;
-   subtype CCMR1_Output_OC2FE_Field is STM32_SVD.Bit;
-   subtype CCMR1_Output_OC2PE_Field is STM32_SVD.Bit;
    subtype CCMR1_Output_OC2M_Field is STM32_SVD.UInt3;
-   subtype CCMR1_Output_OC1M_3_Field is STM32_SVD.Bit;
-   subtype CCMR1_Output_OC2M_3_Field is STM32_SVD.Bit;
 
    --  capture/compare mode register (output mode)
    type CCMR1_Output_Register is record
       --  Capture/Compare 1 selection
       CC1S           : CCMR1_Output_CC1S_Field := 16#0#;
       --  Output Compare 1 fast enable
-      OC1FE          : CCMR1_Output_OC1FE_Field := 16#0#;
+      OC1FE          : Boolean := False;
       --  Output Compare 1 preload enable
-      OC1PE          : CCMR1_Output_OC1PE_Field := 16#0#;
+      OC1PE          : Boolean := False;
       --  Output Compare 1 mode
       OC1M           : CCMR1_Output_OC1M_Field := 16#0#;
       --  unspecified
@@ -330,23 +281,23 @@ package STM32_SVD.TIMs is
       --  Capture/Compare 2 selection
       CC2S           : CCMR1_Output_CC2S_Field := 16#0#;
       --  Output Compare 2 fast enable
-      OC2FE          : CCMR1_Output_OC2FE_Field := 16#0#;
+      OC2FE          : Boolean := False;
       --  Output Compare 2 preload enable
-      OC2PE          : CCMR1_Output_OC2PE_Field := 16#0#;
+      OC2PE          : Boolean := False;
       --  Output Compare 2 mode
       OC2M           : CCMR1_Output_OC2M_Field := 16#0#;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Output Compare 1 mode bit 3
-      OC1M_3         : CCMR1_Output_OC1M_3_Field := 16#0#;
+      OC1M_3         : Boolean := False;
       --  unspecified
       Reserved_17_23 : STM32_SVD.UInt7 := 16#0#;
       --  Output Compare 2 mode bit 3
-      OC2M_3         : CCMR1_Output_OC2M_3_Field := 16#0#;
+      OC2M_3         : Boolean := False;
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCMR1_Output_Register use record
@@ -390,7 +341,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCMR1_Input_Register use record
@@ -403,36 +354,28 @@ package STM32_SVD.TIMs is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype CCER_CC1E_Field is STM32_SVD.Bit;
-   subtype CCER_CC1P_Field is STM32_SVD.Bit;
-   subtype CCER_CC1NE_Field is STM32_SVD.Bit;
-   subtype CCER_CC1NP_Field is STM32_SVD.Bit;
-   subtype CCER_CC2E_Field is STM32_SVD.Bit;
-   subtype CCER_CC2P_Field is STM32_SVD.Bit;
-   subtype CCER_CC2NP_Field is STM32_SVD.Bit;
-
    --  capture/compare enable register
    type CCER_Register is record
       --  Capture/Compare 1 output enable
-      CC1E          : CCER_CC1E_Field := 16#0#;
+      CC1E          : Boolean := False;
       --  Capture/Compare 1 output Polarity
-      CC1P          : CCER_CC1P_Field := 16#0#;
+      CC1P          : Boolean := False;
       --  Capture/Compare 1 complementary output enable
-      CC1NE         : CCER_CC1NE_Field := 16#0#;
+      CC1NE         : Boolean := False;
       --  Capture/Compare 1 output Polarity
-      CC1NP         : CCER_CC1NP_Field := 16#0#;
+      CC1NP         : Boolean := False;
       --  Capture/Compare 2 output enable
-      CC2E          : CCER_CC2E_Field := 16#0#;
+      CC2E          : Boolean := False;
       --  Capture/Compare 2 output Polarity
-      CC2P          : CCER_CC2P_Field := 16#0#;
+      CC2P          : Boolean := False;
       --  unspecified
       Reserved_6_6  : STM32_SVD.Bit := 16#0#;
       --  Capture/Compare 2 output Polarity
-      CC2NP         : CCER_CC2NP_Field := 16#0#;
+      CC2NP         : Boolean := False;
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCER_Register use record
@@ -448,7 +391,6 @@ package STM32_SVD.TIMs is
    end record;
 
    subtype CNT_CNT_Field is STM32_SVD.UInt16;
-   subtype CNT_UIFCPY_Field is STM32_SVD.Bit;
 
    --  counter
    type CNT_Register is record
@@ -457,9 +399,9 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_16_30 : STM32_SVD.UInt15 := 16#0#;
       --  Read-only. UIF copy
-      UIFCPY         : CNT_UIFCPY_Field := 16#0#;
+      UIFCPY         : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CNT_Register use record
@@ -477,7 +419,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PSC_Register use record
@@ -494,7 +436,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ARR_Register use record
@@ -511,7 +453,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RCR_Register use record
@@ -528,7 +470,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCR1_Register use record
@@ -545,7 +487,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCR2_Register use record
@@ -555,12 +497,6 @@ package STM32_SVD.TIMs is
 
    subtype BDTR_DTG_Field is STM32_SVD.Byte;
    subtype BDTR_LOCK_Field is STM32_SVD.UInt2;
-   subtype BDTR_OSSI_Field is STM32_SVD.Bit;
-   subtype BDTR_OSSR_Field is STM32_SVD.Bit;
-   subtype BDTR_BKE_Field is STM32_SVD.Bit;
-   subtype BDTR_BKP_Field is STM32_SVD.Bit;
-   subtype BDTR_AOE_Field is STM32_SVD.Bit;
-   subtype BDTR_MOE_Field is STM32_SVD.Bit;
    subtype BDTR_BKF_Field is STM32_SVD.UInt4;
 
    --  break and dead-time register
@@ -570,23 +506,23 @@ package STM32_SVD.TIMs is
       --  Lock configuration
       LOCK           : BDTR_LOCK_Field := 16#0#;
       --  Off-state selection for Idle mode
-      OSSI           : BDTR_OSSI_Field := 16#0#;
+      OSSI           : Boolean := False;
       --  Off-state selection for Run mode
-      OSSR           : BDTR_OSSR_Field := 16#0#;
+      OSSR           : Boolean := False;
       --  Break enable
-      BKE            : BDTR_BKE_Field := 16#0#;
+      BKE            : Boolean := False;
       --  Break polarity
-      BKP            : BDTR_BKP_Field := 16#0#;
+      BKP            : Boolean := False;
       --  Automatic output enable
-      AOE            : BDTR_AOE_Field := 16#0#;
+      AOE            : Boolean := False;
       --  Main output enable
-      MOE            : BDTR_MOE_Field := 16#0#;
+      MOE            : Boolean := False;
       --  Break filter
       BKF            : BDTR_BKF_Field := 16#0#;
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BDTR_Register use record
@@ -616,7 +552,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DCR_Register use record
@@ -635,7 +571,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAR_Register use record
@@ -643,36 +579,28 @@ package STM32_SVD.TIMs is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype AF1_BKINE_Field is STM32_SVD.Bit;
-   subtype AF1_BKCMP1E_Field is STM32_SVD.Bit;
-   subtype AF1_BKCMP2E_Field is STM32_SVD.Bit;
-   subtype AF1_BKDF1BK0E_Field is STM32_SVD.Bit;
-   subtype AF1_BKINP_Field is STM32_SVD.Bit;
-   subtype AF1_BKCMP1P_Field is STM32_SVD.Bit;
-   subtype AF1_BKCMP2P_Field is STM32_SVD.Bit;
-
    --  TIM15 alternate fdfsdm1_breakon register 1
    type AF1_Register is record
       --  BRK BKIN input enable
-      BKINE          : AF1_BKINE_Field := 16#0#;
+      BKINE          : Boolean := False;
       --  BRK COMP1 enable
-      BKCMP1E        : AF1_BKCMP1E_Field := 16#0#;
+      BKCMP1E        : Boolean := False;
       --  BRK COMP2 enable
-      BKCMP2E        : AF1_BKCMP2E_Field := 16#0#;
+      BKCMP2E        : Boolean := False;
       --  unspecified
       Reserved_3_7   : STM32_SVD.UInt5 := 16#0#;
       --  BRK dfsdm1_break[0] enable
-      BKDF1BK0E      : AF1_BKDF1BK0E_Field := 16#0#;
+      BKDF1BK0E      : Boolean := False;
       --  BRK BKIN input polarity
-      BKINP          : AF1_BKINP_Field := 16#0#;
+      BKINP          : Boolean := False;
       --  BRK COMP1 input polarity
-      BKCMP1P        : AF1_BKCMP1P_Field := 16#0#;
+      BKCMP1P        : Boolean := False;
       --  BRK COMP2 input polarity
-      BKCMP2P        : AF1_BKCMP2P_Field := 16#0#;
+      BKCMP2P        : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AF1_Register use record
@@ -701,7 +629,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for TISEL_Register use record
@@ -714,23 +642,23 @@ package STM32_SVD.TIMs is
    --  control register 2
    type CR2_Register_1 is record
       --  Capture/compare preloaded control
-      CCPC           : CR2_CCPC_Field := 16#0#;
+      CCPC           : Boolean := False;
       --  unspecified
       Reserved_1_1   : STM32_SVD.Bit := 16#0#;
       --  Capture/compare control update selection
-      CCUS           : CR2_CCUS_Field := 16#0#;
+      CCUS           : Boolean := False;
       --  Capture/compare DMA selection
-      CCDS           : CR2_CCDS_Field := 16#0#;
+      CCDS           : Boolean := False;
       --  unspecified
       Reserved_4_7   : STM32_SVD.UInt4 := 16#0#;
       --  Output Idle state 1
-      OIS1           : CR2_OIS1_Field := 16#0#;
+      OIS1           : Boolean := False;
       --  Output Idle state 1
-      OIS1N          : CR2_OIS1N_Field := 16#0#;
+      OIS1N          : Boolean := False;
       --  unspecified
       Reserved_10_31 : STM32_SVD.UInt22 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR2_Register_1 use record
@@ -747,29 +675,29 @@ package STM32_SVD.TIMs is
    --  DMA/Interrupt enable register
    type DIER_Register_1 is record
       --  Update interrupt enable
-      UIE            : DIER_UIE_Field := 16#0#;
+      UIE            : Boolean := False;
       --  Capture/Compare 1 interrupt enable
-      CC1IE          : DIER_CC1IE_Field := 16#0#;
+      CC1IE          : Boolean := False;
       --  unspecified
       Reserved_2_4   : STM32_SVD.UInt3 := 16#0#;
       --  COM interrupt enable
-      COMIE          : DIER_COMIE_Field := 16#0#;
+      COMIE          : Boolean := False;
       --  unspecified
       Reserved_6_6   : STM32_SVD.Bit := 16#0#;
       --  Break interrupt enable
-      BIE            : DIER_BIE_Field := 16#0#;
+      BIE            : Boolean := False;
       --  Update DMA request enable
-      UDE            : DIER_UDE_Field := 16#0#;
+      UDE            : Boolean := False;
       --  Capture/Compare 1 DMA request enable
-      CC1DE          : DIER_CC1DE_Field := 16#0#;
+      CC1DE          : Boolean := False;
       --  unspecified
       Reserved_10_12 : STM32_SVD.UInt3 := 16#0#;
       --  COM DMA request enable
-      COMDE          : DIER_COMDE_Field := 16#0#;
+      COMDE          : Boolean := False;
       --  unspecified
       Reserved_14_31 : STM32_SVD.UInt18 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DIER_Register_1 use record
@@ -789,25 +717,25 @@ package STM32_SVD.TIMs is
    --  status register
    type SR_Register_1 is record
       --  Update interrupt flag
-      UIF            : SR_UIF_Field := 16#0#;
+      UIF            : Boolean := False;
       --  Capture/compare 1 interrupt flag
-      CC1IF          : SR_CC1IF_Field := 16#0#;
+      CC1IF          : Boolean := False;
       --  unspecified
       Reserved_2_4   : STM32_SVD.UInt3 := 16#0#;
       --  COM interrupt flag
-      COMIF          : SR_COMIF_Field := 16#0#;
+      COMIF          : Boolean := False;
       --  unspecified
       Reserved_6_6   : STM32_SVD.Bit := 16#0#;
       --  Break interrupt flag
-      BIF            : SR_BIF_Field := 16#0#;
+      BIF            : Boolean := False;
       --  unspecified
       Reserved_8_8   : STM32_SVD.Bit := 16#0#;
       --  Capture/Compare 1 overcapture flag
-      CC1OF          : SR_CC1OF_Field := 16#0#;
+      CC1OF          : Boolean := False;
       --  unspecified
       Reserved_10_31 : STM32_SVD.UInt22 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register_1 use record
@@ -825,21 +753,21 @@ package STM32_SVD.TIMs is
    --  event generation register
    type EGR_Register_1 is record
       --  Write-only. Update generation
-      UG            : EGR_UG_Field := 16#0#;
+      UG            : Boolean := False;
       --  Write-only. Capture/compare 1 generation
-      CC1G          : EGR_CC1G_Field := 16#0#;
+      CC1G          : Boolean := False;
       --  unspecified
       Reserved_2_4  : STM32_SVD.UInt3 := 16#0#;
       --  Write-only. Capture/Compare control update generation
-      COMG          : EGR_COMG_Field := 16#0#;
+      COMG          : Boolean := False;
       --  unspecified
       Reserved_6_6  : STM32_SVD.Bit := 16#0#;
       --  Write-only. Break generation
-      BG            : EGR_BG_Field := 16#0#;
+      BG            : Boolean := False;
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for EGR_Register_1 use record
@@ -857,19 +785,19 @@ package STM32_SVD.TIMs is
       --  Capture/Compare 1 selection
       CC1S           : CCMR1_Output_CC1S_Field := 16#0#;
       --  Output Compare 1 fast enable
-      OC1FE          : CCMR1_Output_OC1FE_Field := 16#0#;
+      OC1FE          : Boolean := False;
       --  Output Compare 1 preload enable
-      OC1PE          : CCMR1_Output_OC1PE_Field := 16#0#;
+      OC1PE          : Boolean := False;
       --  Output Compare 1 mode
       OC1M           : CCMR1_Output_OC1M_Field := 16#0#;
       --  unspecified
       Reserved_7_15  : STM32_SVD.UInt9 := 16#0#;
       --  Output Compare 1 mode
-      OC1M_3         : CCMR1_Output_OC1M_3_Field := 16#0#;
+      OC1M_3         : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCMR1_Output_Register_1 use record
@@ -893,7 +821,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCMR1_Input_Register_1 use record
@@ -906,17 +834,17 @@ package STM32_SVD.TIMs is
    --  capture/compare enable register
    type CCER_Register_1 is record
       --  Capture/Compare 1 output enable
-      CC1E          : CCER_CC1E_Field := 16#0#;
+      CC1E          : Boolean := False;
       --  Capture/Compare 1 output Polarity
-      CC1P          : CCER_CC1P_Field := 16#0#;
+      CC1P          : Boolean := False;
       --  Capture/Compare 1 complementary output enable
-      CC1NE         : CCER_CC1NE_Field := 16#0#;
+      CC1NE         : Boolean := False;
       --  Capture/Compare 1 output Polarity
-      CC1NP         : CCER_CC1NP_Field := 16#0#;
+      CC1NP         : Boolean := False;
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCER_Register_1 use record
@@ -927,36 +855,28 @@ package STM32_SVD.TIMs is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype TIM16_AF1_BKINE_Field is STM32_SVD.Bit;
-   subtype TIM16_AF1_BKCMP1E_Field is STM32_SVD.Bit;
-   subtype TIM16_AF1_BKCMP2E_Field is STM32_SVD.Bit;
-   subtype TIM16_AF1_BKDFBK1E_Field is STM32_SVD.Bit;
-   subtype TIM16_AF1_BKINP_Field is STM32_SVD.Bit;
-   subtype TIM16_AF1_BKCMP1P_Field is STM32_SVD.Bit;
-   subtype TIM16_AF1_BKCMP2P_Field is STM32_SVD.Bit;
-
    --  TIM16 alternate function register 1
    type TIM16_AF1_Register is record
       --  BRK BKIN input enable
-      BKINE          : TIM16_AF1_BKINE_Field := 16#0#;
+      BKINE          : Boolean := False;
       --  BRK COMP1 enable
-      BKCMP1E        : TIM16_AF1_BKCMP1E_Field := 16#0#;
+      BKCMP1E        : Boolean := False;
       --  BRK COMP2 enable
-      BKCMP2E        : TIM16_AF1_BKCMP2E_Field := 16#0#;
+      BKCMP2E        : Boolean := False;
       --  unspecified
       Reserved_3_7   : STM32_SVD.UInt5 := 16#0#;
       --  BRK dfsdm1_break[1] enable
-      BKDFBK1E       : TIM16_AF1_BKDFBK1E_Field := 16#0#;
+      BKDFBK1E       : Boolean := False;
       --  BRK BKIN input polarity
-      BKINP          : TIM16_AF1_BKINP_Field := 16#0#;
+      BKINP          : Boolean := False;
       --  BRK COMP1 input polarity
-      BKCMP1P        : TIM16_AF1_BKCMP1P_Field := 16#0#;
+      BKCMP1P        : Boolean := False;
       --  BRK COMP2 input polarity
-      BKCMP2P        : TIM16_AF1_BKCMP2P_Field := 16#0#;
+      BKCMP2P        : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for TIM16_AF1_Register use record
@@ -980,7 +900,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for TIM16_TISEL_Register use record
@@ -988,36 +908,28 @@ package STM32_SVD.TIMs is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype TIM17_AF1_BKINE_Field is STM32_SVD.Bit;
-   subtype TIM17_AF1_BKCMP1E_Field is STM32_SVD.Bit;
-   subtype TIM17_AF1_BKCMP2E_Field is STM32_SVD.Bit;
-   subtype TIM17_AF1_BKDFBK1E_Field is STM32_SVD.Bit;
-   subtype TIM17_AF1_BKINP_Field is STM32_SVD.Bit;
-   subtype TIM17_AF1_BKCMP1P_Field is STM32_SVD.Bit;
-   subtype TIM17_AF1_BKCMP2P_Field is STM32_SVD.Bit;
-
    --  TIM17 alternate function register 1
    type TIM17_AF1_Register is record
       --  BRK BKIN input enable
-      BKINE          : TIM17_AF1_BKINE_Field := 16#0#;
+      BKINE          : Boolean := False;
       --  BRK COMP1 enable
-      BKCMP1E        : TIM17_AF1_BKCMP1E_Field := 16#0#;
+      BKCMP1E        : Boolean := False;
       --  BRK COMP2 enable
-      BKCMP2E        : TIM17_AF1_BKCMP2E_Field := 16#0#;
+      BKCMP2E        : Boolean := False;
       --  unspecified
       Reserved_3_7   : STM32_SVD.UInt5 := 16#0#;
       --  BRK dfsdm1_break[1] enable
-      BKDFBK1E       : TIM17_AF1_BKDFBK1E_Field := 16#0#;
+      BKDFBK1E       : Boolean := False;
       --  BRK BKIN input polarity
-      BKINP          : TIM17_AF1_BKINP_Field := 16#0#;
+      BKINP          : Boolean := False;
       --  BRK COMP1 input polarity
-      BKCMP1P        : TIM17_AF1_BKCMP1P_Field := 16#0#;
+      BKCMP1P        : Boolean := False;
       --  BRK COMP2 input polarity
-      BKCMP2P        : TIM17_AF1_BKCMP2P_Field := 16#0#;
+      BKCMP2P        : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for TIM17_AF1_Register use record
@@ -1041,7 +953,7 @@ package STM32_SVD.TIMs is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for TIM17_TISEL_Register use record
@@ -1054,8 +966,7 @@ package STM32_SVD.TIMs is
    -----------------
 
    type TIM15_Disc is
-     (
-      Output,
+     (Output,
       Input);
 
    --  General purpose timers
@@ -1134,11 +1045,10 @@ package STM32_SVD.TIMs is
 
    --  General purpose timers
    TIM15_Periph : aliased TIM15_Peripheral
-     with Import, Address => System'To_Address (16#40014000#);
+     with Import, Address => TIM15_Base;
 
    type TIM16_Disc is
-     (
-      Output,
+     (Output,
       Input);
 
    --  General-purpose-timers
@@ -1211,11 +1121,10 @@ package STM32_SVD.TIMs is
 
    --  General-purpose-timers
    TIM16_Periph : aliased TIM16_Peripheral
-     with Import, Address => System'To_Address (16#40014400#);
+     with Import, Address => TIM16_Base;
 
    type TIM17_Disc is
-     (
-      Output,
+     (Output,
       Input);
 
    --  General-purpose-timers
@@ -1288,6 +1197,6 @@ package STM32_SVD.TIMs is
 
    --  General-purpose-timers
    TIM17_Periph : aliased TIM17_Peripheral
-     with Import, Address => System'To_Address (16#40014800#);
+     with Import, Address => TIM17_Base;
 
 end STM32_SVD.TIMs;

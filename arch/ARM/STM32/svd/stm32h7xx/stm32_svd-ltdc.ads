@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -27,7 +27,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SSCR_Register use record
@@ -51,7 +51,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BPCR_Register use record
@@ -75,7 +75,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AWCR_Register use record
@@ -99,7 +99,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for TWCR_Register use record
@@ -109,20 +109,14 @@ package STM32_SVD.LTDC is
       Reserved_28_31 at 0 range 28 .. 31;
    end record;
 
-   subtype GCR_LTDCEN_Field is STM32_SVD.Bit;
    subtype GCR_DBW_Field is STM32_SVD.UInt3;
    subtype GCR_DGW_Field is STM32_SVD.UInt3;
    subtype GCR_DRW_Field is STM32_SVD.UInt3;
-   subtype GCR_DEN_Field is STM32_SVD.Bit;
-   subtype GCR_PCPOL_Field is STM32_SVD.Bit;
-   subtype GCR_DEPOL_Field is STM32_SVD.Bit;
-   subtype GCR_VSPOL_Field is STM32_SVD.Bit;
-   subtype GCR_HSPOL_Field is STM32_SVD.Bit;
 
    --  Global Control Register
    type GCR_Register is record
       --  LCD-TFT controller enable bit
-      LTDCEN         : GCR_LTDCEN_Field := 16#0#;
+      LTDCEN         : Boolean := False;
       --  unspecified
       Reserved_1_3   : STM32_SVD.UInt3 := 16#0#;
       --  Read-only. Dither Blue Width
@@ -138,19 +132,19 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Dither Enable
-      DEN            : GCR_DEN_Field := 16#0#;
+      DEN            : Boolean := False;
       --  unspecified
       Reserved_17_27 : STM32_SVD.UInt11 := 16#0#;
       --  Pixel Clock Polarity
-      PCPOL          : GCR_PCPOL_Field := 16#0#;
+      PCPOL          : Boolean := False;
       --  Data Enable Polarity
-      DEPOL          : GCR_DEPOL_Field := 16#0#;
+      DEPOL          : Boolean := False;
       --  Vertical Synchronization Polarity
-      VSPOL          : GCR_VSPOL_Field := 16#0#;
+      VSPOL          : Boolean := False;
       --  Horizontal Synchronization Polarity
-      HSPOL          : GCR_HSPOL_Field := 16#0#;
+      HSPOL          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for GCR_Register use record
@@ -170,19 +164,16 @@ package STM32_SVD.LTDC is
       HSPOL          at 0 range 31 .. 31;
    end record;
 
-   subtype SRCR_IMR_Field is STM32_SVD.Bit;
-   subtype SRCR_VBR_Field is STM32_SVD.Bit;
-
    --  Shadow Reload Configuration Register
    type SRCR_Register is record
       --  Immediate Reload
-      IMR           : SRCR_IMR_Field := 16#0#;
+      IMR           : Boolean := False;
       --  Vertical Blanking Reload
-      VBR           : SRCR_VBR_Field := 16#0#;
+      VBR           : Boolean := False;
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SRCR_Register use record
@@ -206,7 +197,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BCCR_Register use record
@@ -216,25 +207,20 @@ package STM32_SVD.LTDC is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype IER_LIE_Field is STM32_SVD.Bit;
-   subtype IER_FUIE_Field is STM32_SVD.Bit;
-   subtype IER_TERRIE_Field is STM32_SVD.Bit;
-   subtype IER_RRIE_Field is STM32_SVD.Bit;
-
    --  Interrupt Enable Register
    type IER_Register is record
       --  Line Interrupt Enable
-      LIE           : IER_LIE_Field := 16#0#;
+      LIE           : Boolean := False;
       --  FIFO Underrun Interrupt Enable
-      FUIE          : IER_FUIE_Field := 16#0#;
+      FUIE          : Boolean := False;
       --  Transfer Error Interrupt Enable
-      TERRIE        : IER_TERRIE_Field := 16#0#;
+      TERRIE        : Boolean := False;
       --  Register Reload interrupt enable
-      RRIE          : IER_RRIE_Field := 16#0#;
+      RRIE          : Boolean := False;
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IER_Register use record
@@ -245,25 +231,20 @@ package STM32_SVD.LTDC is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype ISR_LIF_Field is STM32_SVD.Bit;
-   subtype ISR_FUIF_Field is STM32_SVD.Bit;
-   subtype ISR_TERRIF_Field is STM32_SVD.Bit;
-   subtype ISR_RRIF_Field is STM32_SVD.Bit;
-
    --  Interrupt Status Register
    type ISR_Register is record
       --  Read-only. Line Interrupt flag
-      LIF           : ISR_LIF_Field;
+      LIF           : Boolean;
       --  Read-only. FIFO Underrun Interrupt flag
-      FUIF          : ISR_FUIF_Field;
+      FUIF          : Boolean;
       --  Read-only. Transfer Error interrupt flag
-      TERRIF        : ISR_TERRIF_Field;
+      TERRIF        : Boolean;
       --  Read-only. Register Reload Interrupt Flag
-      RRIF          : ISR_RRIF_Field;
+      RRIF          : Boolean;
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ISR_Register use record
@@ -274,25 +255,20 @@ package STM32_SVD.LTDC is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype ICR_CLIF_Field is STM32_SVD.Bit;
-   subtype ICR_CFUIF_Field is STM32_SVD.Bit;
-   subtype ICR_CTERRIF_Field is STM32_SVD.Bit;
-   subtype ICR_CRRIF_Field is STM32_SVD.Bit;
-
    --  Interrupt Clear Register
    type ICR_Register is record
       --  Write-only. Clears the Line Interrupt Flag
-      CLIF          : ICR_CLIF_Field := 16#0#;
+      CLIF          : Boolean := False;
       --  Write-only. Clears the FIFO Underrun Interrupt flag
-      CFUIF         : ICR_CFUIF_Field := 16#0#;
+      CFUIF         : Boolean := False;
       --  Write-only. Clears the Transfer Error Interrupt Flag
-      CTERRIF       : ICR_CTERRIF_Field := 16#0#;
+      CTERRIF       : Boolean := False;
       --  Write-only. Clears Register Reload Interrupt Flag
-      CRRIF         : ICR_CRRIF_Field := 16#0#;
+      CRRIF         : Boolean := False;
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ICR_Register use record
@@ -312,7 +288,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for LIPCR_Register use record
@@ -330,7 +306,7 @@ package STM32_SVD.LTDC is
       --  Read-only. Current X Position
       CXPOS : CPSR_CXPOS_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPSR_Register use record
@@ -338,25 +314,20 @@ package STM32_SVD.LTDC is
       CXPOS at 0 range 16 .. 31;
    end record;
 
-   subtype CDSR_VDES_Field is STM32_SVD.Bit;
-   subtype CDSR_HDES_Field is STM32_SVD.Bit;
-   subtype CDSR_VSYNCS_Field is STM32_SVD.Bit;
-   subtype CDSR_HSYNCS_Field is STM32_SVD.Bit;
-
    --  Current Display Status Register
    type CDSR_Register is record
       --  Read-only. Vertical Data Enable display Status
-      VDES          : CDSR_VDES_Field;
+      VDES          : Boolean;
       --  Read-only. Horizontal Data Enable display Status
-      HDES          : CDSR_HDES_Field;
+      HDES          : Boolean;
       --  Read-only. Vertical Synchronization display Status
-      VSYNCS        : CDSR_VSYNCS_Field;
+      VSYNCS        : Boolean;
       --  Read-only. Horizontal Synchronization display Status
-      HSYNCS        : CDSR_HSYNCS_Field;
+      HSYNCS        : Boolean;
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CDSR_Register use record
@@ -367,24 +338,20 @@ package STM32_SVD.LTDC is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype L1CR_LEN_Field is STM32_SVD.Bit;
-   subtype L1CR_COLKEN_Field is STM32_SVD.Bit;
-   subtype L1CR_CLUTEN_Field is STM32_SVD.Bit;
-
    --  Layerx Control Register
    type L1CR_Register is record
       --  Layer Enable
-      LEN           : L1CR_LEN_Field := 16#0#;
+      LEN           : Boolean := False;
       --  Color Keying Enable
-      COLKEN        : L1CR_COLKEN_Field := 16#0#;
+      COLKEN        : Boolean := False;
       --  unspecified
       Reserved_2_3  : STM32_SVD.UInt2 := 16#0#;
       --  Color Look-Up Table Enable
-      CLUTEN        : L1CR_CLUTEN_Field := 16#0#;
+      CLUTEN        : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1CR_Register use record
@@ -409,7 +376,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1WHPCR_Register use record
@@ -433,7 +400,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1WVPCR_Register use record
@@ -458,7 +425,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1CKCR_Register use record
@@ -477,7 +444,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1PFCR_Register use record
@@ -494,7 +461,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1CACR_Register use record
@@ -518,7 +485,7 @@ package STM32_SVD.LTDC is
       --  Default Color Alpha
       DCALPHA : L1DCCR_DCALPHA_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1DCCR_Register use record
@@ -542,7 +509,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1BFCR_Register use record
@@ -566,7 +533,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1CFBLR_Register use record
@@ -585,7 +552,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1CFBLNR_Register use record
@@ -609,7 +576,7 @@ package STM32_SVD.LTDC is
       --  Write-only. CLUT Address
       CLUTADD : L1CLUTWR_CLUTADD_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L1CLUTWR_Register use record
@@ -619,24 +586,20 @@ package STM32_SVD.LTDC is
       CLUTADD at 0 range 24 .. 31;
    end record;
 
-   subtype L2CR_LEN_Field is STM32_SVD.Bit;
-   subtype L2CR_COLKEN_Field is STM32_SVD.Bit;
-   subtype L2CR_CLUTEN_Field is STM32_SVD.Bit;
-
    --  Layerx Control Register
    type L2CR_Register is record
       --  Layer Enable
-      LEN           : L2CR_LEN_Field := 16#0#;
+      LEN           : Boolean := False;
       --  Color Keying Enable
-      COLKEN        : L2CR_COLKEN_Field := 16#0#;
+      COLKEN        : Boolean := False;
       --  unspecified
       Reserved_2_3  : STM32_SVD.UInt2 := 16#0#;
       --  Color Look-Up Table Enable
-      CLUTEN        : L2CR_CLUTEN_Field := 16#0#;
+      CLUTEN        : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2CR_Register use record
@@ -661,7 +624,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2WHPCR_Register use record
@@ -685,7 +648,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2WVPCR_Register use record
@@ -710,7 +673,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2CKCR_Register use record
@@ -729,7 +692,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2PFCR_Register use record
@@ -746,7 +709,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2CACR_Register use record
@@ -770,7 +733,7 @@ package STM32_SVD.LTDC is
       --  Default Color Alpha
       DCALPHA : L2DCCR_DCALPHA_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2DCCR_Register use record
@@ -794,7 +757,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2BFCR_Register use record
@@ -818,7 +781,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2CFBLR_Register use record
@@ -837,7 +800,7 @@ package STM32_SVD.LTDC is
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2CFBLNR_Register use record
@@ -861,7 +824,7 @@ package STM32_SVD.LTDC is
       --  Write-only. CLUT Address
       CLUTADD : L2CLUTWR_CLUTADD_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for L2CLUTWR_Register use record
@@ -996,6 +959,6 @@ package STM32_SVD.LTDC is
 
    --  LCD-TFT Controller
    LTDC_Periph : aliased LTDC_Peripheral
-     with Import, Address => System'To_Address (16#50001000#);
+     with Import, Address => LTDC_Base;
 
 end STM32_SVD.LTDC;

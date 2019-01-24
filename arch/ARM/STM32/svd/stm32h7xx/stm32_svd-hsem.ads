@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -15,7 +15,6 @@ package STM32_SVD.HSEM is
 
    subtype HSEM_R_PROCID_Field is STM32_SVD.Byte;
    subtype HSEM_R_MASTERID_Field is STM32_SVD.Byte;
-   subtype HSEM_R_LOCK_Field is STM32_SVD.Bit;
 
    --  HSEM register HSEM_R0 HSEM_R31
    type HSEM_R_Register is record
@@ -26,9 +25,9 @@ package STM32_SVD.HSEM is
       --  unspecified
       Reserved_16_30 : STM32_SVD.UInt15 := 16#0#;
       --  Lock indication
-      LOCK           : HSEM_R_LOCK_Field := 16#0#;
+      LOCK           : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HSEM_R_Register use record
@@ -40,7 +39,6 @@ package STM32_SVD.HSEM is
 
    subtype HSEM_RLR_PROCID_Field is STM32_SVD.Byte;
    subtype HSEM_RLR_MASTERID_Field is STM32_SVD.Byte;
-   subtype HSEM_RLR_LOCK_Field is STM32_SVD.Bit;
 
    --  HSEM Read lock register
    type HSEM_RLR_Register is record
@@ -51,9 +49,9 @@ package STM32_SVD.HSEM is
       --  unspecified
       Reserved_16_30 : STM32_SVD.UInt15;
       --  Read-only. Lock indication
-      LOCK           : HSEM_RLR_LOCK_Field;
+      LOCK           : Boolean;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HSEM_RLR_Register use record
@@ -63,11 +61,8 @@ package STM32_SVD.HSEM is
       LOCK           at 0 range 31 .. 31;
    end record;
 
-   --  HSEM_IER_ISEM array element
-   subtype HSEM_IER_ISEM_Element is STM32_SVD.Bit;
-
    --  HSEM_IER_ISEM array
-   type HSEM_IER_ISEM_Field_Array is array (0 .. 31) of HSEM_IER_ISEM_Element
+   type HSEM_IER_ISEM_Field_Array is array (0 .. 31) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  HSEM Interrupt enable register
@@ -83,7 +78,7 @@ package STM32_SVD.HSEM is
             Arr : HSEM_IER_ISEM_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HSEM_IER_Register use record
@@ -91,11 +86,8 @@ package STM32_SVD.HSEM is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  HSEM_ICR_ISEM array element
-   subtype HSEM_ICR_ISEM_Element is STM32_SVD.Bit;
-
    --  HSEM_ICR_ISEM array
-   type HSEM_ICR_ISEM_Field_Array is array (0 .. 31) of HSEM_ICR_ISEM_Element
+   type HSEM_ICR_ISEM_Field_Array is array (0 .. 31) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  HSEM Interrupt clear register
@@ -111,7 +103,7 @@ package STM32_SVD.HSEM is
             Arr : HSEM_ICR_ISEM_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HSEM_ICR_Register use record
@@ -119,11 +111,8 @@ package STM32_SVD.HSEM is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  HSEM_ISR_ISEM array element
-   subtype HSEM_ISR_ISEM_Element is STM32_SVD.Bit;
-
    --  HSEM_ISR_ISEM array
-   type HSEM_ISR_ISEM_Field_Array is array (0 .. 31) of HSEM_ISR_ISEM_Element
+   type HSEM_ISR_ISEM_Field_Array is array (0 .. 31) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  HSEM Interrupt status register
@@ -139,7 +128,7 @@ package STM32_SVD.HSEM is
             Arr : HSEM_ISR_ISEM_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HSEM_ISR_Register use record
@@ -147,12 +136,8 @@ package STM32_SVD.HSEM is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  HSEM_MISR_ISEM array element
-   subtype HSEM_MISR_ISEM_Element is STM32_SVD.Bit;
-
    --  HSEM_MISR_ISEM array
-   type HSEM_MISR_ISEM_Field_Array is array (0 .. 31)
-     of HSEM_MISR_ISEM_Element
+   type HSEM_MISR_ISEM_Field_Array is array (0 .. 31) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  HSEM Masked interrupt status register
@@ -168,7 +153,7 @@ package STM32_SVD.HSEM is
             Arr : HSEM_MISR_ISEM_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HSEM_MISR_Register use record
@@ -188,7 +173,7 @@ package STM32_SVD.HSEM is
       --  Semaphore clear Key
       KEY          : HSEM_CR_KEY_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HSEM_CR_Register use record
@@ -206,7 +191,7 @@ package STM32_SVD.HSEM is
       --  Semaphore Clear Key
       KEY           : HSEM_KEYR_KEY_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HSEM_KEYR_Register use record
@@ -438,6 +423,6 @@ package STM32_SVD.HSEM is
 
    --  HSEM
    HSEM_Periph : aliased HSEM_Peripheral
-     with Import, Address => System'To_Address (16#58026400#);
+     with Import, Address => HSEM_Base;
 
 end STM32_SVD.HSEM;

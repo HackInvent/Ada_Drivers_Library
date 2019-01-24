@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -14,9 +14,6 @@ package STM32_SVD.DMAMUX is
    ---------------
 
    subtype DMAMUX1_C0CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C0CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C0CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C0CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C0CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C0CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C0CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -26,13 +23,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C0CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C0CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C0CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C0CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C0CR_SPOL_Field := 16#0#;
@@ -48,7 +45,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C0CR_Register use record
@@ -64,9 +61,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C1CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C1CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C1CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C1CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C1CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C1CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C1CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -76,13 +70,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C1CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C1CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C1CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C1CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C1CR_SPOL_Field := 16#0#;
@@ -98,7 +92,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C1CR_Register use record
@@ -114,9 +108,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C2CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C2CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C2CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C2CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C2CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C2CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C2CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -126,13 +117,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C2CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C2CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C2CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C2CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C2CR_SPOL_Field := 16#0#;
@@ -148,7 +139,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C2CR_Register use record
@@ -164,9 +155,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C3CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C3CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C3CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C3CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C3CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C3CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C3CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -176,13 +164,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C3CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C3CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C3CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C3CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C3CR_SPOL_Field := 16#0#;
@@ -198,7 +186,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C3CR_Register use record
@@ -214,9 +202,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C4CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C4CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C4CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C4CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C4CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C4CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C4CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -226,13 +211,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C4CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C4CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C4CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C4CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C4CR_SPOL_Field := 16#0#;
@@ -248,7 +233,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C4CR_Register use record
@@ -264,9 +249,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C5CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C5CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C5CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C5CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C5CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C5CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C5CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -276,13 +258,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C5CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C5CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C5CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C5CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C5CR_SPOL_Field := 16#0#;
@@ -298,7 +280,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C5CR_Register use record
@@ -314,9 +296,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C6CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C6CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C6CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C6CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C6CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C6CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C6CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -326,13 +305,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C6CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C6CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C6CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C6CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C6CR_SPOL_Field := 16#0#;
@@ -348,7 +327,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C6CR_Register use record
@@ -364,9 +343,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C7CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C7CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C7CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C7CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C7CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C7CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C7CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -376,13 +352,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C7CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C7CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C7CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C7CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C7CR_SPOL_Field := 16#0#;
@@ -398,7 +374,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C7CR_Register use record
@@ -414,9 +390,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C8CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C8CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C8CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C8CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C8CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C8CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C8CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -426,13 +399,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C8CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C8CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C8CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C8CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C8CR_SPOL_Field := 16#0#;
@@ -448,7 +421,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C8CR_Register use record
@@ -464,9 +437,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C9CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C9CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C9CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C9CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C9CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C9CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C9CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -476,13 +446,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C9CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C9CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C9CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C9CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C9CR_SPOL_Field := 16#0#;
@@ -498,7 +468,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C9CR_Register use record
@@ -514,9 +484,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C10CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C10CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C10CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C10CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C10CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C10CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C10CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -526,13 +493,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C10CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C10CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C10CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C10CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C10CR_SPOL_Field := 16#0#;
@@ -548,7 +515,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C10CR_Register use record
@@ -564,9 +531,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C11CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C11CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C11CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C11CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C11CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C11CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C11CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -576,13 +540,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C11CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C11CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C11CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C11CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C11CR_SPOL_Field := 16#0#;
@@ -598,7 +562,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C11CR_Register use record
@@ -614,9 +578,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C12CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C12CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C12CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C12CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C12CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C12CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C12CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -626,13 +587,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C12CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C12CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C12CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C12CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C12CR_SPOL_Field := 16#0#;
@@ -648,7 +609,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C12CR_Register use record
@@ -664,9 +625,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C13CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C13CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C13CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C13CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C13CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C13CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C13CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -676,13 +634,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C13CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C13CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C13CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C13CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C13CR_SPOL_Field := 16#0#;
@@ -698,7 +656,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C13CR_Register use record
@@ -714,9 +672,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C14CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C14CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C14CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C14CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C14CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C14CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C14CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -726,13 +681,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C14CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C14CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C14CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C14CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C14CR_SPOL_Field := 16#0#;
@@ -748,7 +703,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C14CR_Register use record
@@ -764,9 +719,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_C15CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX1_C15CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C15CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_C15CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_C15CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_C15CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX1_C15CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -776,13 +728,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX1_C15CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX1_C15CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX1_C15CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX1_C15CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX1_C15CR_SPOL_Field := 16#0#;
@@ -798,7 +750,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_C15CR_Register use record
@@ -822,7 +774,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_CSR_Register use record
@@ -839,7 +791,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_CFR_Register use record
@@ -848,8 +800,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_RG0CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX1_RG0CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_RG0CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_RG0CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_RG0CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -860,11 +810,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX1_RG0CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX1_RG0CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX1_RG0CR_GPOL_Field := 16#0#;
@@ -876,7 +826,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RG0CR_Register use record
@@ -891,8 +841,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_RG1CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX1_RG1CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_RG1CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_RG1CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_RG1CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -903,11 +851,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX1_RG1CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX1_RG1CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX1_RG1CR_GPOL_Field := 16#0#;
@@ -919,7 +867,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RG1CR_Register use record
@@ -934,8 +882,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_RG2CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX1_RG2CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_RG2CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_RG2CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_RG2CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -946,11 +892,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX1_RG2CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX1_RG2CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX1_RG2CR_GPOL_Field := 16#0#;
@@ -962,7 +908,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RG2CR_Register use record
@@ -977,8 +923,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_RG3CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX1_RG3CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_RG3CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_RG3CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_RG3CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -989,11 +933,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX1_RG3CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX1_RG3CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX1_RG3CR_GPOL_Field := 16#0#;
@@ -1005,7 +949,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RG3CR_Register use record
@@ -1020,8 +964,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_RG4CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX1_RG4CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_RG4CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_RG4CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_RG4CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1032,11 +974,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX1_RG4CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX1_RG4CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX1_RG4CR_GPOL_Field := 16#0#;
@@ -1048,7 +990,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RG4CR_Register use record
@@ -1063,8 +1005,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_RG5CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX1_RG5CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_RG5CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_RG5CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_RG5CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1075,11 +1015,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX1_RG5CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX1_RG5CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX1_RG5CR_GPOL_Field := 16#0#;
@@ -1091,7 +1031,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RG5CR_Register use record
@@ -1106,8 +1046,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_RG6CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX1_RG6CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_RG6CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_RG6CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_RG6CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1118,11 +1056,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX1_RG6CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX1_RG6CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX1_RG6CR_GPOL_Field := 16#0#;
@@ -1134,7 +1072,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RG6CR_Register use record
@@ -1149,8 +1087,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX1_RG7CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX1_RG7CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX1_RG7CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX1_RG7CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX1_RG7CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1161,11 +1097,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX1_RG7CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX1_RG7CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX1_RG7CR_GPOL_Field := 16#0#;
@@ -1177,7 +1113,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RG7CR_Register use record
@@ -1204,7 +1140,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RGSR_Register use record
@@ -1223,7 +1159,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX1_RGCFR_Register use record
@@ -1232,9 +1168,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_C0CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX2_C0CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C0CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C0CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_C0CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_C0CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX2_C0CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -1244,13 +1177,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX2_C0CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX2_C0CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX2_C0CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX2_C0CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX2_C0CR_SPOL_Field := 16#0#;
@@ -1266,7 +1199,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_C0CR_Register use record
@@ -1282,9 +1215,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_C1CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX2_C1CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C1CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C1CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_C1CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_C1CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX2_C1CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -1294,13 +1224,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX2_C1CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX2_C1CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX2_C1CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX2_C1CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX2_C1CR_SPOL_Field := 16#0#;
@@ -1316,7 +1246,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_C1CR_Register use record
@@ -1332,9 +1262,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_C2CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX2_C2CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C2CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C2CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_C2CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_C2CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX2_C2CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -1344,13 +1271,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX2_C2CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX2_C2CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX2_C2CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX2_C2CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX2_C2CR_SPOL_Field := 16#0#;
@@ -1366,7 +1293,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_C2CR_Register use record
@@ -1382,9 +1309,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_C3CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX2_C3CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C3CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C3CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_C3CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_C3CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX2_C3CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -1394,13 +1318,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX2_C3CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX2_C3CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX2_C3CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX2_C3CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX2_C3CR_SPOL_Field := 16#0#;
@@ -1416,7 +1340,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_C3CR_Register use record
@@ -1432,9 +1356,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_C4CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX2_C4CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C4CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C4CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_C4CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_C4CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX2_C4CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -1444,13 +1365,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX2_C4CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX2_C4CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX2_C4CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX2_C4CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX2_C4CR_SPOL_Field := 16#0#;
@@ -1466,7 +1387,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_C4CR_Register use record
@@ -1482,9 +1403,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_C5CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX2_C5CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C5CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C5CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_C5CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_C5CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX2_C5CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -1494,13 +1412,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX2_C5CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX2_C5CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX2_C5CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX2_C5CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX2_C5CR_SPOL_Field := 16#0#;
@@ -1516,7 +1434,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_C5CR_Register use record
@@ -1532,9 +1450,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_C6CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX2_C6CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C6CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C6CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_C6CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_C6CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX2_C6CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -1544,13 +1459,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX2_C6CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX2_C6CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX2_C6CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX2_C6CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX2_C6CR_SPOL_Field := 16#0#;
@@ -1566,7 +1481,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_C6CR_Register use record
@@ -1582,9 +1497,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_C7CR_DMAREQ_ID_Field is STM32_SVD.Byte;
-   subtype DMAMUX2_C7CR_SOIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C7CR_EGE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_C7CR_SE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_C7CR_SPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_C7CR_NBREQ_Field is STM32_SVD.UInt5;
    subtype DMAMUX2_C7CR_SYNC_ID_Field is STM32_SVD.UInt5;
@@ -1594,13 +1506,13 @@ package STM32_SVD.DMAMUX is
       --  Input DMA request line selected
       DMAREQ_ID      : DMAMUX2_C7CR_DMAREQ_ID_Field := 16#0#;
       --  Interrupt enable at synchronization event overrun
-      SOIE           : DMAMUX2_C7CR_SOIE_Field := 16#0#;
+      SOIE           : Boolean := False;
       --  Event generation enable/disable
-      EGE            : DMAMUX2_C7CR_EGE_Field := 16#0#;
+      EGE            : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  Synchronous operating mode enable/disable
-      SE             : DMAMUX2_C7CR_SE_Field := 16#0#;
+      SE             : Boolean := False;
       --  Synchronization event type selector Defines the synchronization event
       --  on the selected synchronization input:
       SPOL           : DMAMUX2_C7CR_SPOL_Field := 16#0#;
@@ -1616,7 +1528,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_C7CR_Register use record
@@ -1640,7 +1552,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_CSR_Register use record
@@ -1657,7 +1569,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_CFR_Register use record
@@ -1666,8 +1578,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_RG0CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX2_RG0CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_RG0CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_RG0CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_RG0CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1678,11 +1588,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX2_RG0CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX2_RG0CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX2_RG0CR_GPOL_Field := 16#0#;
@@ -1694,7 +1604,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RG0CR_Register use record
@@ -1709,8 +1619,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_RG1CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX2_RG1CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_RG1CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_RG1CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_RG1CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1721,11 +1629,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX2_RG1CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX2_RG1CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX2_RG1CR_GPOL_Field := 16#0#;
@@ -1737,7 +1645,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RG1CR_Register use record
@@ -1752,8 +1660,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_RG2CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX2_RG2CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_RG2CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_RG2CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_RG2CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1764,11 +1670,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX2_RG2CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX2_RG2CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX2_RG2CR_GPOL_Field := 16#0#;
@@ -1780,7 +1686,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RG2CR_Register use record
@@ -1795,8 +1701,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_RG3CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX2_RG3CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_RG3CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_RG3CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_RG3CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1807,11 +1711,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX2_RG3CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX2_RG3CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX2_RG3CR_GPOL_Field := 16#0#;
@@ -1823,7 +1727,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RG3CR_Register use record
@@ -1838,8 +1742,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_RG4CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX2_RG4CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_RG4CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_RG4CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_RG4CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1850,11 +1752,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX2_RG4CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX2_RG4CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX2_RG4CR_GPOL_Field := 16#0#;
@@ -1866,7 +1768,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RG4CR_Register use record
@@ -1881,8 +1783,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_RG5CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX2_RG5CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_RG5CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_RG5CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_RG5CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1893,11 +1793,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX2_RG5CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX2_RG5CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX2_RG5CR_GPOL_Field := 16#0#;
@@ -1909,7 +1809,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RG5CR_Register use record
@@ -1924,8 +1824,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_RG6CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX2_RG6CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_RG6CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_RG6CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_RG6CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1936,11 +1834,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX2_RG6CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX2_RG6CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX2_RG6CR_GPOL_Field := 16#0#;
@@ -1952,7 +1850,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RG6CR_Register use record
@@ -1967,8 +1865,6 @@ package STM32_SVD.DMAMUX is
    end record;
 
    subtype DMAMUX2_RG7CR_SIG_ID_Field is STM32_SVD.UInt5;
-   subtype DMAMUX2_RG7CR_OIE_Field is STM32_SVD.Bit;
-   subtype DMAMUX2_RG7CR_GE_Field is STM32_SVD.Bit;
    subtype DMAMUX2_RG7CR_GPOL_Field is STM32_SVD.UInt2;
    subtype DMAMUX2_RG7CR_GNBREQ_Field is STM32_SVD.UInt5;
 
@@ -1979,11 +1875,11 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt enable at trigger event overrun
-      OIE            : DMAMUX2_RG7CR_OIE_Field := 16#0#;
+      OIE            : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  DMA request generator channel enable/disable
-      GE             : DMAMUX2_RG7CR_GE_Field := 16#0#;
+      GE             : Boolean := False;
       --  DMA request generator trigger event type selection Defines the
       --  trigger event on the selected DMA request trigger input
       GPOL           : DMAMUX2_RG7CR_GPOL_Field := 16#0#;
@@ -1995,7 +1891,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RG7CR_Register use record
@@ -2022,7 +1918,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RGSR_Register use record
@@ -2041,7 +1937,7 @@ package STM32_SVD.DMAMUX is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMUX2_RGCFR_Register use record
@@ -2147,7 +2043,7 @@ package STM32_SVD.DMAMUX is
 
    --  DMAMUX
    DMAMUX1_Periph : aliased DMAMUX1_Peripheral
-     with Import, Address => System'To_Address (16#40020800#);
+     with Import, Address => DMAMUX1_Base;
 
    --  DMAMUX
    type DMAMUX2_Peripheral is record
@@ -2219,6 +2115,6 @@ package STM32_SVD.DMAMUX is
 
    --  DMAMUX
    DMAMUX2_Periph : aliased DMAMUX2_Peripheral
-     with Import, Address => System'To_Address (16#58025800#);
+     with Import, Address => DMAMUX2_Base;
 
 end STM32_SVD.DMAMUX;

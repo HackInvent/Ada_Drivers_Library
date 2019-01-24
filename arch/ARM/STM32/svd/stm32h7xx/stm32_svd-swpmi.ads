@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,39 +13,30 @@ package STM32_SVD.SWPMI is
    -- Registers --
    ---------------
 
-   subtype CR_RXDMA_Field is STM32_SVD.Bit;
-   subtype CR_TXDMA_Field is STM32_SVD.Bit;
-   subtype CR_RXMODE_Field is STM32_SVD.Bit;
-   subtype CR_TXMODE_Field is STM32_SVD.Bit;
-   subtype CR_LPBK_Field is STM32_SVD.Bit;
-   subtype CR_SWPACT_Field is STM32_SVD.Bit;
-   subtype CR_DEACT_Field is STM32_SVD.Bit;
-   subtype CR_SWPTEN_Field is STM32_SVD.Bit;
-
    --  SWPMI Configuration/Control register
    type CR_Register is record
       --  Reception DMA enable
-      RXDMA          : CR_RXDMA_Field := 16#0#;
+      RXDMA          : Boolean := False;
       --  Transmission DMA enable
-      TXDMA          : CR_TXDMA_Field := 16#0#;
+      TXDMA          : Boolean := False;
       --  Reception buffering mode
-      RXMODE         : CR_RXMODE_Field := 16#0#;
+      RXMODE         : Boolean := False;
       --  Transmission buffering mode
-      TXMODE         : CR_TXMODE_Field := 16#0#;
+      TXMODE         : Boolean := False;
       --  Loopback mode enable
-      LPBK           : CR_LPBK_Field := 16#0#;
+      LPBK           : Boolean := False;
       --  Single wire protocol master interface activate
-      SWPACT         : CR_SWPACT_Field := 16#0#;
+      SWPACT         : Boolean := False;
       --  unspecified
       Reserved_6_9   : STM32_SVD.UInt4 := 16#0#;
       --  Single wire protocol master interface deactivate
-      DEACT          : CR_DEACT_Field := 16#0#;
+      DEACT          : Boolean := False;
       --  Single wire protocol master transceiver enable
-      SWPTEN         : CR_SWPTEN_Field := 16#0#;
+      SWPTEN         : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -70,7 +61,7 @@ package STM32_SVD.SWPMI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BRR_Register use record
@@ -78,49 +69,36 @@ package STM32_SVD.SWPMI is
       Reserved_8_31 at 0 range 8 .. 31;
    end record;
 
-   subtype ISR_RXBFF_Field is STM32_SVD.Bit;
-   subtype ISR_TXBEF_Field is STM32_SVD.Bit;
-   subtype ISR_RXBERF_Field is STM32_SVD.Bit;
-   subtype ISR_RXOVRF_Field is STM32_SVD.Bit;
-   subtype ISR_TXUNRF_Field is STM32_SVD.Bit;
-   subtype ISR_RXNE_Field is STM32_SVD.Bit;
-   subtype ISR_TXE_Field is STM32_SVD.Bit;
-   subtype ISR_TCF_Field is STM32_SVD.Bit;
-   subtype ISR_SRF_Field is STM32_SVD.Bit;
-   subtype ISR_SUSP_Field is STM32_SVD.Bit;
-   subtype ISR_DEACTF_Field is STM32_SVD.Bit;
-   subtype ISR_RDYF_Field is STM32_SVD.Bit;
-
    --  SWPMI Interrupt and Status register
    type ISR_Register is record
       --  Read-only. Receive buffer full flag
-      RXBFF          : ISR_RXBFF_Field;
+      RXBFF          : Boolean;
       --  Read-only. Transmit buffer empty flag
-      TXBEF          : ISR_TXBEF_Field;
+      TXBEF          : Boolean;
       --  Read-only. Receive CRC error flag
-      RXBERF         : ISR_RXBERF_Field;
+      RXBERF         : Boolean;
       --  Read-only. Receive overrun error flag
-      RXOVRF         : ISR_RXOVRF_Field;
+      RXOVRF         : Boolean;
       --  Read-only. Transmit underrun error flag
-      TXUNRF         : ISR_TXUNRF_Field;
+      TXUNRF         : Boolean;
       --  Read-only. Receive data register not empty
-      RXNE           : ISR_RXNE_Field;
+      RXNE           : Boolean;
       --  Read-only. Transmit data register empty
-      TXE            : ISR_TXE_Field;
+      TXE            : Boolean;
       --  Read-only. Transfer complete flag
-      TCF            : ISR_TCF_Field;
+      TCF            : Boolean;
       --  Read-only. Slave resume flag
-      SRF            : ISR_SRF_Field;
+      SRF            : Boolean;
       --  Read-only. SUSPEND flag
-      SUSP           : ISR_SUSP_Field;
+      SUSP           : Boolean;
       --  Read-only. DEACTIVATED flag
-      DEACTF         : ISR_DEACTF_Field;
+      DEACTF         : Boolean;
       --  Read-only. transceiver ready flag
-      RDYF           : ISR_RDYF_Field;
+      RDYF           : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ISR_Register use record
@@ -139,41 +117,32 @@ package STM32_SVD.SWPMI is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype ICR_CRXBFF_Field is STM32_SVD.Bit;
-   subtype ICR_CTXBEF_Field is STM32_SVD.Bit;
-   subtype ICR_CRXBERF_Field is STM32_SVD.Bit;
-   subtype ICR_CRXOVRF_Field is STM32_SVD.Bit;
-   subtype ICR_CTXUNRF_Field is STM32_SVD.Bit;
-   subtype ICR_CTCF_Field is STM32_SVD.Bit;
-   subtype ICR_CSRF_Field is STM32_SVD.Bit;
-   subtype ICR_CRDYF_Field is STM32_SVD.Bit;
-
    --  SWPMI Interrupt Flag Clear register
    type ICR_Register is record
       --  Write-only. Clear receive buffer full flag
-      CRXBFF         : ICR_CRXBFF_Field := 16#0#;
+      CRXBFF         : Boolean := False;
       --  Write-only. Clear transmit buffer empty flag
-      CTXBEF         : ICR_CTXBEF_Field := 16#0#;
+      CTXBEF         : Boolean := False;
       --  Write-only. Clear receive CRC error flag
-      CRXBERF        : ICR_CRXBERF_Field := 16#0#;
+      CRXBERF        : Boolean := False;
       --  Write-only. Clear receive overrun error flag
-      CRXOVRF        : ICR_CRXOVRF_Field := 16#0#;
+      CRXOVRF        : Boolean := False;
       --  Write-only. Clear transmit underrun error flag
-      CTXUNRF        : ICR_CTXUNRF_Field := 16#0#;
+      CTXUNRF        : Boolean := False;
       --  unspecified
       Reserved_5_6   : STM32_SVD.UInt2 := 16#0#;
       --  Write-only. Clear transfer complete flag
-      CTCF           : ICR_CTCF_Field := 16#0#;
+      CTCF           : Boolean := False;
       --  Write-only. Clear slave resume flag
-      CSRF           : ICR_CSRF_Field := 16#0#;
+      CSRF           : Boolean := False;
       --  unspecified
       Reserved_9_10  : STM32_SVD.UInt2 := 16#0#;
       --  Write-only. Clear transceiver ready flag
-      CRDYF          : ICR_CRDYF_Field := 16#0#;
+      CRDYF          : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ICR_Register use record
@@ -190,45 +159,34 @@ package STM32_SVD.SWPMI is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype IER_RXBFIE_Field is STM32_SVD.Bit;
-   subtype IER_TXBEIE_Field is STM32_SVD.Bit;
-   subtype IER_RXBERIE_Field is STM32_SVD.Bit;
-   subtype IER_RXOVRIE_Field is STM32_SVD.Bit;
-   subtype IER_TXUNRIE_Field is STM32_SVD.Bit;
-   subtype IER_RIE_Field is STM32_SVD.Bit;
-   subtype IER_TIE_Field is STM32_SVD.Bit;
-   subtype IER_TCIE_Field is STM32_SVD.Bit;
-   subtype IER_SRIE_Field is STM32_SVD.Bit;
-   subtype IER_RDYIE_Field is STM32_SVD.Bit;
-
    --  SWPMI Interrupt Enable register
    type IER_Register is record
       --  Receive buffer full interrupt enable
-      RXBFIE         : IER_RXBFIE_Field := 16#0#;
+      RXBFIE         : Boolean := False;
       --  Transmit buffer empty interrupt enable
-      TXBEIE         : IER_TXBEIE_Field := 16#0#;
+      TXBEIE         : Boolean := False;
       --  Receive CRC error interrupt enable
-      RXBERIE        : IER_RXBERIE_Field := 16#0#;
+      RXBERIE        : Boolean := False;
       --  Receive overrun error interrupt enable
-      RXOVRIE        : IER_RXOVRIE_Field := 16#0#;
+      RXOVRIE        : Boolean := False;
       --  Transmit underrun error interrupt enable
-      TXUNRIE        : IER_TXUNRIE_Field := 16#0#;
+      TXUNRIE        : Boolean := False;
       --  Receive interrupt enable
-      RIE            : IER_RIE_Field := 16#0#;
+      RIE            : Boolean := False;
       --  Transmit interrupt enable
-      TIE            : IER_TIE_Field := 16#0#;
+      TIE            : Boolean := False;
       --  Transmit complete interrupt enable
-      TCIE           : IER_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Slave resume interrupt enable
-      SRIE           : IER_SRIE_Field := 16#0#;
+      SRIE           : Boolean := False;
       --  unspecified
       Reserved_9_10  : STM32_SVD.UInt2 := 16#0#;
       --  Transceiver ready interrupt enable
-      RDYIE          : IER_RDYIE_Field := 16#0#;
+      RDYIE          : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IER_Register use record
@@ -255,7 +213,7 @@ package STM32_SVD.SWPMI is
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RFL_Register use record
@@ -263,19 +221,16 @@ package STM32_SVD.SWPMI is
       Reserved_5_31 at 0 range 5 .. 31;
    end record;
 
-   subtype OR_SWP_TBYP_Field is STM32_SVD.Bit;
-   subtype OR_SWP_CLASS_Field is STM32_SVD.Bit;
-
    --  SWPMI Option register
    type OR_Register is record
       --  SWP transceiver bypass
-      SWP_TBYP      : OR_SWP_TBYP_Field := 16#0#;
+      SWP_TBYP      : Boolean := False;
       --  SWP class selection
-      SWP_CLASS     : OR_SWP_CLASS_Field := 16#0#;
+      SWP_CLASS     : Boolean := False;
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OR_Register use record
@@ -325,6 +280,6 @@ package STM32_SVD.SWPMI is
 
    --  Single Wire Protocol Master Interface
    SWPMI_Periph : aliased SWPMI_Peripheral
-     with Import, Address => System'To_Address (16#40008800#);
+     with Import, Address => SWPMI_Base;
 
 end STM32_SVD.SWPMI;

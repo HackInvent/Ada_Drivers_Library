@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,32 +13,28 @@ package STM32_SVD.Ethernet is
    -- Registers --
    ---------------
 
-   subtype DMAMR_SWR_Field is STM32_SVD.Bit;
-   subtype DMAMR_DA_Field is STM32_SVD.Bit;
-   subtype DMAMR_TXPR_Field is STM32_SVD.Bit;
    subtype DMAMR_PR_Field is STM32_SVD.UInt3;
-   subtype DMAMR_INTM_Field is STM32_SVD.Bit;
 
    --  DMA mode register
    type DMAMR_Register is record
       --  Software Reset
-      SWR            : DMAMR_SWR_Field := 16#0#;
+      SWR            : Boolean := False;
       --  DMA Tx or Rx Arbitration Scheme
-      DA             : DMAMR_DA_Field := 16#0#;
+      DA             : Boolean := False;
       --  unspecified
       Reserved_2_10  : STM32_SVD.UInt9 := 16#0#;
       --  Transmit priority
-      TXPR           : DMAMR_TXPR_Field := 16#0#;
+      TXPR           : Boolean := False;
       --  Priority ratio
       PR             : DMAMR_PR_Field := 16#0#;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#1#;
       --  Interrupt Mode
-      INTM           : DMAMR_INTM_Field := 16#0#;
+      INTM           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAMR_Register use record
@@ -52,29 +48,24 @@ package STM32_SVD.Ethernet is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype DMASBMR_FB_Field is STM32_SVD.Bit;
-   subtype DMASBMR_AAL_Field is STM32_SVD.Bit;
-   subtype DMASBMR_MB_Field is STM32_SVD.Bit;
-   subtype DMASBMR_RB_Field is STM32_SVD.Bit;
-
    --  System bus mode register
    type DMASBMR_Register is record
       --  Fixed Burst Length
-      FB             : DMASBMR_FB_Field := 16#0#;
+      FB             : Boolean := False;
       --  unspecified
       Reserved_1_11  : STM32_SVD.UInt11 := 16#0#;
       --  Address-Aligned Beats
-      AAL            : DMASBMR_AAL_Field := 16#0#;
+      AAL            : Boolean := False;
       --  unspecified
       Reserved_13_13 : STM32_SVD.Bit := 16#0#;
       --  Mixed Burst
-      MB             : DMASBMR_MB_Field := 16#0#;
+      MB             : Boolean := False;
       --  Rebuild INCRx Burst
-      RB             : DMASBMR_RB_Field := 16#1#;
+      RB             : Boolean := True;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMASBMR_Register use record
@@ -87,24 +78,20 @@ package STM32_SVD.Ethernet is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype DMAISR_DC0IS_Field is STM32_SVD.Bit;
-   subtype DMAISR_MTLIS_Field is STM32_SVD.Bit;
-   subtype DMAISR_MACIS_Field is STM32_SVD.Bit;
-
    --  Interrupt status register
    type DMAISR_Register is record
       --  DMA Channel Interrupt Status
-      DC0IS          : DMAISR_DC0IS_Field := 16#0#;
+      DC0IS          : Boolean := False;
       --  unspecified
       Reserved_1_15  : STM32_SVD.UInt15 := 16#4000#;
       --  MTL Interrupt Status
-      MTLIS          : DMAISR_MTLIS_Field := 16#0#;
+      MTLIS          : Boolean := False;
       --  MAC Interrupt Status
-      MACIS          : DMAISR_MACIS_Field := 16#0#;
+      MACIS          : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMAISR_Register use record
@@ -115,14 +102,13 @@ package STM32_SVD.Ethernet is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype DMADSR_AXWHSTS_Field is STM32_SVD.Bit;
    subtype DMADSR_RPS0_Field is STM32_SVD.UInt4;
    subtype DMADSR_TPS0_Field is STM32_SVD.UInt4;
 
    --  Debug status register
    type DMADSR_Register is record
       --  AHB Master Write Channel
-      AXWHSTS        : DMADSR_AXWHSTS_Field := 16#0#;
+      AXWHSTS        : Boolean := False;
       --  unspecified
       Reserved_1_7   : STM32_SVD.UInt7 := 16#0#;
       --  DMA Channel Receive Process State
@@ -132,7 +118,7 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMADSR_Register use record
@@ -144,7 +130,6 @@ package STM32_SVD.Ethernet is
    end record;
 
    subtype DMACCR_MSS_Field is STM32_SVD.UInt14;
-   subtype DMACCR_PBLX8_Field is STM32_SVD.Bit;
    subtype DMACCR_DSL_Field is STM32_SVD.UInt3;
 
    --  Channel control register
@@ -154,7 +139,7 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_14_15 : STM32_SVD.UInt2 := 16#2#;
       --  8xPBL mode
-      PBLX8          : DMACCR_PBLX8_Field := 16#0#;
+      PBLX8          : Boolean := False;
       --  unspecified
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Descriptor Skip Length
@@ -162,7 +147,7 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACCR_Register use record
@@ -174,23 +159,20 @@ package STM32_SVD.Ethernet is
       Reserved_21_31 at 0 range 21 .. 31;
    end record;
 
-   subtype DMACTxCR_ST_Field is STM32_SVD.Bit;
-   subtype DMACTxCR_OSF_Field is STM32_SVD.Bit;
-   subtype DMACTxCR_TSE_Field is STM32_SVD.Bit;
    subtype DMACTxCR_TXPBL_Field is STM32_SVD.UInt6;
 
    --  Channel transmit control register
    type DMACTxCR_Register is record
       --  Start or Stop Transmission Command
-      ST             : DMACTxCR_ST_Field := 16#0#;
+      ST             : Boolean := False;
       --  unspecified
       Reserved_1_3   : STM32_SVD.UInt3 := 16#0#;
       --  Operate on Second Packet
-      OSF            : DMACTxCR_OSF_Field := 16#0#;
+      OSF            : Boolean := False;
       --  unspecified
       Reserved_5_11  : STM32_SVD.UInt7 := 16#0#;
       --  TCP Segmentation Enabled
-      TSE            : DMACTxCR_TSE_Field := 16#0#;
+      TSE            : Boolean := False;
       --  unspecified
       Reserved_13_15 : STM32_SVD.UInt3 := 16#4#;
       --  Transmit Programmable Burst Length
@@ -198,7 +180,7 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACTxCR_Register use record
@@ -212,15 +194,13 @@ package STM32_SVD.Ethernet is
       Reserved_22_31 at 0 range 22 .. 31;
    end record;
 
-   subtype DMACRxCR_SR_Field is STM32_SVD.Bit;
    subtype DMACRxCR_RBSZ_Field is STM32_SVD.UInt14;
    subtype DMACRxCR_RXPBL_Field is STM32_SVD.UInt6;
-   subtype DMACRxCR_RPF_Field is STM32_SVD.Bit;
 
    --  Channel receive control register
    type DMACRxCR_Register is record
       --  Start or Stop Receive Command
-      SR             : DMACRxCR_SR_Field := 16#0#;
+      SR             : Boolean := False;
       --  Receive Buffer size
       RBSZ           : DMACRxCR_RBSZ_Field := 16#0#;
       --  unspecified
@@ -230,9 +210,9 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_22_30 : STM32_SVD.UInt9 := 16#0#;
       --  DMA Rx Channel Packet Flush
-      RPF            : DMACRxCR_RPF_Field := 16#0#;
+      RPF            : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACRxCR_Register use record
@@ -253,7 +233,7 @@ package STM32_SVD.Ethernet is
       --  Start of Transmit List
       TDESLA       : DMACTxDLAR_TDESLA_Field := 16#2000#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACTxDLAR_Register use record
@@ -270,7 +250,7 @@ package STM32_SVD.Ethernet is
       --  Start of Receive List
       RDESLA       : DMACRxDLAR_RDESLA_Field := 16#2000#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACRxDLAR_Register use record
@@ -287,7 +267,7 @@ package STM32_SVD.Ethernet is
       --  Transmit Descriptor Tail Pointer
       TDT          : DMACTxDTPR_TDT_Field := 16#2000#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACTxDTPR_Register use record
@@ -304,7 +284,7 @@ package STM32_SVD.Ethernet is
       --  Receive Descriptor Tail Pointer
       RDT          : DMACRxDTPR_RDT_Field := 16#2000#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACRxDTPR_Register use record
@@ -321,7 +301,7 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_10_31 : STM32_SVD.UInt22 := 16#20#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACTxRLR_Register use record
@@ -338,7 +318,7 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_10_31 : STM32_SVD.UInt22 := 16#20#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACRxRLR_Register use record
@@ -346,54 +326,40 @@ package STM32_SVD.Ethernet is
       Reserved_10_31 at 0 range 10 .. 31;
    end record;
 
-   subtype DMACIER_TIE_Field is STM32_SVD.Bit;
-   subtype DMACIER_TXSE_Field is STM32_SVD.Bit;
-   subtype DMACIER_TBUE_Field is STM32_SVD.Bit;
-   subtype DMACIER_RIE_Field is STM32_SVD.Bit;
-   subtype DMACIER_RBUE_Field is STM32_SVD.Bit;
-   subtype DMACIER_RSE_Field is STM32_SVD.Bit;
-   subtype DMACIER_RWTE_Field is STM32_SVD.Bit;
-   subtype DMACIER_ETIE_Field is STM32_SVD.Bit;
-   subtype DMACIER_ERIE_Field is STM32_SVD.Bit;
-   subtype DMACIER_FBEE_Field is STM32_SVD.Bit;
-   subtype DMACIER_CDEE_Field is STM32_SVD.Bit;
-   subtype DMACIER_AIE_Field is STM32_SVD.Bit;
-   subtype DMACIER_NIE_Field is STM32_SVD.Bit;
-
    --  Channel interrupt enable register
    type DMACIER_Register is record
       --  Transmit Interrupt Enable
-      TIE            : DMACIER_TIE_Field := 16#0#;
+      TIE            : Boolean := False;
       --  Transmit Stopped Enable
-      TXSE           : DMACIER_TXSE_Field := 16#0#;
+      TXSE           : Boolean := False;
       --  Transmit Buffer Unavailable Enable
-      TBUE           : DMACIER_TBUE_Field := 16#0#;
+      TBUE           : Boolean := False;
       --  unspecified
       Reserved_3_5   : STM32_SVD.UInt3 := 16#0#;
       --  Receive Interrupt Enable
-      RIE            : DMACIER_RIE_Field := 16#0#;
+      RIE            : Boolean := False;
       --  Receive Buffer Unavailable Enable
-      RBUE           : DMACIER_RBUE_Field := 16#0#;
+      RBUE           : Boolean := False;
       --  Receive Stopped Enable
-      RSE            : DMACIER_RSE_Field := 16#0#;
+      RSE            : Boolean := False;
       --  Receive Watchdog Timeout Enable
-      RWTE           : DMACIER_RWTE_Field := 16#0#;
+      RWTE           : Boolean := False;
       --  Early Transmit Interrupt Enable
-      ETIE           : DMACIER_ETIE_Field := 16#0#;
+      ETIE           : Boolean := False;
       --  Early Receive Interrupt Enable
-      ERIE           : DMACIER_ERIE_Field := 16#0#;
+      ERIE           : Boolean := False;
       --  Fatal Bus Error Enable
-      FBEE           : DMACIER_FBEE_Field := 16#0#;
+      FBEE           : Boolean := False;
       --  Context Descriptor Error Enable
-      CDEE           : DMACIER_CDEE_Field := 16#0#;
+      CDEE           : Boolean := False;
       --  Abnormal Interrupt Summary Enable
-      AIE            : DMACIER_AIE_Field := 16#0#;
+      AIE            : Boolean := False;
       --  Normal Interrupt Summary Enable
-      NIE            : DMACIER_NIE_Field := 16#1#;
+      NIE            : Boolean := True;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACIER_Register use record
@@ -423,7 +389,7 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#80#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACRxIWTR_Register use record
@@ -431,52 +397,39 @@ package STM32_SVD.Ethernet is
       Reserved_8_31 at 0 range 8 .. 31;
    end record;
 
-   subtype DMACSR_TI_Field is STM32_SVD.Bit;
-   subtype DMACSR_TPS_Field is STM32_SVD.Bit;
-   subtype DMACSR_TBU_Field is STM32_SVD.Bit;
-   subtype DMACSR_RI_Field is STM32_SVD.Bit;
-   subtype DMACSR_RBU_Field is STM32_SVD.Bit;
-   subtype DMACSR_RPS_Field is STM32_SVD.Bit;
-   subtype DMACSR_RWT_Field is STM32_SVD.Bit;
-   subtype DMACSR_ET_Field is STM32_SVD.Bit;
-   subtype DMACSR_ER_Field is STM32_SVD.Bit;
-   subtype DMACSR_FBE_Field is STM32_SVD.Bit;
-   subtype DMACSR_CDE_Field is STM32_SVD.Bit;
-   subtype DMACSR_AIS_Field is STM32_SVD.Bit;
-   subtype DMACSR_NIS_Field is STM32_SVD.Bit;
    subtype DMACSR_TEB_Field is STM32_SVD.UInt3;
    subtype DMACSR_REB_Field is STM32_SVD.UInt3;
 
    --  Channel status register
    type DMACSR_Register is record
       --  Transmit Interrupt
-      TI             : DMACSR_TI_Field := 16#0#;
+      TI             : Boolean := False;
       --  Transmit Process Stopped
-      TPS            : DMACSR_TPS_Field := 16#0#;
+      TPS            : Boolean := False;
       --  Transmit Buffer Unavailable
-      TBU            : DMACSR_TBU_Field := 16#0#;
+      TBU            : Boolean := False;
       --  unspecified
       Reserved_3_5   : STM32_SVD.UInt3 := 16#0#;
       --  Receive Interrupt
-      RI             : DMACSR_RI_Field := 16#0#;
+      RI             : Boolean := False;
       --  Receive Buffer Unavailable
-      RBU            : DMACSR_RBU_Field := 16#0#;
+      RBU            : Boolean := False;
       --  Receive Process Stopped
-      RPS            : DMACSR_RPS_Field := 16#0#;
+      RPS            : Boolean := False;
       --  Receive Watchdog Timeout
-      RWT            : DMACSR_RWT_Field := 16#0#;
+      RWT            : Boolean := False;
       --  Early Transmit Interrupt
-      ET             : DMACSR_ET_Field := 16#0#;
+      ET             : Boolean := False;
       --  Early Receive Interrupt
-      ER             : DMACSR_ER_Field := 16#0#;
+      ER             : Boolean := False;
       --  Fatal Bus Error
-      FBE            : DMACSR_FBE_Field := 16#0#;
+      FBE            : Boolean := False;
       --  Context Descriptor Error
-      CDE            : DMACSR_CDE_Field := 16#0#;
+      CDE            : Boolean := False;
       --  Abnormal Interrupt Summary
-      AIS            : DMACSR_AIS_Field := 16#0#;
+      AIS            : Boolean := False;
       --  Normal Interrupt Summary
-      NIS            : DMACSR_NIS_Field := 16#1#;
+      NIS            : Boolean := True;
       --  Tx DMA Error Bits
       TEB            : DMACSR_TEB_Field := 16#0#;
       --  Rx DMA Error Bits
@@ -484,7 +437,7 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACSR_Register use record
@@ -508,7 +461,6 @@ package STM32_SVD.Ethernet is
    end record;
 
    subtype DMACMFCR_MFC_Field is STM32_SVD.UInt11;
-   subtype DMACMFCR_MFCO_Field is STM32_SVD.Bit;
 
    --  Channel missed frame count register
    type DMACMFCR_Register is record
@@ -517,11 +469,11 @@ package STM32_SVD.Ethernet is
       --  unspecified
       Reserved_11_14 : STM32_SVD.UInt4;
       --  Read-only. Overflow status of the MFC Counter
-      MFCO           : DMACMFCR_MFCO_Field;
+      MFCO           : Boolean;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACMFCR_Register use record
@@ -608,6 +560,6 @@ package STM32_SVD.Ethernet is
 
    --  Ethernet: media access control (MAC)
    Ethernet_MAC_Periph : aliased Ethernet_MAC_Peripheral
-     with Import, Address => System'To_Address (16#40028000#);
+     with Import, Address => Ethernet_MAC_Base;
 
 end STM32_SVD.Ethernet;

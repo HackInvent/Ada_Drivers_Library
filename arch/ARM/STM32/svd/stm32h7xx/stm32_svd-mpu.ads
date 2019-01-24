@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,14 +13,13 @@ package STM32_SVD.MPU is
    -- Registers --
    ---------------
 
-   subtype MPU_TYPER_SEPARATE_Field is STM32_SVD.Bit;
    subtype MPU_TYPER_DREGION_Field is STM32_SVD.Byte;
    subtype MPU_TYPER_IREGION_Field is STM32_SVD.Byte;
 
    --  MPU type register
    type MPU_TYPER_Register is record
       --  Read-only. Separate flag
-      SEPARATE_k     : MPU_TYPER_SEPARATE_Field;
+      SEPARATE_k     : Boolean;
       --  unspecified
       Reserved_1_7   : STM32_SVD.UInt7;
       --  Read-only. Number of MPU data regions
@@ -30,7 +29,7 @@ package STM32_SVD.MPU is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MPU_TYPER_Register use record
@@ -41,22 +40,18 @@ package STM32_SVD.MPU is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype MPU_CTRL_ENABLE_Field is STM32_SVD.Bit;
-   subtype MPU_CTRL_HFNMIENA_Field is STM32_SVD.Bit;
-   subtype MPU_CTRL_PRIVDEFENA_Field is STM32_SVD.Bit;
-
    --  MPU control register
    type MPU_CTRL_Register is record
       --  Read-only. Enables the MPU
-      ENABLE        : MPU_CTRL_ENABLE_Field;
+      ENABLE        : Boolean;
       --  Read-only. Enables the operation of MPU during hard fault
-      HFNMIENA      : MPU_CTRL_HFNMIENA_Field;
+      HFNMIENA      : Boolean;
       --  Read-only. Enable priviliged software access to default memory map
-      PRIVDEFENA    : MPU_CTRL_PRIVDEFENA_Field;
+      PRIVDEFENA    : Boolean;
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MPU_CTRL_Register use record
@@ -75,7 +70,7 @@ package STM32_SVD.MPU is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MPU_RNR_Register use record
@@ -84,7 +79,6 @@ package STM32_SVD.MPU is
    end record;
 
    subtype MPU_RBAR_REGION_Field is STM32_SVD.UInt4;
-   subtype MPU_RBAR_VALID_Field is STM32_SVD.Bit;
    subtype MPU_RBAR_ADDR_Field is STM32_SVD.UInt27;
 
    --  MPU region base address register
@@ -92,11 +86,11 @@ package STM32_SVD.MPU is
       --  MPU region field
       REGION : MPU_RBAR_REGION_Field := 16#0#;
       --  MPU region number valid
-      VALID  : MPU_RBAR_VALID_Field := 16#0#;
+      VALID  : Boolean := False;
       --  Region base address field
       ADDR   : MPU_RBAR_ADDR_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MPU_RBAR_Register use record
@@ -105,20 +99,15 @@ package STM32_SVD.MPU is
       ADDR   at 0 range 5 .. 31;
    end record;
 
-   subtype MPU_RASR_ENABLE_Field is STM32_SVD.Bit;
    subtype MPU_RASR_SIZE_Field is STM32_SVD.UInt5;
    subtype MPU_RASR_SRD_Field is STM32_SVD.Byte;
-   subtype MPU_RASR_B_Field is STM32_SVD.Bit;
-   subtype MPU_RASR_C_Field is STM32_SVD.Bit;
-   subtype MPU_RASR_S_Field is STM32_SVD.Bit;
    subtype MPU_RASR_TEX_Field is STM32_SVD.UInt3;
    subtype MPU_RASR_AP_Field is STM32_SVD.UInt3;
-   subtype MPU_RASR_XN_Field is STM32_SVD.Bit;
 
    --  MPU region attribute and size register
    type MPU_RASR_Register is record
       --  Region enable bit.
-      ENABLE         : MPU_RASR_ENABLE_Field := 16#0#;
+      ENABLE         : Boolean := False;
       --  Size of the MPU protection region
       SIZE           : MPU_RASR_SIZE_Field := 16#0#;
       --  unspecified
@@ -126,11 +115,11 @@ package STM32_SVD.MPU is
       --  Subregion disable bits
       SRD            : MPU_RASR_SRD_Field := 16#0#;
       --  memory attribute
-      B              : MPU_RASR_B_Field := 16#0#;
+      B              : Boolean := False;
       --  memory attribute
-      C              : MPU_RASR_C_Field := 16#0#;
+      C              : Boolean := False;
       --  Shareable memory attribute
-      S              : MPU_RASR_S_Field := 16#0#;
+      S              : Boolean := False;
       --  memory attribute
       TEX            : MPU_RASR_TEX_Field := 16#0#;
       --  unspecified
@@ -140,11 +129,11 @@ package STM32_SVD.MPU is
       --  unspecified
       Reserved_27_27 : STM32_SVD.Bit := 16#0#;
       --  Instruction access disable bit
-      XN             : MPU_RASR_XN_Field := 16#0#;
+      XN             : Boolean := False;
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MPU_RASR_Register use record
@@ -192,6 +181,6 @@ package STM32_SVD.MPU is
 
    --  Memory protection unit
    MPU_Periph : aliased MPU_Peripheral
-     with Import, Address => System'To_Address (16#E000ED90#);
+     with Import, Address => MPU_Base;
 
 end STM32_SVD.MPU;

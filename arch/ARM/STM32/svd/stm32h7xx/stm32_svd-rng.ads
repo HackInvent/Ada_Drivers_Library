@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,18 +13,14 @@ package STM32_SVD.RNG is
    -- Registers --
    ---------------
 
-   subtype RNG_CR_RNGEN_Field is STM32_SVD.Bit;
-   subtype RNG_CR_IE_Field is STM32_SVD.Bit;
-   subtype RNG_CR_CED_Field is STM32_SVD.Bit;
-
    --  RNG control register
    type RNG_CR_Register is record
       --  unspecified
       Reserved_0_1  : STM32_SVD.UInt2 := 16#0#;
       --  Random number generator enable
-      RNGEN         : RNG_CR_RNGEN_Field := 16#0#;
+      RNGEN         : Boolean := False;
       --  Interrupt enable
-      IE            : RNG_CR_IE_Field := 16#0#;
+      IE            : Boolean := False;
       --  unspecified
       Reserved_4_4  : STM32_SVD.Bit := 16#0#;
       --  Clock error detection Note: The clock error detection can be used
@@ -32,11 +28,11 @@ package STM32_SVD.RNG is
       --  otherwise, CED bit must be equal to 1. The clock error detection
       --  cannot be enabled nor disabled on the fly when RNG peripheral is
       --  enabled, to enable or disable CED the RNG must be disabled.
-      CED           : RNG_CR_CED_Field := 16#0#;
+      CED           : Boolean := False;
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RNG_CR_Register use record
@@ -48,43 +44,37 @@ package STM32_SVD.RNG is
       Reserved_6_31 at 0 range 6 .. 31;
    end record;
 
-   subtype RNG_SR_DRDY_Field is STM32_SVD.Bit;
-   subtype RNG_SR_CECS_Field is STM32_SVD.Bit;
-   subtype RNG_SR_SECS_Field is STM32_SVD.Bit;
-   subtype RNG_SR_CEIS_Field is STM32_SVD.Bit;
-   subtype RNG_SR_SEIS_Field is STM32_SVD.Bit;
-
    --  RNG status register
    type RNG_SR_Register is record
       --  Read-only. Data ready Note: If IE=1 in RNG_CR, an interrupt is
       --  generated when DRDY=1. It can rise when the peripheral is disabled.
       --  When the output buffer becomes empty (after reading RNG_DR), this bit
       --  returns to 0 until a new random value is generated.
-      DRDY          : RNG_SR_DRDY_Field := 16#0#;
+      DRDY          : Boolean := False;
       --  Read-only. Clock error current status Note: This bit is meaningless
       --  if CED (Clock error detection) bit in RNG_CR is equal to 1.
-      CECS          : RNG_SR_CECS_Field := 16#0#;
+      CECS          : Boolean := False;
       --  Read-only. Seed error current status ** More than 64 consecutive bits
       --  at the same value (0 or 1) ** More than 32 consecutive alternances of
       --  0 and 1 (0101010101...01)
-      SECS          : RNG_SR_SECS_Field := 16#0#;
+      SECS          : Boolean := False;
       --  unspecified
       Reserved_3_4  : STM32_SVD.UInt2 := 16#0#;
       --  Clock error interrupt status This bit is set at the same time as
       --  CECS. It is cleared by writing it to 0. An interrupt is pending if IE
       --  = 1 in the RNG_CR register. Note: This bit is meaningless if CED
       --  (Clock error detection) bit in RNG_CR is equal to 1.
-      CEIS          : RNG_SR_CEIS_Field := 16#0#;
+      CEIS          : Boolean := False;
       --  Seed error interrupt status This bit is set at the same time as SECS.
       --  It is cleared by writing it to 0. ** More than 64 consecutive bits at
       --  the same value (0 or 1) ** More than 32 consecutive alternances of 0
       --  and 1 (0101010101...01) An interrupt is pending if IE = 1 in the
       --  RNG_CR register.
-      SEIS          : RNG_SR_SEIS_Field := 16#0#;
+      SEIS          : Boolean := False;
       --  unspecified
       Reserved_7_31 : STM32_SVD.UInt25 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RNG_SR_Register use record
@@ -122,6 +112,6 @@ package STM32_SVD.RNG is
 
    --  RNG
    RNG_Periph : aliased RNG_Peripheral
-     with Import, Address => System'To_Address (16#48021800#);
+     with Import, Address => RNG_Base;
 
 end STM32_SVD.RNG;

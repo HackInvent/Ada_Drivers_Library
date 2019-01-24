@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,171 +13,138 @@ package STM32_SVD.BDMA is
    -- Registers --
    ---------------
 
-   subtype BDMA_ISR_GIF1_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TCIF1_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_HTIF1_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TEIF1_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_GIF2_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TCIF2_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_HTIF2_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TEIF2_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_GIF3_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TCIF3_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_HTIF3_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TEIF3_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_GIF4_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TCIF4_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_HTIF4_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TEIF4_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_GIF5_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TCIF5_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_HTIF5_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TEIF5_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_GIF6_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TCIF6_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_HTIF6_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TEIF6_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_GIF7_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TCIF7_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_HTIF7_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TEIF7_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_GIF8_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TCIF8_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_HTIF8_Field is STM32_SVD.Bit;
-   subtype BDMA_ISR_TEIF8_Field is STM32_SVD.Bit;
-
    --  DMA interrupt status register
    type BDMA_ISR_Register is record
       --  Read-only. Channel x global interrupt flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      GIF1  : BDMA_ISR_GIF1_Field;
+      GIF1  : Boolean;
       --  Read-only. Channel x transfer complete flag (x = 1..8) This bit is
       --  set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCR register.
-      TCIF1 : BDMA_ISR_TCIF1_Field;
+      TCIF1 : Boolean;
       --  Read-only. Channel x half transfer flag (x = 1..8) This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      HTIF1 : BDMA_ISR_HTIF1_Field;
+      HTIF1 : Boolean;
       --  Read-only. Channel x transfer error flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      TEIF1 : BDMA_ISR_TEIF1_Field;
+      TEIF1 : Boolean;
       --  Read-only. Channel x global interrupt flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      GIF2  : BDMA_ISR_GIF2_Field;
+      GIF2  : Boolean;
       --  Read-only. Channel x transfer complete flag (x = 1..8) This bit is
       --  set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCR register.
-      TCIF2 : BDMA_ISR_TCIF2_Field;
+      TCIF2 : Boolean;
       --  Read-only. Channel x half transfer flag (x = 1..8) This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      HTIF2 : BDMA_ISR_HTIF2_Field;
+      HTIF2 : Boolean;
       --  Read-only. Channel x transfer error flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      TEIF2 : BDMA_ISR_TEIF2_Field;
+      TEIF2 : Boolean;
       --  Read-only. Channel x global interrupt flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      GIF3  : BDMA_ISR_GIF3_Field;
+      GIF3  : Boolean;
       --  Read-only. Channel x transfer complete flag (x = 1..8) This bit is
       --  set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCR register.
-      TCIF3 : BDMA_ISR_TCIF3_Field;
+      TCIF3 : Boolean;
       --  Read-only. Channel x half transfer flag (x = 1..8) This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      HTIF3 : BDMA_ISR_HTIF3_Field;
+      HTIF3 : Boolean;
       --  Read-only. Channel x transfer error flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      TEIF3 : BDMA_ISR_TEIF3_Field;
+      TEIF3 : Boolean;
       --  Read-only. Channel x global interrupt flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      GIF4  : BDMA_ISR_GIF4_Field;
+      GIF4  : Boolean;
       --  Read-only. Channel x transfer complete flag (x = 1..8) This bit is
       --  set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCR register.
-      TCIF4 : BDMA_ISR_TCIF4_Field;
+      TCIF4 : Boolean;
       --  Read-only. Channel x half transfer flag (x = 1..8) This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      HTIF4 : BDMA_ISR_HTIF4_Field;
+      HTIF4 : Boolean;
       --  Read-only. Channel x transfer error flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      TEIF4 : BDMA_ISR_TEIF4_Field;
+      TEIF4 : Boolean;
       --  Read-only. Channel x global interrupt flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      GIF5  : BDMA_ISR_GIF5_Field;
+      GIF5  : Boolean;
       --  Read-only. Channel x transfer complete flag (x = 1..8) This bit is
       --  set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCR register.
-      TCIF5 : BDMA_ISR_TCIF5_Field;
+      TCIF5 : Boolean;
       --  Read-only. Channel x half transfer flag (x = 1..8) This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      HTIF5 : BDMA_ISR_HTIF5_Field;
+      HTIF5 : Boolean;
       --  Read-only. Channel x transfer error flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      TEIF5 : BDMA_ISR_TEIF5_Field;
+      TEIF5 : Boolean;
       --  Read-only. Channel x global interrupt flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      GIF6  : BDMA_ISR_GIF6_Field;
+      GIF6  : Boolean;
       --  Read-only. Channel x transfer complete flag (x = 1..8) This bit is
       --  set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCR register.
-      TCIF6 : BDMA_ISR_TCIF6_Field;
+      TCIF6 : Boolean;
       --  Read-only. Channel x half transfer flag (x = 1..8) This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      HTIF6 : BDMA_ISR_HTIF6_Field;
+      HTIF6 : Boolean;
       --  Read-only. Channel x transfer error flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      TEIF6 : BDMA_ISR_TEIF6_Field;
+      TEIF6 : Boolean;
       --  Read-only. Channel x global interrupt flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      GIF7  : BDMA_ISR_GIF7_Field;
+      GIF7  : Boolean;
       --  Read-only. Channel x transfer complete flag (x = 1..8) This bit is
       --  set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCR register.
-      TCIF7 : BDMA_ISR_TCIF7_Field;
+      TCIF7 : Boolean;
       --  Read-only. Channel x half transfer flag (x = 1..8) This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      HTIF7 : BDMA_ISR_HTIF7_Field;
+      HTIF7 : Boolean;
       --  Read-only. Channel x transfer error flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      TEIF7 : BDMA_ISR_TEIF7_Field;
+      TEIF7 : Boolean;
       --  Read-only. Channel x global interrupt flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      GIF8  : BDMA_ISR_GIF8_Field;
+      GIF8  : Boolean;
       --  Read-only. Channel x transfer complete flag (x = 1..8) This bit is
       --  set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCR register.
-      TCIF8 : BDMA_ISR_TCIF8_Field;
+      TCIF8 : Boolean;
       --  Read-only. Channel x half transfer flag (x = 1..8) This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      HTIF8 : BDMA_ISR_HTIF8_Field;
+      HTIF8 : Boolean;
       --  Read-only. Channel x transfer error flag (x = 1..8) This bit is set
       --  by hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCR register.
-      TEIF8 : BDMA_ISR_TEIF8_Field;
+      TEIF8 : Boolean;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BDMA_ISR_Register use record
@@ -215,139 +182,106 @@ package STM32_SVD.BDMA is
       TEIF8 at 0 range 31 .. 31;
    end record;
 
-   subtype BDMA_IFCR_CGIF1_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTCIF1_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CHTIF1_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTEIF1_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CGIF2_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTCIF2_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CHTIF2_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTEIF2_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CGIF3_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTCIF3_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CHTIF3_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTEIF3_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CGIF4_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTCIF4_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CHTIF4_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTEIF4_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CGIF5_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTCIF5_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CHTIF5_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTEIF5_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CGIF6_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTCIF6_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CHTIF6_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTEIF6_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CGIF7_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTCIF7_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CHTIF7_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTEIF7_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CGIF8_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTCIF8_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CHTIF8_Field is STM32_SVD.Bit;
-   subtype BDMA_IFCR_CTEIF8_Field is STM32_SVD.Bit;
-
    --  DMA interrupt flag clear register
    type BDMA_IFCR_Register is record
       --  Write-only. Channel x global interrupt clear This bit is set and
       --  cleared by software.
-      CGIF1  : BDMA_IFCR_CGIF1_Field := 16#0#;
+      CGIF1  : Boolean := False;
       --  Write-only. Channel x transfer complete clear This bit is set and
       --  cleared by software.
-      CTCIF1 : BDMA_IFCR_CTCIF1_Field := 16#0#;
+      CTCIF1 : Boolean := False;
       --  Write-only. Channel x half transfer clear This bit is set and cleared
       --  by software.
-      CHTIF1 : BDMA_IFCR_CHTIF1_Field := 16#0#;
+      CHTIF1 : Boolean := False;
       --  Write-only. Channel x transfer error clear This bit is set and
       --  cleared by software.
-      CTEIF1 : BDMA_IFCR_CTEIF1_Field := 16#0#;
+      CTEIF1 : Boolean := False;
       --  Write-only. Channel x global interrupt clear This bit is set and
       --  cleared by software.
-      CGIF2  : BDMA_IFCR_CGIF2_Field := 16#0#;
+      CGIF2  : Boolean := False;
       --  Write-only. Channel x transfer complete clear This bit is set and
       --  cleared by software.
-      CTCIF2 : BDMA_IFCR_CTCIF2_Field := 16#0#;
+      CTCIF2 : Boolean := False;
       --  Write-only. Channel x half transfer clear This bit is set and cleared
       --  by software.
-      CHTIF2 : BDMA_IFCR_CHTIF2_Field := 16#0#;
+      CHTIF2 : Boolean := False;
       --  Write-only. Channel x transfer error clear This bit is set and
       --  cleared by software.
-      CTEIF2 : BDMA_IFCR_CTEIF2_Field := 16#0#;
+      CTEIF2 : Boolean := False;
       --  Write-only. Channel x global interrupt clear This bit is set and
       --  cleared by software.
-      CGIF3  : BDMA_IFCR_CGIF3_Field := 16#0#;
+      CGIF3  : Boolean := False;
       --  Write-only. Channel x transfer complete clear This bit is set and
       --  cleared by software.
-      CTCIF3 : BDMA_IFCR_CTCIF3_Field := 16#0#;
+      CTCIF3 : Boolean := False;
       --  Write-only. Channel x half transfer clear This bit is set and cleared
       --  by software.
-      CHTIF3 : BDMA_IFCR_CHTIF3_Field := 16#0#;
+      CHTIF3 : Boolean := False;
       --  Write-only. Channel x transfer error clear This bit is set and
       --  cleared by software.
-      CTEIF3 : BDMA_IFCR_CTEIF3_Field := 16#0#;
+      CTEIF3 : Boolean := False;
       --  Write-only. Channel x global interrupt clear This bit is set and
       --  cleared by software.
-      CGIF4  : BDMA_IFCR_CGIF4_Field := 16#0#;
+      CGIF4  : Boolean := False;
       --  Write-only. Channel x transfer complete clear This bit is set and
       --  cleared by software.
-      CTCIF4 : BDMA_IFCR_CTCIF4_Field := 16#0#;
+      CTCIF4 : Boolean := False;
       --  Write-only. Channel x half transfer clear This bit is set and cleared
       --  by software.
-      CHTIF4 : BDMA_IFCR_CHTIF4_Field := 16#0#;
+      CHTIF4 : Boolean := False;
       --  Write-only. Channel x transfer error clear This bit is set and
       --  cleared by software.
-      CTEIF4 : BDMA_IFCR_CTEIF4_Field := 16#0#;
+      CTEIF4 : Boolean := False;
       --  Write-only. Channel x global interrupt clear This bit is set and
       --  cleared by software.
-      CGIF5  : BDMA_IFCR_CGIF5_Field := 16#0#;
+      CGIF5  : Boolean := False;
       --  Write-only. Channel x transfer complete clear This bit is set and
       --  cleared by software.
-      CTCIF5 : BDMA_IFCR_CTCIF5_Field := 16#0#;
+      CTCIF5 : Boolean := False;
       --  Write-only. Channel x half transfer clear This bit is set and cleared
       --  by software.
-      CHTIF5 : BDMA_IFCR_CHTIF5_Field := 16#0#;
+      CHTIF5 : Boolean := False;
       --  Write-only. Channel x transfer error clear This bit is set and
       --  cleared by software.
-      CTEIF5 : BDMA_IFCR_CTEIF5_Field := 16#0#;
+      CTEIF5 : Boolean := False;
       --  Write-only. Channel x global interrupt clear This bit is set and
       --  cleared by software.
-      CGIF6  : BDMA_IFCR_CGIF6_Field := 16#0#;
+      CGIF6  : Boolean := False;
       --  Write-only. Channel x transfer complete clear This bit is set and
       --  cleared by software.
-      CTCIF6 : BDMA_IFCR_CTCIF6_Field := 16#0#;
+      CTCIF6 : Boolean := False;
       --  Write-only. Channel x half transfer clear This bit is set and cleared
       --  by software.
-      CHTIF6 : BDMA_IFCR_CHTIF6_Field := 16#0#;
+      CHTIF6 : Boolean := False;
       --  Write-only. Channel x transfer error clear This bit is set and
       --  cleared by software.
-      CTEIF6 : BDMA_IFCR_CTEIF6_Field := 16#0#;
+      CTEIF6 : Boolean := False;
       --  Write-only. Channel x global interrupt clear This bit is set and
       --  cleared by software.
-      CGIF7  : BDMA_IFCR_CGIF7_Field := 16#0#;
+      CGIF7  : Boolean := False;
       --  Write-only. Channel x transfer complete clear This bit is set and
       --  cleared by software.
-      CTCIF7 : BDMA_IFCR_CTCIF7_Field := 16#0#;
+      CTCIF7 : Boolean := False;
       --  Write-only. Channel x half transfer clear This bit is set and cleared
       --  by software.
-      CHTIF7 : BDMA_IFCR_CHTIF7_Field := 16#0#;
+      CHTIF7 : Boolean := False;
       --  Write-only. Channel x transfer error clear This bit is set and
       --  cleared by software.
-      CTEIF7 : BDMA_IFCR_CTEIF7_Field := 16#0#;
+      CTEIF7 : Boolean := False;
       --  Write-only. Channel x global interrupt clear This bit is set and
       --  cleared by software.
-      CGIF8  : BDMA_IFCR_CGIF8_Field := 16#0#;
+      CGIF8  : Boolean := False;
       --  Write-only. Channel x transfer complete clear This bit is set and
       --  cleared by software.
-      CTCIF8 : BDMA_IFCR_CTCIF8_Field := 16#0#;
+      CTCIF8 : Boolean := False;
       --  Write-only. Channel x half transfer clear This bit is set and cleared
       --  by software.
-      CHTIF8 : BDMA_IFCR_CHTIF8_Field := 16#0#;
+      CHTIF8 : Boolean := False;
       --  Write-only. Channel x transfer error clear This bit is set and
       --  cleared by software.
-      CTEIF8 : BDMA_IFCR_CTEIF8_Field := 16#0#;
+      CTEIF8 : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BDMA_IFCR_Register use record
@@ -385,40 +319,31 @@ package STM32_SVD.BDMA is
       CTEIF8 at 0 range 31 .. 31;
    end record;
 
-   subtype BDMA_CCR_EN_Field is STM32_SVD.Bit;
-   subtype BDMA_CCR_TCIE_Field is STM32_SVD.Bit;
-   subtype BDMA_CCR_HTIE_Field is STM32_SVD.Bit;
-   subtype BDMA_CCR_TEIE_Field is STM32_SVD.Bit;
-   subtype BDMA_CCR_DIR_Field is STM32_SVD.Bit;
-   subtype BDMA_CCR_CIRC_Field is STM32_SVD.Bit;
-   subtype BDMA_CCR_PINC_Field is STM32_SVD.Bit;
-   subtype BDMA_CCR_MINC_Field is STM32_SVD.Bit;
    subtype BDMA_CCR_PSIZE_Field is STM32_SVD.UInt2;
    subtype BDMA_CCR_MSIZE_Field is STM32_SVD.UInt2;
    subtype BDMA_CCR_PL_Field is STM32_SVD.UInt2;
-   subtype BDMA_CCR_MEM2MEM_Field is STM32_SVD.Bit;
 
    --  DMA channel x configuration register
    type BDMA_CCR_Register is record
       --  Channel enable This bit is set and cleared by software.
-      EN             : BDMA_CCR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer complete interrupt enable This bit is set and cleared by
       --  software.
-      TCIE           : BDMA_CCR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Half transfer interrupt enable This bit is set and cleared by
       --  software.
-      HTIE           : BDMA_CCR_HTIE_Field := 16#0#;
+      HTIE           : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : BDMA_CCR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Data transfer direction This bit is set and cleared by software.
-      DIR            : BDMA_CCR_DIR_Field := 16#0#;
+      DIR            : Boolean := False;
       --  Circular mode This bit is set and cleared by software.
-      CIRC           : BDMA_CCR_CIRC_Field := 16#0#;
+      CIRC           : Boolean := False;
       --  Peripheral increment mode This bit is set and cleared by software.
-      PINC           : BDMA_CCR_PINC_Field := 16#0#;
+      PINC           : Boolean := False;
       --  Memory increment mode This bit is set and cleared by software.
-      MINC           : BDMA_CCR_MINC_Field := 16#0#;
+      MINC           : Boolean := False;
       --  Peripheral size These bits are set and cleared by software.
       PSIZE          : BDMA_CCR_PSIZE_Field := 16#0#;
       --  Memory size These bits are set and cleared by software.
@@ -426,11 +351,11 @@ package STM32_SVD.BDMA is
       --  Channel priority level These bits are set and cleared by software.
       PL             : BDMA_CCR_PL_Field := 16#0#;
       --  Memory to memory mode This bit is set and cleared by software.
-      MEM2MEM        : BDMA_CCR_MEM2MEM_Field := 16#0#;
+      MEM2MEM        : Boolean := False;
       --  unspecified
       Reserved_15_31 : STM32_SVD.UInt17 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BDMA_CCR_Register use record
@@ -466,7 +391,7 @@ package STM32_SVD.BDMA is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BDMA_CNDTR_Register use record
@@ -590,6 +515,6 @@ package STM32_SVD.BDMA is
 
    --  BDMA
    BDMA_Periph : aliased BDMA_Peripheral
-     with Import, Address => System'To_Address (16#58025400#);
+     with Import, Address => BDMA_Base;
 
 end STM32_SVD.BDMA;

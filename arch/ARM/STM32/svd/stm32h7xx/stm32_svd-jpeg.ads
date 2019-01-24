@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,17 +13,15 @@ package STM32_SVD.JPEG is
    -- Registers --
    ---------------
 
-   subtype JPEG_CONFR0_START_Field is STM32_SVD.Bit;
-
    --  JPEG codec control register
    type JPEG_CONFR0_Register is record
       --  Write-only. Start This bit start or stop the encoding or decoding
       --  process. Read this register always return 0.
-      START         : JPEG_CONFR0_START_Field := 16#0#;
+      START         : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JPEG_CONFR0_Register use record
@@ -32,10 +30,8 @@ package STM32_SVD.JPEG is
    end record;
 
    subtype JPEG_CONFR1_NF_Field is STM32_SVD.UInt2;
-   subtype JPEG_CONFR1_DE_Field is STM32_SVD.Bit;
    subtype JPEG_CONFR1_COLORSPACE_Field is STM32_SVD.UInt2;
    subtype JPEG_CONFR1_NS_Field is STM32_SVD.UInt2;
-   subtype JPEG_CONFR1_HDR_Field is STM32_SVD.Bit;
    subtype JPEG_CONFR1_YSIZE_Field is STM32_SVD.UInt16;
 
    --  JPEG codec configuration register 1
@@ -46,7 +42,7 @@ package STM32_SVD.JPEG is
       --  unspecified
       Reserved_2_2  : STM32_SVD.Bit := 16#0#;
       --  Decoding Enable This bit selects the coding or decoding process
-      DE            : JPEG_CONFR1_DE_Field := 16#0#;
+      DE            : Boolean := False;
       --  Color Space This filed defines the number of quantization tables
       --  minus 1 to insert in the output stream.
       COLORSPACE    : JPEG_CONFR1_COLORSPACE_Field := 16#0#;
@@ -55,13 +51,13 @@ package STM32_SVD.JPEG is
       NS            : JPEG_CONFR1_NS_Field := 16#0#;
       --  Header Processing This bit enable the header processing
       --  (generation/parsing).
-      HDR           : JPEG_CONFR1_HDR_Field := 16#0#;
+      HDR           : Boolean := False;
       --  unspecified
       Reserved_9_15 : STM32_SVD.UInt7 := 16#0#;
       --  Y Size This field defines the number of lines in source image.
       YSIZE         : JPEG_CONFR1_YSIZE_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JPEG_CONFR1_Register use record
@@ -90,7 +86,7 @@ package STM32_SVD.JPEG is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JPEG_CONFR2_Register use record
@@ -107,7 +103,7 @@ package STM32_SVD.JPEG is
       --  X size This field defines the number of pixels per line.
       XSIZE         : JPEG_CONFR3_XSIZE_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JPEG_CONFR3_Register use record
@@ -115,8 +111,6 @@ package STM32_SVD.JPEG is
       XSIZE         at 0 range 16 .. 31;
    end record;
 
-   subtype JPEG_CONFRN_HD_Field is STM32_SVD.Bit;
-   subtype JPEG_CONFRN_HA_Field is STM32_SVD.Bit;
    subtype JPEG_CONFRN_QT_Field is STM32_SVD.UInt2;
    subtype JPEG_CONFRN_NB_Field is STM32_SVD.UInt4;
    subtype JPEG_CONFRN_VSF_Field is STM32_SVD.UInt4;
@@ -126,10 +120,10 @@ package STM32_SVD.JPEG is
    type JPEG_CONFRN_Register is record
       --  Huffman DC Selects the Huffman table for encoding the DC
       --  coefficients.
-      HD             : JPEG_CONFRN_HD_Field := 16#0#;
+      HD             : Boolean := False;
       --  Huffman AC Selects the Huffman table for encoding the AC
       --  coefficients.
-      HA             : JPEG_CONFRN_HA_Field := 16#0#;
+      HA             : Boolean := False;
       --  Quantization Table Selects quantization table associated with a color
       --  component.
       QT             : JPEG_CONFRN_QT_Field := 16#0#;
@@ -144,7 +138,7 @@ package STM32_SVD.JPEG is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JPEG_CONFRN_Register use record
@@ -157,58 +151,46 @@ package STM32_SVD.JPEG is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype JPEG_CR_JCEN_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_IFTIE_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_IFNFIE_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_OFTIE_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_OFNEIE_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_EOCIE_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_HPDIE_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_IDMAEN_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_ODMAEN_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_IFF_Field is STM32_SVD.Bit;
-   subtype JPEG_CR_OFF_Field is STM32_SVD.Bit;
-
    --  JPEG control register
    type JPEG_CR_Register is record
       --  JPEG Core Enable Enable the JPEG codec Core.
-      JCEN           : JPEG_CR_JCEN_Field := 16#0#;
+      JCEN           : Boolean := False;
       --  Input FIFO Threshold Interrupt Enable This bit enables the interrupt
       --  generation when input FIFO reach the threshold.
-      IFTIE          : JPEG_CR_IFTIE_Field := 16#0#;
+      IFTIE          : Boolean := False;
       --  Input FIFO Not Full Interrupt Enable This bit enables the interrupt
       --  generation when input FIFO is not empty.
-      IFNFIE         : JPEG_CR_IFNFIE_Field := 16#0#;
+      IFNFIE         : Boolean := False;
       --  Output FIFO Threshold Interrupt Enable This bit enables the interrupt
       --  generation when output FIFO reach the threshold.
-      OFTIE          : JPEG_CR_OFTIE_Field := 16#0#;
+      OFTIE          : Boolean := False;
       --  Output FIFO Not Empty Interrupt Enable This bit enables the interrupt
       --  generation when output FIFO is not empty.
-      OFNEIE         : JPEG_CR_OFNEIE_Field := 16#0#;
+      OFNEIE         : Boolean := False;
       --  End of Conversion Interrupt Enable This bit enables the interrupt
       --  generation on the end of conversion.
-      EOCIE          : JPEG_CR_EOCIE_Field := 16#0#;
+      EOCIE          : Boolean := False;
       --  Header Parsing Done Interrupt Enable This bit enables the interrupt
       --  generation on the Header Parsing Operation.
-      HPDIE          : JPEG_CR_HPDIE_Field := 16#0#;
+      HPDIE          : Boolean := False;
       --  unspecified
       Reserved_7_10  : STM32_SVD.UInt4 := 16#0#;
       --  Input DMA Enable Enable the DMA request generation for the input
       --  FIFO.
-      IDMAEN         : JPEG_CR_IDMAEN_Field := 16#0#;
+      IDMAEN         : Boolean := False;
       --  Output DMA Enable Enable the DMA request generation for the output
       --  FIFO.
-      ODMAEN         : JPEG_CR_ODMAEN_Field := 16#0#;
+      ODMAEN         : Boolean := False;
       --  Input FIFO Flush This bit flush the input FIFO. This bit is always
       --  read as 0.
-      IFF            : JPEG_CR_IFF_Field := 16#0#;
+      IFF            : Boolean := False;
       --  Output FIFO Flush This bit flush the output FIFO. This bit is always
       --  read as 0.
-      OFF            : JPEG_CR_OFF_Field := 16#0#;
+      OFF            : Boolean := False;
       --  unspecified
       Reserved_15_31 : STM32_SVD.UInt17 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JPEG_CR_Register use record
@@ -227,45 +209,37 @@ package STM32_SVD.JPEG is
       Reserved_15_31 at 0 range 15 .. 31;
    end record;
 
-   subtype JPEG_SR_IFTF_Field is STM32_SVD.Bit;
-   subtype JPEG_SR_IFNFF_Field is STM32_SVD.Bit;
-   subtype JPEG_SR_OFTF_Field is STM32_SVD.Bit;
-   subtype JPEG_SR_OFNEF_Field is STM32_SVD.Bit;
-   subtype JPEG_SR_EOCF_Field is STM32_SVD.Bit;
-   subtype JPEG_SR_HPDF_Field is STM32_SVD.Bit;
-   subtype JPEG_SR_COF_Field is STM32_SVD.Bit;
-
    --  JPEG status register
    type JPEG_SR_Register is record
       --  unspecified
       Reserved_0_0  : STM32_SVD.Bit;
       --  Read-only. Input FIFO Threshold Flag This bit is set when the input
       --  FIFO is not full and is bellow its threshold.
-      IFTF          : JPEG_SR_IFTF_Field;
+      IFTF          : Boolean;
       --  Read-only. Input FIFO Not Full Flag This bit is set when the input
       --  FIFO is not full (a data can be written).
-      IFNFF         : JPEG_SR_IFNFF_Field;
+      IFNFF         : Boolean;
       --  Read-only. Output FIFO Threshold Flag This bit is set when the output
       --  FIFO is not empty and has reach its threshold.
-      OFTF          : JPEG_SR_OFTF_Field;
+      OFTF          : Boolean;
       --  Read-only. Output FIFO Not Empty Flag This bit is set when the output
       --  FIFO is not empty (a data is available).
-      OFNEF         : JPEG_SR_OFNEF_Field;
+      OFNEF         : Boolean;
       --  Read-only. End of Conversion Flag This bit is set when the JPEG codec
       --  core has finished the encoding or the decoding process and than last
       --  data has been sent to the output FIFO.
-      EOCF          : JPEG_SR_EOCF_Field;
+      EOCF          : Boolean;
       --  Read-only. Header Parsing Done Flag This bit is set in decode mode
       --  when the JPEG codec has finished the parsing of the headers and the
       --  internal registers have been updated.
-      HPDF          : JPEG_SR_HPDF_Field;
+      HPDF          : Boolean;
       --  Read-only. Codec Operation Flag This bit is set when when a JPEG
       --  codec operation is on going (encoding or decoding).
-      COF           : JPEG_SR_COF_Field;
+      COF           : Boolean;
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JPEG_SR_Register use record
@@ -280,23 +254,20 @@ package STM32_SVD.JPEG is
       Reserved_8_31 at 0 range 8 .. 31;
    end record;
 
-   subtype JPEG_CFR_CEOCF_Field is STM32_SVD.Bit;
-   subtype JPEG_CFR_CHPDF_Field is STM32_SVD.Bit;
-
    --  JPEG clear flag register
    type JPEG_CFR_Register is record
       --  unspecified
       Reserved_0_4  : STM32_SVD.UInt5 := 16#0#;
       --  Clear End of Conversion Flag Writing 1 clears the End of Conversion
       --  Flag of the JPEG Status Register.
-      CEOCF         : JPEG_CFR_CEOCF_Field := 16#0#;
+      CEOCF         : Boolean := False;
       --  Clear Header Parsing Done Flag Writing 1 clears the Header Parsing
       --  Done Flag of the JPEG Status Register.
-      CHPDF         : JPEG_CFR_CHPDF_Field := 16#0#;
+      CHPDF         : Boolean := False;
       --  unspecified
       Reserved_7_31 : STM32_SVD.UInt25 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JPEG_CFR_Register use record
@@ -359,6 +330,6 @@ package STM32_SVD.JPEG is
 
    --  JPEG
    JPEG_Periph : aliased JPEG_Peripheral
-     with Import, Address => System'To_Address (16#52003000#);
+     with Import, Address => JPEG_Base;
 
 end STM32_SVD.JPEG;

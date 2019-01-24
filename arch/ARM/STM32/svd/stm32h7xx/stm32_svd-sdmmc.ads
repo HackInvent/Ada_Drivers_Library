@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -14,9 +14,6 @@ package STM32_SVD.SDMMC is
    ---------------
 
    subtype SDMMC_POWER_PWRCTRL_Field is STM32_SVD.UInt2;
-   subtype SDMMC_POWER_VSWITCH_Field is STM32_SVD.Bit;
-   subtype SDMMC_POWER_VSWITCHEN_Field is STM32_SVD.Bit;
-   subtype SDMMC_POWER_DIRPOL_Field is STM32_SVD.Bit;
 
    --  SDMMC power control register
    type SDMMC_POWER_Register is record
@@ -27,19 +24,19 @@ package STM32_SVD.SDMMC is
       PWRCTRL       : SDMMC_POWER_PWRCTRL_Field := 16#0#;
       --  Voltage switch sequence start. This bit is used to start the timing
       --  critical section of the voltage switch sequence:
-      VSWITCH       : SDMMC_POWER_VSWITCH_Field := 16#0#;
+      VSWITCH       : Boolean := False;
       --  Voltage switch procedure enable. This bit can only be written by
       --  firmware when CPSM is disabled (CPSMEN = 0). This bit is used to stop
       --  the SDMMC_CK after the voltage switch command response:
-      VSWITCHEN     : SDMMC_POWER_VSWITCHEN_Field := 16#0#;
+      VSWITCHEN     : Boolean := False;
       --  Data and command direction signals polarity selection. This bit can
       --  only be written when the SDMMC is in the power-off state (PWRCTRL =
       --  00).
-      DIRPOL        : SDMMC_POWER_DIRPOL_Field := 16#0#;
+      DIRPOL        : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_POWER_Register use record
@@ -51,12 +48,7 @@ package STM32_SVD.SDMMC is
    end record;
 
    subtype SDMMC_CLKCR_CLKDIV_Field is STM32_SVD.UInt10;
-   subtype SDMMC_CLKCR_PWRSAV_Field is STM32_SVD.Bit;
    subtype SDMMC_CLKCR_WIDBUS_Field is STM32_SVD.UInt2;
-   subtype SDMMC_CLKCR_NEGEDGE_Field is STM32_SVD.Bit;
-   subtype SDMMC_CLKCR_HWFC_EN_Field is STM32_SVD.Bit;
-   subtype SDMMC_CLKCR_DDR_Field is STM32_SVD.Bit;
-   subtype SDMMC_CLKCR_BUSSPEED_Field is STM32_SVD.Bit;
    subtype SDMMC_CLKCR_SELCLKRX_Field is STM32_SVD.UInt2;
 
    --  The SDMMC_CLKCR register controls the SDMMC_CK output clock, the
@@ -74,7 +66,7 @@ package STM32_SVD.SDMMC is
       --  CPSM and DPSM are not active (CPSMACT = 0 and DPSMACT = 0) For power
       --  saving, the SDMMC_CK clock output can be disabled when the bus is
       --  idle by setting PWRSAV:
-      PWRSAV         : SDMMC_CLKCR_PWRSAV_Field := 16#0#;
+      PWRSAV         : Boolean := False;
       --  unspecified
       Reserved_13_13 : STM32_SVD.Bit := 16#0#;
       --  Wide bus mode enable bit This bit can only be written when the CPSM
@@ -90,31 +82,31 @@ package STM32_SVD.SDMMC is
       --  SDMMC_CK edge. - SDMMC_CK edge occurs on SDMMCCLK rising edge. - Data
       --  changed on the SDMMC_CK falling edge succeeding a SDMMC_CK edge. -
       --  SDMMC_CK edge occurs on SDMMCCLK rising edge.
-      NEGEDGE        : SDMMC_CLKCR_NEGEDGE_Field := 16#0#;
+      NEGEDGE        : Boolean := False;
       --  Hardware flow control enable This bit can only be written when the
       --  CPSM and DPSM are not active (CPSMACT = 0 and DPSMACT = 0) When
       --  Hardware flow control is enabled, the meaning of the TXFIFOE and
       --  RXFIFOF flags change, please see SDMMC status register definition in
       --  Section56.8.11.
-      HWFC_EN        : SDMMC_CLKCR_HWFC_EN_Field := 16#0#;
+      HWFC_EN        : Boolean := False;
       --  Data rate signaling selection This bit can only be written when the
       --  CPSM and DPSM are not active (CPSMACT = 0 and DPSMACT = 0) DDR rate
       --  shall only be selected with 4-bit or 8-bit wide bus mode. (WIDBUS
       --  &gt; 00). DDR = 1 has no effect when WIDBUS = 00 (1-bit wide bus).
       --  DDR rate shall only be selected with clock division &gt;1. (CLKDIV
       --  &gt; 0)
-      DDR            : SDMMC_CLKCR_DDR_Field := 16#0#;
+      DDR            : Boolean := False;
       --  Bus speed mode selection between DS, HS, SDR12, SDR25 and SDR50,
       --  DDR50, SDR104. This bit can only be written when the CPSM and DPSM
       --  are not active (CPSMACT = 0 and DPSMACT = 0)
-      BUSSPEED       : SDMMC_CLKCR_BUSSPEED_Field := 16#0#;
+      BUSSPEED       : Boolean := False;
       --  Receive clock selection. These bits can only be written when the CPSM
       --  and DPSM are not active (CPSMACT = 0 and DPSMACT = 0)
       SELCLKRX       : SDMMC_CLKCR_SELCLKRX_Field := 16#0#;
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_CLKCR_Register use record
@@ -132,16 +124,7 @@ package STM32_SVD.SDMMC is
    end record;
 
    subtype SDMMC_CMDR_CMDINDEX_Field is STM32_SVD.UInt6;
-   subtype SDMMC_CMDR_CMDTRANS_Field is STM32_SVD.Bit;
-   subtype SDMMC_CMDR_CMDSTOP_Field is STM32_SVD.Bit;
    subtype SDMMC_CMDR_WAITRESP_Field is STM32_SVD.UInt2;
-   subtype SDMMC_CMDR_WAITINT_Field is STM32_SVD.Bit;
-   subtype SDMMC_CMDR_WAITPEND_Field is STM32_SVD.Bit;
-   subtype SDMMC_CMDR_CPSMEN_Field is STM32_SVD.Bit;
-   subtype SDMMC_CMDR_DTHOLD_Field is STM32_SVD.Bit;
-   subtype SDMMC_CMDR_BOOTMODE_Field is STM32_SVD.Bit;
-   subtype SDMMC_CMDR_BOOTEN_Field is STM32_SVD.Bit;
-   subtype SDMMC_CMDR_CMDSUSPEND_Field is STM32_SVD.Bit;
 
    --  The SDMMC_CMDR register contains the command index and command type
    --  bits. The command index is sent to a card as part of a command message.
@@ -156,12 +139,12 @@ package STM32_SVD.SDMMC is
       --  only be written by firmware when CPSM is disabled (CPSMEN = 0). If
       --  this bit is set, the CPSM issues an end of interrupt period and
       --  issues DataEnable signal to the DPSM when the command is sent.
-      CMDTRANS       : SDMMC_CMDR_CMDTRANS_Field := 16#0#;
+      CMDTRANS       : Boolean := False;
       --  The CPSM treats the command as a Stop Transmission command and
       --  signals Abort to the DPSM. This bit can only be written by firmware
       --  when CPSM is disabled (CPSMEN = 0). If this bit is set, the CPSM
       --  issues the Abort signal to the DPSM when the command is sent.
-      CMDSTOP        : SDMMC_CMDR_CMDSTOP_Field := 16#0#;
+      CMDSTOP        : Boolean := False;
       --  Wait for response bits. This bit can only be written by firmware when
       --  CPSM is disabled (CPSMEN = 0). They are used to configure whether the
       --  CPSM is to wait for a response, and if yes, which kind of response.
@@ -170,39 +153,39 @@ package STM32_SVD.SDMMC is
       --  disables command timeout and waits for an card interrupt request
       --  (Response). If this bit is cleared in the CPSM Wait state, will cause
       --  the abort of the interrupt mode.
-      WAITINT        : SDMMC_CMDR_WAITINT_Field := 16#0#;
+      WAITINT        : Boolean := False;
       --  CPSM Waits for end of data transfer (CmdPend internal signal) from
       --  DPSM. This bit when set, the CPSM waits for the end of data transfer
       --  trigger before it starts sending a command. WAITPEND is only taken
       --  into account when DTMODE = MMC stream data transfer, WIDBUS = 1-bit
       --  wide bus mode, DPSMACT = 1 and DTDIR = from host to card.
-      WAITPEND       : SDMMC_CMDR_WAITPEND_Field := 16#0#;
+      WAITPEND       : Boolean := False;
       --  Command path state machine (CPSM) Enable bit This bit is written 1 by
       --  firmware, and cleared by hardware when the CPSM enters the Idle
       --  state. If this bit is set, the CPSM is enabled. When DTEN = 1, no
       --  command will be transfered nor boot procedure will be started. CPSMEN
       --  is cleared to 0.
-      CPSMEN         : SDMMC_CMDR_CPSMEN_Field := 16#0#;
+      CPSMEN         : Boolean := False;
       --  Hold new data block transmission and reception in the DPSM. If this
       --  bit is set, the DPSM will not move from the Wait_S state to the Send
       --  state or from the Wait_R state to the Receive state.
-      DTHOLD         : SDMMC_CMDR_DTHOLD_Field := 16#0#;
+      DTHOLD         : Boolean := False;
       --  Select the boot mode procedure to be used. This bit can only be
       --  written by firmware when CPSM is disabled (CPSMEN = 0)
-      BOOTMODE       : SDMMC_CMDR_BOOTMODE_Field := 16#0#;
+      BOOTMODE       : Boolean := False;
       --  Enable boot mode procedure.
-      BOOTEN         : SDMMC_CMDR_BOOTEN_Field := 16#0#;
+      BOOTEN         : Boolean := False;
       --  The CPSM treats the command as a Suspend or Resume command and
       --  signals interrupt period start/end. This bit can only be written by
       --  firmware when CPSM is disabled (CPSMEN = 0). CMDSUSPEND = 1 and
       --  CMDTRANS = 0 Suspend command, start interrupt period when response
       --  bit BS=0. CMDSUSPEND = 1 and CMDTRANS = 1 Resume command with data,
       --  end interrupt period when response bit DF=1.
-      CMDSUSPEND     : SDMMC_CMDR_CMDSUSPEND_Field := 16#0#;
+      CMDSUSPEND     : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_CMDR_Register use record
@@ -229,7 +212,7 @@ package STM32_SVD.SDMMC is
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_RESPCMDR_Register use record
@@ -253,7 +236,7 @@ package STM32_SVD.SDMMC is
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_DLENR_Register use record
@@ -261,16 +244,8 @@ package STM32_SVD.SDMMC is
       Reserved_25_31 at 0 range 25 .. 31;
    end record;
 
-   subtype SDMMC_DCTRL_DTEN_Field is STM32_SVD.Bit;
-   subtype SDMMC_DCTRL_DTDIR_Field is STM32_SVD.Bit;
    subtype SDMMC_DCTRL_DTMODE_Field is STM32_SVD.UInt2;
    subtype SDMMC_DCTRL_DBLOCKSIZE_Field is STM32_SVD.UInt4;
-   subtype SDMMC_DCTRL_RWSTART_Field is STM32_SVD.Bit;
-   subtype SDMMC_DCTRL_RWSTOP_Field is STM32_SVD.Bit;
-   subtype SDMMC_DCTRL_RWMOD_Field is STM32_SVD.Bit;
-   subtype SDMMC_DCTRL_SDIOEN_Field is STM32_SVD.Bit;
-   subtype SDMMC_DCTRL_BOOTACKEN_Field is STM32_SVD.Bit;
-   subtype SDMMC_DCTRL_FIFORST_Field is STM32_SVD.Bit;
 
    --  The SDMMC_DCTRL register control the data path state machine (DPSM).
    type SDMMC_DCTRL_Register is record
@@ -279,10 +254,10 @@ package STM32_SVD.SDMMC is
       --  when data transfer completes. This bit shall only be used to transfer
       --  data when no associated data transfer command is used, i.e. shall not
       --  be used with SD or eMMC cards.
-      DTEN           : SDMMC_DCTRL_DTEN_Field := 16#0#;
+      DTEN           : Boolean := False;
       --  Data transfer direction selection This bit can only be written by
       --  firmware when DPSM is inactive (DPSMACT = 0).
-      DTDIR          : SDMMC_DCTRL_DTDIR_Field := 16#0#;
+      DTDIR          : Boolean := False;
       --  Data transfer mode selection. This bit can only be written by
       --  firmware when DPSM is inactive (DPSMACT = 0).
       DTMODE         : SDMMC_DCTRL_DTMODE_Field := 16#0#;
@@ -294,30 +269,30 @@ package STM32_SVD.SDMMC is
       --  DBLOCKSIZE = 0000 shall not be used. (No data will be transfered)
       DBLOCKSIZE     : SDMMC_DCTRL_DBLOCKSIZE_Field := 16#0#;
       --  Read wait start. If this bit is set, read wait operation starts.
-      RWSTART        : SDMMC_DCTRL_RWSTART_Field := 16#0#;
+      RWSTART        : Boolean := False;
       --  Read wait stop This bit is written by firmware and auto cleared by
       --  hardware when the DPSM moves from the READ_WAIT state to the WAIT_R
       --  or IDLE state.
-      RWSTOP         : SDMMC_DCTRL_RWSTOP_Field := 16#0#;
+      RWSTOP         : Boolean := False;
       --  Read wait mode. This bit can only be written by firmware when DPSM is
       --  inactive (DPSMACT = 0).
-      RWMOD          : SDMMC_DCTRL_RWMOD_Field := 16#0#;
+      RWMOD          : Boolean := False;
       --  SD I/O interrupt enable functions This bit can only be written by
       --  firmware when DPSM is inactive (DPSMACT = 0). If this bit is set, the
       --  DPSM enables the SD I/O card specific interrupt operation.
-      SDIOEN         : SDMMC_DCTRL_SDIOEN_Field := 16#0#;
+      SDIOEN         : Boolean := False;
       --  Enable the reception of the boot acknowledgment. This bit can only be
       --  written by firmware when DPSM is inactive (DPSMACT = 0).
-      BOOTACKEN      : SDMMC_DCTRL_BOOTACKEN_Field := 16#0#;
+      BOOTACKEN      : Boolean := False;
       --  FIFO reset, will flush any remaining data. This bit can only be
       --  written by firmware when IDMAEN= 0 and DPSM is active (DPSMACT = 1).
       --  This bit will only take effect when a transfer error or transfer hold
       --  occurs.
-      FIFORST        : SDMMC_DCTRL_FIFORST_Field := 16#0#;
+      FIFORST        : Boolean := False;
       --  unspecified
       Reserved_14_31 : STM32_SVD.UInt18 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_DCTRL_Register use record
@@ -348,43 +323,13 @@ package STM32_SVD.SDMMC is
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_DCNTR_Register use record
       DATACOUNT      at 0 range 0 .. 24;
       Reserved_25_31 at 0 range 25 .. 31;
    end record;
-
-   subtype SDMMC_STAR_CCRCFAIL_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_DCRCFAIL_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_CTIMEOUT_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_DTIMEOUT_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_TXUNDERR_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_RXOVERR_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_CMDREND_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_CMDSENT_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_DATAEND_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_DHOLD_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_DBCKEND_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_DABORT_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_DPSMACT_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_CPSMACT_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_TXFIFOHE_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_RXFIFOHF_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_TXFIFOF_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_RXFIFOF_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_TXFIFOE_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_RXFIFOE_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_BUSYD0_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_BUSYD0END_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_SDIOIT_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_ACKFAIL_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_ACKTIMEOUT_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_VSWEND_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_CKSTOP_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_IDMATE_Field is STM32_SVD.Bit;
-   subtype SDMMC_STAR_IDMABTC_Field is STM32_SVD.Bit;
 
    --  The SDMMC_STAR register is a read-only register. It contains two types
    --  of flag:Static flags (bits [29,21,11:0]): these bits remain asserted
@@ -397,115 +342,115 @@ package STM32_SVD.SDMMC is
       --  Read-only. Command response received (CRC check failed). Interrupt
       --  flag is cleared by writing corresponding interrupt clear bit in
       --  SDMMC_ICR.
-      CCRCFAIL       : SDMMC_STAR_CCRCFAIL_Field;
+      CCRCFAIL       : Boolean;
       --  Read-only. Data block sent/received (CRC check failed). Interrupt
       --  flag is cleared by writing corresponding interrupt clear bit in
       --  SDMMC_ICR.
-      DCRCFAIL       : SDMMC_STAR_DCRCFAIL_Field;
+      DCRCFAIL       : Boolean;
       --  Read-only. Command response timeout. Interrupt flag is cleared by
       --  writing corresponding interrupt clear bit in SDMMC_ICR. The Command
       --  Timeout period has a fixed value of 64 SDMMC_CK clock periods.
-      CTIMEOUT       : SDMMC_STAR_CTIMEOUT_Field;
+      CTIMEOUT       : Boolean;
       --  Read-only. Data timeout. Interrupt flag is cleared by writing
       --  corresponding interrupt clear bit in SDMMC_ICR.
-      DTIMEOUT       : SDMMC_STAR_DTIMEOUT_Field;
+      DTIMEOUT       : Boolean;
       --  Read-only. Transmit FIFO underrun error or IDMA read transfer error.
       --  Interrupt flag is cleared by writing corresponding interrupt clear
       --  bit in SDMMC_ICR.
-      TXUNDERR       : SDMMC_STAR_TXUNDERR_Field;
+      TXUNDERR       : Boolean;
       --  Read-only. Received FIFO overrun error or IDMA write transfer error.
       --  Interrupt flag is cleared by writing corresponding interrupt clear
       --  bit in SDMMC_ICR.
-      RXOVERR        : SDMMC_STAR_RXOVERR_Field;
+      RXOVERR        : Boolean;
       --  Read-only. Command response received (CRC check passed, or no CRC).
       --  Interrupt flag is cleared by writing corresponding interrupt clear
       --  bit in SDMMC_ICR.
-      CMDREND        : SDMMC_STAR_CMDREND_Field;
+      CMDREND        : Boolean;
       --  Read-only. Command sent (no response required). Interrupt flag is
       --  cleared by writing corresponding interrupt clear bit in SDMMC_ICR.
-      CMDSENT        : SDMMC_STAR_CMDSENT_Field;
+      CMDSENT        : Boolean;
       --  Read-only. Data transfer ended correctly. (data counter, DATACOUNT is
       --  zero and no errors occur). Interrupt flag is cleared by writing
       --  corresponding interrupt clear bit in SDMMC_ICR.
-      DATAEND        : SDMMC_STAR_DATAEND_Field;
+      DATAEND        : Boolean;
       --  Read-only. Data transfer Hold. Interrupt flag is cleared by writing
       --  corresponding interrupt clear bit in SDMMC_ICR.
-      DHOLD          : SDMMC_STAR_DHOLD_Field;
+      DHOLD          : Boolean;
       --  Read-only. Data block sent/received. (CRC check passed) and DPSM
       --  moves to the READWAIT state. Interrupt flag is cleared by writing
       --  corresponding interrupt clear bit in SDMMC_ICR.
-      DBCKEND        : SDMMC_STAR_DBCKEND_Field;
+      DBCKEND        : Boolean;
       --  Read-only. Data transfer aborted by CMD12. Interrupt flag is cleared
       --  by writing corresponding interrupt clear bit in SDMMC_ICR.
-      DABORT         : SDMMC_STAR_DABORT_Field;
+      DABORT         : Boolean;
       --  Read-only. Data path state machine active, i.e. not in Idle state.
       --  This is a hardware status flag only, does not generate an interrupt.
-      DPSMACT        : SDMMC_STAR_DPSMACT_Field;
+      DPSMACT        : Boolean;
       --  Read-only. Command path state machine active, i.e. not in Idle state.
       --  This is a hardware status flag only, does not generate an interrupt.
-      CPSMACT        : SDMMC_STAR_CPSMACT_Field;
+      CPSMACT        : Boolean;
       --  Read-only. Transmit FIFO half empty At least half the number of words
       --  can be written into the FIFO. This bit is cleared when the FIFO
       --  becomes half+1 full.
-      TXFIFOHE       : SDMMC_STAR_TXFIFOHE_Field;
+      TXFIFOHE       : Boolean;
       --  Read-only. Receive FIFO half full There are at least half the number
       --  of words in the FIFO. This bit is cleared when the FIFO becomes
       --  half+1 empty.
-      RXFIFOHF       : SDMMC_STAR_RXFIFOHF_Field;
+      RXFIFOHF       : Boolean;
       --  Read-only. Transmit FIFO full This is a hardware status flag only,
       --  does not generate an interrupt. This bit is cleared when one FIFO
       --  location becomes empty.
-      TXFIFOF        : SDMMC_STAR_TXFIFOF_Field;
+      TXFIFOF        : Boolean;
       --  Read-only. Receive FIFO full This bit is cleared when one FIFO
       --  location becomes empty.
-      RXFIFOF        : SDMMC_STAR_RXFIFOF_Field;
+      RXFIFOF        : Boolean;
       --  Read-only. Transmit FIFO empty This bit is cleared when one FIFO
       --  location becomes full.
-      TXFIFOE        : SDMMC_STAR_TXFIFOE_Field;
+      TXFIFOE        : Boolean;
       --  Read-only. Receive FIFO empty This is a hardware status flag only,
       --  does not generate an interrupt. This bit is cleared when one FIFO
       --  location becomes full.
-      RXFIFOE        : SDMMC_STAR_RXFIFOE_Field;
+      RXFIFOE        : Boolean;
       --  Read-only. Inverted value of SDMMC_D0 line (Busy), sampled at the end
       --  of a CMD response and a second time 2 SDMMC_CK cycles after the CMD
       --  response. This bit is reset to not busy when the SDMMCD0 line changes
       --  from busy to not busy. This bit does not signal busy due to data
       --  transfer. This is a hardware status flag only, it does not generate
       --  an interrupt.
-      BUSYD0         : SDMMC_STAR_BUSYD0_Field;
+      BUSYD0         : Boolean;
       --  Read-only. end of SDMMC_D0 Busy following a CMD response detected.
       --  This indicates only end of busy following a CMD response. This bit
       --  does not signal busy due to data transfer. Interrupt flag is cleared
       --  by writing corresponding interrupt clear bit in SDMMC_ICR.
-      BUSYD0END      : SDMMC_STAR_BUSYD0END_Field;
+      BUSYD0END      : Boolean;
       --  Read-only. SDIO interrupt received. Interrupt flag is cleared by
       --  writing corresponding interrupt clear bit in SDMMC_ICR.
-      SDIOIT         : SDMMC_STAR_SDIOIT_Field;
+      SDIOIT         : Boolean;
       --  Read-only. Boot acknowledgment received (boot acknowledgment check
       --  fail). Interrupt flag is cleared by writing corresponding interrupt
       --  clear bit in SDMMC_ICR.
-      ACKFAIL        : SDMMC_STAR_ACKFAIL_Field;
+      ACKFAIL        : Boolean;
       --  Read-only. Boot acknowledgment timeout. Interrupt flag is cleared by
       --  writing corresponding interrupt clear bit in SDMMC_ICR.
-      ACKTIMEOUT     : SDMMC_STAR_ACKTIMEOUT_Field;
+      ACKTIMEOUT     : Boolean;
       --  Read-only. Voltage switch critical timing section completion.
       --  Interrupt flag is cleared by writing corresponding interrupt clear
       --  bit in SDMMC_ICR.
-      VSWEND         : SDMMC_STAR_VSWEND_Field;
+      VSWEND         : Boolean;
       --  Read-only. SDMMC_CK stopped in Voltage switch procedure. Interrupt
       --  flag is cleared by writing corresponding interrupt clear bit in
       --  SDMMC_ICR.
-      CKSTOP         : SDMMC_STAR_CKSTOP_Field;
+      CKSTOP         : Boolean;
       --  Read-only. IDMA transfer error. Interrupt flag is cleared by writing
       --  corresponding interrupt clear bit in SDMMC_ICR.
-      IDMATE         : SDMMC_STAR_IDMATE_Field;
+      IDMATE         : Boolean;
       --  Read-only. IDMA buffer transfer complete. interrupt flag is cleared
       --  by writing corresponding interrupt clear bit in SDMMC_ICR.
-      IDMABTC        : SDMMC_STAR_IDMABTC_Field;
+      IDMABTC        : Boolean;
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_STAR_Register use record
@@ -541,79 +486,58 @@ package STM32_SVD.SDMMC is
       Reserved_29_31 at 0 range 29 .. 31;
    end record;
 
-   subtype SDMMC_ICR_CCRCFAILC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_DCRCFAILC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_CTIMEOUTC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_DTIMEOUTC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_TXUNDERRC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_RXOVERRC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_CMDRENDC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_CMDSENTC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_DATAENDC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_DHOLDC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_DBCKENDC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_DABORTC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_BUSYD0ENDC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_SDIOITC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_ACKFAILC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_ACKTIMEOUTC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_VSWENDC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_CKSTOPC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_IDMATEC_Field is STM32_SVD.Bit;
-   subtype SDMMC_ICR_IDMABTCC_Field is STM32_SVD.Bit;
-
    --  The SDMMC_ICR register is a write-only register. Writing a bit with 1
    --  clears the corresponding bit in the SDMMC_STAR status register.
    type SDMMC_ICR_Register is record
       --  CCRCFAIL flag clear bit Set by software to clear the CCRCFAIL flag.
-      CCRCFAILC      : SDMMC_ICR_CCRCFAILC_Field := 16#0#;
+      CCRCFAILC      : Boolean := False;
       --  DCRCFAIL flag clear bit Set by software to clear the DCRCFAIL flag.
-      DCRCFAILC      : SDMMC_ICR_DCRCFAILC_Field := 16#0#;
+      DCRCFAILC      : Boolean := False;
       --  CTIMEOUT flag clear bit Set by software to clear the CTIMEOUT flag.
-      CTIMEOUTC      : SDMMC_ICR_CTIMEOUTC_Field := 16#0#;
+      CTIMEOUTC      : Boolean := False;
       --  DTIMEOUT flag clear bit Set by software to clear the DTIMEOUT flag.
-      DTIMEOUTC      : SDMMC_ICR_DTIMEOUTC_Field := 16#0#;
+      DTIMEOUTC      : Boolean := False;
       --  TXUNDERR flag clear bit Set by software to clear TXUNDERR flag.
-      TXUNDERRC      : SDMMC_ICR_TXUNDERRC_Field := 16#0#;
+      TXUNDERRC      : Boolean := False;
       --  RXOVERR flag clear bit Set by software to clear the RXOVERR flag.
-      RXOVERRC       : SDMMC_ICR_RXOVERRC_Field := 16#0#;
+      RXOVERRC       : Boolean := False;
       --  CMDREND flag clear bit Set by software to clear the CMDREND flag.
-      CMDRENDC       : SDMMC_ICR_CMDRENDC_Field := 16#0#;
+      CMDRENDC       : Boolean := False;
       --  CMDSENT flag clear bit Set by software to clear the CMDSENT flag.
-      CMDSENTC       : SDMMC_ICR_CMDSENTC_Field := 16#0#;
+      CMDSENTC       : Boolean := False;
       --  DATAEND flag clear bit Set by software to clear the DATAEND flag.
-      DATAENDC       : SDMMC_ICR_DATAENDC_Field := 16#0#;
+      DATAENDC       : Boolean := False;
       --  DHOLD flag clear bit Set by software to clear the DHOLD flag.
-      DHOLDC         : SDMMC_ICR_DHOLDC_Field := 16#0#;
+      DHOLDC         : Boolean := False;
       --  DBCKEND flag clear bit Set by software to clear the DBCKEND flag.
-      DBCKENDC       : SDMMC_ICR_DBCKENDC_Field := 16#0#;
+      DBCKENDC       : Boolean := False;
       --  DABORT flag clear bit Set by software to clear the DABORT flag.
-      DABORTC        : SDMMC_ICR_DABORTC_Field := 16#0#;
+      DABORTC        : Boolean := False;
       --  unspecified
       Reserved_12_20 : STM32_SVD.UInt9 := 16#0#;
       --  BUSYD0END flag clear bit Set by software to clear the BUSYD0END flag.
-      BUSYD0ENDC     : SDMMC_ICR_BUSYD0ENDC_Field := 16#0#;
+      BUSYD0ENDC     : Boolean := False;
       --  SDIOIT flag clear bit Set by software to clear the SDIOIT flag.
-      SDIOITC        : SDMMC_ICR_SDIOITC_Field := 16#0#;
+      SDIOITC        : Boolean := False;
       --  ACKFAIL flag clear bit Set by software to clear the ACKFAIL flag.
-      ACKFAILC       : SDMMC_ICR_ACKFAILC_Field := 16#0#;
+      ACKFAILC       : Boolean := False;
       --  ACKTIMEOUT flag clear bit Set by software to clear the ACKTIMEOUT
       --  flag.
-      ACKTIMEOUTC    : SDMMC_ICR_ACKTIMEOUTC_Field := 16#0#;
+      ACKTIMEOUTC    : Boolean := False;
       --  VSWEND flag clear bit Set by software to clear the VSWEND flag.
-      VSWENDC        : SDMMC_ICR_VSWENDC_Field := 16#0#;
+      VSWENDC        : Boolean := False;
       --  CKSTOP flag clear bit Set by software to clear the CKSTOP flag.
-      CKSTOPC        : SDMMC_ICR_CKSTOPC_Field := 16#0#;
+      CKSTOPC        : Boolean := False;
       --  IDMA transfer error clear bit Set by software to clear the IDMATE
       --  flag.
-      IDMATEC        : SDMMC_ICR_IDMATEC_Field := 16#0#;
+      IDMATEC        : Boolean := False;
       --  IDMA buffer transfer complete clear bit Set by software to clear the
       --  IDMABTC flag.
-      IDMABTCC       : SDMMC_ICR_IDMABTCC_Field := 16#0#;
+      IDMABTCC       : Boolean := False;
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_ICR_Register use record
@@ -641,121 +565,97 @@ package STM32_SVD.SDMMC is
       Reserved_29_31 at 0 range 29 .. 31;
    end record;
 
-   subtype SDMMC_MASKR_CCRCFAILIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_DCRCFAILIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_CTIMEOUTIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_DTIMEOUTIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_TXUNDERRIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_RXOVERRIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_CMDRENDIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_CMDSENTIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_DATAENDIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_DHOLDIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_DBCKENDIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_DABORTIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_TXFIFOHEIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_RXFIFOHFIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_RXFIFOFIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_TXFIFOEIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_BUSYD0ENDIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_SDIOITIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_ACKFAILIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_ACKTIMEOUTIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_VSWENDIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_CKSTOPIE_Field is STM32_SVD.Bit;
-   subtype SDMMC_MASKR_IDMABTCIE_Field is STM32_SVD.Bit;
-
    --  The interrupt mask register determines which status flags generate an
    --  interrupt request by setting the corresponding bit to 1.
    type SDMMC_MASKR_Register is record
       --  Command CRC fail interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by command CRC failure.
-      CCRCFAILIE     : SDMMC_MASKR_CCRCFAILIE_Field := 16#0#;
+      CCRCFAILIE     : Boolean := False;
       --  Data CRC fail interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by data CRC failure.
-      DCRCFAILIE     : SDMMC_MASKR_DCRCFAILIE_Field := 16#0#;
+      DCRCFAILIE     : Boolean := False;
       --  Command timeout interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by command timeout.
-      CTIMEOUTIE     : SDMMC_MASKR_CTIMEOUTIE_Field := 16#0#;
+      CTIMEOUTIE     : Boolean := False;
       --  Data timeout interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by data timeout.
-      DTIMEOUTIE     : SDMMC_MASKR_DTIMEOUTIE_Field := 16#0#;
+      DTIMEOUTIE     : Boolean := False;
       --  Tx FIFO underrun error interrupt enable Set and cleared by software
       --  to enable/disable interrupt caused by Tx FIFO underrun error.
-      TXUNDERRIE     : SDMMC_MASKR_TXUNDERRIE_Field := 16#0#;
+      TXUNDERRIE     : Boolean := False;
       --  Rx FIFO overrun error interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by Rx FIFO overrun error.
-      RXOVERRIE      : SDMMC_MASKR_RXOVERRIE_Field := 16#0#;
+      RXOVERRIE      : Boolean := False;
       --  Command response received interrupt enable Set and cleared by
       --  software to enable/disable interrupt caused by receiving command
       --  response.
-      CMDRENDIE      : SDMMC_MASKR_CMDRENDIE_Field := 16#0#;
+      CMDRENDIE      : Boolean := False;
       --  Command sent interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by sending command.
-      CMDSENTIE      : SDMMC_MASKR_CMDSENTIE_Field := 16#0#;
+      CMDSENTIE      : Boolean := False;
       --  Data end interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by data end.
-      DATAENDIE      : SDMMC_MASKR_DATAENDIE_Field := 16#0#;
+      DATAENDIE      : Boolean := False;
       --  Data hold interrupt enable Set and cleared by software to
       --  enable/disable the interrupt generated when sending new data is hold
       --  in the DPSM Wait_S state.
-      DHOLDIE        : SDMMC_MASKR_DHOLDIE_Field := 16#0#;
+      DHOLDIE        : Boolean := False;
       --  Data block end interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by data block end.
-      DBCKENDIE      : SDMMC_MASKR_DBCKENDIE_Field := 16#0#;
+      DBCKENDIE      : Boolean := False;
       --  Data transfer aborted interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by a data transfer being aborted.
-      DABORTIE       : SDMMC_MASKR_DABORTIE_Field := 16#0#;
+      DABORTIE       : Boolean := False;
       --  unspecified
       Reserved_12_13 : STM32_SVD.UInt2 := 16#0#;
       --  Tx FIFO half empty interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by Tx FIFO half empty.
-      TXFIFOHEIE     : SDMMC_MASKR_TXFIFOHEIE_Field := 16#0#;
+      TXFIFOHEIE     : Boolean := False;
       --  Rx FIFO half full interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by Rx FIFO half full.
-      RXFIFOHFIE     : SDMMC_MASKR_RXFIFOHFIE_Field := 16#0#;
+      RXFIFOHFIE     : Boolean := False;
       --  unspecified
       Reserved_16_16 : STM32_SVD.Bit := 16#0#;
       --  Rx FIFO full interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by Rx FIFO full.
-      RXFIFOFIE      : SDMMC_MASKR_RXFIFOFIE_Field := 16#0#;
+      RXFIFOFIE      : Boolean := False;
       --  Tx FIFO empty interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by Tx FIFO empty.
-      TXFIFOEIE      : SDMMC_MASKR_TXFIFOEIE_Field := 16#0#;
+      TXFIFOEIE      : Boolean := False;
       --  unspecified
       Reserved_19_20 : STM32_SVD.UInt2 := 16#0#;
       --  BUSYD0END interrupt enable Set and cleared by software to
       --  enable/disable the interrupt generated when SDMMC_D0 signal changes
       --  from busy to NOT busy following a CMD response.
-      BUSYD0ENDIE    : SDMMC_MASKR_BUSYD0ENDIE_Field := 16#0#;
+      BUSYD0ENDIE    : Boolean := False;
       --  SDIO mode interrupt received interrupt enable Set and cleared by
       --  software to enable/disable the interrupt generated when receiving the
       --  SDIO mode interrupt.
-      SDIOITIE       : SDMMC_MASKR_SDIOITIE_Field := 16#0#;
+      SDIOITIE       : Boolean := False;
       --  Acknowledgment Fail interrupt enable Set and cleared by software to
       --  enable/disable interrupt caused by acknowledgment Fail.
-      ACKFAILIE      : SDMMC_MASKR_ACKFAILIE_Field := 16#0#;
+      ACKFAILIE      : Boolean := False;
       --  Acknowledgment timeout interrupt enable Set and cleared by software
       --  to enable/disable interrupt caused by acknowledgment timeout.
-      ACKTIMEOUTIE   : SDMMC_MASKR_ACKTIMEOUTIE_Field := 16#0#;
+      ACKTIMEOUTIE   : Boolean := False;
       --  Voltage switch critical timing section completion interrupt enable
       --  Set and cleared by software to enable/disable the interrupt generated
       --  when voltage switch critical timing section completion.
-      VSWENDIE       : SDMMC_MASKR_VSWENDIE_Field := 16#0#;
+      VSWENDIE       : Boolean := False;
       --  Voltage Switch clock stopped interrupt enable Set and cleared by
       --  software to enable/disable interrupt caused by Voltage Switch clock
       --  stopped.
-      CKSTOPIE       : SDMMC_MASKR_CKSTOPIE_Field := 16#0#;
+      CKSTOPIE       : Boolean := False;
       --  unspecified
       Reserved_27_27 : STM32_SVD.Bit := 16#0#;
       --  IDMA buffer transfer complete interrupt enable Set and cleared by
       --  software to enable/disable the interrupt generated when the IDMA has
       --  transferred all data belonging to a memory buffer.
-      IDMABTCIE      : SDMMC_MASKR_IDMABTCIE_Field := 16#0#;
+      IDMABTCIE      : Boolean := False;
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_MASKR_Register use record
@@ -805,17 +705,13 @@ package STM32_SVD.SDMMC is
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_ACKTIMER_Register use record
       ACKTIME        at 0 range 0 .. 24;
       Reserved_25_31 at 0 range 25 .. 31;
    end record;
-
-   subtype SDMMC_IDMACTRLR_IDMAEN_Field is STM32_SVD.Bit;
-   subtype SDMMC_IDMACTRLR_IDMABMODE_Field is STM32_SVD.Bit;
-   subtype SDMMC_IDMACTRLR_IDMABACT_Field is STM32_SVD.Bit;
 
    --  The receive and transmit FIFOs can be read or written as 32-bit wide
    --  registers. The FIFOs contain 32 entries on 32 sequential addresses. This
@@ -824,18 +720,18 @@ package STM32_SVD.SDMMC is
    type SDMMC_IDMACTRLR_Register is record
       --  IDMA enable This bit can only be written by firmware when DPSM is
       --  inactive (DPSMACT = 0).
-      IDMAEN        : SDMMC_IDMACTRLR_IDMAEN_Field := 16#0#;
+      IDMAEN        : Boolean := False;
       --  Buffer mode selection. This bit can only be written by firmware when
       --  DPSM is inactive (DPSMACT = 0).
-      IDMABMODE     : SDMMC_IDMACTRLR_IDMABMODE_Field := 16#0#;
+      IDMABMODE     : Boolean := False;
       --  Double buffer mode active buffer indication This bit can only be
       --  written by firmware when DPSM is inactive (DPSMACT = 0). When IDMA is
       --  enabled this bit is toggled by hardware.
-      IDMABACT      : SDMMC_IDMACTRLR_IDMABACT_Field := 16#0#;
+      IDMABACT      : Boolean := False;
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_IDMACTRLR_Register use record
@@ -861,7 +757,7 @@ package STM32_SVD.SDMMC is
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_IDMABSIZER_Register use record
@@ -882,7 +778,7 @@ package STM32_SVD.SDMMC is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SDMMC_VER_Register use record
@@ -1022,10 +918,10 @@ package STM32_SVD.SDMMC is
 
    --  SDMMC1
    SDMMC1_Periph : aliased SDMMC_Peripheral
-     with Import, Address => System'To_Address (16#52007000#);
+     with Import, Address => SDMMC1_Base;
 
    --  SDMMC1
    SDMMC2_Periph : aliased SDMMC_Peripheral
-     with Import, Address => System'To_Address (16#48022400#);
+     with Import, Address => SDMMC2_Base;
 
 end STM32_SVD.SDMMC;

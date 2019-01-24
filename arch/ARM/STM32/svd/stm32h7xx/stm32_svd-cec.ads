@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,17 +13,13 @@ package STM32_SVD.CEC is
    -- Registers --
    ---------------
 
-   subtype CEC_CR_CECEN_Field is STM32_SVD.Bit;
-   subtype CEC_CR_TXSOM_Field is STM32_SVD.Bit;
-   subtype CEC_CR_TXEOM_Field is STM32_SVD.Bit;
-
    --  CEC control register
    type CEC_CR_Register is record
       --  CEC Enable The CECEN bit is set and cleared by software. CECEN=1
       --  starts message reception and enables the TXSOM control. CECEN=0
       --  disables the CEC peripheral, clears all bits of CEC_CR register and
       --  aborts any on-going reception or transmission.
-      CECEN         : CEC_CR_CECEN_Field := 16#0#;
+      CECEN         : Boolean := False;
       --  Tx Start Of Message TXSOM is set by software to command transmission
       --  of the first byte of a CEC message. If the CEC message consists of
       --  only one byte, TXEOM must be set before of TXSOM. Start-Bit is
@@ -42,18 +38,18 @@ package STM32_SVD.CEC is
       --  transmission data is available into TXDR HEADERs first four bits
       --  containing own peripheral address are taken from TXDR[7:4], not from
       --  CEC_CFGR.OAR which is used only for reception
-      TXSOM         : CEC_CR_TXSOM_Field := 16#0#;
+      TXSOM         : Boolean := False;
       --  Tx End Of Message The TXEOM bit is set by software to command
       --  transmission of the last byte of a CEC message. TXEOM is cleared by
       --  hardware at the same time and under the same conditions as for TXSOM.
       --  Note: TXEOM must be set when CECEN=1 TXEOM must be set before writing
       --  transmission data to TXDR If TXEOM is set when TXSOM=0, transmitted
       --  message will consist of 1 byte (HEADER) only (PING message)
-      TXEOM         : CEC_CR_TXEOM_Field := 16#0#;
+      TXEOM         : Boolean := False;
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CEC_CR_Register use record
@@ -64,14 +60,7 @@ package STM32_SVD.CEC is
    end record;
 
    subtype CEC_CFGR_SFT_Field is STM32_SVD.UInt3;
-   subtype CEC_CFGR_RXTOL_Field is STM32_SVD.Bit;
-   subtype CEC_CFGR_BRESTP_Field is STM32_SVD.Bit;
-   subtype CEC_CFGR_BREGEN_Field is STM32_SVD.Bit;
-   subtype CEC_CFGR_LBPEGEN_Field is STM32_SVD.Bit;
-   subtype CEC_CFGR_BRDNOGEN_Field is STM32_SVD.Bit;
-   subtype CEC_CFGR_SFTOPT_Field is STM32_SVD.Bit;
    subtype CEC_CFGR_OAR_Field is STM32_SVD.UInt15;
-   subtype CEC_CFGR_LSTN_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the HDMI-CEC controller. It is
    --  mandatory to write CEC_CFGR only when CECEN=0.
@@ -94,23 +83,23 @@ package STM32_SVD.CEC is
       --  Start-Bit, +/- 200 s rise, +/- 200 s fall. ** Data-Bit: +/- 200 s
       --  rise. +/- 350 s fall. ** Start-Bit: +/- 400 s rise, +/- 400 s fall **
       --  Data-Bit: +/-300 s rise, +/- 500 s fall
-      RXTOL         : CEC_CFGR_RXTOL_Field := 16#0#;
+      RXTOL         : Boolean := False;
       --  Rx-Stop on Bit Rising Error The BRESTP bit is set and cleared by
       --  software.
-      BRESTP        : CEC_CFGR_BRESTP_Field := 16#0#;
+      BRESTP        : Boolean := False;
       --  Generate Error-Bit on Bit Rising Error The BREGEN bit is set and
       --  cleared by software. Note: If BRDNOGEN=0, an Error-bit is generated
       --  upon BRE detection with BRESTP=1 in broadcast even if BREGEN=0
-      BREGEN        : CEC_CFGR_BREGEN_Field := 16#0#;
+      BREGEN        : Boolean := False;
       --  Generate Error-Bit on Long Bit Period Error The LBPEGEN bit is set
       --  and cleared by software. Note: If BRDNOGEN=0, an Error-bit is
       --  generated upon LBPE detection in broadcast even if LBPEGEN=0
-      LBPEGEN       : CEC_CFGR_LBPEGEN_Field := 16#0#;
+      LBPEGEN       : Boolean := False;
       --  Avoid Error-Bit Generation in Broadcast The BRDNOGEN bit is set and
       --  cleared by software.
-      BRDNOGEN      : CEC_CFGR_BRDNOGEN_Field := 16#0#;
+      BRDNOGEN      : Boolean := False;
       --  SFT Option Bit The SFTOPT bit is set and cleared by software.
-      SFTOPT        : CEC_CFGR_SFTOPT_Field := 16#0#;
+      SFTOPT        : Boolean := False;
       --  unspecified
       Reserved_9_15 : STM32_SVD.UInt7 := 16#0#;
       --  Own addresses configuration The OAR bits are set by software to
@@ -127,9 +116,9 @@ package STM32_SVD.CEC is
       --  these addresses is received.
       OAR           : CEC_CFGR_OAR_Field := 16#0#;
       --  Listen mode LSTN bit is set and cleared by software.
-      LSTN          : CEC_CFGR_LSTN_Field := 16#0#;
+      LSTN          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CEC_CFGR_Register use record
@@ -156,7 +145,7 @@ package STM32_SVD.CEC is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CEC_TXDR_Register use record
@@ -174,7 +163,7 @@ package STM32_SVD.CEC is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CEC_RXDR_Register use record
@@ -182,49 +171,35 @@ package STM32_SVD.CEC is
       Reserved_8_31 at 0 range 8 .. 31;
    end record;
 
-   subtype CEC_ISR_RXBR_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_RXEND_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_RXOVR_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_BRE_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_SBPE_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_LBPE_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_RXACKE_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_ARBLST_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_TXBR_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_TXEND_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_TXUDR_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_TXERR_Field is STM32_SVD.Bit;
-   subtype CEC_ISR_TXACKE_Field is STM32_SVD.Bit;
-
    --  CEC Interrupt and Status Register
    type CEC_ISR_Register is record
       --  Rx-Byte Received The RXBR bit is set by hardware to inform
       --  application that a new byte has been received from the CEC line and
       --  stored into the RXD buffer. RXBR is cleared by software write at 1.
-      RXBR           : CEC_ISR_RXBR_Field := 16#0#;
+      RXBR           : Boolean := False;
       --  End Of Reception RXEND is set by hardware to inform application that
       --  the last byte of a CEC message is received from the CEC line and
       --  stored into the RXD buffer. RXEND is set at the same time of RXBR.
       --  RXEND is cleared by software write at 1.
-      RXEND          : CEC_ISR_RXEND_Field := 16#0#;
+      RXEND          : Boolean := False;
       --  Rx-Overrun RXOVR is set by hardware if RXBR is not yet cleared at the
       --  time a new byte is received on the CEC line and stored into RXD.
       --  RXOVR assertion stops message reception so that no acknowledge is
       --  sent. In case of broadcast, a negative acknowledge is sent. RXOVR is
       --  cleared by software write at 1.
-      RXOVR          : CEC_ISR_RXOVR_Field := 16#0#;
+      RXOVR          : Boolean := False;
       --  Rx-Bit Rising Error BRE is set by hardware in case a Data-Bit
       --  waveform is detected with Bit Rising Error. BRE is set either at the
       --  time the misplaced rising edge occurs, or at the end of the maximum
       --  BRE tolerance allowed by RXTOL, in case rising edge is still longing.
       --  BRE stops message reception if BRESTP=1. BRE generates an Error-Bit
       --  on the CEC line if BREGEN=1. BRE is cleared by software write at 1.
-      BRE            : CEC_ISR_BRE_Field := 16#0#;
+      BRE            : Boolean := False;
       --  Rx-Short Bit Period Error SBPE is set by hardware in case a Data-Bit
       --  waveform is detected with Short Bit Period Error. SBPE is set at the
       --  time the anticipated falling edge occurs. SBPE generates an Error-Bit
       --  on the CEC line. SBPE is cleared by software write at 1.
-      SBPE           : CEC_ISR_SBPE_Field := 16#0#;
+      SBPE           : Boolean := False;
       --  Rx-Long Bit Period Error LBPE is set by hardware in case a Data-Bit
       --  waveform is detected with Long Bit Period Error. LBPE is set at the
       --  end of the maximum bit-extension tolerance allowed by RXTOL, in case
@@ -232,14 +207,14 @@ package STM32_SVD.CEC is
       --  message. LBPE generates an Error-Bit on the CEC line if LBPEGEN=1. In
       --  case of broadcast, Error-Bit is generated even in case of LBPEGEN=0.
       --  LBPE is cleared by software write at 1.
-      LBPE           : CEC_ISR_LBPE_Field := 16#0#;
+      LBPE           : Boolean := False;
       --  Rx-Missing Acknowledge In receive mode, RXACKE is set by hardware to
       --  inform application that no acknowledge was seen on the CEC line.
       --  RXACKE applies only for broadcast messages and in listen mode also
       --  for not directly addressed messages (destination address not enabled
       --  in OAR). RXACKE aborts message reception. RXACKE is cleared by
       --  software write at 1.
-      RXACKE         : CEC_ISR_RXACKE_Field := 16#0#;
+      RXACKE         : Boolean := False;
       --  Arbitration Lost ARBLST is set by hardware to inform application that
       --  CEC device is switching to reception due to arbitration lost event
       --  following the TXSOM command. ARBLST can be due either to a contending
@@ -247,40 +222,40 @@ package STM32_SVD.CEC is
       --  higher HEADER priority. After ARBLST assertion TXSOM bit keeps
       --  pending for next transmission attempt. ARBLST is cleared by software
       --  write at 1.
-      ARBLST         : CEC_ISR_ARBLST_Field := 16#0#;
+      ARBLST         : Boolean := False;
       --  Tx-Byte Request TXBR is set by hardware to inform application that
       --  the next transmission data has to be written to TXDR. TXBR is set
       --  when the 4th bit of currently transmitted byte is sent. Application
       --  must write the next byte to TXDR within 6 nominal data-bit periods
       --  before transmission underrun error occurs (TXUDR). TXBR is cleared by
       --  software write at 1.
-      TXBR           : CEC_ISR_TXBR_Field := 16#0#;
+      TXBR           : Boolean := False;
       --  End of Transmission TXEND is set by hardware to inform application
       --  that the last byte of the CEC message has been successfully
       --  transmitted. TXEND clears the TXSOM and TXEOM control bits. TXEND is
       --  cleared by software write at 1.
-      TXEND          : CEC_ISR_TXEND_Field := 16#0#;
+      TXEND          : Boolean := False;
       --  Tx-Buffer Underrun In transmission mode, TXUDR is set by hardware if
       --  application was not in time to load TXDR before of next byte
       --  transmission. TXUDR aborts message transmission and clears TXSOM and
       --  TXEOM control bits. TXUDR is cleared by software write at 1
-      TXUDR          : CEC_ISR_TXUDR_Field := 16#0#;
+      TXUDR          : Boolean := False;
       --  Tx-Error In transmission mode, TXERR is set by hardware if the CEC
       --  initiator detects low impedance on the CEC line while it is released.
       --  TXERR aborts message transmission and clears TXSOM and TXEOM
       --  controls. TXERR is cleared by software write at 1.
-      TXERR          : CEC_ISR_TXERR_Field := 16#0#;
+      TXERR          : Boolean := False;
       --  Tx-Missing Acknowledge Error In transmission mode, TXACKE is set by
       --  hardware to inform application that no acknowledge was received. In
       --  case of broadcast transmission, TXACKE informs application that a
       --  negative acknowledge was received. TXACKE aborts message transmission
       --  and clears TXSOM and TXEOM controls. TXACKE is cleared by software
       --  write at 1.
-      TXACKE         : CEC_ISR_TXACKE_Field := 16#0#;
+      TXACKE         : Boolean := False;
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CEC_ISR_Register use record
@@ -300,65 +275,51 @@ package STM32_SVD.CEC is
       Reserved_13_31 at 0 range 13 .. 31;
    end record;
 
-   subtype CEC_IER_RXBRIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_RXENDIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_RXOVRIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_BREIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_SBPEIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_LBPEIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_RXACKIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_ARBLSTIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_TXBRIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_TXENDIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_TXUDRIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_TXERRIE_Field is STM32_SVD.Bit;
-   subtype CEC_IER_TXACKIE_Field is STM32_SVD.Bit;
-
    --  CEC interrupt enable register
    type CEC_IER_Register is record
       --  Rx-Byte Received Interrupt Enable The RXBRIE bit is set and cleared
       --  by software.
-      RXBRIE         : CEC_IER_RXBRIE_Field := 16#0#;
+      RXBRIE         : Boolean := False;
       --  End Of Reception Interrupt Enable The RXENDIE bit is set and cleared
       --  by software.
-      RXENDIE        : CEC_IER_RXENDIE_Field := 16#0#;
+      RXENDIE        : Boolean := False;
       --  Rx-Buffer Overrun Interrupt Enable The RXOVRIE bit is set and cleared
       --  by software.
-      RXOVRIE        : CEC_IER_RXOVRIE_Field := 16#0#;
+      RXOVRIE        : Boolean := False;
       --  Bit Rising Error Interrupt Enable The BREIE bit is set and cleared by
       --  software.
-      BREIE          : CEC_IER_BREIE_Field := 16#0#;
+      BREIE          : Boolean := False;
       --  Short Bit Period Error Interrupt Enable The SBPEIE bit is set and
       --  cleared by software.
-      SBPEIE         : CEC_IER_SBPEIE_Field := 16#0#;
+      SBPEIE         : Boolean := False;
       --  Long Bit Period Error Interrupt Enable The LBPEIE bit is set and
       --  cleared by software.
-      LBPEIE         : CEC_IER_LBPEIE_Field := 16#0#;
+      LBPEIE         : Boolean := False;
       --  Rx-Missing Acknowledge Error Interrupt Enable The RXACKIE bit is set
       --  and cleared by software.
-      RXACKIE        : CEC_IER_RXACKIE_Field := 16#0#;
+      RXACKIE        : Boolean := False;
       --  Arbitration Lost Interrupt Enable The ARBLSTIE bit is set and cleared
       --  by software.
-      ARBLSTIE       : CEC_IER_ARBLSTIE_Field := 16#0#;
+      ARBLSTIE       : Boolean := False;
       --  Tx-Byte Request Interrupt Enable The TXBRIE bit is set and cleared by
       --  software.
-      TXBRIE         : CEC_IER_TXBRIE_Field := 16#0#;
+      TXBRIE         : Boolean := False;
       --  Tx-End Of Message Interrupt Enable The TXENDIE bit is set and cleared
       --  by software.
-      TXENDIE        : CEC_IER_TXENDIE_Field := 16#0#;
+      TXENDIE        : Boolean := False;
       --  Tx-Underrun Interrupt Enable The TXUDRIE bit is set and cleared by
       --  software.
-      TXUDRIE        : CEC_IER_TXUDRIE_Field := 16#0#;
+      TXUDRIE        : Boolean := False;
       --  Tx-Error Interrupt Enable The TXERRIE bit is set and cleared by
       --  software.
-      TXERRIE        : CEC_IER_TXERRIE_Field := 16#0#;
+      TXERRIE        : Boolean := False;
       --  Tx-Missing Acknowledge Error Interrupt Enable The TXACKEIE bit is set
       --  and cleared by software.
-      TXACKIE        : CEC_IER_TXACKIE_Field := 16#0#;
+      TXACKIE        : Boolean := False;
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CEC_IER_Register use record
@@ -411,6 +372,6 @@ package STM32_SVD.CEC is
 
    --  CEC
    CEC_Periph : aliased CEC_Peripheral
-     with Import, Address => System'To_Address (16#40006C00#);
+     with Import, Address => CEC_Base;
 
 end STM32_SVD.CEC;

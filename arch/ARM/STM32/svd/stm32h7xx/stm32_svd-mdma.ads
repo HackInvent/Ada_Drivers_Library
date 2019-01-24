@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,12 +13,8 @@ package STM32_SVD.MDMA is
    -- Registers --
    ---------------
 
-   --  MDMA_GISR0_GIF array element
-   subtype MDMA_GISR0_GIF_Element is STM32_SVD.Bit;
-
    --  MDMA_GISR0_GIF array
-   type MDMA_GISR0_GIF_Field_Array is array (0 .. 15)
-     of MDMA_GISR0_GIF_Element
+   type MDMA_GISR0_GIF_Field_Array is array (0 .. 15) of Boolean
      with Component_Size => 1, Size => 16;
 
    --  Type definition for MDMA_GISR0_GIF
@@ -51,7 +47,7 @@ package STM32_SVD.MDMA is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_GISR0_Register use record
@@ -59,44 +55,37 @@ package STM32_SVD.MDMA is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype MDMA_C0ISR_TEIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ISR_CTCIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ISR_BRTIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ISR_BTIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ISR_TCIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ISR_CRQA0_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C0ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF0          : MDMA_C0ISR_TEIF0_Field;
+      TEIF0          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF0         : MDMA_C0ISR_CTCIF0_Field;
+      CTCIF0         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF0         : MDMA_C0ISR_BRTIF0_Field;
+      BRTIF0         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF0          : MDMA_C0ISR_BTIF0_Field;
+      BTIF0          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF0          : MDMA_C0ISR_TCIF0_Field;
+      TCIF0          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA0          : MDMA_C0ISR_CRQA0_Field;
+      CRQA0          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C0ISR_Register use record
@@ -110,35 +99,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C0IFCR_CTEIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0IFCR_CCTCIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0IFCR_CBRTIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0IFCR_CBTIF0_Field is STM32_SVD.Bit;
-   subtype MDMA_C0IFCR_CLTCIF0_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C0IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF0        : MDMA_C0IFCR_CTEIF0_Field := 16#0#;
+      CTEIF0        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF0       : MDMA_C0IFCR_CCTCIF0_Field := 16#0#;
+      CCTCIF0       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF0       : MDMA_C0IFCR_CBRTIF0_Field := 16#0#;
+      CBRTIF0       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF0        : MDMA_C0IFCR_CBTIF0_Field := 16#0#;
+      CBTIF0        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF0       : MDMA_C0IFCR_CLTCIF0_Field := 16#0#;
+      CLTCIF0       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C0IFCR_Register use record
@@ -151,11 +134,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C0ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C0ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C0ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C0ESR_Register is record
@@ -172,32 +150,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C0ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C0ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C0ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C0ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C0ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C0ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C0ESR_Register use record
@@ -210,48 +188,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C0CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C0CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C0CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C0CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C0CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C0CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C0CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C0CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C0CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C0CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C0CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C0CR_Register is record
       --  channel enable
-      EN             : MDMA_C0CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C0CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C0CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C0CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C0CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C0CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C0CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C0CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C0CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C0CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -260,11 +228,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C0CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C0CR_Register use record
@@ -293,11 +261,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C0TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C0TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C0TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C0TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C0TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C0TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C0TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C0TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C0TCR_Register is record
@@ -342,7 +307,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C0TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -362,13 +327,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C0TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C0TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C0TCR_Register use record
@@ -389,8 +354,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C0BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C0BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C0BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C0BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -401,10 +364,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C0BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C0BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -415,7 +378,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C0BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C0BNDTR_Register use record
@@ -436,7 +399,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C0BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C0BRUR_Register use record
@@ -445,8 +408,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C0TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C0TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C0TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C0TBR_Register is record
@@ -456,14 +417,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C0TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C0TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C0TBR_Register use record
@@ -474,44 +435,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C1ISR_TEIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ISR_CTCIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ISR_BRTIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ISR_BTIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ISR_TCIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ISR_CRQA1_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C1ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF1          : MDMA_C1ISR_TEIF1_Field;
+      TEIF1          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF1         : MDMA_C1ISR_CTCIF1_Field;
+      CTCIF1         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF1         : MDMA_C1ISR_BRTIF1_Field;
+      BRTIF1         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF1          : MDMA_C1ISR_BTIF1_Field;
+      BTIF1          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF1          : MDMA_C1ISR_TCIF1_Field;
+      TCIF1          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA1          : MDMA_C1ISR_CRQA1_Field;
+      CRQA1          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C1ISR_Register use record
@@ -525,35 +479,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C1IFCR_CTEIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1IFCR_CCTCIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1IFCR_CBRTIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1IFCR_CBTIF1_Field is STM32_SVD.Bit;
-   subtype MDMA_C1IFCR_CLTCIF1_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C1IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF1        : MDMA_C1IFCR_CTEIF1_Field := 16#0#;
+      CTEIF1        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF1       : MDMA_C1IFCR_CCTCIF1_Field := 16#0#;
+      CCTCIF1       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF1       : MDMA_C1IFCR_CBRTIF1_Field := 16#0#;
+      CBRTIF1       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF1        : MDMA_C1IFCR_CBTIF1_Field := 16#0#;
+      CBTIF1        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF1       : MDMA_C1IFCR_CLTCIF1_Field := 16#0#;
+      CLTCIF1       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C1IFCR_Register use record
@@ -566,11 +514,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C1ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C1ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C1ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C1ESR_Register is record
@@ -587,32 +530,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C1ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C1ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C1ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C1ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C1ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C1ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C1ESR_Register use record
@@ -625,48 +568,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C1CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C1CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C1CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C1CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C1CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C1CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C1CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C1CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C1CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C1CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C1CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C1CR_Register is record
       --  channel enable
-      EN             : MDMA_C1CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C1CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C1CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C1CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C1CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C1CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C1CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C1CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C1CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C1CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -675,11 +608,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C1CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C1CR_Register use record
@@ -708,11 +641,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C1TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C1TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C1TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C1TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C1TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C1TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C1TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C1TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C1TCR_Register is record
@@ -757,7 +687,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C1TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -777,13 +707,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C1TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C1TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C1TCR_Register use record
@@ -804,8 +734,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C1BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C1BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C1BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C1BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -816,10 +744,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C1BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C1BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -830,7 +758,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C1BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C1BNDTR_Register use record
@@ -851,7 +779,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C1BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C1BRUR_Register use record
@@ -860,8 +788,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C1TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C1TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C1TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C1TBR_Register is record
@@ -871,14 +797,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C1TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C1TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C1TBR_Register use record
@@ -889,44 +815,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C2ISR_TEIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ISR_CTCIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ISR_BRTIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ISR_BTIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ISR_TCIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ISR_CRQA2_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C2ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF2          : MDMA_C2ISR_TEIF2_Field;
+      TEIF2          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF2         : MDMA_C2ISR_CTCIF2_Field;
+      CTCIF2         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF2         : MDMA_C2ISR_BRTIF2_Field;
+      BRTIF2         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF2          : MDMA_C2ISR_BTIF2_Field;
+      BTIF2          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF2          : MDMA_C2ISR_TCIF2_Field;
+      TCIF2          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA2          : MDMA_C2ISR_CRQA2_Field;
+      CRQA2          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C2ISR_Register use record
@@ -940,35 +859,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C2IFCR_CTEIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2IFCR_CCTCIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2IFCR_CBRTIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2IFCR_CBTIF2_Field is STM32_SVD.Bit;
-   subtype MDMA_C2IFCR_CLTCIF2_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C2IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF2        : MDMA_C2IFCR_CTEIF2_Field := 16#0#;
+      CTEIF2        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF2       : MDMA_C2IFCR_CCTCIF2_Field := 16#0#;
+      CCTCIF2       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF2       : MDMA_C2IFCR_CBRTIF2_Field := 16#0#;
+      CBRTIF2       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF2        : MDMA_C2IFCR_CBTIF2_Field := 16#0#;
+      CBTIF2        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF2       : MDMA_C2IFCR_CLTCIF2_Field := 16#0#;
+      CLTCIF2       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C2IFCR_Register use record
@@ -981,11 +894,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C2ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C2ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C2ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C2ESR_Register is record
@@ -1002,32 +910,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C2ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C2ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C2ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C2ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C2ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C2ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C2ESR_Register use record
@@ -1040,48 +948,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C2CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C2CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C2CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C2CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C2CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C2CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C2CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C2CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C2CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C2CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C2CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C2CR_Register is record
       --  channel enable
-      EN             : MDMA_C2CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C2CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C2CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C2CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C2CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C2CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C2CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C2CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C2CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C2CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -1090,11 +988,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C2CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C2CR_Register use record
@@ -1123,11 +1021,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C2TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C2TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C2TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C2TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C2TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C2TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C2TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C2TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C2TCR_Register is record
@@ -1172,7 +1067,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C2TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -1192,13 +1087,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C2TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C2TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C2TCR_Register use record
@@ -1219,8 +1114,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C2BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C2BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C2BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C2BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -1231,10 +1124,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C2BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C2BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -1245,7 +1138,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C2BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C2BNDTR_Register use record
@@ -1266,7 +1159,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C2BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C2BRUR_Register use record
@@ -1275,8 +1168,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C2TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C2TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C2TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C2TBR_Register is record
@@ -1286,14 +1177,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C2TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C2TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C2TBR_Register use record
@@ -1304,44 +1195,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C3ISR_TEIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ISR_CTCIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ISR_BRTIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ISR_BTIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ISR_TCIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ISR_CRQA3_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C3ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF3          : MDMA_C3ISR_TEIF3_Field;
+      TEIF3          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF3         : MDMA_C3ISR_CTCIF3_Field;
+      CTCIF3         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF3         : MDMA_C3ISR_BRTIF3_Field;
+      BRTIF3         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF3          : MDMA_C3ISR_BTIF3_Field;
+      BTIF3          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF3          : MDMA_C3ISR_TCIF3_Field;
+      TCIF3          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA3          : MDMA_C3ISR_CRQA3_Field;
+      CRQA3          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C3ISR_Register use record
@@ -1355,35 +1239,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C3IFCR_CTEIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3IFCR_CCTCIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3IFCR_CBRTIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3IFCR_CBTIF3_Field is STM32_SVD.Bit;
-   subtype MDMA_C3IFCR_CLTCIF3_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C3IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF3        : MDMA_C3IFCR_CTEIF3_Field := 16#0#;
+      CTEIF3        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF3       : MDMA_C3IFCR_CCTCIF3_Field := 16#0#;
+      CCTCIF3       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF3       : MDMA_C3IFCR_CBRTIF3_Field := 16#0#;
+      CBRTIF3       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF3        : MDMA_C3IFCR_CBTIF3_Field := 16#0#;
+      CBTIF3        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF3       : MDMA_C3IFCR_CLTCIF3_Field := 16#0#;
+      CLTCIF3       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C3IFCR_Register use record
@@ -1396,11 +1274,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C3ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C3ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C3ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C3ESR_Register is record
@@ -1417,32 +1290,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C3ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C3ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C3ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C3ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C3ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C3ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C3ESR_Register use record
@@ -1455,48 +1328,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C3CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C3CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C3CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C3CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C3CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C3CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C3CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C3CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C3CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C3CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C3CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C3CR_Register is record
       --  channel enable
-      EN             : MDMA_C3CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C3CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C3CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C3CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C3CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C3CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C3CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C3CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C3CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C3CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -1505,11 +1368,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C3CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C3CR_Register use record
@@ -1538,11 +1401,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C3TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C3TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C3TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C3TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C3TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C3TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C3TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C3TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C3TCR_Register is record
@@ -1587,7 +1447,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C3TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -1607,13 +1467,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C3TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C3TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C3TCR_Register use record
@@ -1634,8 +1494,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C3BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C3BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C3BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C3BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -1646,10 +1504,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C3BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C3BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -1660,7 +1518,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C3BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C3BNDTR_Register use record
@@ -1681,7 +1539,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C3BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C3BRUR_Register use record
@@ -1690,8 +1548,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C3TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C3TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C3TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C3TBR_Register is record
@@ -1701,14 +1557,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C3TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C3TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C3TBR_Register use record
@@ -1719,44 +1575,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C4ISR_TEIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ISR_CTCIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ISR_BRTIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ISR_BTIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ISR_TCIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ISR_CRQA4_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C4ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF4          : MDMA_C4ISR_TEIF4_Field;
+      TEIF4          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF4         : MDMA_C4ISR_CTCIF4_Field;
+      CTCIF4         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF4         : MDMA_C4ISR_BRTIF4_Field;
+      BRTIF4         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF4          : MDMA_C4ISR_BTIF4_Field;
+      BTIF4          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF4          : MDMA_C4ISR_TCIF4_Field;
+      TCIF4          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA4          : MDMA_C4ISR_CRQA4_Field;
+      CRQA4          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C4ISR_Register use record
@@ -1770,35 +1619,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C4IFCR_CTEIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4IFCR_CCTCIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4IFCR_CBRTIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4IFCR_CBTIF4_Field is STM32_SVD.Bit;
-   subtype MDMA_C4IFCR_CLTCIF4_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C4IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF4        : MDMA_C4IFCR_CTEIF4_Field := 16#0#;
+      CTEIF4        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF4       : MDMA_C4IFCR_CCTCIF4_Field := 16#0#;
+      CCTCIF4       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF4       : MDMA_C4IFCR_CBRTIF4_Field := 16#0#;
+      CBRTIF4       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF4        : MDMA_C4IFCR_CBTIF4_Field := 16#0#;
+      CBTIF4        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF4       : MDMA_C4IFCR_CLTCIF4_Field := 16#0#;
+      CLTCIF4       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C4IFCR_Register use record
@@ -1811,11 +1654,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C4ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C4ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C4ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C4ESR_Register is record
@@ -1832,32 +1670,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C4ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C4ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C4ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C4ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C4ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C4ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C4ESR_Register use record
@@ -1870,48 +1708,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C4CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C4CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C4CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C4CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C4CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C4CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C4CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C4CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C4CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C4CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C4CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C4CR_Register is record
       --  channel enable
-      EN             : MDMA_C4CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C4CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C4CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C4CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C4CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C4CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C4CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C4CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C4CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C4CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -1920,11 +1748,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C4CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C4CR_Register use record
@@ -1953,11 +1781,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C4TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C4TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C4TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C4TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C4TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C4TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C4TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C4TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C4TCR_Register is record
@@ -2002,7 +1827,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C4TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -2022,13 +1847,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C4TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C4TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C4TCR_Register use record
@@ -2049,8 +1874,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C4BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C4BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C4BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C4BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -2061,10 +1884,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C4BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C4BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -2075,7 +1898,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C4BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C4BNDTR_Register use record
@@ -2096,7 +1919,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C4BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C4BRUR_Register use record
@@ -2105,8 +1928,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C4TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C4TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C4TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C4TBR_Register is record
@@ -2116,14 +1937,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C4TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C4TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C4TBR_Register use record
@@ -2134,44 +1955,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C5ISR_TEIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ISR_CTCIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ISR_BRTIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ISR_BTIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ISR_TCIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ISR_CRQA5_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C5ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF5          : MDMA_C5ISR_TEIF5_Field;
+      TEIF5          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF5         : MDMA_C5ISR_CTCIF5_Field;
+      CTCIF5         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF5         : MDMA_C5ISR_BRTIF5_Field;
+      BRTIF5         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF5          : MDMA_C5ISR_BTIF5_Field;
+      BTIF5          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF5          : MDMA_C5ISR_TCIF5_Field;
+      TCIF5          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA5          : MDMA_C5ISR_CRQA5_Field;
+      CRQA5          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C5ISR_Register use record
@@ -2185,35 +1999,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C5IFCR_CTEIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5IFCR_CCTCIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5IFCR_CBRTIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5IFCR_CBTIF5_Field is STM32_SVD.Bit;
-   subtype MDMA_C5IFCR_CLTCIF5_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C5IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF5        : MDMA_C5IFCR_CTEIF5_Field := 16#0#;
+      CTEIF5        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF5       : MDMA_C5IFCR_CCTCIF5_Field := 16#0#;
+      CCTCIF5       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF5       : MDMA_C5IFCR_CBRTIF5_Field := 16#0#;
+      CBRTIF5       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF5        : MDMA_C5IFCR_CBTIF5_Field := 16#0#;
+      CBTIF5        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF5       : MDMA_C5IFCR_CLTCIF5_Field := 16#0#;
+      CLTCIF5       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C5IFCR_Register use record
@@ -2226,11 +2034,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C5ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C5ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C5ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C5ESR_Register is record
@@ -2247,32 +2050,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C5ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C5ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C5ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C5ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C5ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C5ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C5ESR_Register use record
@@ -2285,48 +2088,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C5CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C5CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C5CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C5CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C5CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C5CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C5CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C5CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C5CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C5CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C5CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C5CR_Register is record
       --  channel enable
-      EN             : MDMA_C5CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C5CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C5CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C5CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C5CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C5CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C5CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C5CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C5CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C5CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -2335,11 +2128,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C5CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C5CR_Register use record
@@ -2368,11 +2161,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C5TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C5TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C5TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C5TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C5TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C5TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C5TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C5TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C5TCR_Register is record
@@ -2417,7 +2207,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C5TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -2437,13 +2227,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C5TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C5TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C5TCR_Register use record
@@ -2464,8 +2254,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C5BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C5BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C5BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C5BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -2476,10 +2264,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C5BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C5BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -2490,7 +2278,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C5BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C5BNDTR_Register use record
@@ -2511,7 +2299,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C5BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C5BRUR_Register use record
@@ -2520,8 +2308,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C5TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C5TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C5TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C5TBR_Register is record
@@ -2531,14 +2317,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C5TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C5TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C5TBR_Register use record
@@ -2549,44 +2335,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C6ISR_TEIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ISR_CTCIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ISR_BRTIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ISR_BTIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ISR_TCIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ISR_CRQA6_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C6ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF6          : MDMA_C6ISR_TEIF6_Field;
+      TEIF6          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF6         : MDMA_C6ISR_CTCIF6_Field;
+      CTCIF6         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF6         : MDMA_C6ISR_BRTIF6_Field;
+      BRTIF6         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF6          : MDMA_C6ISR_BTIF6_Field;
+      BTIF6          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF6          : MDMA_C6ISR_TCIF6_Field;
+      TCIF6          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA6          : MDMA_C6ISR_CRQA6_Field;
+      CRQA6          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C6ISR_Register use record
@@ -2600,35 +2379,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C6IFCR_CTEIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6IFCR_CCTCIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6IFCR_CBRTIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6IFCR_CBTIF6_Field is STM32_SVD.Bit;
-   subtype MDMA_C6IFCR_CLTCIF6_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C6IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF6        : MDMA_C6IFCR_CTEIF6_Field := 16#0#;
+      CTEIF6        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF6       : MDMA_C6IFCR_CCTCIF6_Field := 16#0#;
+      CCTCIF6       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF6       : MDMA_C6IFCR_CBRTIF6_Field := 16#0#;
+      CBRTIF6       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF6        : MDMA_C6IFCR_CBTIF6_Field := 16#0#;
+      CBTIF6        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF6       : MDMA_C6IFCR_CLTCIF6_Field := 16#0#;
+      CLTCIF6       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C6IFCR_Register use record
@@ -2641,11 +2414,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C6ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C6ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C6ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C6ESR_Register is record
@@ -2662,32 +2430,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C6ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C6ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C6ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C6ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C6ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C6ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C6ESR_Register use record
@@ -2700,48 +2468,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C6CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C6CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C6CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C6CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C6CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C6CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C6CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C6CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C6CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C6CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C6CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C6CR_Register is record
       --  channel enable
-      EN             : MDMA_C6CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C6CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C6CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C6CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C6CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C6CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C6CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C6CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C6CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C6CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -2750,11 +2508,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C6CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C6CR_Register use record
@@ -2783,11 +2541,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C6TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C6TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C6TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C6TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C6TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C6TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C6TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C6TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C6TCR_Register is record
@@ -2832,7 +2587,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C6TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -2852,13 +2607,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C6TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C6TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C6TCR_Register use record
@@ -2879,8 +2634,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C6BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C6BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C6BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C6BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -2891,10 +2644,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C6BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C6BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -2905,7 +2658,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0
       BRC            : MDMA_C6BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C6BNDTR_Register use record
@@ -2926,7 +2679,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C6BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C6BRUR_Register use record
@@ -2935,8 +2688,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C6TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C6TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C6TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C6TBR_Register is record
@@ -2946,14 +2697,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C6TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C6TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C6TBR_Register use record
@@ -2964,44 +2715,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C7ISR_TEIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ISR_CTCIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ISR_BRTIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ISR_BTIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ISR_TCIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ISR_CRQA7_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C7ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF7          : MDMA_C7ISR_TEIF7_Field;
+      TEIF7          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF7         : MDMA_C7ISR_CTCIF7_Field;
+      CTCIF7         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF7         : MDMA_C7ISR_BRTIF7_Field;
+      BRTIF7         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF7          : MDMA_C7ISR_BTIF7_Field;
+      BTIF7          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF7          : MDMA_C7ISR_TCIF7_Field;
+      TCIF7          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA7          : MDMA_C7ISR_CRQA7_Field;
+      CRQA7          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C7ISR_Register use record
@@ -3015,35 +2759,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C7IFCR_CTEIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7IFCR_CCTCIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7IFCR_CBRTIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7IFCR_CBTIF7_Field is STM32_SVD.Bit;
-   subtype MDMA_C7IFCR_CLTCIF7_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C7IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF7        : MDMA_C7IFCR_CTEIF7_Field := 16#0#;
+      CTEIF7        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF7       : MDMA_C7IFCR_CCTCIF7_Field := 16#0#;
+      CCTCIF7       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF7       : MDMA_C7IFCR_CBRTIF7_Field := 16#0#;
+      CBRTIF7       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF7        : MDMA_C7IFCR_CBTIF7_Field := 16#0#;
+      CBTIF7        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF7       : MDMA_C7IFCR_CLTCIF7_Field := 16#0#;
+      CLTCIF7       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C7IFCR_Register use record
@@ -3056,11 +2794,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C7ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C7ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C7ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C7ESR_Register is record
@@ -3077,32 +2810,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C7ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C7ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C7ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C7ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C7ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C7ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C7ESR_Register use record
@@ -3115,48 +2848,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C7CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C7CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C7CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C7CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C7CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C7CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C7CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C7CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C7CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C7CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C7CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C7CR_Register is record
       --  channel enable
-      EN             : MDMA_C7CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C7CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C7CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C7CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C7CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C7CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C7CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C7CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C7CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C7CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -3165,11 +2888,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C7CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C7CR_Register use record
@@ -3198,11 +2921,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C7TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C7TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C7TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C7TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C7TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C7TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C7TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C7TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C7TCR_Register is record
@@ -3247,7 +2967,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C7TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -3267,13 +2987,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C7TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C7TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C7TCR_Register use record
@@ -3294,8 +3014,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C7BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C7BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C7BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C7BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -3306,10 +3024,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C7BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C7BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -3320,7 +3038,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C7BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C7BNDTR_Register use record
@@ -3341,7 +3059,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C7BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C7BRUR_Register use record
@@ -3350,8 +3068,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C7TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C7TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C7TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C7TBR_Register is record
@@ -3361,14 +3077,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C7TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C7TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C7TBR_Register use record
@@ -3379,44 +3095,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C8ISR_TEIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ISR_CTCIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ISR_BRTIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ISR_BTIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ISR_TCIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ISR_CRQA8_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C8ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF8          : MDMA_C8ISR_TEIF8_Field;
+      TEIF8          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF8         : MDMA_C8ISR_CTCIF8_Field;
+      CTCIF8         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF8         : MDMA_C8ISR_BRTIF8_Field;
+      BRTIF8         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF8          : MDMA_C8ISR_BTIF8_Field;
+      BTIF8          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF8          : MDMA_C8ISR_TCIF8_Field;
+      TCIF8          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA8          : MDMA_C8ISR_CRQA8_Field;
+      CRQA8          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C8ISR_Register use record
@@ -3430,35 +3139,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C8IFCR_CTEIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8IFCR_CCTCIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8IFCR_CBRTIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8IFCR_CBTIF8_Field is STM32_SVD.Bit;
-   subtype MDMA_C8IFCR_CLTCIF8_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C8IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF8        : MDMA_C8IFCR_CTEIF8_Field := 16#0#;
+      CTEIF8        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF8       : MDMA_C8IFCR_CCTCIF8_Field := 16#0#;
+      CCTCIF8       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF8       : MDMA_C8IFCR_CBRTIF8_Field := 16#0#;
+      CBRTIF8       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF8        : MDMA_C8IFCR_CBTIF8_Field := 16#0#;
+      CBTIF8        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF8       : MDMA_C8IFCR_CLTCIF8_Field := 16#0#;
+      CLTCIF8       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C8IFCR_Register use record
@@ -3471,11 +3174,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C8ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C8ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C8ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C8ESR_Register is record
@@ -3492,32 +3190,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C8ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C8ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C8ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C8ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C8ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C8ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C8ESR_Register use record
@@ -3530,48 +3228,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C8CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C8CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C8CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C8CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C8CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C8CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C8CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C8CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C8CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C8CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C8CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C8CR_Register is record
       --  channel enable
-      EN             : MDMA_C8CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C8CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C8CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C8CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C8CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C8CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C8CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C8CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C8CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C8CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -3580,11 +3268,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C8CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C8CR_Register use record
@@ -3613,11 +3301,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C8TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C8TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C8TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C8TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C8TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C8TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C8TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C8TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C8TCR_Register is record
@@ -3662,7 +3347,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C8TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -3682,13 +3367,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C8TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C8TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C8TCR_Register use record
@@ -3709,8 +3394,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C8BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C8BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C8BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C8BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -3721,10 +3404,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C8BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C8BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -3735,7 +3418,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C8BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C8BNDTR_Register use record
@@ -3756,7 +3439,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C8BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C8BRUR_Register use record
@@ -3765,8 +3448,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C8TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C8TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C8TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C8TBR_Register is record
@@ -3776,14 +3457,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C8TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C8TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C8TBR_Register use record
@@ -3794,44 +3475,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C9ISR_TEIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ISR_CTCIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ISR_BRTIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ISR_BTIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ISR_TCIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ISR_CRQA9_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C9ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF9          : MDMA_C9ISR_TEIF9_Field;
+      TEIF9          : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF9         : MDMA_C9ISR_CTCIF9_Field;
+      CTCIF9         : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF9         : MDMA_C9ISR_BRTIF9_Field;
+      BRTIF9         : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF9          : MDMA_C9ISR_BTIF9_Field;
+      BTIF9          : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF9          : MDMA_C9ISR_TCIF9_Field;
+      TCIF9          : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA9          : MDMA_C9ISR_CRQA9_Field;
+      CRQA9          : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C9ISR_Register use record
@@ -3845,35 +3519,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C9IFCR_CTEIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9IFCR_CCTCIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9IFCR_CBRTIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9IFCR_CBTIF9_Field is STM32_SVD.Bit;
-   subtype MDMA_C9IFCR_CLTCIF9_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C9IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF9        : MDMA_C9IFCR_CTEIF9_Field := 16#0#;
+      CTEIF9        : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF9       : MDMA_C9IFCR_CCTCIF9_Field := 16#0#;
+      CCTCIF9       : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF9       : MDMA_C9IFCR_CBRTIF9_Field := 16#0#;
+      CBRTIF9       : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF9        : MDMA_C9IFCR_CBTIF9_Field := 16#0#;
+      CBTIF9        : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF9       : MDMA_C9IFCR_CLTCIF9_Field := 16#0#;
+      CLTCIF9       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C9IFCR_Register use record
@@ -3886,11 +3554,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C9ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C9ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C9ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C9ESR_Register is record
@@ -3907,32 +3570,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C9ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C9ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C9ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C9ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C9ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C9ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C9ESR_Register use record
@@ -3945,48 +3608,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C9CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C9CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C9CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C9CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C9CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C9CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C9CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C9CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C9CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C9CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C9CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C9CR_Register is record
       --  channel enable
-      EN             : MDMA_C9CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C9CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C9CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C9CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C9CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C9CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C9CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C9CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C9CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C9CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -3995,11 +3648,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C9CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C9CR_Register use record
@@ -4028,11 +3681,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C9TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C9TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C9TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C9TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C9TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C9TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C9TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C9TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C9TCR_Register is record
@@ -4077,7 +3727,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C9TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -4097,13 +3747,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C9TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C9TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C9TCR_Register use record
@@ -4124,8 +3774,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C9BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C9BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C9BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C9BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -4136,10 +3784,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C9BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C9BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -4150,7 +3798,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C9BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C9BNDTR_Register use record
@@ -4171,7 +3819,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C9BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C9BRUR_Register use record
@@ -4180,8 +3828,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C9TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C9TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C9TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C9TBR_Register is record
@@ -4191,14 +3837,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C9TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C9TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C9TBR_Register use record
@@ -4209,44 +3855,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C10ISR_TEIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ISR_CTCIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ISR_BRTIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ISR_BTIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ISR_TCIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ISR_CRQA10_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C10ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF10         : MDMA_C10ISR_TEIF10_Field;
+      TEIF10         : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF10        : MDMA_C10ISR_CTCIF10_Field;
+      CTCIF10        : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF10        : MDMA_C10ISR_BRTIF10_Field;
+      BRTIF10        : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF10         : MDMA_C10ISR_BTIF10_Field;
+      BTIF10         : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF10         : MDMA_C10ISR_TCIF10_Field;
+      TCIF10         : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA10         : MDMA_C10ISR_CRQA10_Field;
+      CRQA10         : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C10ISR_Register use record
@@ -4260,35 +3899,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C10IFCR_CTEIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10IFCR_CCTCIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10IFCR_CBRTIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10IFCR_CBTIF10_Field is STM32_SVD.Bit;
-   subtype MDMA_C10IFCR_CLTCIF10_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C10IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF10       : MDMA_C10IFCR_CTEIF10_Field := 16#0#;
+      CTEIF10       : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF10      : MDMA_C10IFCR_CCTCIF10_Field := 16#0#;
+      CCTCIF10      : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF10      : MDMA_C10IFCR_CBRTIF10_Field := 16#0#;
+      CBRTIF10      : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF10       : MDMA_C10IFCR_CBTIF10_Field := 16#0#;
+      CBTIF10       : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF10      : MDMA_C10IFCR_CLTCIF10_Field := 16#0#;
+      CLTCIF10      : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C10IFCR_Register use record
@@ -4301,11 +3934,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C10ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C10ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C10ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C10ESR_Register is record
@@ -4322,32 +3950,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C10ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C10ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C10ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C10ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C10ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C10ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C10ESR_Register use record
@@ -4360,48 +3988,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C10CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C10CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C10CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C10CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C10CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C10CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C10CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C10CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C10CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C10CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C10CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C10CR_Register is record
       --  channel enable
-      EN             : MDMA_C10CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C10CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C10CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C10CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C10CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C10CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C10CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C10CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C10CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C10CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -4410,11 +4028,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C10CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C10CR_Register use record
@@ -4443,11 +4061,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C10TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C10TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C10TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C10TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C10TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C10TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C10TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C10TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C10TCR_Register is record
@@ -4492,7 +4107,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C10TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -4512,13 +4127,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C10TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C10TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C10TCR_Register use record
@@ -4539,8 +4154,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C10BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C10BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C10BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C10BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -4551,10 +4164,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C10BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C10BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -4565,7 +4178,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C10BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C10BNDTR_Register use record
@@ -4586,7 +4199,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C10BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C10BRUR_Register use record
@@ -4595,8 +4208,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C10TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C10TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C10TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C10TBR_Register is record
@@ -4606,14 +4217,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C10TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C10TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C10TBR_Register use record
@@ -4624,44 +4235,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C11ISR_TEIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ISR_CTCIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ISR_BRTIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ISR_BTIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ISR_TCIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ISR_CRQA11_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C11ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF11         : MDMA_C11ISR_TEIF11_Field;
+      TEIF11         : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF11        : MDMA_C11ISR_CTCIF11_Field;
+      CTCIF11        : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF11        : MDMA_C11ISR_BRTIF11_Field;
+      BRTIF11        : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF11         : MDMA_C11ISR_BTIF11_Field;
+      BTIF11         : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF11         : MDMA_C11ISR_TCIF11_Field;
+      TCIF11         : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA11         : MDMA_C11ISR_CRQA11_Field;
+      CRQA11         : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C11ISR_Register use record
@@ -4675,35 +4279,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C11IFCR_CTEIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11IFCR_CCTCIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11IFCR_CBRTIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11IFCR_CBTIF11_Field is STM32_SVD.Bit;
-   subtype MDMA_C11IFCR_CLTCIF11_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C11IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF11       : MDMA_C11IFCR_CTEIF11_Field := 16#0#;
+      CTEIF11       : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF11      : MDMA_C11IFCR_CCTCIF11_Field := 16#0#;
+      CCTCIF11      : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF11      : MDMA_C11IFCR_CBRTIF11_Field := 16#0#;
+      CBRTIF11      : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF11       : MDMA_C11IFCR_CBTIF11_Field := 16#0#;
+      CBTIF11       : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF11      : MDMA_C11IFCR_CLTCIF11_Field := 16#0#;
+      CLTCIF11      : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C11IFCR_Register use record
@@ -4716,11 +4314,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C11ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C11ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C11ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C11ESR_Register is record
@@ -4737,32 +4330,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C11ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C11ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C11ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C11ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C11ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C11ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C11ESR_Register use record
@@ -4775,48 +4368,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C11CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C11CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C11CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C11CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C11CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C11CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C11CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C11CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C11CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C11CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C11CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C11CR_Register is record
       --  channel enable
-      EN             : MDMA_C11CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C11CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C11CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C11CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C11CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C11CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C11CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C11CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C11CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C11CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -4825,11 +4408,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C11CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C11CR_Register use record
@@ -4858,11 +4441,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C11TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C11TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C11TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C11TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C11TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C11TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C11TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C11TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C11TCR_Register is record
@@ -4907,7 +4487,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C11TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -4927,13 +4507,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C11TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C11TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C11TCR_Register use record
@@ -4954,8 +4534,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C11BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C11BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C11BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C11BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -4966,10 +4544,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C11BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C11BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -4980,7 +4558,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C11BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C11BNDTR_Register use record
@@ -5001,7 +4579,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C11BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C11BRUR_Register use record
@@ -5010,8 +4588,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C11TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C11TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C11TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C11TBR_Register is record
@@ -5021,14 +4597,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C11TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C11TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C11TBR_Register use record
@@ -5039,44 +4615,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C12ISR_TEIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ISR_CTCIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ISR_BRTIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ISR_BTIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ISR_TCIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ISR_CRQA12_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C12ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF12         : MDMA_C12ISR_TEIF12_Field;
+      TEIF12         : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF12        : MDMA_C12ISR_CTCIF12_Field;
+      CTCIF12        : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF12        : MDMA_C12ISR_BRTIF12_Field;
+      BRTIF12        : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF12         : MDMA_C12ISR_BTIF12_Field;
+      BTIF12         : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF12         : MDMA_C12ISR_TCIF12_Field;
+      TCIF12         : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA12         : MDMA_C12ISR_CRQA12_Field;
+      CRQA12         : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C12ISR_Register use record
@@ -5090,35 +4659,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C12IFCR_CTEIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12IFCR_CCTCIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12IFCR_CBRTIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12IFCR_CBTIF12_Field is STM32_SVD.Bit;
-   subtype MDMA_C12IFCR_CLTCIF12_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C12IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF12       : MDMA_C12IFCR_CTEIF12_Field := 16#0#;
+      CTEIF12       : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF12      : MDMA_C12IFCR_CCTCIF12_Field := 16#0#;
+      CCTCIF12      : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF12      : MDMA_C12IFCR_CBRTIF12_Field := 16#0#;
+      CBRTIF12      : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF12       : MDMA_C12IFCR_CBTIF12_Field := 16#0#;
+      CBTIF12       : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF12      : MDMA_C12IFCR_CLTCIF12_Field := 16#0#;
+      CLTCIF12      : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C12IFCR_Register use record
@@ -5131,11 +4694,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C12ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C12ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C12ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C12ESR_Register is record
@@ -5152,32 +4710,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C12ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C12ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C12ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C12ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C12ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C12ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C12ESR_Register use record
@@ -5190,48 +4748,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C12CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C12CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C12CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C12CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C12CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C12CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C12CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C12CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C12CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C12CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C12CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C12CR_Register is record
       --  channel enable
-      EN             : MDMA_C12CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C12CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C12CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C12CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C12CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C12CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C12CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C12CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C12CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C12CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -5240,11 +4788,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C12CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C12CR_Register use record
@@ -5273,11 +4821,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C12TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C12TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C12TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C12TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C12TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C12TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C12TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C12TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C12TCR_Register is record
@@ -5322,7 +4867,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C12TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -5342,13 +4887,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C12TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C12TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C12TCR_Register use record
@@ -5369,8 +4914,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C12BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C12BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C12BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C12BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -5381,10 +4924,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C12BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C12BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -5395,7 +4938,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C12BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C12BNDTR_Register use record
@@ -5416,7 +4959,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C12BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C12BRUR_Register use record
@@ -5425,8 +4968,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C12TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C12TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C12TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C12TBR_Register is record
@@ -5436,14 +4977,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C12TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C12TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C12TBR_Register use record
@@ -5454,44 +4995,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C13ISR_TEIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ISR_CTCIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ISR_BRTIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ISR_BTIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ISR_TCIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ISR_CRQA13_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C13ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF13         : MDMA_C13ISR_TEIF13_Field;
+      TEIF13         : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF13        : MDMA_C13ISR_CTCIF13_Field;
+      CTCIF13        : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF13        : MDMA_C13ISR_BRTIF13_Field;
+      BRTIF13        : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF13         : MDMA_C13ISR_BTIF13_Field;
+      BTIF13         : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF13         : MDMA_C13ISR_TCIF13_Field;
+      TCIF13         : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA13         : MDMA_C13ISR_CRQA13_Field;
+      CRQA13         : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C13ISR_Register use record
@@ -5505,35 +5039,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C13IFCR_CTEIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13IFCR_CCTCIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13IFCR_CBRTIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13IFCR_CBTIF13_Field is STM32_SVD.Bit;
-   subtype MDMA_C13IFCR_CLTCIF13_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C13IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF13       : MDMA_C13IFCR_CTEIF13_Field := 16#0#;
+      CTEIF13       : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF13      : MDMA_C13IFCR_CCTCIF13_Field := 16#0#;
+      CCTCIF13      : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF13      : MDMA_C13IFCR_CBRTIF13_Field := 16#0#;
+      CBRTIF13      : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF13       : MDMA_C13IFCR_CBTIF13_Field := 16#0#;
+      CBTIF13       : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF13      : MDMA_C13IFCR_CLTCIF13_Field := 16#0#;
+      CLTCIF13      : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C13IFCR_Register use record
@@ -5546,11 +5074,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C13ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C13ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C13ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C13ESR_Register is record
@@ -5567,32 +5090,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C13ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C13ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C13ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C13ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C13ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C13ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C13ESR_Register use record
@@ -5605,48 +5128,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C13CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C13CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C13CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C13CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C13CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C13CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C13CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C13CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C13CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C13CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C13CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C13CR_Register is record
       --  channel enable
-      EN             : MDMA_C13CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C13CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C13CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C13CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C13CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C13CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C13CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C13CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C13CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C13CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -5655,11 +5168,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C13CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C13CR_Register use record
@@ -5688,11 +5201,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C13TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C13TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C13TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C13TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C13TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C13TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C13TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C13TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C13TCR_Register is record
@@ -5737,7 +5247,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C13TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -5757,13 +5267,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C13TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C13TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C13TCR_Register use record
@@ -5784,8 +5294,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C13BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C13BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C13BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C13BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -5796,10 +5304,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C13BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C13BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -5810,7 +5318,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C13BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C13BNDTR_Register use record
@@ -5831,7 +5339,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C13BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C13BRUR_Register use record
@@ -5840,8 +5348,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C13TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C13TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C13TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C13TBR_Register is record
@@ -5851,14 +5357,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C13TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C13TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C13TBR_Register use record
@@ -5869,44 +5375,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C14ISR_TEIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ISR_CTCIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ISR_BRTIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ISR_BTIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ISR_TCIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ISR_CRQA14_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C14ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF14         : MDMA_C14ISR_TEIF14_Field;
+      TEIF14         : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF14        : MDMA_C14ISR_CTCIF14_Field;
+      CTCIF14        : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF14        : MDMA_C14ISR_BRTIF14_Field;
+      BRTIF14        : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF14         : MDMA_C14ISR_BTIF14_Field;
+      BTIF14         : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF14         : MDMA_C14ISR_TCIF14_Field;
+      TCIF14         : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA14         : MDMA_C14ISR_CRQA14_Field;
+      CRQA14         : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C14ISR_Register use record
@@ -5920,35 +5419,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C14IFCR_CTEIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14IFCR_CCTCIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14IFCR_CBRTIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14IFCR_CBTIF14_Field is STM32_SVD.Bit;
-   subtype MDMA_C14IFCR_CLTCIF14_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C14IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF14       : MDMA_C14IFCR_CTEIF14_Field := 16#0#;
+      CTEIF14       : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF14      : MDMA_C14IFCR_CCTCIF14_Field := 16#0#;
+      CCTCIF14      : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF14      : MDMA_C14IFCR_CBRTIF14_Field := 16#0#;
+      CBRTIF14      : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF14       : MDMA_C14IFCR_CBTIF14_Field := 16#0#;
+      CBTIF14       : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF14      : MDMA_C14IFCR_CLTCIF14_Field := 16#0#;
+      CLTCIF14      : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C14IFCR_Register use record
@@ -5961,11 +5454,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C14ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C14ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C14ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C14ESR_Register is record
@@ -5982,32 +5470,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C14ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C14ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C14ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C14ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C14ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C14ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C14ESR_Register use record
@@ -6020,48 +5508,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C14CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C14CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C14CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C14CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C14CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C14CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C14CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C14CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C14CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C14CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C14CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C14CR_Register is record
       --  channel enable
-      EN             : MDMA_C14CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C14CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C14CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C14CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C14CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C14CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C14CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C14CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C14CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C14CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -6070,11 +5548,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C14CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C14CR_Register use record
@@ -6103,11 +5581,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C14TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C14TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C14TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C14TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C14TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C14TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C14TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C14TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C14TCR_Register is record
@@ -6152,7 +5627,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C14TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -6172,13 +5647,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C14TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C14TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C14TCR_Register use record
@@ -6199,8 +5674,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C14BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C14BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C14BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C14BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -6211,10 +5684,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C14BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C14BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -6225,7 +5698,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C14BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C14BNDTR_Register use record
@@ -6246,7 +5719,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C14BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C14BRUR_Register use record
@@ -6255,8 +5728,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C14TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C14TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C14TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C14TBR_Register is record
@@ -6266,14 +5737,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C14TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C14TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C14TBR_Register use record
@@ -6284,44 +5755,37 @@ package STM32_SVD.MDMA is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype MDMA_C15ISR_TEIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ISR_CTCIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ISR_BRTIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ISR_BTIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ISR_TCIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ISR_CRQA15_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt/status register
    type MDMA_C15ISR_Register is record
       --  Read-only. Channel x transfer error interrupt flag This bit is set by
       --  hardware. It is cleared by software writing 1 to the corresponding
       --  bit in the DMA_IFCRy register.
-      TEIF15         : MDMA_C15ISR_TEIF15_Field;
+      TEIF15         : Boolean;
       --  Read-only. Channel x Channel Transfer Complete interrupt flag This
       --  bit is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register. CTC is set when the last
       --  block was transferred and the channel has been automatically
       --  disabled. CTC is also set when the channel is suspended, as a result
       --  of writing EN bit to 0.
-      CTCIF15        : MDMA_C15ISR_CTCIF15_Field;
+      CTCIF15        : Boolean;
       --  Read-only. Channel x block repeat transfer complete interrupt flag
       --  This bit is set by hardware. It is cleared by software writing 1 to
       --  the corresponding bit in the DMA_IFCRy register.
-      BRTIF15        : MDMA_C15ISR_BRTIF15_Field;
+      BRTIF15        : Boolean;
       --  Read-only. Channel x block transfer complete interrupt flag This bit
       --  is set by hardware. It is cleared by software writing 1 to the
       --  corresponding bit in the DMA_IFCRy register.
-      BTIF15         : MDMA_C15ISR_BTIF15_Field;
+      BTIF15         : Boolean;
       --  Read-only. channel x buffer transfer complete
-      TCIF15         : MDMA_C15ISR_TCIF15_Field;
+      TCIF15         : Boolean;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11;
       --  Read-only. channel x request active flag
-      CRQA15         : MDMA_C15ISR_CRQA15_Field;
+      CRQA15         : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C15ISR_Register use record
@@ -6335,35 +5799,29 @@ package STM32_SVD.MDMA is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype MDMA_C15IFCR_CTEIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15IFCR_CCTCIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15IFCR_CBRTIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15IFCR_CBTIF15_Field is STM32_SVD.Bit;
-   subtype MDMA_C15IFCR_CLTCIF15_Field is STM32_SVD.Bit;
-
    --  MDMA channel x interrupt flag clear register
    type MDMA_C15IFCR_Register is record
       --  Write-only. Channel x clear transfer error interrupt flag Writing a 1
       --  into this bit clears TEIFx in the MDMA_ISRy register
-      CTEIF15       : MDMA_C15IFCR_CTEIF15_Field := 16#0#;
+      CTEIF15       : Boolean := False;
       --  Write-only. Clear Channel transfer complete interrupt flag for
       --  channel x Writing a 1 into this bit clears CTCIFx in the MDMA_ISRy
       --  register
-      CCTCIF15      : MDMA_C15IFCR_CCTCIF15_Field := 16#0#;
+      CCTCIF15      : Boolean := False;
       --  Write-only. Channel x clear block repeat transfer complete interrupt
       --  flag Writing a 1 into this bit clears BRTIFx in the MDMA_ISRy
       --  register
-      CBRTIF15      : MDMA_C15IFCR_CBRTIF15_Field := 16#0#;
+      CBRTIF15      : Boolean := False;
       --  Write-only. Channel x Clear block transfer complete interrupt flag
       --  Writing a 1 into this bit clears BTIFx in the MDMA_ISRy register
-      CBTIF15       : MDMA_C15IFCR_CBTIF15_Field := 16#0#;
+      CBTIF15       : Boolean := False;
       --  Write-only. CLear buffer Transfer Complete Interrupt Flag for channel
       --  x Writing a 1 into this bit clears TCIFx in the MDMA_ISRy register
-      CLTCIF15      : MDMA_C15IFCR_CLTCIF15_Field := 16#0#;
+      CLTCIF15      : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C15IFCR_Register use record
@@ -6376,11 +5834,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C15ESR_TEA_Field is STM32_SVD.UInt7;
-   subtype MDMA_C15ESR_TED_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ESR_TELD_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ESR_TEMD_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ESR_ASE_Field is STM32_SVD.Bit;
-   subtype MDMA_C15ESR_BSE_Field is STM32_SVD.Bit;
 
    --  MDMA Channel x error status register
    type MDMA_C15ESR_Register is record
@@ -6397,32 +5850,32 @@ package STM32_SVD.MDMA is
       TEA            : MDMA_C15ESR_TEA_Field;
       --  Read-only. Transfer Error Direction These bit is set and cleared by
       --  HW, in case of an MDMA data transfer error.
-      TED            : MDMA_C15ESR_TED_Field;
+      TED            : Boolean;
       --  Read-only. Transfer Error Link Data These bit is set by HW, in case
       --  of a transfer error while reading the block link data structure. It
       --  is cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      TELD           : MDMA_C15ESR_TELD_Field;
+      TELD           : Boolean;
       --  Read-only. Transfer Error Mask Data These bit is set by HW, in case
       --  of a transfer error while writing the Mask Data. It is cleared by
       --  software writing 1 to the CTEIFx bit in the DMA_IFCRy register.
-      TEMD           : MDMA_C15ESR_TEMD_Field;
+      TEMD           : Boolean;
       --  Read-only. Address/Size Error These bit is set by HW, when the
       --  programmed address is not aligned with the data size. TED will
       --  indicate whether the problem is on the source or destination. It is
       --  cleared by software writing 1 to the CTEIFx bit in the DMA_IFCRy
       --  register.
-      ASE            : MDMA_C15ESR_ASE_Field;
+      ASE            : Boolean;
       --  Read-only. Block Size Error These bit is set by HW, when the block
       --  size is not an integer multiple of the data size either for source or
       --  destination. TED will indicate whether the problem is on the source
       --  or destination. It is cleared by software writing 1 to the CTEIFx bit
       --  in the DMA_IFCRy register.
-      BSE            : MDMA_C15ESR_BSE_Field;
+      BSE            : Boolean;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C15ESR_Register use record
@@ -6435,48 +5888,38 @@ package STM32_SVD.MDMA is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype MDMA_C15CR_EN_Field is STM32_SVD.Bit;
-   subtype MDMA_C15CR_TEIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C15CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C15CR_BRTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C15CR_BTIE_Field is STM32_SVD.Bit;
-   subtype MDMA_C15CR_TCIE_Field is STM32_SVD.Bit;
    subtype MDMA_C15CR_PL_Field is STM32_SVD.UInt2;
-   subtype MDMA_C15CR_BEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C15CR_HEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C15CR_WEX_Field is STM32_SVD.Bit;
-   subtype MDMA_C15CR_SWRQ_Field is STM32_SVD.Bit;
 
    --  This register is used to control the concerned channel.
    type MDMA_C15CR_Register is record
       --  channel enable
-      EN             : MDMA_C15CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : MDMA_C15CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Channel Transfer Complete interrupt enable This bit is set and
       --  cleared by software.
-      CTCIE          : MDMA_C15CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Block Repeat transfer interrupt enable This bit is set and cleared by
       --  software.
-      BRTIE          : MDMA_C15CR_BRTIE_Field := 16#0#;
+      BRTIE          : Boolean := False;
       --  Block Transfer interrupt enable This bit is set and cleared by
       --  software.
-      BTIE           : MDMA_C15CR_BTIE_Field := 16#0#;
+      BTIE           : Boolean := False;
       --  buffer Transfer Complete interrupt enable This bit is set and cleared
       --  by software.
-      TCIE           : MDMA_C15CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Priority level These bits are set and cleared by software. These bits
       --  are protected and can be written only if EN is 0.
       PL             : MDMA_C15CR_PL_Field := 16#0#;
       --  unspecified
       Reserved_8_11  : STM32_SVD.UInt4 := 16#0#;
       --  byte Endianness exchange
-      BEX            : MDMA_C15CR_BEX_Field := 16#0#;
+      BEX            : Boolean := False;
       --  Half word Endianes exchange
-      HEX            : MDMA_C15CR_HEX_Field := 16#0#;
+      HEX            : Boolean := False;
       --  Word Endianness exchange
-      WEX            : MDMA_C15CR_WEX_Field := 16#0#;
+      WEX            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Write-only. SW ReQuest Writing a 1 into this bit sets the CRQAx in
@@ -6485,11 +5928,11 @@ package STM32_SVD.MDMA is
       --  offset: 0x4E + 0x40 chn may be used for SWRQ activation. In case of a
       --  SW request, acknowledge is not generated (neither HW signal, nor
       --  CxMAR write access).
-      SWRQ           : MDMA_C15CR_SWRQ_Field := 16#0#;
+      SWRQ           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C15CR_Register use record
@@ -6518,11 +5961,8 @@ package STM32_SVD.MDMA is
    subtype MDMA_C15TCR_SBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C15TCR_DBURST_Field is STM32_SVD.UInt3;
    subtype MDMA_C15TCR_TLEN_Field is STM32_SVD.UInt7;
-   subtype MDMA_C15TCR_PKE_Field is STM32_SVD.Bit;
    subtype MDMA_C15TCR_PAM_Field is STM32_SVD.UInt2;
    subtype MDMA_C15TCR_TRGM_Field is STM32_SVD.UInt2;
-   subtype MDMA_C15TCR_SWRM_Field is STM32_SVD.Bit;
-   subtype MDMA_C15TCR_BWM_Field is STM32_SVD.Bit;
 
    --  This register is used to configure the concerned channel.
    type MDMA_C15TCR_Register is record
@@ -6567,7 +6007,7 @@ package STM32_SVD.MDMA is
       --  one, it will be truncated. The alignment will be done according to
       --  the PAM[0] value. This bit is protected and can be written only if EN
       --  is 0
-      PKE    : MDMA_C15TCR_PKE_Field := 16#0#;
+      PKE    : Boolean := False;
       --  Padding/Alignement Mode These bits are set and cleared by software.
       --  Case 1: Source data size smaller than destination data size - 3
       --  options are valid. Case 2: Source data size larger than destination
@@ -6587,13 +6027,13 @@ package STM32_SVD.MDMA is
       --  the current transfer is completed. If the CxMAR contains a valid
       --  address, the CxMDR value will also be written @ CxMAR address. This
       --  bit is protected and can be written only if EN is 0.
-      SWRM   : MDMA_C15TCR_SWRM_Field := 16#0#;
+      SWRM   : Boolean := False;
       --  Bufferable Write Mode This bit is set and cleared by software. This
       --  bit is protected and can be written only if EN is 0. Note: All MDMA
       --  destination accesses are non-cacheable.
-      BWM    : MDMA_C15TCR_BWM_Field := 16#0#;
+      BWM    : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C15TCR_Register use record
@@ -6614,8 +6054,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C15BNDTR_BNDT_Field is STM32_SVD.UInt17;
-   subtype MDMA_C15BNDTR_BRSUM_Field is STM32_SVD.Bit;
-   subtype MDMA_C15BNDTR_BRDUM_Field is STM32_SVD.Bit;
    subtype MDMA_C15BNDTR_BRC_Field is STM32_SVD.UInt12;
 
    --  MDMA Channel x block number of data register
@@ -6626,10 +6064,10 @@ package STM32_SVD.MDMA is
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  Block Repeat Source address Update Mode These bits are protected and
       --  can be written only if EN is 0.
-      BRSUM          : MDMA_C15BNDTR_BRSUM_Field := 16#0#;
+      BRSUM          : Boolean := False;
       --  Block Repeat Destination address Update Mode These bits are protected
       --  and can be written only if EN is 0.
-      BRDUM          : MDMA_C15BNDTR_BRDUM_Field := 16#0#;
+      BRDUM          : Boolean := False;
       --  Block Repeat Count This field contains the number of repetitions of
       --  the current block (0 to 4095). When the channel is enabled, this
       --  register is read-only, indicating the remaining number of blocks,
@@ -6640,7 +6078,7 @@ package STM32_SVD.MDMA is
       --  bits are protected and can be written only if EN is 0.
       BRC            : MDMA_C15BNDTR_BRC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C15BNDTR_Register use record
@@ -6661,7 +6099,7 @@ package STM32_SVD.MDMA is
       --  destination address update
       DUV : MDMA_C15BRUR_DUV_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C15BRUR_Register use record
@@ -6670,8 +6108,6 @@ package STM32_SVD.MDMA is
    end record;
 
    subtype MDMA_C15TBR_TSEL_Field is STM32_SVD.UInt6;
-   subtype MDMA_C15TBR_SBUS_Field is STM32_SVD.Bit;
-   subtype MDMA_C15TBR_DBUS_Field is STM32_SVD.Bit;
 
    --  MDMA channel x Trigger and Bus selection Register
    type MDMA_C15TBR_Register is record
@@ -6681,14 +6117,14 @@ package STM32_SVD.MDMA is
       Reserved_6_15  : STM32_SVD.UInt10 := 16#0#;
       --  Source BUS select This bit is protected and can be written only if EN
       --  is 0.
-      SBUS           : MDMA_C15TBR_SBUS_Field := 16#0#;
+      SBUS           : Boolean := False;
       --  Destination BUS slect This bit is protected and can be written only
       --  if EN is 0.
-      DBUS           : MDMA_C15TBR_DBUS_Field := 16#0#;
+      DBUS           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDMA_C15TBR_Register use record
@@ -7340,6 +6776,6 @@ package STM32_SVD.MDMA is
 
    --  MDMA
    MDMA_Periph : aliased MDMA_Peripheral
-     with Import, Address => System'To_Address (16#52000000#);
+     with Import, Address => MDMA_Base;
 
 end STM32_SVD.MDMA;

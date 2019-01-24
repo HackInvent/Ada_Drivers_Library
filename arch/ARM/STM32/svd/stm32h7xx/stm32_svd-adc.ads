@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,18 +13,8 @@ package STM32_SVD.ADC is
    -- Registers --
    ---------------
 
-   subtype ISR_ADRDY_Field is STM32_SVD.Bit;
-   subtype ISR_EOSMP_Field is STM32_SVD.Bit;
-   subtype ISR_EOC_Field is STM32_SVD.Bit;
-   subtype ISR_EOS_Field is STM32_SVD.Bit;
-   subtype ISR_OVR_Field is STM32_SVD.Bit;
-   subtype ISR_JEOC_Field is STM32_SVD.Bit;
-   subtype ISR_JEOS_Field is STM32_SVD.Bit;
-   --  ISR_AWD array element
-   subtype ISR_AWD_Element is STM32_SVD.Bit;
-
    --  ISR_AWD array
-   type ISR_AWD_Field_Array is array (1 .. 3) of ISR_AWD_Element
+   type ISR_AWD_Field_Array is array (1 .. 3) of Boolean
      with Component_Size => 1, Size => 3;
 
    --  Type definition for ISR_AWD
@@ -47,32 +37,30 @@ package STM32_SVD.ADC is
       Arr at 0 range 0 .. 2;
    end record;
 
-   subtype ISR_JQOVF_Field is STM32_SVD.Bit;
-
    --  ADC interrupt and status register
    type ISR_Register is record
       --  ADC ready flag
-      ADRDY          : ISR_ADRDY_Field := 16#0#;
+      ADRDY          : Boolean := False;
       --  ADC group regular end of sampling flag
-      EOSMP          : ISR_EOSMP_Field := 16#0#;
+      EOSMP          : Boolean := False;
       --  ADC group regular end of unitary conversion flag
-      EOC            : ISR_EOC_Field := 16#0#;
+      EOC            : Boolean := False;
       --  ADC group regular end of sequence conversions flag
-      EOS            : ISR_EOS_Field := 16#0#;
+      EOS            : Boolean := False;
       --  ADC group regular overrun flag
-      OVR            : ISR_OVR_Field := 16#0#;
+      OVR            : Boolean := False;
       --  ADC group injected end of unitary conversion flag
-      JEOC           : ISR_JEOC_Field := 16#0#;
+      JEOC           : Boolean := False;
       --  ADC group injected end of sequence conversions flag
-      JEOS           : ISR_JEOS_Field := 16#0#;
+      JEOS           : Boolean := False;
       --  ADC analog watchdog 1 flag
       AWD            : ISR_AWD_Field := (As_Array => False, Val => 16#0#);
       --  ADC group injected contexts queue overflow flag
-      JQOVF          : ISR_JQOVF_Field := 16#0#;
+      JQOVF          : Boolean := False;
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ISR_Register use record
@@ -88,46 +76,34 @@ package STM32_SVD.ADC is
       Reserved_11_31 at 0 range 11 .. 31;
    end record;
 
-   subtype IER_ADRDYIE_Field is STM32_SVD.Bit;
-   subtype IER_EOSMPIE_Field is STM32_SVD.Bit;
-   subtype IER_EOCIE_Field is STM32_SVD.Bit;
-   subtype IER_EOSIE_Field is STM32_SVD.Bit;
-   subtype IER_OVRIE_Field is STM32_SVD.Bit;
-   subtype IER_JEOCIE_Field is STM32_SVD.Bit;
-   subtype IER_JEOSIE_Field is STM32_SVD.Bit;
-   subtype IER_AWD1IE_Field is STM32_SVD.Bit;
-   subtype IER_AWD2IE_Field is STM32_SVD.Bit;
-   subtype IER_AWD3IE_Field is STM32_SVD.Bit;
-   subtype IER_JQOVFIE_Field is STM32_SVD.Bit;
-
    --  ADC interrupt enable register
    type IER_Register is record
       --  ADC ready interrupt
-      ADRDYIE        : IER_ADRDYIE_Field := 16#0#;
+      ADRDYIE        : Boolean := False;
       --  ADC group regular end of sampling interrupt
-      EOSMPIE        : IER_EOSMPIE_Field := 16#0#;
+      EOSMPIE        : Boolean := False;
       --  ADC group regular end of unitary conversion interrupt
-      EOCIE          : IER_EOCIE_Field := 16#0#;
+      EOCIE          : Boolean := False;
       --  ADC group regular end of sequence conversions interrupt
-      EOSIE          : IER_EOSIE_Field := 16#0#;
+      EOSIE          : Boolean := False;
       --  ADC group regular overrun interrupt
-      OVRIE          : IER_OVRIE_Field := 16#0#;
+      OVRIE          : Boolean := False;
       --  ADC group injected end of unitary conversion interrupt
-      JEOCIE         : IER_JEOCIE_Field := 16#0#;
+      JEOCIE         : Boolean := False;
       --  ADC group injected end of sequence conversions interrupt
-      JEOSIE         : IER_JEOSIE_Field := 16#0#;
+      JEOSIE         : Boolean := False;
       --  ADC analog watchdog 1 interrupt
-      AWD1IE         : IER_AWD1IE_Field := 16#0#;
+      AWD1IE         : Boolean := False;
       --  ADC analog watchdog 2 interrupt
-      AWD2IE         : IER_AWD2IE_Field := 16#0#;
+      AWD2IE         : Boolean := False;
       --  ADC analog watchdog 3 interrupt
-      AWD3IE         : IER_AWD3IE_Field := 16#0#;
+      AWD3IE         : Boolean := False;
       --  ADC group injected contexts queue overflow interrupt
-      JQOVFIE        : IER_JQOVFIE_Field := 16#0#;
+      JQOVFIE        : Boolean := False;
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IER_Register use record
@@ -145,19 +121,8 @@ package STM32_SVD.ADC is
       Reserved_11_31 at 0 range 11 .. 31;
    end record;
 
-   subtype CR_ADEN_Field is STM32_SVD.Bit;
-   subtype CR_ADDIS_Field is STM32_SVD.Bit;
-   subtype CR_ADSTART_Field is STM32_SVD.Bit;
-   subtype CR_JADSTART_Field is STM32_SVD.Bit;
-   subtype CR_ADSTP_Field is STM32_SVD.Bit;
-   subtype CR_JADSTP_Field is STM32_SVD.Bit;
-   subtype CR_BOOST_Field is STM32_SVD.Bit;
-   subtype CR_ADCALLIN_Field is STM32_SVD.Bit;
-   --  CR_LINCALRDYW array element
-   subtype CR_LINCALRDYW_Element is STM32_SVD.Bit;
-
    --  CR_LINCALRDYW array
-   type CR_LINCALRDYW_Field_Array is array (1 .. 6) of CR_LINCALRDYW_Element
+   type CR_LINCALRDYW_Field_Array is array (1 .. 6) of Boolean
      with Component_Size => 1, Size => 6;
 
    --  Type definition for CR_LINCALRDYW
@@ -180,48 +145,43 @@ package STM32_SVD.ADC is
       Arr at 0 range 0 .. 5;
    end record;
 
-   subtype CR_ADVREGEN_Field is STM32_SVD.Bit;
-   subtype CR_DEEPPWD_Field is STM32_SVD.Bit;
-   subtype CR_ADCALDIF_Field is STM32_SVD.Bit;
-   subtype CR_ADCAL_Field is STM32_SVD.Bit;
-
    --  ADC control register
    type CR_Register is record
       --  ADC enable
-      ADEN           : CR_ADEN_Field := 16#0#;
+      ADEN           : Boolean := False;
       --  ADC disable
-      ADDIS          : CR_ADDIS_Field := 16#0#;
+      ADDIS          : Boolean := False;
       --  ADC group regular conversion start
-      ADSTART        : CR_ADSTART_Field := 16#0#;
+      ADSTART        : Boolean := False;
       --  ADC group injected conversion start
-      JADSTART       : CR_JADSTART_Field := 16#0#;
+      JADSTART       : Boolean := False;
       --  ADC group regular conversion stop
-      ADSTP          : CR_ADSTP_Field := 16#0#;
+      ADSTP          : Boolean := False;
       --  ADC group injected conversion stop
-      JADSTP         : CR_JADSTP_Field := 16#0#;
+      JADSTP         : Boolean := False;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2 := 16#0#;
       --  Boost mode control
-      BOOST          : CR_BOOST_Field := 16#0#;
+      BOOST          : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  Linearity calibration
-      ADCALLIN       : CR_ADCALLIN_Field := 16#0#;
+      ADCALLIN       : Boolean := False;
       --  unspecified
       Reserved_17_21 : STM32_SVD.UInt5 := 16#0#;
       --  Linearity calibration ready Word 1
       LINCALRDYW     : CR_LINCALRDYW_Field :=
                         (As_Array => False, Val => 16#0#);
       --  ADC voltage regulator enable
-      ADVREGEN       : CR_ADVREGEN_Field := 16#0#;
+      ADVREGEN       : Boolean := False;
       --  ADC deep power down enable
-      DEEPPWD        : CR_DEEPPWD_Field := 16#0#;
+      DEEPPWD        : Boolean := False;
       --  ADC differential mode for calibration
-      ADCALDIF       : CR_ADCALDIF_Field := 16#0#;
+      ADCALDIF       : Boolean := False;
       --  ADC calibration
-      ADCAL          : CR_ADCAL_Field := 16#0#;
+      ADCAL          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -245,9 +205,6 @@ package STM32_SVD.ADC is
 
    subtype CCR_CKMODE_Field is STM32_SVD.UInt2;
    subtype CCR_PRESC_Field is STM32_SVD.UInt4;
-   subtype CCR_VREFEN_Field is STM32_SVD.Bit;
-   subtype CCR_TSEN_Field is STM32_SVD.Bit;
-   subtype CCR_VBATEN_Field is STM32_SVD.Bit;
 
    --  ADC common control register
    type CCR_Register is record
@@ -258,15 +215,15 @@ package STM32_SVD.ADC is
       --  ADC prescaler
       PRESC          : CCR_PRESC_Field := 16#0#;
       --  VREFINT enable
-      VREFEN         : CCR_VREFEN_Field := 16#0#;
+      VREFEN         : Boolean := False;
       --  Temperature sensor enable
-      TSEN           : CCR_TSEN_Field := 16#0#;
+      TSEN           : Boolean := False;
       --  VBAT enable
-      VBATEN         : CCR_VBATEN_Field := 16#0#;
+      VBATEN         : Boolean := False;
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCR_Register use record
@@ -283,19 +240,8 @@ package STM32_SVD.ADC is
    subtype CFGR_RES_Field is STM32_SVD.UInt2;
    subtype CFGR_EXTSEL_Field is STM32_SVD.UInt5;
    subtype CFGR_EXTEN_Field is STM32_SVD.UInt2;
-   subtype CFGR_OVRMOD_Field is STM32_SVD.Bit;
-   subtype CFGR_CONT_Field is STM32_SVD.Bit;
-   subtype CFGR_AUTDLY_Field is STM32_SVD.Bit;
-   subtype CFGR_DISCEN_Field is STM32_SVD.Bit;
    subtype CFGR_DISCNUM_Field is STM32_SVD.UInt3;
-   subtype CFGR_JDISCEN_Field is STM32_SVD.Bit;
-   subtype CFGR_JQM_Field is STM32_SVD.Bit;
-   subtype CFGR_AWD1SGL_Field is STM32_SVD.Bit;
-   subtype CFGR_AWD1EN_Field is STM32_SVD.Bit;
-   subtype CFGR_JAWD1EN_Field is STM32_SVD.Bit;
-   subtype CFGR_JAUTO_Field is STM32_SVD.Bit;
    subtype CFGR_AWDCH1CH_Field is STM32_SVD.UInt5;
-   subtype CFGR_JQDIS_Field is STM32_SVD.Bit;
 
    --  ADC configuration register 1
    type CFGR_Register is record
@@ -310,35 +256,35 @@ package STM32_SVD.ADC is
       --  ADC group regular external trigger polarity
       EXTEN          : CFGR_EXTEN_Field := 16#0#;
       --  ADC group regular overrun configuration
-      OVRMOD         : CFGR_OVRMOD_Field := 16#0#;
+      OVRMOD         : Boolean := False;
       --  ADC group regular continuous conversion mode
-      CONT           : CFGR_CONT_Field := 16#0#;
+      CONT           : Boolean := False;
       --  ADC low power auto wait
-      AUTDLY         : CFGR_AUTDLY_Field := 16#0#;
+      AUTDLY         : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  ADC group regular sequencer discontinuous mode
-      DISCEN         : CFGR_DISCEN_Field := 16#0#;
+      DISCEN         : Boolean := False;
       --  ADC group regular sequencer discontinuous number of ranks
       DISCNUM        : CFGR_DISCNUM_Field := 16#0#;
       --  ADC group injected sequencer discontinuous mode
-      JDISCEN        : CFGR_JDISCEN_Field := 16#0#;
+      JDISCEN        : Boolean := False;
       --  ADC group injected contexts queue mode
-      JQM            : CFGR_JQM_Field := 16#0#;
+      JQM            : Boolean := False;
       --  ADC analog watchdog 1 monitoring a single channel or all channels
-      AWD1SGL        : CFGR_AWD1SGL_Field := 16#0#;
+      AWD1SGL        : Boolean := False;
       --  ADC analog watchdog 1 enable on scope ADC group regular
-      AWD1EN         : CFGR_AWD1EN_Field := 16#0#;
+      AWD1EN         : Boolean := False;
       --  ADC analog watchdog 1 enable on scope ADC group injected
-      JAWD1EN        : CFGR_JAWD1EN_Field := 16#0#;
+      JAWD1EN        : Boolean := False;
       --  ADC group injected automatic trigger mode
-      JAUTO          : CFGR_JAUTO_Field := 16#0#;
+      JAUTO          : Boolean := False;
       --  ADC analog watchdog 1 monitored channel selection
       AWDCH1CH       : CFGR_AWDCH1CH_Field := 16#0#;
       --  ADC group injected contexts queue disable
-      JQDIS          : CFGR_JQDIS_Field := 16#0#;
+      JQDIS          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CFGR_Register use record
@@ -363,16 +309,10 @@ package STM32_SVD.ADC is
       JQDIS          at 0 range 31 .. 31;
    end record;
 
-   subtype CFGR2_ROVSE_Field is STM32_SVD.Bit;
-   subtype CFGR2_JOVSE_Field is STM32_SVD.Bit;
    subtype CFGR2_OVSS_Field is STM32_SVD.UInt4;
-   subtype CFGR2_TROVS_Field is STM32_SVD.Bit;
-   subtype CFGR2_ROVSM_Field is STM32_SVD.Bit;
-   --  CFGR2_RSHIFT array element
-   subtype CFGR2_RSHIFT_Element is STM32_SVD.Bit;
 
    --  CFGR2_RSHIFT array
-   type CFGR2_RSHIFT_Field_Array is array (1 .. 4) of CFGR2_RSHIFT_Element
+   type CFGR2_RSHIFT_Field_Array is array (1 .. 4) of Boolean
      with Component_Size => 1, Size => 4;
 
    --  Type definition for CFGR2_RSHIFT
@@ -401,18 +341,18 @@ package STM32_SVD.ADC is
    --  ADC configuration register 2
    type CFGR2_Register is record
       --  ADC oversampler enable on scope ADC group regular
-      ROVSE          : CFGR2_ROVSE_Field := 16#0#;
+      ROVSE          : Boolean := False;
       --  ADC oversampler enable on scope ADC group injected
-      JOVSE          : CFGR2_JOVSE_Field := 16#0#;
+      JOVSE          : Boolean := False;
       --  unspecified
       Reserved_2_4   : STM32_SVD.UInt3 := 16#0#;
       --  ADC oversampling shift
       OVSS           : CFGR2_OVSS_Field := 16#0#;
       --  ADC oversampling discontinuous mode (triggered mode) for ADC group
       --  regular
-      TROVS          : CFGR2_TROVS_Field := 16#0#;
+      TROVS          : Boolean := False;
       --  Regular Oversampling mode
-      ROVSM          : CFGR2_ROVSM_Field := 16#0#;
+      ROVSM          : Boolean := False;
       --  Right-shift data after Offset 1 correction
       RSHIFT         : CFGR2_RSHIFT_Field :=
                         (As_Array => False, Val => 16#0#);
@@ -425,7 +365,7 @@ package STM32_SVD.ADC is
       --  Left shift factor
       LSHIFT         : CFGR2_LSHIFT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CFGR2_Register use record
@@ -478,7 +418,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SMPR1_Register use record
@@ -521,7 +461,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SMPR2_Register use record
@@ -538,7 +478,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PCSEL_Register use record
@@ -555,7 +495,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#3#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for LTR1_Register use record
@@ -572,7 +512,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#3#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for LHTR1_Register use record
@@ -609,7 +549,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SQR1_Register use record
@@ -654,7 +594,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SQR2_Register use record
@@ -699,7 +639,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SQR3_Register use record
@@ -729,7 +669,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SQR4_Register use record
@@ -748,7 +688,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DR_Register use record
@@ -787,7 +727,7 @@ package STM32_SVD.ADC is
       --  ADC group injected sequencer rank 4
       JSQ4           : JSQR_JSQ4_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for JSQR_Register use record
@@ -805,7 +745,6 @@ package STM32_SVD.ADC is
 
    subtype OFR_OFFSET1_Field is STM32_SVD.UInt26;
    subtype OFR_OFFSET1_CH_Field is STM32_SVD.UInt5;
-   subtype OFR_SSATE_Field is STM32_SVD.Bit;
 
    --  ADC offset number 1 register
    type OFR_Register is record
@@ -814,9 +753,9 @@ package STM32_SVD.ADC is
       --  ADC offset number 1 channel selection
       OFFSET1_CH : OFR_OFFSET1_CH_Field := 16#0#;
       --  ADC offset number 1 enable
-      SSATE      : OFR_SSATE_Field := 16#0#;
+      SSATE      : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OFR_Register use record
@@ -834,7 +773,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AWD2CR_Register use record
@@ -853,7 +792,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AWD3CR_Register use record
@@ -871,7 +810,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for LTR2_Register use record
@@ -888,7 +827,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HTR2_Register use record
@@ -905,7 +844,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for LTR3_Register use record
@@ -922,7 +861,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HTR3_Register use record
@@ -939,7 +878,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DIFSEL_Register use record
@@ -961,7 +900,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CALFACT_Register use record
@@ -980,7 +919,7 @@ package STM32_SVD.ADC is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CALFACT2_Register use record
@@ -988,81 +927,58 @@ package STM32_SVD.ADC is
       Reserved_30_31 at 0 range 30 .. 31;
    end record;
 
-   subtype CSR_ADRDY_MST_Field is STM32_SVD.Bit;
-   subtype CSR_EOSMP_MST_Field is STM32_SVD.Bit;
-   subtype CSR_EOC_MST_Field is STM32_SVD.Bit;
-   subtype CSR_EOS_MST_Field is STM32_SVD.Bit;
-   subtype CSR_OVR_MST_Field is STM32_SVD.Bit;
-   subtype CSR_JEOC_MST_Field is STM32_SVD.Bit;
-   subtype CSR_JEOS_MST_Field is STM32_SVD.Bit;
-   subtype CSR_AWD1_MST_Field is STM32_SVD.Bit;
-   subtype CSR_AWD2_MST_Field is STM32_SVD.Bit;
-   subtype CSR_AWD3_MST_Field is STM32_SVD.Bit;
-   subtype CSR_JQOVF_MST_Field is STM32_SVD.Bit;
-   subtype CSR_ADRDY_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_EOSMP_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_EOC_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_EOS_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_OVR_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_JEOC_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_JEOS_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_AWD1_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_AWD2_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_AWD3_SLV_Field is STM32_SVD.Bit;
-   subtype CSR_JQOVF_SLV_Field is STM32_SVD.Bit;
-
    --  ADC Common status register
    type CSR_Register is record
       --  Read-only. Master ADC ready
-      ADRDY_MST      : CSR_ADRDY_MST_Field;
+      ADRDY_MST      : Boolean;
       --  Read-only. End of Sampling phase flag of the master ADC
-      EOSMP_MST      : CSR_EOSMP_MST_Field;
+      EOSMP_MST      : Boolean;
       --  Read-only. End of regular conversion of the master ADC
-      EOC_MST        : CSR_EOC_MST_Field;
+      EOC_MST        : Boolean;
       --  Read-only. End of regular sequence flag of the master ADC
-      EOS_MST        : CSR_EOS_MST_Field;
+      EOS_MST        : Boolean;
       --  Read-only. Overrun flag of the master ADC
-      OVR_MST        : CSR_OVR_MST_Field;
+      OVR_MST        : Boolean;
       --  Read-only. End of injected conversion flag of the master ADC
-      JEOC_MST       : CSR_JEOC_MST_Field;
+      JEOC_MST       : Boolean;
       --  Read-only. End of injected sequence flag of the master ADC
-      JEOS_MST       : CSR_JEOS_MST_Field;
+      JEOS_MST       : Boolean;
       --  Read-only. Analog watchdog 1 flag of the master ADC
-      AWD1_MST       : CSR_AWD1_MST_Field;
+      AWD1_MST       : Boolean;
       --  Read-only. Analog watchdog 2 flag of the master ADC
-      AWD2_MST       : CSR_AWD2_MST_Field;
+      AWD2_MST       : Boolean;
       --  Read-only. Analog watchdog 3 flag of the master ADC
-      AWD3_MST       : CSR_AWD3_MST_Field;
+      AWD3_MST       : Boolean;
       --  Read-only. Injected Context Queue Overflow flag of the master ADC
-      JQOVF_MST      : CSR_JQOVF_MST_Field;
+      JQOVF_MST      : Boolean;
       --  unspecified
       Reserved_11_15 : STM32_SVD.UInt5;
       --  Read-only. Slave ADC ready
-      ADRDY_SLV      : CSR_ADRDY_SLV_Field;
+      ADRDY_SLV      : Boolean;
       --  Read-only. End of Sampling phase flag of the slave ADC
-      EOSMP_SLV      : CSR_EOSMP_SLV_Field;
+      EOSMP_SLV      : Boolean;
       --  Read-only. End of regular conversion of the slave ADC
-      EOC_SLV        : CSR_EOC_SLV_Field;
+      EOC_SLV        : Boolean;
       --  Read-only. End of regular sequence flag of the slave ADC
-      EOS_SLV        : CSR_EOS_SLV_Field;
+      EOS_SLV        : Boolean;
       --  Read-only. Overrun flag of the slave ADC
-      OVR_SLV        : CSR_OVR_SLV_Field;
+      OVR_SLV        : Boolean;
       --  Read-only. End of injected conversion flag of the slave ADC
-      JEOC_SLV       : CSR_JEOC_SLV_Field;
+      JEOC_SLV       : Boolean;
       --  Read-only. End of injected sequence flag of the slave ADC
-      JEOS_SLV       : CSR_JEOS_SLV_Field;
+      JEOS_SLV       : Boolean;
       --  Read-only. Analog watchdog 1 flag of the slave ADC
-      AWD1_SLV       : CSR_AWD1_SLV_Field;
+      AWD1_SLV       : Boolean;
       --  Read-only. Analog watchdog 2 flag of the slave ADC
-      AWD2_SLV       : CSR_AWD2_SLV_Field;
+      AWD2_SLV       : Boolean;
       --  Read-only. Analog watchdog 3 flag of the slave ADC
-      AWD3_SLV       : CSR_AWD3_SLV_Field;
+      AWD3_SLV       : Boolean;
       --  Read-only. Injected Context Queue Overflow flag of the slave ADC
-      JQOVF_SLV      : CSR_JQOVF_SLV_Field;
+      JQOVF_SLV      : Boolean;
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CSR_Register use record
@@ -1113,15 +1029,15 @@ package STM32_SVD.ADC is
       --  ADC prescaler
       PRESC          : CCR_PRESC_Field := 16#0#;
       --  VREFINT enable
-      VREFEN         : CCR_VREFEN_Field := 16#0#;
+      VREFEN         : Boolean := False;
       --  Temperature sensor enable
-      TSEN           : CCR_TSEN_Field := 16#0#;
+      TSEN           : Boolean := False;
       --  VBAT enable
-      VBATEN         : CCR_VBATEN_Field := 16#0#;
+      VBATEN         : Boolean := False;
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCR_Register_1 use record
@@ -1148,7 +1064,7 @@ package STM32_SVD.ADC is
       --  Read-only. Regular data of the slave ADC
       RDATA_SLV : CDR_RDATA_SLV_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CDR_Register use record
@@ -1161,9 +1077,7 @@ package STM32_SVD.ADC is
    -----------------
 
    type ADC1_Disc is
-     (
-      R,
-      Cr);
+     (R,C);
 
    --  Analog to Digital Converter
    type ADC1_Peripheral
@@ -1234,12 +1148,12 @@ package STM32_SVD.ADC is
       --  ADC Calibration Factor register 2
       CALFACT2 : aliased CALFACT2_Register;
       case Discriminent is
-         when Cr =>
-            --  ADC common control register
-            CCR : aliased CCR_Register;
          when R =>
             --  ADC control register
             CR : aliased CR_Register;
+         when C =>
+            --  ADC common control register
+            CCR : aliased CCR_Register;
       end case;
    end record
      with Unchecked_Union, Volatile;
@@ -1283,15 +1197,15 @@ package STM32_SVD.ADC is
 
    --  Analog to Digital Converter
    ADC1_Periph : aliased ADC1_Peripheral
-     with Import, Address => System'To_Address (16#40022000#);
+     with Import, Address => ADC1_Base;
 
    --  Analog to Digital Converter
    ADC2_Periph : aliased ADC1_Peripheral
-     with Import, Address => System'To_Address (16#40022100#);
+     with Import, Address => ADC2_Base;
 
    --  Analog to Digital Converter
    ADC3_Periph : aliased ADC1_Peripheral
-     with Import, Address => System'To_Address (16#58026000#);
+     with Import, Address => ADC3_Base;
 
    --  Analog-to-Digital Converter
    type ADC12_Common_Peripheral is record
@@ -1312,10 +1226,10 @@ package STM32_SVD.ADC is
 
    --  Analog-to-Digital Converter
    ADC12_Common_Periph : aliased ADC12_Common_Peripheral
-     with Import, Address => System'To_Address (16#40022300#);
+     with Import, Address => ADC12_Common_Base;
 
    --  Analog-to-Digital Converter
    ADC3_Common_Periph : aliased ADC12_Common_Peripheral
-     with Import, Address => System'To_Address (16#58026300#);
+     with Import, Address => ADC3_Common_Base;
 
 end STM32_SVD.ADC;

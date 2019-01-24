@@ -76,9 +76,9 @@ package body STM32.Device is
 
 
       --  activate the HSE clock and wait until it's ready
-      RCC_Periph.CR.HSEON := 16#1#;
+      RCC_Periph.CR.HSEON := True;
       loop
-            exit when RCC_Periph.CR.HSERDY = 1;
+            exit when RCC_Periph.CR.HSERDY = True;
       end loop;
 
       --  Configure flash
@@ -104,17 +104,17 @@ package body STM32.Device is
       --  configure the PLL
       ---------------------
       --  Reset the PLL
-      RCC_Periph.CR.PLL1ON := 0;
+      RCC_Periph.CR.PLL1ON := False;
       loop
-            exit when RCC_Periph.CR.PLL1ON = 0;
+            exit when RCC_Periph.CR.PLL1ON = False;
       end loop;
-      RCC_Periph.CR.PLL2ON := 0;
+      RCC_Periph.CR.PLL2ON := False;
       loop
-            exit when RCC_Periph.CR.PLL2ON = 0;
+            exit when RCC_Periph.CR.PLL2ON = False;
       end loop;
-      RCC_Periph.CR.PLL3ON := 0;
+      RCC_Periph.CR.PLL3ON := False;
       loop
-            exit when RCC_Periph.CR.PLL3ON = 0;
+            exit when RCC_Periph.CR.PLL3ON = False;
       end loop;
 
       --  Setlect the source of the PLL
@@ -126,9 +126,9 @@ package body STM32.Device is
       RCC_Periph.PLLCFGR.PLL2RGE  := 2; --  range from 4 to 8MHz
 
       --  Set VCO selection to 192 to 836 MHz (default after reset)
-      RCC_Periph.PLLCFGR.PLL1VCOSEL := 0;
-      RCC_Periph.PLLCFGR.PLL2VCOSEL := 0;
-      RCC_Periph.PLLCFGR.PLL3VCOSEL := 0;
+      RCC_Periph.PLLCFGR.PLL1VCOSEL := False;
+      RCC_Periph.PLLCFGR.PLL2VCOSEL := False;
+      RCC_Periph.PLLCFGR.PLL3VCOSEL := False;
 
       --  PLL_M
       RCC_Periph.PLLCKSELR.DIVM1  := 4; --  DIV4
@@ -152,17 +152,17 @@ package body STM32.Device is
       RCC_Periph.PLL3DIVR.DIVR3   := 2 - 1; --  PLL_R = 2
 
       --  Enable the PLL
-      RCC_Periph.CR.PLL1ON := 1;
+      RCC_Periph.CR.PLL1ON := True;
       loop
-            exit when RCC_Periph.CR.PLL1ON = 1;
+            exit when RCC_Periph.CR.PLL1ON = True;
       end loop;
-      RCC_Periph.CR.PLL2ON := 1;
+      RCC_Periph.CR.PLL2ON := True;
       loop
-            exit when RCC_Periph.CR.PLL2ON = 1;
+            exit when RCC_Periph.CR.PLL2ON = True;
       end loop;
-      RCC_Periph.CR.PLL3ON := 1;
+      RCC_Periph.CR.PLL3ON := True;
       loop
-            exit when RCC_Periph.CR.PLL3ON = 1;
+            exit when RCC_Periph.CR.PLL3ON = True;
       end loop;
 
       --  switch the clock to the PLL1 (info: HSE = 2)
@@ -178,27 +178,27 @@ package body STM32.Device is
    procedure Enable_Clock (This : aliased in out GPIO_Port) is
    begin
       if This'Address = GPIOA_Base then
-         RCC_Periph.AHB4ENR.GPIOAEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOAEN := True;
       elsif This'Address = GPIOB_Base then
-         RCC_Periph.AHB4ENR.GPIOBEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOBEN := True;
       elsif This'Address = GPIOC_Base then
-         RCC_Periph.AHB4ENR.GPIOCEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOCEN := True;
       elsif This'Address = GPIOD_Base then
-         RCC_Periph.AHB4ENR.GPIODEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIODEN := True;
       elsif This'Address = GPIOE_Base then
-         RCC_Periph.AHB4ENR.GPIOEEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOEEN := True;
       elsif This'Address = GPIOF_Base then
-         RCC_Periph.AHB4ENR.GPIOFEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOFEN := True;
       elsif This'Address = GPIOG_Base then
-         RCC_Periph.AHB4ENR.GPIOGEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOGEN := True;
       elsif This'Address = GPIOH_Base then
-         RCC_Periph.AHB4ENR.GPIOHEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOHEN := True;
       elsif This'Address = GPIOI_Base then
-         RCC_Periph.AHB4ENR.GPIOIEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOIEN := True;
       elsif This'Address = GPIOJ_Base then
-         RCC_Periph.AHB4ENR.GPIOJEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOJEN := True;
       elsif This'Address = GPIOK_Base then
-         RCC_Periph.AHB4ENR.GPIOKEN := 16#1#;
+         RCC_Periph.AHB4ENR.GPIOKEN := True;
       else
          raise Unknown_Device;
       end if;
@@ -233,38 +233,38 @@ package body STM32.Device is
    procedure Reset (This : aliased in out GPIO_Port) is
    begin
       if This'Address = GPIOA_Base then
-         RCC_Periph.AHB4RSTR.GPIOARST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOARST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOARST := True;
+         RCC_Periph.AHB4RSTR.GPIOARST := False;
       elsif This'Address = GPIOB_Base then
-         RCC_Periph.AHB4RSTR.GPIOBRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOBRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOBRST := True;
+         RCC_Periph.AHB4RSTR.GPIOBRST := False;
       elsif This'Address = GPIOC_Base then
-         RCC_Periph.AHB4RSTR.GPIOCRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOCRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOCRST := True;
+         RCC_Periph.AHB4RSTR.GPIOCRST := False;
       elsif This'Address = GPIOD_Base then
-         RCC_Periph.AHB4RSTR.GPIODRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIODRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIODRST := True;
+         RCC_Periph.AHB4RSTR.GPIODRST := False;
       elsif This'Address = GPIOE_Base then
-         RCC_Periph.AHB4RSTR.GPIOERST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOERST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOERST := True;
+         RCC_Periph.AHB4RSTR.GPIOERST := False;
       elsif This'Address = GPIOF_Base then
-         RCC_Periph.AHB4RSTR.GPIOFRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOFRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOFRST := True;
+         RCC_Periph.AHB4RSTR.GPIOFRST := False;
       elsif This'Address = GPIOG_Base then
-         RCC_Periph.AHB4RSTR.GPIOGRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOGRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOGRST := True;
+         RCC_Periph.AHB4RSTR.GPIOGRST := False;
       elsif This'Address = GPIOH_Base then
-         RCC_Periph.AHB4RSTR.GPIOHRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOHRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOHRST := True;
+         RCC_Periph.AHB4RSTR.GPIOHRST := False;
       elsif This'Address = GPIOI_Base then
-         RCC_Periph.AHB4RSTR.GPIOIRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOIRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOIRST := True;
+         RCC_Periph.AHB4RSTR.GPIOIRST := False;
       elsif This'Address = GPIOJ_Base then
-         RCC_Periph.AHB4RSTR.GPIOJRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOJRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOJRST := True;
+         RCC_Periph.AHB4RSTR.GPIOJRST := False;
       elsif This'Address = GPIOK_Base then
-         RCC_Periph.AHB4RSTR.GPIOKRST := 16#1#;
-         RCC_Periph.AHB4RSTR.GPIOKRST := 16#0#;
+         RCC_Periph.AHB4RSTR.GPIOKRST := True;
+         RCC_Periph.AHB4RSTR.GPIOKRST := False;
       else
          raise Unknown_Device;
       end if;
@@ -557,57 +557,57 @@ package body STM32.Device is
 --        end case;
 --     end Reset;
 
-   ------------------
-   -- Enable_Clock --
-   ------------------
---
---     procedure Enable_Clock (This : SPI_Port'Class) is
---     begin
---        if This.Periph.all'Address = SPI1_Base then
---           RCC_Periph.APB2ENR.SPI1EN := True;
---        elsif This.Periph.all'Address = SPI2_Base then
---           RCC_Periph.APB1ENR.SPI2EN := True;
---        elsif This.Periph.all'Address = SPI3_Base then
---           RCC_Periph.APB1ENR.SPI3EN := True;
---        elsif This.Periph.all'Address = SPI4_Base then
---           RCC_Periph.APB2ENR.SPI4ENR := True;
---        elsif This.Periph.all'Address = SPI5_Base then
---           RCC_Periph.APB2ENR.SPI5ENR := True;
---        elsif This.Periph.all'Address = SPI6_Base then
---           RCC_Periph.APB2ENR.SPI6ENR := True;
---        else
---           raise Unknown_Device;
---        end if;
---     end Enable_Clock;
+   --------------------
+   --   Enable_Clock --
+   --------------------
 
-   -----------
-   -- Reset --
-   -----------
+   procedure Enable_Clock (This : SPI_Port'Class) is
+   begin
+      if This.Periph.all'Address = SPI1_Base then
+         RCC_Periph.APB2ENR.SPI1EN := True;
+      elsif This.Periph.all'Address = SPI2_Base then
+         RCC_Periph.APB1LENR.SPI2EN := True;
+      elsif This.Periph.all'Address = SPI3_Base then
+         RCC_Periph.APB1LENR.SPI3EN := True;
+      elsif This.Periph.all'Address = SPI4_Base then
+         RCC_Periph.APB2ENR.SPI4EN := True;
+      elsif This.Periph.all'Address = SPI5_Base then
+         RCC_Periph.APB2ENR.SPI5EN := True;
+      elsif This.Periph.all'Address = SPI6_Base then
+         RCC_Periph.APB4ENR.SPI6EN := True;
+      else
+         raise Unknown_Device;
+      end if;
+   end Enable_Clock;
 
---     procedure Reset (This : SPI_Port'Class) is
---     begin
---        if This.Periph.all'Address = SPI1_Base then
---           RCC_Periph.APB2RSTR.SPI1RST := True;
---           RCC_Periph.APB2RSTR.SPI1RST := False;
---        elsif This.Periph.all'Address = SPI2_Base then
---           RCC_Periph.APB1RSTR.SPI2RST := True;
---           RCC_Periph.APB1RSTR.SPI2RST := False;
---        elsif This.Periph.all'Address = SPI3_Base then
---           RCC_Periph.APB1RSTR.SPI3RST := True;
---           RCC_Periph.APB1RSTR.SPI3RST := False;
---        elsif This.Periph.all'Address = SPI4_Base then
---           RCC_Periph.APB2RSTR.SPI4RST := True;
---           RCC_Periph.APB2RSTR.SPI4RST := False;
---        elsif This.Periph.all'Address = SPI5_Base then
---           RCC_Periph.APB2RSTR.SPI5RST := True;
---           RCC_Periph.APB2RSTR.SPI5RST := False;
---        elsif This.Periph.all'Address = SPI6_Base then
---           RCC_Periph.APB2RSTR.SPI6RST := True;
---           RCC_Periph.APB2RSTR.SPI6RST := False;
---        else
---           raise Unknown_Device;
---        end if;
---     end Reset;
+   -------------
+   --   Reset --
+   -------------
+
+   procedure Reset (This : SPI_Port'Class) is
+   begin
+      if This.Periph.all'Address = SPI1_Base then
+         RCC_Periph.APB2RSTR.SPI1RST := True;
+         RCC_Periph.APB2RSTR.SPI1RST := False;
+      elsif This.Periph.all'Address = SPI2_Base then
+         RCC_Periph.APB1LRSTR.SPI2RST := True;
+         RCC_Periph.APB1LRSTR.SPI2RST := False;
+      elsif This.Periph.all'Address = SPI3_Base then
+         RCC_Periph.APB1LRSTR.SPI3RST := True;
+         RCC_Periph.APB1LRSTR.SPI3RST := False;
+      elsif This.Periph.all'Address = SPI4_Base then
+         RCC_Periph.APB2RSTR.SPI4RST := True;
+         RCC_Periph.APB2RSTR.SPI4RST := False;
+      elsif This.Periph.all'Address = SPI5_Base then
+         RCC_Periph.APB2RSTR.SPI5RST := True;
+         RCC_Periph.APB2RSTR.SPI5RST := False;
+      elsif This.Periph.all'Address = SPI6_Base then
+         RCC_Periph.APB4RSTR.SPI6RST := True;
+         RCC_Periph.APB4RSTR.SPI6RST := False;
+      else
+         raise Unknown_Device;
+      end if;
+   end Reset;
 
    ------------------
    -- Enable_Clock --

@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,24 +13,19 @@ package STM32_SVD.PWR is
    -- Registers --
    ---------------
 
-   subtype PWR_CR1_LPDS_Field is STM32_SVD.Bit;
-   subtype PWR_CR1_PVDE_Field is STM32_SVD.Bit;
    subtype PWR_CR1_PLS_Field is STM32_SVD.UInt3;
-   subtype PWR_CR1_DBP_Field is STM32_SVD.Bit;
-   subtype PWR_CR1_FLPS_Field is STM32_SVD.Bit;
    subtype PWR_CR1_SVOS_Field is STM32_SVD.UInt2;
-   subtype PWR_CR1_AVDEN_Field is STM32_SVD.Bit;
    subtype PWR_CR1_ALS_Field is STM32_SVD.UInt2;
 
    --  PWR control register 1
    type PWR_CR1_Register is record
       --  Low-power Deepsleep with SVOS3 (SVOS4 and SVOS5 always use low-power,
       --  regardless of the setting of this bit)
-      LPDS           : PWR_CR1_LPDS_Field := 16#0#;
+      LPDS           : Boolean := False;
       --  unspecified
       Reserved_1_3   : STM32_SVD.UInt3 := 16#0#;
       --  Programmable voltage detector enable
-      PVDE           : PWR_CR1_PVDE_Field := 16#0#;
+      PVDE           : Boolean := False;
       --  Programmable voltage detector level selection These bits select the
       --  voltage threshold detected by the PVD. Note: Refer to Section
       --  Electrical characteristics of the product datasheet for more details.
@@ -40,12 +35,12 @@ package STM32_SVD.PWR is
       --  and MOEN bits in PWR_CR2 register, are protected against parasitic
       --  write access. This bit must be set to enable write access to these
       --  registers.
-      DBP            : PWR_CR1_DBP_Field := 16#0#;
+      DBP            : Boolean := False;
       --  Flash low-power mode in DStop mode This bit allows to obtain the best
       --  trade-off between low-power consumption and restart time when exiting
       --  from DStop mode. When it is set, the Flash memory enters low-power
       --  mode when D1 domain is in DStop mode.
-      FLPS           : PWR_CR1_FLPS_Field := 16#0#;
+      FLPS           : Boolean := False;
       --  unspecified
       Reserved_10_13 : STM32_SVD.UInt4 := 16#0#;
       --  System Stop mode voltage scaling selection These bits control the
@@ -53,14 +48,14 @@ package STM32_SVD.PWR is
       --  between power consumption and performance.
       SVOS           : PWR_CR1_SVOS_Field := 16#3#;
       --  Peripheral voltage monitor on VDDA enable
-      AVDEN          : PWR_CR1_AVDEN_Field := 16#0#;
+      AVDEN          : Boolean := False;
       --  Analog voltage detector level selection These bits select the voltage
       --  threshold detected by the AVD.
       ALS            : PWR_CR1_ALS_Field := 16#0#;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#1E00#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_CR1_Register use record
@@ -77,10 +72,7 @@ package STM32_SVD.PWR is
       Reserved_19_31 at 0 range 19 .. 31;
    end record;
 
-   subtype PWR_CSR1_PVDO_Field is STM32_SVD.Bit;
-   subtype PWR_CSR1_ACTVOSRDY_Field is STM32_SVD.Bit;
    subtype PWR_CSR1_ACTVOS_Field is STM32_SVD.UInt2;
-   subtype PWR_CSR1_AVDO_Field is STM32_SVD.Bit;
 
    --  PWR control status register 1
    type PWR_CSR1_Register is record
@@ -90,14 +82,14 @@ package STM32_SVD.PWR is
       --  cleared by hardware. It is valid only if the PVD has been enabled by
       --  the PVDE bit. Note: since the PVD is disabled in Standby mode, this
       --  bit is equal to 0 after Standby or reset until the PVDE bit is set.
-      PVDO           : PWR_CSR1_PVDO_Field;
+      PVDO           : Boolean;
       --  unspecified
       Reserved_5_12  : STM32_SVD.Byte;
       --  Read-only. Voltage levels ready bit for currently used VOS and
       --  SDLEVEL This bit is set to 1 by hardware when the voltage regulator
       --  and the SD converter are both disabled and Bypass mode is selected in
       --  PWR control register 3 (PWR_CR3).
-      ACTVOSRDY      : PWR_CSR1_ACTVOSRDY_Field;
+      ACTVOSRDY      : Boolean;
       --  Read-only. VOS currently applied for VCORE voltage scaling selection.
       --  These bits reflect the last VOS value applied to the PMU.
       ACTVOS         : PWR_CSR1_ACTVOS_Field;
@@ -105,11 +97,11 @@ package STM32_SVD.PWR is
       --  cleared by hardware. It is valid only if AVD on VDDA is enabled by
       --  the AVDEN bit. Note: Since the AVD is disabled in Standby mode, this
       --  bit is equal to 0 after Standby or reset until the AVDEN bit is set.
-      AVDO           : PWR_CSR1_AVDO_Field;
+      AVDO           : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_CSR1_Register use record
@@ -121,14 +113,6 @@ package STM32_SVD.PWR is
       AVDO           at 0 range 16 .. 16;
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
-
-   subtype PWR_CR2_BREN_Field is STM32_SVD.Bit;
-   subtype PWR_CR2_MONEN_Field is STM32_SVD.Bit;
-   subtype PWR_CR2_BRRDY_Field is STM32_SVD.Bit;
-   subtype PWR_CR2_VBATL_Field is STM32_SVD.Bit;
-   subtype PWR_CR2_VBATH_Field is STM32_SVD.Bit;
-   subtype PWR_CR2_TEMPL_Field is STM32_SVD.Bit;
-   subtype PWR_CR2_TEMPH_Field is STM32_SVD.Bit;
 
    --  This register is not reset by wakeup from Standby mode, RESET signal and
    --  VDD POR. It is only reset by VSW POR and VSWRST reset. This register
@@ -145,31 +129,31 @@ package STM32_SVD.PWR is
       --  application must wait till the Backup Regulator Ready flag (BRRDY) is
       --  set to indicate that the data written into the SRAM will be
       --  maintained in Standby and VBAT modes.
-      BREN           : PWR_CR2_BREN_Field := 16#0#;
+      BREN           : Boolean := False;
       --  unspecified
       Reserved_1_3   : STM32_SVD.UInt3 := 16#0#;
       --  VBAT and temperature monitoring enable When set, the VBAT supply and
       --  temperature monitoring is enabled.
-      MONEN          : PWR_CR2_MONEN_Field := 16#0#;
+      MONEN          : Boolean := False;
       --  unspecified
       Reserved_5_15  : STM32_SVD.UInt11 := 16#0#;
       --  Read-only. Backup regulator ready This bit is set by hardware to
       --  indicate that the Backup regulator is ready.
-      BRRDY          : PWR_CR2_BRRDY_Field := 16#0#;
+      BRRDY          : Boolean := False;
       --  unspecified
       Reserved_17_19 : STM32_SVD.UInt3 := 16#0#;
       --  Read-only. VBAT level monitoring versus low threshold
-      VBATL          : PWR_CR2_VBATL_Field := 16#0#;
+      VBATL          : Boolean := False;
       --  Read-only. VBAT level monitoring versus high threshold
-      VBATH          : PWR_CR2_VBATH_Field := 16#0#;
+      VBATH          : Boolean := False;
       --  Read-only. Temperature level monitoring versus low threshold
-      TEMPL          : PWR_CR2_TEMPL_Field := 16#0#;
+      TEMPL          : Boolean := False;
       --  Read-only. Temperature level monitoring versus high threshold
-      TEMPH          : PWR_CR2_TEMPH_Field := 16#0#;
+      TEMPH          : Boolean := False;
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_CR2_Register use record
@@ -186,15 +170,6 @@ package STM32_SVD.PWR is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype PWR_CR3_BYPASS_Field is STM32_SVD.Bit;
-   subtype PWR_CR3_LDOEN_Field is STM32_SVD.Bit;
-   subtype PWR_CR3_SDEN_Field is STM32_SVD.Bit;
-   subtype PWR_CR3_VBE_Field is STM32_SVD.Bit;
-   subtype PWR_CR3_VBRS_Field is STM32_SVD.Bit;
-   subtype PWR_CR3_USB33DEN_Field is STM32_SVD.Bit;
-   subtype PWR_CR3_USBREGEN_Field is STM32_SVD.Bit;
-   subtype PWR_CR3_USB33RDY_Field is STM32_SVD.Bit;
-
    --  Reset only by POR only, not reset by wakeup from Standby mode and RESET
    --  pad. The lower byte of this register is written once after POR and shall
    --  be written before changing VOS level or ck_sys clock frequency. No
@@ -208,29 +183,29 @@ package STM32_SVD.PWR is
    --  a new value.
    type PWR_CR3_Register is record
       --  Power management unit bypass
-      BYPASS         : PWR_CR3_BYPASS_Field := 16#0#;
+      BYPASS         : Boolean := False;
       --  Low drop-out regulator enable
-      LDOEN          : PWR_CR3_LDOEN_Field := 16#1#;
+      LDOEN          : Boolean := True;
       --  SD converter Enable
-      SDEN           : PWR_CR3_SDEN_Field := 16#1#;
+      SDEN           : Boolean := True;
       --  unspecified
       Reserved_3_7   : STM32_SVD.UInt5 := 16#0#;
       --  VBAT charging enable
-      VBE            : PWR_CR3_VBE_Field := 16#0#;
+      VBE            : Boolean := False;
       --  VBAT charging resistor selection
-      VBRS           : PWR_CR3_VBRS_Field := 16#0#;
+      VBRS           : Boolean := False;
       --  unspecified
       Reserved_10_23 : STM32_SVD.UInt14 := 16#0#;
       --  Write-only. VDD33USB voltage level detector enable.
-      USB33DEN       : PWR_CR3_USB33DEN_Field := 16#0#;
+      USB33DEN       : Boolean := False;
       --  USB regulator enable.
-      USBREGEN       : PWR_CR3_USBREGEN_Field := 16#0#;
+      USBREGEN       : Boolean := False;
       --  Read-only. USB supply ready.
-      USB33RDY       : PWR_CR3_USB33RDY_Field := 16#0#;
+      USB33RDY       : Boolean := False;
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_CR3_Register use record
@@ -247,12 +222,8 @@ package STM32_SVD.PWR is
       Reserved_27_31 at 0 range 27 .. 31;
    end record;
 
-   --  PWR_CPUCR_PDDS_D array element
-   subtype PWR_CPUCR_PDDS_D_Element is STM32_SVD.Bit;
-
    --  PWR_CPUCR_PDDS_D array
-   type PWR_CPUCR_PDDS_D_Field_Array is array (1 .. 3)
-     of PWR_CPUCR_PDDS_D_Element
+   type PWR_CPUCR_PDDS_D_Field_Array is array (1 .. 3) of Boolean
      with Component_Size => 1, Size => 3;
 
    --  Type definition for PWR_CPUCR_PDDS_D
@@ -275,14 +246,8 @@ package STM32_SVD.PWR is
       Arr at 0 range 0 .. 2;
    end record;
 
-   subtype PWR_CPUCR_STOPF_Field is STM32_SVD.Bit;
-   subtype PWR_CPUCR_SBF_Field is STM32_SVD.Bit;
-   --  PWR_CPUCR_SBF_D array element
-   subtype PWR_CPUCR_SBF_D_Element is STM32_SVD.Bit;
-
    --  PWR_CPUCR_SBF_D array
-   type PWR_CPUCR_SBF_D_Field_Array is array (1 .. 2)
-     of PWR_CPUCR_SBF_D_Element
+   type PWR_CPUCR_SBF_D_Field_Array is array (1 .. 2) of Boolean
      with Component_Size => 1, Size => 2;
 
    --  Type definition for PWR_CPUCR_SBF_D
@@ -305,9 +270,6 @@ package STM32_SVD.PWR is
       Arr at 0 range 0 .. 1;
    end record;
 
-   subtype PWR_CPUCR_CSSF_Field is STM32_SVD.Bit;
-   subtype PWR_CPUCR_RUN_D3_Field is STM32_SVD.Bit;
-
    --  This register allows controlling CPU1 power.
    type PWR_CPUCR_Register is record
       --  D1 domain Power Down Deepsleep selection. This bit allows CPU1 to
@@ -318,11 +280,11 @@ package STM32_SVD.PWR is
       Reserved_3_4   : STM32_SVD.UInt2 := 16#0#;
       --  Read-only. STOP flag This bit is set by hardware and cleared only by
       --  any reset or by setting the CPU1 CSSF bit.
-      STOPF          : PWR_CPUCR_STOPF_Field := 16#0#;
+      STOPF          : Boolean := False;
       --  Read-only. System Standby flag This bit is set by hardware and
       --  cleared only by a POR (Power-on Reset) or by setting the CPU1 CSSF
       --  bit
-      SBF            : PWR_CPUCR_SBF_Field := 16#0#;
+      SBF            : Boolean := False;
       --  Read-only. D1 domain DStandby flag This bit is set by hardware and
       --  cleared by any system reset or by setting the CPU1 CSSF bit. Once
       --  set, this bit can be cleared only when the D1 domain is no longer in
@@ -331,16 +293,16 @@ package STM32_SVD.PWR is
                         (As_Array => False, Val => 16#0#);
       --  Clear D1 domain CPU1 Standby, Stop and HOLD flags (always read as 0)
       --  This bit is cleared to 0 by hardware.
-      CSSF           : PWR_CPUCR_CSSF_Field := 16#0#;
+      CSSF           : Boolean := False;
       --  unspecified
       Reserved_10_10 : STM32_SVD.Bit := 16#0#;
       --  Keep system D3 domain in Run mode regardless of the CPU sub-systems
       --  modes
-      RUN_D3         : PWR_CPUCR_RUN_D3_Field := 16#0#;
+      RUN_D3         : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_CPUCR_Register use record
@@ -355,7 +317,6 @@ package STM32_SVD.PWR is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype PWR_D3CR_VOSRDY_Field is STM32_SVD.Bit;
    subtype PWR_D3CR_VOS_Field is STM32_SVD.UInt2;
 
    --  This register allows controlling D3 domain power.Following reset VOSRDY
@@ -366,7 +327,7 @@ package STM32_SVD.PWR is
       --  Read-only. VOS Ready bit for VCORE voltage scaling output selection.
       --  This bit is set to 1 by hardware when Bypass mode is selected in PWR
       --  control register 3 (PWR_CR3).
-      VOSRDY         : PWR_D3CR_VOSRDY_Field := 16#0#;
+      VOSRDY         : Boolean := False;
       --  Voltage scaling selection according to performance These bits control
       --  the VCORE voltage level and allow to obtains the best trade-off
       --  between power consumption and performance: When increasing the
@@ -378,7 +339,7 @@ package STM32_SVD.PWR is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_D3CR_Register use record
@@ -400,7 +361,7 @@ package STM32_SVD.PWR is
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_WKUPCR_Register use record
@@ -408,12 +369,8 @@ package STM32_SVD.PWR is
       Reserved_6_31 at 0 range 6 .. 31;
    end record;
 
-   --  PWR_WKUPFR_WKUPF array element
-   subtype PWR_WKUPFR_WKUPF_Element is STM32_SVD.Bit;
-
    --  PWR_WKUPFR_WKUPF array
-   type PWR_WKUPFR_WKUPF_Field_Array is array (1 .. 6)
-     of PWR_WKUPFR_WKUPF_Element
+   type PWR_WKUPFR_WKUPF_Field_Array is array (1 .. 6) of Boolean
      with Component_Size => 1, Size => 6;
 
    --  Type definition for PWR_WKUPFR_WKUPF
@@ -446,7 +403,7 @@ package STM32_SVD.PWR is
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_WKUPFR_Register use record
@@ -454,12 +411,8 @@ package STM32_SVD.PWR is
       Reserved_6_31 at 0 range 6 .. 31;
    end record;
 
-   --  PWR_WKUPEPR_WKUPEN array element
-   subtype PWR_WKUPEPR_WKUPEN_Element is STM32_SVD.Bit;
-
    --  PWR_WKUPEPR_WKUPEN array
-   type PWR_WKUPEPR_WKUPEN_Field_Array is array (1 .. 6)
-     of PWR_WKUPEPR_WKUPEN_Element
+   type PWR_WKUPEPR_WKUPEN_Field_Array is array (1 .. 6) of Boolean
      with Component_Size => 1, Size => 6;
 
    --  Type definition for PWR_WKUPEPR_WKUPEN
@@ -482,12 +435,8 @@ package STM32_SVD.PWR is
       Arr at 0 range 0 .. 5;
    end record;
 
-   --  PWR_WKUPEPR_WKUPP array element
-   subtype PWR_WKUPEPR_WKUPP_Element is STM32_SVD.Bit;
-
    --  PWR_WKUPEPR_WKUPP array
-   type PWR_WKUPEPR_WKUPP_Field_Array is array (1 .. 6)
-     of PWR_WKUPEPR_WKUPP_Element
+   type PWR_WKUPEPR_WKUPP_Field_Array is array (1 .. 6) of Boolean
      with Component_Size => 1, Size => 6;
 
    --  Type definition for PWR_WKUPEPR_WKUPP
@@ -561,7 +510,7 @@ package STM32_SVD.PWR is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PWR_WKUPEPR_Register use record
@@ -633,6 +582,6 @@ package STM32_SVD.PWR is
 
    --  PWR
    PWR_Periph : aliased PWR_Peripheral
-     with Import, Address => System'To_Address (16#58024800#);
+     with Import, Address => PWR_Base;
 
 end STM32_SVD.PWR;

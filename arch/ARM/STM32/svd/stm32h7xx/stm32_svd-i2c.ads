@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,26 +13,7 @@ package STM32_SVD.I2C is
    -- Registers --
    ---------------
 
-   subtype I2C_CR1_PE_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_TXIE_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_RXIE_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_ADDRIE_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_NACKIE_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_STOPIE_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_TCIE_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_ERRIE_Field is STM32_SVD.Bit;
    subtype I2C_CR1_DNF_Field is STM32_SVD.UInt4;
-   subtype I2C_CR1_ANFOFF_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_TXDMAEN_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_RXDMAEN_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_SBC_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_NOSTRETCH_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_WUPEN_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_GCEN_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_SMBHEN_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_SMBDEN_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_ALERTEN_Field is STM32_SVD.Bit;
-   subtype I2C_CR1_PECEN_Field is STM32_SVD.Bit;
 
    --  Access: No wait states, except if a write access occurs while a write
    --  access to this register is ongoing. In this case, wait states are
@@ -44,26 +25,26 @@ package STM32_SVD.I2C is
       --  released. Internal state machines and status bits are put back to
       --  their reset value. When cleared, PE must be kept low for at least 3
       --  APB clock cycles.
-      PE             : I2C_CR1_PE_Field := 16#0#;
+      PE             : Boolean := False;
       --  TX Interrupt enable
-      TXIE           : I2C_CR1_TXIE_Field := 16#0#;
+      TXIE           : Boolean := False;
       --  RX Interrupt enable
-      RXIE           : I2C_CR1_RXIE_Field := 16#0#;
+      RXIE           : Boolean := False;
       --  Address match Interrupt enable (slave only)
-      ADDRIE         : I2C_CR1_ADDRIE_Field := 16#0#;
+      ADDRIE         : Boolean := False;
       --  Not acknowledge received Interrupt enable
-      NACKIE         : I2C_CR1_NACKIE_Field := 16#0#;
+      NACKIE         : Boolean := False;
       --  STOP detection Interrupt enable
-      STOPIE         : I2C_CR1_STOPIE_Field := 16#0#;
+      STOPIE         : Boolean := False;
       --  Transfer Complete interrupt enable Note: Any of these events will
       --  generate an interrupt: Transfer Complete (TC) Transfer Complete
       --  Reload (TCR)
-      TCIE           : I2C_CR1_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Error interrupts enable Note: Any of these errors generate an
       --  interrupt: Arbitration Loss (ARLO) Bus Error detection (BERR)
       --  Overrun/Underrun (OVR) Timeout detection (TIMEOUT) PEC error
       --  detection (PECERR) Alert pin event detection (ALERT)
-      ERRIE          : I2C_CR1_ERRIE_Field := 16#0#;
+      ERRIE          : Boolean := False;
       --  Digital noise filter These bits are used to configure the digital
       --  noise filter on SDA and SCL input. The digital filter will filter
       --  spikes with a length of up to DNF[3:0] * tI2CCLK ... Note: If the
@@ -73,48 +54,48 @@ package STM32_SVD.I2C is
       DNF            : I2C_CR1_DNF_Field := 16#0#;
       --  Analog noise filter OFF Note: This bit can only be programmed when
       --  the I2C is disabled (PE = 0).
-      ANFOFF         : I2C_CR1_ANFOFF_Field := 16#0#;
+      ANFOFF         : Boolean := False;
       --  unspecified
       Reserved_13_13 : STM32_SVD.Bit := 16#0#;
       --  DMA transmission requests enable
-      TXDMAEN        : I2C_CR1_TXDMAEN_Field := 16#0#;
+      TXDMAEN        : Boolean := False;
       --  DMA reception requests enable
-      RXDMAEN        : I2C_CR1_RXDMAEN_Field := 16#0#;
+      RXDMAEN        : Boolean := False;
       --  Slave byte control This bit is used to enable hardware byte control
       --  in slave mode.
-      SBC            : I2C_CR1_SBC_Field := 16#0#;
+      SBC            : Boolean := False;
       --  Clock stretching disable This bit is used to disable clock stretching
       --  in slave mode. It must be kept cleared in master mode. Note: This bit
       --  can only be programmed when the I2C is disabled (PE = 0).
-      NOSTRETCH      : I2C_CR1_NOSTRETCH_Field := 16#0#;
+      NOSTRETCH      : Boolean := False;
       --  Wakeup from Stop mode enable Note: If the Wakeup from Stop mode
       --  feature is not supported, this bit is reserved and forced by hardware
       --  to 0. Please refer to Section25.3: I2C implementation. Note: WUPEN
       --  can be set only when DNF = 0000
-      WUPEN          : I2C_CR1_WUPEN_Field := 16#0#;
+      WUPEN          : Boolean := False;
       --  General call enable
-      GCEN           : I2C_CR1_GCEN_Field := 16#0#;
+      GCEN           : Boolean := False;
       --  SMBus Host address enable Note: If the SMBus feature is not
       --  supported, this bit is reserved and forced by hardware to 0. Please
       --  refer to Section25.3: I2C implementation.
-      SMBHEN         : I2C_CR1_SMBHEN_Field := 16#0#;
+      SMBHEN         : Boolean := False;
       --  SMBus Device Default address enable Note: If the SMBus feature is not
       --  supported, this bit is reserved and forced by hardware to 0. Please
       --  refer to Section25.3: I2C implementation.
-      SMBDEN         : I2C_CR1_SMBDEN_Field := 16#0#;
+      SMBDEN         : Boolean := False;
       --  SMBus alert enable Device mode (SMBHEN=0): Host mode (SMBHEN=1):
       --  Note: When ALERTEN=0, the SMBA pin can be used as a standard GPIO. If
       --  the SMBus feature is not supported, this bit is reserved and forced
       --  by hardware to 0. Please refer to Section25.3: I2C implementation.
-      ALERTEN        : I2C_CR1_ALERTEN_Field := 16#0#;
+      ALERTEN        : Boolean := False;
       --  PEC enable Note: If the SMBus feature is not supported, this bit is
       --  reserved and forced by hardware to 0. Please refer to Section25.3:
       --  I2C implementation.
-      PECEN          : I2C_CR1_PECEN_Field := 16#0#;
+      PECEN          : Boolean := False;
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_CR1_Register use record
@@ -142,11 +123,8 @@ package STM32_SVD.I2C is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   --  I2C_CR2_SADD array element
-   subtype I2C_CR2_SADD_Element is STM32_SVD.Bit;
-
    --  I2C_CR2_SADD array
-   type I2C_CR2_SADD_Field_Array is array (0 .. 9) of I2C_CR2_SADD_Element
+   type I2C_CR2_SADD_Field_Array is array (0 .. 9) of Boolean
      with Component_Size => 1, Size => 10;
 
    --  Type definition for I2C_CR2_SADD
@@ -169,16 +147,7 @@ package STM32_SVD.I2C is
       Arr at 0 range 0 .. 9;
    end record;
 
-   subtype I2C_CR2_RD_WRN_Field is STM32_SVD.Bit;
-   subtype I2C_CR2_ADD10_Field is STM32_SVD.Bit;
-   subtype I2C_CR2_HEAD10R_Field is STM32_SVD.Bit;
-   subtype I2C_CR2_START_Field is STM32_SVD.Bit;
-   subtype I2C_CR2_STOP_Field is STM32_SVD.Bit;
-   subtype I2C_CR2_NACK_Field is STM32_SVD.Bit;
    subtype I2C_CR2_NBYTES_Field is STM32_SVD.Byte;
-   subtype I2C_CR2_RELOAD_Field is STM32_SVD.Bit;
-   subtype I2C_CR2_AUTOEND_Field is STM32_SVD.Bit;
-   subtype I2C_CR2_PECBYTE_Field is STM32_SVD.Bit;
 
    --  Access: No wait states, except if a write access occurs while a write
    --  access to this register is ongoing. In this case, wait states are
@@ -194,13 +163,13 @@ package STM32_SVD.I2C is
                         (As_Array => False, Val => 16#0#);
       --  Transfer direction (master mode) Note: Changing this bit when the
       --  START bit is set is not allowed.
-      RD_WRN         : I2C_CR2_RD_WRN_Field := 16#0#;
+      RD_WRN         : Boolean := False;
       --  10-bit addressing mode (master mode) Note: Changing this bit when the
       --  START bit is set is not allowed.
-      ADD10          : I2C_CR2_ADD10_Field := 16#0#;
+      ADD10          : Boolean := False;
       --  10-bit address header only read direction (master receiver mode)
       --  Note: Changing this bit when the START bit is set is not allowed.
-      HEAD10R        : I2C_CR2_HEAD10R_Field := 16#0#;
+      HEAD10R        : Boolean := False;
       --  Start generation This bit is set by software, and cleared by hardware
       --  after the Start followed by the address sequence is sent, by an
       --  arbitration loss, by a timeout error detection, or when PE = 0. It
@@ -212,11 +181,11 @@ package STM32_SVD.I2C is
       --  Writing 0 to this bit has no effect. The START bit can be set even if
       --  the bus is BUSY or I2C is in slave mode. This bit has no effect when
       --  RELOAD is set.
-      START          : I2C_CR2_START_Field := 16#0#;
+      START          : Boolean := False;
       --  Stop generation (master mode) The bit is set by software, cleared by
       --  hardware when a Stop condition is detected, or when PE = 0. In Master
       --  Mode: Note: Writing 0 to this bit has no effect.
-      STOP           : I2C_CR2_STOP_Field := 16#0#;
+      STOP           : Boolean := False;
       --  NACK generation (slave mode) The bit is set by software, cleared by
       --  hardware when the NACK is sent, or when a STOP condition or an
       --  Address matched is received, or when PE=0. Note: Writing 0 to this
@@ -227,17 +196,17 @@ package STM32_SVD.I2C is
       --  automatically generated whatever the NACK bit value. When hardware
       --  PEC checking is enabled (PECBYTE=1), the PEC acknowledge value does
       --  not depend on the NACK value.
-      NACK           : I2C_CR2_NACK_Field := 16#0#;
+      NACK           : Boolean := False;
       --  Number of bytes The number of bytes to be transmitted/received is
       --  programmed there. This field is dont care in slave mode with SBC=0.
       --  Note: Changing these bits when the START bit is set is not allowed.
       NBYTES         : I2C_CR2_NBYTES_Field := 16#0#;
       --  NBYTES reload mode This bit is set and cleared by software.
-      RELOAD         : I2C_CR2_RELOAD_Field := 16#0#;
+      RELOAD         : Boolean := False;
       --  Automatic end mode (master mode) This bit is set and cleared by
       --  software. Note: This bit has no effect in slave mode or when the
       --  RELOAD bit is set.
-      AUTOEND        : I2C_CR2_AUTOEND_Field := 16#0#;
+      AUTOEND        : Boolean := False;
       --  Packet error checking byte This bit is set by software, and cleared
       --  by hardware when the PEC is transferred, or when a STOP condition or
       --  an Address matched is received, also when PE=0. Note: Writing 0 to
@@ -245,11 +214,11 @@ package STM32_SVD.I2C is
       --  This bit has no effect is slave mode when SBC=0. If the SMBus feature
       --  is not supported, this bit is reserved and forced by hardware to 0.
       --  Please refer to Section25.3: I2C implementation.
-      PECBYTE        : I2C_CR2_PECBYTE_Field := 16#0#;
+      PECBYTE        : Boolean := False;
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_CR2_Register use record
@@ -268,8 +237,6 @@ package STM32_SVD.I2C is
    end record;
 
    subtype I2C_OAR1_OA1_Field is STM32_SVD.UInt10;
-   subtype I2C_OAR1_OA1MODE_Field is STM32_SVD.Bit;
-   subtype I2C_OAR1_OA1EN_Field is STM32_SVD.Bit;
 
    --  Access: No wait states, except if a write access occurs while a write
    --  access to this register is ongoing. In this case, wait states are
@@ -286,15 +253,15 @@ package STM32_SVD.I2C is
       OA1            : I2C_OAR1_OA1_Field := 16#0#;
       --  Own Address 1 10-bit mode Note: This bit can be written only when
       --  OA1EN=0.
-      OA1MODE        : I2C_OAR1_OA1MODE_Field := 16#0#;
+      OA1MODE        : Boolean := False;
       --  unspecified
       Reserved_11_14 : STM32_SVD.UInt4 := 16#0#;
       --  Own Address 1 enable
-      OA1EN          : I2C_OAR1_OA1EN_Field := 16#0#;
+      OA1EN          : Boolean := False;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_OAR1_Register use record
@@ -307,7 +274,6 @@ package STM32_SVD.I2C is
 
    subtype I2C_OAR2_OA2_Field is STM32_SVD.UInt7;
    subtype I2C_OAR2_OA2MSK_Field is STM32_SVD.UInt3;
-   subtype I2C_OAR2_OA2EN_Field is STM32_SVD.Bit;
 
    --  Access: No wait states, except if a write access occurs while a write
    --  access to this register is ongoing. In this case, wait states are
@@ -328,11 +294,11 @@ package STM32_SVD.I2C is
       --  unspecified
       Reserved_11_14 : STM32_SVD.UInt4 := 16#0#;
       --  Own Address 2 enable
-      OA2EN          : I2C_OAR2_OA2EN_Field := 16#0#;
+      OA2EN          : Boolean := False;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_OAR2_Register use record
@@ -381,7 +347,7 @@ package STM32_SVD.I2C is
       --  = (PRESC+1) x tI2CCLK
       PRESC          : I2C_TIMINGR_PRESC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_TIMINGR_Register use record
@@ -394,10 +360,7 @@ package STM32_SVD.I2C is
    end record;
 
    subtype I2C_TIMEOUTR_TIMEOUTA_Field is STM32_SVD.UInt12;
-   subtype I2C_TIMEOUTR_TIDLE_Field is STM32_SVD.Bit;
-   subtype I2C_TIMEOUTR_TIMOUTEN_Field is STM32_SVD.Bit;
    subtype I2C_TIMEOUTR_TIMEOUTB_Field is STM32_SVD.UInt12;
-   subtype I2C_TIMEOUTR_TEXTEN_Field is STM32_SVD.Bit;
 
    --  Access: No wait states, except if a write access occurs while a write
    --  access to this register is ongoing. In this case, wait states are
@@ -413,11 +376,11 @@ package STM32_SVD.I2C is
       TIMEOUTA       : I2C_TIMEOUTR_TIMEOUTA_Field := 16#0#;
       --  Idle clock timeout detection Note: This bit can be written only when
       --  TIMOUTEN=0.
-      TIDLE          : I2C_TIMEOUTR_TIDLE_Field := 16#0#;
+      TIDLE          : Boolean := False;
       --  unspecified
       Reserved_13_14 : STM32_SVD.UInt2 := 16#0#;
       --  Clock timeout enable
-      TIMOUTEN       : I2C_TIMEOUTR_TIMOUTEN_Field := 16#0#;
+      TIMOUTEN       : Boolean := False;
       --  Bus timeout B This field is used to configure the cumulative clock
       --  extension timeout: In master mode, the master cumulative clock low
       --  extend time (tLOW:MEXT) is detected In slave mode, the slave
@@ -428,9 +391,9 @@ package STM32_SVD.I2C is
       --  unspecified
       Reserved_28_30 : STM32_SVD.UInt3 := 16#0#;
       --  Extended clock timeout enable
-      TEXTEN         : I2C_TIMEOUTR_TEXTEN_Field := 16#0#;
+      TEXTEN         : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_TIMEOUTR_Register use record
@@ -443,22 +406,6 @@ package STM32_SVD.I2C is
       TEXTEN         at 0 range 31 .. 31;
    end record;
 
-   subtype I2C_ISR_TXE_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_TXIS_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_RXNE_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_ADDR_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_NACKF_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_STOPF_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_TC_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_TCR_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_BERR_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_ARLO_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_OVR_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_PECERR_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_TIMEOUT_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_ALERT_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_BUSY_Field is STM32_SVD.Bit;
-   subtype I2C_ISR_DIR_Field is STM32_SVD.Bit;
    subtype I2C_ISR_ADDCODE_Field is STM32_SVD.UInt7;
 
    --  Access: No wait states
@@ -468,7 +415,7 @@ package STM32_SVD.I2C is
       --  next data to be sent is written in the I2C_TXDR register. This bit
       --  can be written to 1 by software in order to flush the transmit data
       --  register I2C_TXDR. Note: This bit is set by hardware when PE=0.
-      TXE            : I2C_ISR_TXE_Field := 16#1#;
+      TXE            : Boolean := True;
       --  Transmit interrupt status (transmitters) This bit is set by hardware
       --  when the I2C_TXDR register is empty and the data to be transmitted
       --  must be written in the I2C_TXDR register. It is cleared when the next
@@ -476,22 +423,22 @@ package STM32_SVD.I2C is
       --  written to 1 by software when NOSTRETCH=1 only, in order to generate
       --  a TXIS event (interrupt if TXIE=1 or DMA request if TXDMAEN=1). Note:
       --  This bit is cleared by hardware when PE=0.
-      TXIS           : I2C_ISR_TXIS_Field := 16#0#;
+      TXIS           : Boolean := False;
       --  Read-only. Receive data register not empty (receivers) This bit is
       --  set by hardware when the received data is copied into the I2C_RXDR
       --  register, and is ready to be read. It is cleared when I2C_RXDR is
       --  read. Note: This bit is cleared by hardware when PE=0.
-      RXNE           : I2C_ISR_RXNE_Field := 16#0#;
+      RXNE           : Boolean := False;
       --  Read-only. Address matched (slave mode) This bit is set by hardware
       --  as soon as the received slave address matched with one of the enabled
       --  slave addresses. It is cleared by software by setting ADDRCF bit.
       --  Note: This bit is cleared by hardware when PE=0.
-      ADDR           : I2C_ISR_ADDR_Field := 16#0#;
+      ADDR           : Boolean := False;
       --  Read-only. Not Acknowledge received flag This flag is set by hardware
       --  when a NACK is received after a byte transmission. It is cleared by
       --  software by setting the NACKCF bit. Note: This bit is cleared by
       --  hardware when PE=0.
-      NACKF          : I2C_ISR_NACKF_Field := 16#0#;
+      NACKF          : Boolean := False;
       --  Read-only. Stop detection flag This flag is set by hardware when a
       --  Stop condition is detected on the bus and the peripheral is involved
       --  in this transfer: either as a master, provided that the STOP
@@ -499,33 +446,33 @@ package STM32_SVD.I2C is
       --  that the peripheral has been addressed previously during this
       --  transfer. It is cleared by software by setting the STOPCF bit. Note:
       --  This bit is cleared by hardware when PE=0.
-      STOPF          : I2C_ISR_STOPF_Field := 16#0#;
+      STOPF          : Boolean := False;
       --  Read-only. Transfer Complete (master mode) This flag is set by
       --  hardware when RELOAD=0, AUTOEND=0 and NBYTES data have been
       --  transferred. It is cleared by software when START bit or STOP bit is
       --  set. Note: This bit is cleared by hardware when PE=0.
-      TC             : I2C_ISR_TC_Field := 16#0#;
+      TC             : Boolean := False;
       --  Read-only. Transfer Complete Reload This flag is set by hardware when
       --  RELOAD=1 and NBYTES data have been transferred. It is cleared by
       --  software when NBYTES is written to a non-zero value. Note: This bit
       --  is cleared by hardware when PE=0. This flag is only for master mode,
       --  or for slave mode when the SBC bit is set.
-      TCR            : I2C_ISR_TCR_Field := 16#0#;
+      TCR            : Boolean := False;
       --  Read-only. Bus error This flag is set by hardware when a misplaced
       --  Start or Stop condition is detected whereas the peripheral is
       --  involved in the transfer. The flag is not set during the address
       --  phase in slave mode. It is cleared by software by setting BERRCF bit.
       --  Note: This bit is cleared by hardware when PE=0.
-      BERR           : I2C_ISR_BERR_Field := 16#0#;
+      BERR           : Boolean := False;
       --  Read-only. Arbitration lost This flag is set by hardware in case of
       --  arbitration loss. It is cleared by software by setting the ARLOCF
       --  bit. Note: This bit is cleared by hardware when PE=0.
-      ARLO           : I2C_ISR_ARLO_Field := 16#0#;
+      ARLO           : Boolean := False;
       --  Read-only. Overrun/Underrun (slave mode) This flag is set by hardware
       --  in slave mode with NOSTRETCH=1, when an overrun/underrun error
       --  occurs. It is cleared by software by setting the OVRCF bit. Note:
       --  This bit is cleared by hardware when PE=0.
-      OVR            : I2C_ISR_OVR_Field := 16#0#;
+      OVR            : Boolean := False;
       --  Read-only. PEC Error in reception This flag is set by hardware when
       --  the received PEC does not match with the PEC register content. A NACK
       --  is automatically sent after the wrong PEC reception. It is cleared by
@@ -533,31 +480,31 @@ package STM32_SVD.I2C is
       --  hardware when PE=0. If the SMBus feature is not supported, this bit
       --  is reserved and forced by hardware to 0. Please refer to Section25.3:
       --  I2C implementation.
-      PECERR         : I2C_ISR_PECERR_Field := 16#0#;
+      PECERR         : Boolean := False;
       --  Read-only. Timeout or tLOW detection flag This flag is set by
       --  hardware when a timeout or extended clock timeout occurred. It is
       --  cleared by software by setting the TIMEOUTCF bit. Note: This bit is
       --  cleared by hardware when PE=0. If the SMBus feature is not supported,
       --  this bit is reserved and forced by hardware to 0. Please refer to
       --  Section25.3: I2C implementation.
-      TIMEOUT        : I2C_ISR_TIMEOUT_Field := 16#0#;
+      TIMEOUT        : Boolean := False;
       --  Read-only. SMBus alert This flag is set by hardware when SMBHEN=1
       --  (SMBus host configuration), ALERTEN=1 and a SMBALERT event (falling
       --  edge) is detected on SMBA pin. It is cleared by software by setting
       --  the ALERTCF bit. Note: This bit is cleared by hardware when PE=0. If
       --  the SMBus feature is not supported, this bit is reserved and forced
       --  by hardware to 0. Please refer to Section25.3: I2C implementation.
-      ALERT          : I2C_ISR_ALERT_Field := 16#0#;
+      ALERT          : Boolean := False;
       --  unspecified
       Reserved_14_14 : STM32_SVD.Bit := 16#0#;
       --  Read-only. Bus busy This flag indicates that a communication is in
       --  progress on the bus. It is set by hardware when a START condition is
       --  detected. It is cleared by hardware when a Stop condition is
       --  detected, or when PE=0.
-      BUSY           : I2C_ISR_BUSY_Field := 16#0#;
+      BUSY           : Boolean := False;
       --  Read-only. Transfer direction (Slave mode) This flag is updated when
       --  an address match event occurs (ADDR=1).
-      DIR            : I2C_ISR_DIR_Field := 16#0#;
+      DIR            : Boolean := False;
       --  Read-only. Address match code (Slave mode) These bits are updated
       --  with the received address when an address match event occurs (ADDR =
       --  1). In the case of a 10-bit address, ADDCODE provides the 10-bit
@@ -566,7 +513,7 @@ package STM32_SVD.I2C is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_ISR_Register use record
@@ -591,16 +538,6 @@ package STM32_SVD.I2C is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype I2C_ICR_ADDRCF_Field is STM32_SVD.Bit;
-   subtype I2C_ICR_NACKCF_Field is STM32_SVD.Bit;
-   subtype I2C_ICR_STOPCF_Field is STM32_SVD.Bit;
-   subtype I2C_ICR_BERRCF_Field is STM32_SVD.Bit;
-   subtype I2C_ICR_ARLOCF_Field is STM32_SVD.Bit;
-   subtype I2C_ICR_OVRCF_Field is STM32_SVD.Bit;
-   subtype I2C_ICR_PECCF_Field is STM32_SVD.Bit;
-   subtype I2C_ICR_TIMOUTCF_Field is STM32_SVD.Bit;
-   subtype I2C_ICR_ALERTCF_Field is STM32_SVD.Bit;
-
    --  Access: No wait states
    type I2C_ICR_Register is record
       --  unspecified
@@ -608,43 +545,43 @@ package STM32_SVD.I2C is
       --  Write-only. Address matched flag clear Writing 1 to this bit clears
       --  the ADDR flag in the I2C_ISR register. Writing 1 to this bit also
       --  clears the START bit in the I2C_CR2 register.
-      ADDRCF         : I2C_ICR_ADDRCF_Field := 16#0#;
+      ADDRCF         : Boolean := False;
       --  Write-only. Not Acknowledge flag clear Writing 1 to this bit clears
       --  the ACKF flag in I2C_ISR register.
-      NACKCF         : I2C_ICR_NACKCF_Field := 16#0#;
+      NACKCF         : Boolean := False;
       --  Write-only. Stop detection flag clear Writing 1 to this bit clears
       --  the STOPF flag in the I2C_ISR register.
-      STOPCF         : I2C_ICR_STOPCF_Field := 16#0#;
+      STOPCF         : Boolean := False;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2 := 16#0#;
       --  Write-only. Bus error flag clear Writing 1 to this bit clears the
       --  BERRF flag in the I2C_ISR register.
-      BERRCF         : I2C_ICR_BERRCF_Field := 16#0#;
+      BERRCF         : Boolean := False;
       --  Write-only. Arbitration Lost flag clear Writing 1 to this bit clears
       --  the ARLO flag in the I2C_ISR register.
-      ARLOCF         : I2C_ICR_ARLOCF_Field := 16#0#;
+      ARLOCF         : Boolean := False;
       --  Write-only. Overrun/Underrun flag clear Writing 1 to this bit clears
       --  the OVR flag in the I2C_ISR register.
-      OVRCF          : I2C_ICR_OVRCF_Field := 16#0#;
+      OVRCF          : Boolean := False;
       --  Write-only. PEC Error flag clear Writing 1 to this bit clears the
       --  PECERR flag in the I2C_ISR register. Note: If the SMBus feature is
       --  not supported, this bit is reserved and forced by hardware to 0.
       --  Please refer to Section25.3: I2C implementation.
-      PECCF          : I2C_ICR_PECCF_Field := 16#0#;
+      PECCF          : Boolean := False;
       --  Write-only. Timeout detection flag clear Writing 1 to this bit clears
       --  the TIMEOUT flag in the I2C_ISR register. Note: If the SMBus feature
       --  is not supported, this bit is reserved and forced by hardware to 0.
       --  Please refer to Section25.3: I2C implementation.
-      TIMOUTCF       : I2C_ICR_TIMOUTCF_Field := 16#0#;
+      TIMOUTCF       : Boolean := False;
       --  Write-only. Alert flag clear Writing 1 to this bit clears the ALERT
       --  flag in the I2C_ISR register. Note: If the SMBus feature is not
       --  supported, this bit is reserved and forced by hardware to 0. Please
       --  refer to Section25.3: I2C implementation.
-      ALERTCF        : I2C_ICR_ALERTCF_Field := 16#0#;
+      ALERTCF        : Boolean := False;
       --  unspecified
       Reserved_14_31 : STM32_SVD.UInt18 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_ICR_Register use record
@@ -672,7 +609,7 @@ package STM32_SVD.I2C is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_PECR_Register use record
@@ -689,7 +626,7 @@ package STM32_SVD.I2C is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_RXDR_Register use record
@@ -707,7 +644,7 @@ package STM32_SVD.I2C is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for I2C_TXDR_Register use record
@@ -782,18 +719,18 @@ package STM32_SVD.I2C is
 
    --  I2C
    I2C1_Periph : aliased I2C_Peripheral
-     with Import, Address => System'To_Address (16#40005400#);
+     with Import, Address => I2C1_Base;
 
    --  I2C
    I2C2_Periph : aliased I2C_Peripheral
-     with Import, Address => System'To_Address (16#40005800#);
+     with Import, Address => I2C2_Base;
 
    --  I2C
    I2C3_Periph : aliased I2C_Peripheral
-     with Import, Address => System'To_Address (16#40005C00#);
+     with Import, Address => I2C3_Base;
 
    --  I2C
    I2C4_Periph : aliased I2C_Peripheral
-     with Import, Address => System'To_Address (16#58001C00#);
+     with Import, Address => I2C4_Base;
 
 end STM32_SVD.I2C;

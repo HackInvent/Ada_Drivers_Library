@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,50 +13,41 @@ package STM32_SVD.DMA2D is
    -- Registers --
    ---------------
 
-   subtype DMA2D_CR_START_Field is STM32_SVD.Bit;
-   subtype DMA2D_CR_SUSP_Field is STM32_SVD.Bit;
-   subtype DMA2D_CR_ABORT_Field is STM32_SVD.Bit;
-   subtype DMA2D_CR_TEIE_Field is STM32_SVD.Bit;
-   subtype DMA2D_CR_TCIE_Field is STM32_SVD.Bit;
-   subtype DMA2D_CR_TWIE_Field is STM32_SVD.Bit;
-   subtype DMA2D_CR_CAEIE_Field is STM32_SVD.Bit;
-   subtype DMA2D_CR_CTCIE_Field is STM32_SVD.Bit;
-   subtype DMA2D_CR_CEIE_Field is STM32_SVD.Bit;
    subtype DMA2D_CR_MODE_Field is STM32_SVD.UInt2;
 
    --  DMA2D control register
    type DMA2D_CR_Register is record
       --  Start This bit can be used to launch the DMA2D according to the
       --  parameters loaded in the various configuration registers
-      START          : DMA2D_CR_START_Field := 16#0#;
+      START          : Boolean := False;
       --  Suspend This bit can be used to suspend the current transfer. This
       --  bit is set and reset by software. It is automatically reset by
       --  hardware when the START bit is reset.
-      SUSP           : DMA2D_CR_SUSP_Field := 16#0#;
+      SUSP           : Boolean := False;
       --  Abort This bit can be used to abort the current transfer. This bit is
       --  set by software and is automatically reset by hardware when the START
       --  bit is reset.
-      ABORT_k        : DMA2D_CR_ABORT_Field := 16#0#;
+      ABORT_k        : Boolean := False;
       --  unspecified
       Reserved_3_7   : STM32_SVD.UInt5 := 16#0#;
       --  Transfer error interrupt enable This bit is set and cleared by
       --  software.
-      TEIE           : DMA2D_CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Transfer complete interrupt enable This bit is set and cleared by
       --  software.
-      TCIE           : DMA2D_CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  Transfer watermark interrupt enable This bit is set and cleared by
       --  software.
-      TWIE           : DMA2D_CR_TWIE_Field := 16#0#;
+      TWIE           : Boolean := False;
       --  CLUT access error interrupt enable This bit is set and cleared by
       --  software.
-      CAEIE          : DMA2D_CR_CAEIE_Field := 16#0#;
+      CAEIE          : Boolean := False;
       --  CLUT transfer complete interrupt enable This bit is set and cleared
       --  by software.
-      CTCIE          : DMA2D_CR_CTCIE_Field := 16#0#;
+      CTCIE          : Boolean := False;
       --  Configuration Error Interrupt Enable This bit is set and cleared by
       --  software.
-      CEIE           : DMA2D_CR_CEIE_Field := 16#0#;
+      CEIE           : Boolean := False;
       --  unspecified
       Reserved_14_15 : STM32_SVD.UInt2 := 16#0#;
       --  DMA2D mode This bit is set and cleared by software. It cannot be
@@ -65,7 +56,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_CR_Register use record
@@ -84,41 +75,34 @@ package STM32_SVD.DMA2D is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype DMA2D_ISR_TEIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_ISR_TCIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_ISR_TWIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_ISR_CAEIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_ISR_CTCIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_ISR_CEIF_Field is STM32_SVD.Bit;
-
    --  DMA2D Interrupt Status Register
    type DMA2D_ISR_Register is record
       --  Read-only. Transfer error interrupt flag This bit is set when an
       --  error occurs during a DMA transfer (data transfer or automatic CLUT
       --  loading).
-      TEIF          : DMA2D_ISR_TEIF_Field;
+      TEIF          : Boolean;
       --  Read-only. Transfer complete interrupt flag This bit is set when a
       --  DMA2D transfer operation is complete (data transfer only).
-      TCIF          : DMA2D_ISR_TCIF_Field;
+      TCIF          : Boolean;
       --  Read-only. Transfer watermark interrupt flag This bit is set when the
       --  last pixel of the watermarked line has been transferred.
-      TWIF          : DMA2D_ISR_TWIF_Field;
+      TWIF          : Boolean;
       --  Read-only. CLUT access error interrupt flag This bit is set when the
       --  CPU accesses the CLUT while the CLUT is being automatically copied
       --  from a system memory to the internal DMA2D.
-      CAEIF         : DMA2D_ISR_CAEIF_Field;
+      CAEIF         : Boolean;
       --  Read-only. CLUT transfer complete interrupt flag This bit is set when
       --  the CLUT copy from a system memory area to the internal DMA2D memory
       --  is complete.
-      CTCIF         : DMA2D_ISR_CTCIF_Field;
+      CTCIF         : Boolean;
       --  Read-only. Configuration error interrupt flag This bit is set when
       --  the START bit of DMA2D_CR, DMA2DFGPFCCR or DMA2D_BGPFCCR is set and a
       --  wrong configuration has been programmed.
-      CEIF          : DMA2D_ISR_CEIF_Field;
+      CEIF          : Boolean;
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_ISR_Register use record
@@ -131,37 +115,30 @@ package STM32_SVD.DMA2D is
       Reserved_6_31 at 0 range 6 .. 31;
    end record;
 
-   subtype DMA2D_IFCR_CTEIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_IFCR_CTCIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_IFCR_CTWIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_IFCR_CAECIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_IFCR_CCTCIF_Field is STM32_SVD.Bit;
-   subtype DMA2D_IFCR_CCEIF_Field is STM32_SVD.Bit;
-
    --  DMA2D interrupt flag clear register
    type DMA2D_IFCR_Register is record
       --  Clear Transfer error interrupt flag Programming this bit to 1 clears
       --  the TEIF flag in the DMA2D_ISR register
-      CTEIF         : DMA2D_IFCR_CTEIF_Field := 16#0#;
+      CTEIF         : Boolean := False;
       --  Clear transfer complete interrupt flag Programming this bit to 1
       --  clears the TCIF flag in the DMA2D_ISR register
-      CTCIF         : DMA2D_IFCR_CTCIF_Field := 16#0#;
+      CTCIF         : Boolean := False;
       --  Clear transfer watermark interrupt flag Programming this bit to 1
       --  clears the TWIF flag in the DMA2D_ISR register
-      CTWIF         : DMA2D_IFCR_CTWIF_Field := 16#0#;
+      CTWIF         : Boolean := False;
       --  Clear CLUT access error interrupt flag Programming this bit to 1
       --  clears the CAEIF flag in the DMA2D_ISR register
-      CAECIF        : DMA2D_IFCR_CAECIF_Field := 16#0#;
+      CAECIF        : Boolean := False;
       --  Clear CLUT transfer complete interrupt flag Programming this bit to 1
       --  clears the CTCIF flag in the DMA2D_ISR register
-      CCTCIF        : DMA2D_IFCR_CCTCIF_Field := 16#0#;
+      CCTCIF        : Boolean := False;
       --  Clear configuration error interrupt flag Programming this bit to 1
       --  clears the CEIF flag in the DMA2D_ISR register
-      CCEIF         : DMA2D_IFCR_CCEIF_Field := 16#0#;
+      CCEIF         : Boolean := False;
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_IFCR_Register use record
@@ -188,7 +165,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_14_31 : STM32_SVD.UInt18 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_FGOR_Register use record
@@ -210,7 +187,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_14_31 : STM32_SVD.UInt18 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_BGOR_Register use record
@@ -219,13 +196,9 @@ package STM32_SVD.DMA2D is
    end record;
 
    subtype DMA2D_FGPFCCR_CM_Field is STM32_SVD.UInt4;
-   subtype DMA2D_FGPFCCR_CCM_Field is STM32_SVD.Bit;
-   subtype DMA2D_FGPFCCR_START_Field is STM32_SVD.Bit;
    subtype DMA2D_FGPFCCR_CS_Field is STM32_SVD.Byte;
    subtype DMA2D_FGPFCCR_AM_Field is STM32_SVD.UInt2;
    subtype DMA2D_FGPFCCR_CSS_Field is STM32_SVD.UInt2;
-   subtype DMA2D_FGPFCCR_AI_Field is STM32_SVD.Bit;
-   subtype DMA2D_FGPFCCR_RBS_Field is STM32_SVD.Bit;
    subtype DMA2D_FGPFCCR_ALPHA_Field is STM32_SVD.Byte;
 
    --  DMA2D foreground PFC control register
@@ -238,7 +211,7 @@ package STM32_SVD.DMA2D is
       --  CLUT color mode This bit defines the color format of the CLUT. It can
       --  only be written when the transfer is disabled. Once the CLUT transfer
       --  has started, this bit is read-only.
-      CCM            : DMA2D_FGPFCCR_CCM_Field := 16#0#;
+      CCM            : Boolean := False;
       --  Start This bit can be set to start the automatic loading of the CLUT.
       --  It is automatically reset: ** at the end of the transfer ** when the
       --  transfer is aborted by the user application by setting the ABORT bit
@@ -246,7 +219,7 @@ package STM32_SVD.DMA2D is
       --  not started due to a configuration error or another transfer
       --  operation already ongoing (data transfer or automatic background CLUT
       --  transfer).
-      START          : DMA2D_FGPFCCR_START_Field := 16#0#;
+      START          : Boolean := False;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2 := 16#0#;
       --  CLUT size These bits define the size of the CLUT used for the
@@ -264,11 +237,11 @@ package STM32_SVD.DMA2D is
       CSS            : DMA2D_FGPFCCR_CSS_Field := 16#0#;
       --  Alpha Inverted This bit inverts the alpha value. Once the transfer
       --  has started, this bit is read-only.
-      AI             : DMA2D_FGPFCCR_AI_Field := 16#0#;
+      AI             : Boolean := False;
       --  Red Blue Swap This bit allows to swap the R &amp; B to support BGR or
       --  ABGR color formats. Once the transfer has started, this bit is
       --  read-only.
-      RBS            : DMA2D_FGPFCCR_RBS_Field := 16#0#;
+      RBS            : Boolean := False;
       --  unspecified
       Reserved_22_23 : STM32_SVD.UInt2 := 16#0#;
       --  Alpha value These bits define a fixed alpha channel value which can
@@ -278,7 +251,7 @@ package STM32_SVD.DMA2D is
       --  disabled. Once a transfer has started, they become read-only.
       ALPHA          : DMA2D_FGPFCCR_ALPHA_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_FGPFCCR_Register use record
@@ -316,7 +289,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_FGCOLR_Register use record
@@ -327,12 +300,8 @@ package STM32_SVD.DMA2D is
    end record;
 
    subtype DMA2D_BGPFCCR_CM_Field is STM32_SVD.UInt4;
-   subtype DMA2D_BGPFCCR_CCM_Field is STM32_SVD.Bit;
-   subtype DMA2D_BGPFCCR_START_Field is STM32_SVD.Bit;
    subtype DMA2D_BGPFCCR_CS_Field is STM32_SVD.Byte;
    subtype DMA2D_BGPFCCR_AM_Field is STM32_SVD.UInt2;
-   subtype DMA2D_BGPFCCR_AI_Field is STM32_SVD.Bit;
-   subtype DMA2D_BGPFCCR_RBS_Field is STM32_SVD.Bit;
    subtype DMA2D_BGPFCCR_ALPHA_Field is STM32_SVD.Byte;
 
    --  DMA2D background PFC control register
@@ -345,7 +314,7 @@ package STM32_SVD.DMA2D is
       --  CLUT Color mode These bits define the color format of the CLUT. This
       --  register can only be written when the transfer is disabled. Once the
       --  CLUT transfer has started, this bit is read-only.
-      CCM            : DMA2D_BGPFCCR_CCM_Field := 16#0#;
+      CCM            : Boolean := False;
       --  Start This bit is set to start the automatic loading of the CLUT.
       --  This bit is automatically reset: ** at the end of the transfer **
       --  when the transfer is aborted by the user application by setting the
@@ -353,7 +322,7 @@ package STM32_SVD.DMA2D is
       --  transfer has not started due to a configuration error or another
       --  transfer operation already on going (data transfer or automatic
       --  BackGround CLUT transfer).
-      START          : DMA2D_BGPFCCR_START_Field := 16#0#;
+      START          : Boolean := False;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2 := 16#0#;
       --  CLUT size These bits define the size of the CLUT used for the BG.
@@ -369,11 +338,11 @@ package STM32_SVD.DMA2D is
       Reserved_18_19 : STM32_SVD.UInt2 := 16#0#;
       --  Alpha Inverted This bit inverts the alpha value. Once the transfer
       --  has started, this bit is read-only.
-      AI             : DMA2D_BGPFCCR_AI_Field := 16#0#;
+      AI             : Boolean := False;
       --  Red Blue Swap This bit allows to swap the R &amp; B to support BGR or
       --  ABGR color formats. Once the transfer has started, this bit is
       --  read-only.
-      RBS            : DMA2D_BGPFCCR_RBS_Field := 16#0#;
+      RBS            : Boolean := False;
       --  unspecified
       Reserved_22_23 : STM32_SVD.UInt2 := 16#0#;
       --  Alpha value These bits define a fixed alpha channel value which can
@@ -383,7 +352,7 @@ package STM32_SVD.DMA2D is
       --  the transfer has started, they are read-only.
       ALPHA          : DMA2D_BGPFCCR_ALPHA_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_BGPFCCR_Register use record
@@ -421,7 +390,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_BGCOLR_Register use record
@@ -432,8 +401,6 @@ package STM32_SVD.DMA2D is
    end record;
 
    subtype DMA2D_OPFCCR_CM_Field is STM32_SVD.UInt3;
-   subtype DMA2D_OPFCCR_AI_Field is STM32_SVD.Bit;
-   subtype DMA2D_OPFCCR_RBS_Field is STM32_SVD.Bit;
 
    --  DMA2D output PFC control register
    type DMA2D_OPFCCR_Register is record
@@ -445,15 +412,15 @@ package STM32_SVD.DMA2D is
       Reserved_3_19  : STM32_SVD.UInt17 := 16#0#;
       --  Alpha Inverted This bit inverts the alpha value. Once the transfer
       --  has started, this bit is read-only.
-      AI             : DMA2D_OPFCCR_AI_Field := 16#0#;
+      AI             : Boolean := False;
       --  Red Blue Swap This bit allows to swap the R &amp; B to support BGR or
       --  ABGR color formats. Once the transfer has started, this bit is
       --  read-only.
-      RBS            : DMA2D_OPFCCR_RBS_Field := 16#0#;
+      RBS            : Boolean := False;
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_OPFCCR_Register use record
@@ -488,7 +455,7 @@ package STM32_SVD.DMA2D is
       --  disabled. Once the transfer has started, they are read-only.
       ALPHA : DMA2D_OCOLR_ALPHA_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_OCOLR_Register use record
@@ -511,7 +478,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_14_31 : STM32_SVD.UInt18 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_OOR_Register use record
@@ -537,7 +504,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_NLR_Register use record
@@ -559,7 +526,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_LWR_Register use record
@@ -567,13 +534,12 @@ package STM32_SVD.DMA2D is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype DMA2D_AMTCR_EN_Field is STM32_SVD.Bit;
    subtype DMA2D_AMTCR_DT_Field is STM32_SVD.Byte;
 
    --  DMA2D AXI master timer configuration register
    type DMA2D_AMTCR_Register is record
       --  Enable Enables the dead time functionality.
-      EN             : DMA2D_AMTCR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  unspecified
       Reserved_1_7   : STM32_SVD.UInt7 := 16#0#;
       --  Dead Time Dead time value in the AXI clock cycle inserted between two
@@ -584,7 +550,7 @@ package STM32_SVD.DMA2D is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMA2D_AMTCR_Register use record
@@ -668,6 +634,6 @@ package STM32_SVD.DMA2D is
 
    --  DMA2D
    DMA2D_Periph : aliased DMA2D_Peripheral
-     with Import, Address => System'To_Address (16#52001000#);
+     with Import, Address => DMA2D_Base;
 
 end STM32_SVD.DMA2D;

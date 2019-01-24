@@ -1,0 +1,185 @@
+with "../../boards/stm32h743_nucleo/stm32h743_nucleo.gpr";
+
+project SPI_STM32H743_Nucleo is
+
+   for Languages use ("Ada");
+   for Target use "arm-eabi";
+   for Create_Missing_Dirs use "True";
+   for Main use ("spi.adb");
+   type Lch_Type is
+      ("led", "lcd");
+   Lch : Lch_Type := external ("LCH");
+   type Rts_Type is
+      ("ravenscar-sfp", "ravenscar-full");
+   Rts_Profile : Rts_Type := external ("RTS_Profile");
+   type Loader_Type is
+      ("ROM");
+   Loader : Loader_Type := external ("LOADER", "ROM");
+   -- for Loader use "ROM";
+   type Build_Type is
+      ("Debug", "Production");
+   Build : Build_Type := external ("ADL_BUILD", "Debug");
+   type Build_Type1 is
+      ("Debug", "Production");
+   Platform_Build : Build_Type1 := external ("PLATFORM_BUILD");
+   type Build_Checks_Type is
+      ("Disabled", "Enabled");
+   Adl_Build_Checks : Build_Checks_Type := external ("ADL_BUILD_CHECKS");
+   type Build_Type11 is
+      ("Debug", "Production");
+   Adl_Build : Build_Type11 := external ("ADL_BUILD");
+
+   case Lch is
+
+      when "led" =>
+
+         case Rts_Profile is
+
+            when "ravenscar-sfp" =>
+
+               case Loader is
+
+                  when "ROM" =>
+
+                     case Platform_Build is
+
+                        when "Debug" =>
+
+                           case Adl_Build_Checks is
+
+                              when "Disabled" =>
+
+                                 case Build is
+
+                                    when "Debug" =>
+                                       for Source_Dirs use ("gui");
+                                       for Runtime ("ada") use "ravenscar-sfp-stm32h743nucleo";
+                                       for Source_Dirs use ("src");
+                                       for Target use "arm-eabi";
+
+                                    when "Production" =>
+                                       for Source_Dirs use ("gui");
+                                       for Runtime ("ada") use "ravenscar-sfp-stm32h743nucleo";
+                                       for Source_Dirs use ("./src");
+                                       for Target use "arm-eabi";
+                                 end case;
+
+                              when "Enabled" =>
+
+                                 case Build is
+
+                                    when "Debug" =>
+                                       for Source_Dirs use ("gui");
+                                       for Runtime ("ada") use "ravenscar-sfp-stm32h743nucleo";
+                                       for Source_Dirs use ("./src");
+                                       for Target use "arm-eabi";
+
+                                    when "Production" =>
+                                       for Source_Dirs use ("gui");
+                                       for Runtime ("ada") use "ravenscar-sfp-stm32h743nucleo";
+                                       for Source_Dirs use ("./src");
+                                       for Target use "arm-eabi";
+                                 end case;
+                           end case;
+
+                        when "Production" =>
+                           for Source_Dirs use ("gui");
+                           for Runtime ("ada") use "ravenscar-sfp-stm32h743nucleo";
+                           for Source_Dirs use ("./src");
+                           for Target use "arm-eabi";
+                     end case;
+               end case;
+
+            when "ravenscar-full" =>
+               for Source_Dirs use ("gui");
+               for Object_Dir use "../shared/draw/obj/stm32f769disco";
+               for Runtime ("ada") use Stm32H743_Nucleo'Runtime ("Ada");
+               for Source_Dirs use ("./src");
+         end case;
+
+      when "lcd" =>
+         for Source_Dirs use ("gui");
+         for Object_Dir use "../shared/draw/obj/stm32f769disco";
+         for Runtime ("ada") use Stm32H743_Nucleo'Runtime ("Ada");
+         for Source_Dirs use ("./src");
+   end case;
+
+   package Ide is
+
+      case Lch is
+
+         when "led" =>
+
+            case Rts_Profile is
+
+               when "ravenscar-sfp" =>
+
+                  case Loader is
+
+                     when "ROM" =>
+
+                        case Platform_Build is
+
+                           when "Debug" =>
+
+                              case Adl_Build_Checks is
+
+                                 when "Disabled" =>
+
+                                    case Build is
+
+                                       when "Debug" =>
+                                          for Connection_Tool use "openocd";
+                                          for Connection_Config_File use "test.cfg";
+                                          for Communication_Protocol use "extended-remote";
+                                          for Program_Host use "localhost:3333";
+
+                                       when "Production" =>
+                                          for Debugger_Command use "arm-eabi-gdb";
+                                          for Gnatlist use "arm-eabi-gnatls";
+                                          for Gnat use "arm-eabi-gnat";
+                                          for Connection_Tool use "openocd";
+                                          for Connection_Config_File use "test.cfg";
+                                          for Communication_Protocol use "extended-remote";
+                                          for Program_Host use "localhost:3333";
+                                    end case;
+
+                                 when "Enabled" =>
+                                    for Debugger_Command use "arm-eabi-gdb";
+                                    for Gnatlist use "arm-eabi-gnatls";
+                                    for Gnat use "arm-eabi-gnat";
+                                    for Connection_Tool use "openocd";
+                                    for Connection_Config_File use "test.cfg";
+                                    for Communication_Protocol use "extended-remote";
+                                    for Program_Host use "localhost:3333";
+                              end case;
+
+                           when "Production" =>
+                              for Debugger_Command use "arm-eabi-gdb";
+                              for Gnatlist use "arm-eabi-gnatls";
+                              for Gnat use "arm-eabi-gnat";
+                        end case;
+                  end case;
+
+               when "ravenscar-full" =>
+                  for Debugger_Command use "arm-eabi-gdb";
+                  for Gnatlist use "arm-eabi-gnatls";
+                  for Gnat use "arm-eabi-gnat";
+            end case;
+
+         when "lcd" =>
+            for Debugger_Command use "arm-eabi-gdb";
+            for Gnatlist use "arm-eabi-gnatls";
+            for Gnat use "arm-eabi-gnat";
+      end case;
+   end Ide;
+
+   package Linker is
+      for Default_Switches ("ada") use ("-Wl,--print-memory-usage", "-Wl,-Map=map.txt");
+   end Linker;
+
+   package Builder is
+   end Builder;
+
+end SPI_STM32H743_Nucleo;
+

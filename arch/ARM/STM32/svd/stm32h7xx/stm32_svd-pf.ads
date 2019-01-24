@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -57,7 +57,7 @@ package STM32_SVD.PF is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CLIDR_Register use record
@@ -91,7 +91,7 @@ package STM32_SVD.PF is
       --  Read-only. Format
       Format         : CTR_Format_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CTR_Register use record
@@ -107,10 +107,6 @@ package STM32_SVD.PF is
    subtype CCSIDR_LineSize_Field is STM32_SVD.UInt3;
    subtype CCSIDR_Associativity_Field is STM32_SVD.UInt10;
    subtype CCSIDR_NumSets_Field is STM32_SVD.UInt15;
-   subtype CCSIDR_WA_Field is STM32_SVD.Bit;
-   subtype CCSIDR_RA_Field is STM32_SVD.Bit;
-   subtype CCSIDR_WB_Field is STM32_SVD.Bit;
-   subtype CCSIDR_WT_Field is STM32_SVD.Bit;
 
    --  Cache Size ID register
    type CCSIDR_Register is record
@@ -121,15 +117,15 @@ package STM32_SVD.PF is
       --  Read-only. NumSets
       NumSets       : CCSIDR_NumSets_Field;
       --  Read-only. WA
-      WA            : CCSIDR_WA_Field;
+      WA            : Boolean;
       --  Read-only. RA
-      RA            : CCSIDR_RA_Field;
+      RA            : Boolean;
       --  Read-only. WB
-      WB            : CCSIDR_WB_Field;
+      WB            : Boolean;
       --  Read-only. WT
-      WT            : CCSIDR_WT_Field;
+      WT            : Boolean;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCSIDR_Register use record
@@ -165,6 +161,6 @@ package STM32_SVD.PF is
 
    --  Processor features
    PF_Periph : aliased PF_Peripheral
-     with Import, Address => System'To_Address (16#E000ED78#);
+     with Import, Address => PF_Base;
 
 end STM32_SVD.PF;

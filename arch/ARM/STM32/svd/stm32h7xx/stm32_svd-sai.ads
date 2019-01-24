@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -27,7 +27,7 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_GCR_Register use record
@@ -40,16 +40,8 @@ package STM32_SVD.SAI is
    subtype SAI_ACR1_MODE_Field is STM32_SVD.UInt2;
    subtype SAI_ACR1_PRTCFG_Field is STM32_SVD.UInt2;
    subtype SAI_ACR1_DS_Field is STM32_SVD.UInt3;
-   subtype SAI_ACR1_LSBFIRST_Field is STM32_SVD.Bit;
-   subtype SAI_ACR1_CKSTR_Field is STM32_SVD.Bit;
    subtype SAI_ACR1_SYNCEN_Field is STM32_SVD.UInt2;
-   subtype SAI_ACR1_MONO_Field is STM32_SVD.Bit;
-   subtype SAI_ACR1_OUTDRIV_Field is STM32_SVD.Bit;
-   subtype SAI_ACR1_SAIXEN_Field is STM32_SVD.Bit;
-   subtype SAI_ACR1_DMAEN_Field is STM32_SVD.Bit;
-   subtype SAI_ACR1_NOMCK_Field is STM32_SVD.Bit;
    subtype SAI_ACR1_MCKDIV_Field is STM32_SVD.UInt4;
-   subtype SAI_ACR1_OSR_Field is STM32_SVD.Bit;
 
    --  Configuration register 1
    type SAI_ACR1_Register is record
@@ -73,11 +65,11 @@ package STM32_SVD.SAI is
       --  transferred with the MSB first. This bit has no meaning in SPDIF
       --  audio protocol since in SPDIF data are always transferred with LSB
       --  first.
-      LSBFIRST       : SAI_ACR1_LSBFIRST_Field := 16#0#;
+      LSBFIRST       : Boolean := False;
       --  Clock strobing edge. This bit is set and cleared by software. It must
       --  be configured when the audio block is disabled. This bit has no
       --  meaning in SPDIF audio protocol.
-      CKSTR          : SAI_ACR1_CKSTR_Field := 16#0#;
+      CKSTR          : Boolean := False;
       --  Synchronization enable. These bits are set and cleared by software.
       --  They must be configured when the audio sub-block is disabled. Note:
       --  The audio sub-block should be configured as asynchronous when SPDIF
@@ -89,11 +81,11 @@ package STM32_SVD.SAI is
       --  operates as a transmitter. In reception mode, the slot1 is discarded
       --  and only the data received from slot 0 are stored. Refer to Section:
       --  Mono/stereo mode for more details.
-      MONO           : SAI_ACR1_MONO_Field := 16#0#;
+      MONO           : Boolean := False;
       --  Output drive. This bit is set and cleared by software. Note: This bit
       --  has to be set before enabling the audio block and after the audio
       --  block configuration.
-      OUTDRIV        : SAI_ACR1_OUTDRIV_Field := 16#0#;
+      OUTDRIV        : Boolean := False;
       --  unspecified
       Reserved_14_15 : STM32_SVD.UInt2 := 16#0#;
       --  Audio block enable where x is A or B. This bit is set by software. To
@@ -107,16 +99,16 @@ package STM32_SVD.SAI is
       --  of this audio frame transfer. Note: When SAIx block is configured in
       --  master mode, the clock must be present on the input of SAIx before
       --  setting SAIXEN bit.
-      SAIXEN         : SAI_ACR1_SAIXEN_Field := 16#0#;
+      SAIXEN         : Boolean := False;
       --  DMA enable. This bit is set and cleared by software. Note: Since the
       --  audio block defaults to operate as a transmitter after reset, the
       --  MODE[1:0] bits must be configured before setting DMAEN to avoid a DMA
       --  request in receiver mode.
-      DMAEN          : SAI_ACR1_DMAEN_Field := 16#0#;
+      DMAEN          : Boolean := False;
       --  unspecified
       Reserved_18_18 : STM32_SVD.Bit := 16#0#;
       --  No divider
-      NOMCK          : SAI_ACR1_NOMCK_Field := 16#0#;
+      NOMCK          : Boolean := False;
       --  Master clock divider. These bits are set and cleared by software.
       --  These bits are meaningless when the audio block operates in slave
       --  mode. They have to be configured when the audio block is disabled.
@@ -126,11 +118,11 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_24_25 : STM32_SVD.UInt2 := 16#0#;
       --  Oversampling ratio for master clock
-      OSR            : SAI_ACR1_OSR_Field := 16#0#;
+      OSR            : Boolean := False;
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_ACR1_Register use record
@@ -155,12 +147,7 @@ package STM32_SVD.SAI is
    end record;
 
    subtype SAI_ACR2_FTH_Field is STM32_SVD.UInt3;
-   subtype SAI_ACR2_FFLUSH_Field is STM32_SVD.Bit;
-   subtype SAI_ACR2_TRIS_Field is STM32_SVD.Bit;
-   subtype SAI_ACR2_MUTE_Field is STM32_SVD.Bit;
-   subtype SAI_ACR2_MUTEVAL_Field is STM32_SVD.Bit;
    subtype SAI_ACR2_MUTECNT_Field is STM32_SVD.UInt6;
-   subtype SAI_ACR2_CPL_Field is STM32_SVD.Bit;
    subtype SAI_ACR2_COMP_Field is STM32_SVD.UInt2;
 
    --  Configuration register 2
@@ -169,21 +156,21 @@ package STM32_SVD.SAI is
       FTH            : SAI_ACR2_FTH_Field := 16#0#;
       --  Write-only. FIFO flush. This bit is set by software. It is always
       --  read as 0. This bit should be configured when the SAI is disabled.
-      FFLUSH         : SAI_ACR2_FFLUSH_Field := 16#0#;
+      FFLUSH         : Boolean := False;
       --  Tristate management on data line. This bit is set and cleared by
       --  software. It is meaningful only if the audio block is configured as a
       --  transmitter. This bit is not used when the audio block is configured
       --  in SPDIF mode. It should be configured when SAI is disabled. Refer to
       --  Section: Output data line management on an inactive slot for more
       --  details.
-      TRIS           : SAI_ACR2_TRIS_Field := 16#0#;
+      TRIS           : Boolean := False;
       --  Mute. This bit is set and cleared by software. It is meaningful only
       --  when the audio block operates as a transmitter. The MUTE value is
       --  linked to value of MUTEVAL if the number of slots is lower or equal
       --  to 2, or equal to 0 if it is greater than 2. Refer to Section: Mute
       --  mode for more details. Note: This bit is meaningless and should not
       --  be used for SPDIF audio blocks.
-      MUTE           : SAI_ACR2_MUTE_Field := 16#0#;
+      MUTE           : Boolean := False;
       --  Mute value. This bit is set and cleared by software.It must be
       --  written before enabling the audio block: SAIXEN. This bit is
       --  meaningful only when the audio block operates as a transmitter, the
@@ -194,7 +181,7 @@ package STM32_SVD.SAI is
       --  transmitted for each slot is the one sent during the previous frame.
       --  Refer to Section: Mute mode for more details. Note: This bit is
       --  meaningless and should not be used for SPDIF audio blocks.
-      MUTEVAL        : SAI_ACR2_MUTEVAL_Field := 16#0#;
+      MUTEVAL        : Boolean := False;
       --  Mute counter. These bits are set and cleared by software. They are
       --  used only in reception mode. The value set in these bits is compared
       --  to the number of consecutive mute frames detected in reception. When
@@ -206,7 +193,7 @@ package STM32_SVD.SAI is
       --  the type of complement to be used for companding mode Note: This bit
       --  has effect only when the companding mode is -Law algorithm or A-Law
       --  algorithm.
-      CPL            : SAI_ACR2_CPL_Field := 16#0#;
+      CPL            : Boolean := False;
       --  Companding mode. These bits are set and cleared by software. The -Law
       --  and the A-Law log are a part of the CCITT G.711 recommendation, the
       --  type of complement that will be used depends on CPL bit. The data
@@ -220,7 +207,7 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_ACR2_Register use record
@@ -237,9 +224,6 @@ package STM32_SVD.SAI is
 
    subtype SAI_AFRCR_FRL_Field is STM32_SVD.Byte;
    subtype SAI_AFRCR_FSALL_Field is STM32_SVD.UInt7;
-   subtype SAI_AFRCR_FSDEF_Field is STM32_SVD.Bit;
-   subtype SAI_AFRCR_FSPOL_Field is STM32_SVD.Bit;
-   subtype SAI_AFRCR_FSOFF_Field is STM32_SVD.Bit;
 
    --  This register has no meaning in AC97 and SPDIF audio protocol
    type SAI_AFRCR_Register is record
@@ -274,22 +258,22 @@ package STM32_SVD.SAI is
       --  MSB/LSB-justified protocols...). This bit is meaningless and is not
       --  used in AC97 or SPDIF audio block configuration. It must be
       --  configured when the audio block is disabled.
-      FSDEF          : SAI_AFRCR_FSDEF_Field := 16#0#;
+      FSDEF          : Boolean := False;
       --  Frame synchronization polarity. This bit is set and cleared by
       --  software. It is used to configure the level of the start of frame on
       --  the FS signal. It is meaningless and is not used in AC97 or SPDIF
       --  audio block configuration. This bit must be configured when the audio
       --  block is disabled.
-      FSPOL          : SAI_AFRCR_FSPOL_Field := 16#0#;
+      FSPOL          : Boolean := False;
       --  Frame synchronization offset. This bit is set and cleared by
       --  software. It is meaningless and is not used in AC97 or SPDIF audio
       --  block configuration. This bit must be configured when the audio block
       --  is disabled.
-      FSOFF          : SAI_AFRCR_FSOFF_Field := 16#0#;
+      FSOFF          : Boolean := False;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_AFRCR_Register use record
@@ -342,7 +326,7 @@ package STM32_SVD.SAI is
       --  ignored in AC97 or SPDIF mode.
       SLOTEN         : SAI_ASLOTR_SLOTEN_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_ASLOTR_Register use record
@@ -354,39 +338,31 @@ package STM32_SVD.SAI is
       SLOTEN         at 0 range 16 .. 31;
    end record;
 
-   subtype SAI_AIM_OVRUDRIE_Field is STM32_SVD.Bit;
-   subtype SAI_AIM_MUTEDETIE_Field is STM32_SVD.Bit;
-   subtype SAI_AIM_WCKCFGIE_Field is STM32_SVD.Bit;
-   subtype SAI_AIM_FREQIE_Field is STM32_SVD.Bit;
-   subtype SAI_AIM_CNRDYIE_Field is STM32_SVD.Bit;
-   subtype SAI_AIM_AFSDETIE_Field is STM32_SVD.Bit;
-   subtype SAI_AIM_LFSDETIE_Field is STM32_SVD.Bit;
-
    --  Interrupt mask register 2
    type SAI_AIM_Register is record
       --  Overrun/underrun interrupt enable. This bit is set and cleared by
       --  software. When this bit is set, an interrupt is generated if the
       --  OVRUDR bit in the SAI_xSR register is set.
-      OVRUDRIE      : SAI_AIM_OVRUDRIE_Field := 16#0#;
+      OVRUDRIE      : Boolean := False;
       --  Mute detection interrupt enable. This bit is set and cleared by
       --  software. When this bit is set, an interrupt is generated if the
       --  MUTEDET bit in the SAI_xSR register is set. This bit has a meaning
       --  only if the audio block is configured in receiver mode.
-      MUTEDETIE     : SAI_AIM_MUTEDETIE_Field := 16#0#;
+      MUTEDETIE     : Boolean := False;
       --  Wrong clock configuration interrupt enable. This bit is set and
       --  cleared by software. This bit is taken into account only if the audio
       --  block is configured as a master (MODE[1] = 0) and NODIV = 0. It
       --  generates an interrupt if the WCKCFG flag in the SAI_xSR register is
       --  set. Note: This bit is used only in TDM mode and is meaningless in
       --  other modes.
-      WCKCFGIE      : SAI_AIM_WCKCFGIE_Field := 16#0#;
+      WCKCFGIE      : Boolean := False;
       --  FIFO request interrupt enable. This bit is set and cleared by
       --  software. When this bit is set, an interrupt is generated if the FREQ
       --  bit in the SAI_xSR register is set. Since the audio block defaults to
       --  operate as a transmitter after reset, the MODE bit must be configured
       --  before setting FREQIE to avoid a parasitic interruption in receiver
       --  mode,
-      FREQIE        : SAI_AIM_FREQIE_Field := 16#0#;
+      FREQIE        : Boolean := False;
       --  Codec not ready interrupt enable (AC97). This bit is set and cleared
       --  by software. When the interrupt is enabled, the audio block detects
       --  in the slot 0 (tag0) of the AC97 frame if the Codec connected to this
@@ -394,23 +370,23 @@ package STM32_SVD.SAI is
       --  SAI_xSR register is set and an interruption i generated. This bit has
       --  a meaning only if the AC97 mode is selected through PRTCFG[1:0] bits
       --  and the audio block is operates as a receiver.
-      CNRDYIE       : SAI_AIM_CNRDYIE_Field := 16#0#;
+      CNRDYIE       : Boolean := False;
       --  Anticipated frame synchronization detection interrupt enable. This
       --  bit is set and cleared by software. When this bit is set, an
       --  interrupt will be generated if the AFSDET bit in the SAI_xSR register
       --  is set. This bit is meaningless in AC97, SPDIF mode or when the audio
       --  block operates as a master.
-      AFSDETIE      : SAI_AIM_AFSDETIE_Field := 16#0#;
+      AFSDETIE      : Boolean := False;
       --  Late frame synchronization detection interrupt enable. This bit is
       --  set and cleared by software. When this bit is set, an interrupt will
       --  be generated if the LFSDET bit is set in the SAI_xSR register. This
       --  bit is meaningless in AC97, SPDIF mode or when the audio block
       --  operates as a master.
-      LFSDETIE      : SAI_AIM_LFSDETIE_Field := 16#0#;
+      LFSDETIE      : Boolean := False;
       --  unspecified
       Reserved_7_31 : STM32_SVD.UInt25 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_AIM_Register use record
@@ -424,13 +400,6 @@ package STM32_SVD.SAI is
       Reserved_7_31 at 0 range 7 .. 31;
    end record;
 
-   subtype SAI_ASR_OVRUDR_Field is STM32_SVD.Bit;
-   subtype SAI_ASR_MUTEDET_Field is STM32_SVD.Bit;
-   subtype SAI_ASR_WCKCFG_Field is STM32_SVD.Bit;
-   subtype SAI_ASR_FREQ_Field is STM32_SVD.Bit;
-   subtype SAI_ASR_CNRDY_Field is STM32_SVD.Bit;
-   subtype SAI_ASR_AFSDET_Field is STM32_SVD.Bit;
-   subtype SAI_ASR_LFSDET_Field is STM32_SVD.Bit;
    subtype SAI_ASR_FLVL_Field is STM32_SVD.UInt3;
 
    --  Status register
@@ -440,20 +409,20 @@ package STM32_SVD.SAI is
       --  as a receiver and a transmitter, respectively. It can generate an
       --  interrupt if OVRUDRIE bit is set in SAI_xIM register. This flag is
       --  cleared when the software sets COVRUDR bit in SAI_xCLRFR register.
-      OVRUDR         : SAI_ASR_OVRUDR_Field;
+      OVRUDR         : Boolean;
       --  Read-only. Mute detection. This bit is read only. This flag is set if
       --  consecutive 0 values are received in each slot of a given audio frame
       --  and for a consecutive number of audio frames (set in the MUTECNT bit
       --  in the SAI_xCR2 register). It can generate an interrupt if MUTEDETIE
       --  bit is set in SAI_xIM register. This flag is cleared when the
       --  software sets bit CMUTEDET in the SAI_xCLRFR register.
-      MUTEDET        : SAI_ASR_MUTEDET_Field;
+      MUTEDET        : Boolean;
       --  Read-only. Wrong clock configuration flag. This bit is read only.
       --  This bit is used only when the audio block operates in master mode
       --  (MODE[1] = 0) and NODIV = 0. It can generate an interrupt if WCKCFGIE
       --  bit is set in SAI_xIM register. This flag is cleared when the
       --  software sets CWCKCFG bit in SAI_xCLRFR register.
-      WCKCFG         : SAI_ASR_WCKCFG_Field;
+      WCKCFG         : Boolean;
       --  Read-only. FIFO request. This bit is read only. The request depends
       --  on the audio block configuration: If the block is configured in
       --  transmission mode, the FIFO request is related to a write request
@@ -461,25 +430,25 @@ package STM32_SVD.SAI is
       --  FIFO request related to a read request operation from the SAI_xDR.
       --  This flag can generate an interrupt if FREQIE bit is set in SAI_xIM
       --  register.
-      FREQ           : SAI_ASR_FREQ_Field;
+      FREQ           : Boolean;
       --  Read-only. Codec not ready. This bit is read only. This bit is used
       --  only when the AC97 audio protocol is selected in the SAI_xCR1
       --  register and configured in receiver mode. It can generate an
       --  interrupt if CNRDYIE bit is set in SAI_xIM register. This flag is
       --  cleared when the software sets CCNRDY bit in SAI_xCLRFR register.
-      CNRDY          : SAI_ASR_CNRDY_Field;
+      CNRDY          : Boolean;
       --  Read-only. Anticipated frame synchronization detection. This bit is
       --  read only. This flag can be set only if the audio block is configured
       --  in slave mode. It is not used in AC97or SPDIF mode. It can generate
       --  an interrupt if AFSDETIE bit is set in SAI_xIM register. This flag is
       --  cleared when the software sets CAFSDET bit in SAI_xCLRFR register.
-      AFSDET         : SAI_ASR_AFSDET_Field;
+      AFSDET         : Boolean;
       --  Read-only. Late frame synchronization detection. This bit is read
       --  only. This flag can be set only if the audio block is configured in
       --  slave mode. It is not used in AC97 or SPDIF mode. It can generate an
       --  interrupt if LFSDETIE bit is set in the SAI_xIM register. This flag
       --  is cleared when the software sets bit CLFSDET in SAI_xCLRFR register
-      LFSDET         : SAI_ASR_LFSDET_Field;
+      LFSDET         : Boolean;
       --  unspecified
       Reserved_7_15  : STM32_SVD.UInt9;
       --  Read-only. FIFO level threshold. This bit is read only. The FIFO
@@ -491,7 +460,7 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_ASR_Register use record
@@ -507,29 +476,22 @@ package STM32_SVD.SAI is
       Reserved_19_31 at 0 range 19 .. 31;
    end record;
 
-   subtype SAI_ACLRFR_COVRUDR_Field is STM32_SVD.Bit;
-   subtype SAI_ACLRFR_CMUTEDET_Field is STM32_SVD.Bit;
-   subtype SAI_ACLRFR_CWCKCFG_Field is STM32_SVD.Bit;
-   subtype SAI_ACLRFR_CCNRDY_Field is STM32_SVD.Bit;
-   subtype SAI_ACLRFR_CAFSDET_Field is STM32_SVD.Bit;
-   subtype SAI_ACLRFR_CLFSDET_Field is STM32_SVD.Bit;
-
    --  Clear flag register
    type SAI_ACLRFR_Register is record
       --  Write-only. Clear overrun / underrun. This bit is write only.
       --  Programming this bit to 1 clears the OVRUDR flag in the SAI_xSR
       --  register. Reading this bit always returns the value 0.
-      COVRUDR       : SAI_ACLRFR_COVRUDR_Field := 16#0#;
+      COVRUDR       : Boolean := False;
       --  Write-only. Mute detection flag. This bit is write only. Programming
       --  this bit to 1 clears the MUTEDET flag in the SAI_xSR register.
       --  Reading this bit always returns the value 0.
-      CMUTEDET      : SAI_ACLRFR_CMUTEDET_Field := 16#0#;
+      CMUTEDET      : Boolean := False;
       --  Write-only. Clear wrong clock configuration flag. This bit is write
       --  only. Programming this bit to 1 clears the WCKCFG flag in the SAI_xSR
       --  register. This bit is used only when the audio block is set as master
       --  (MODE[1] = 0) and NODIV = 0 in the SAI_xCR1 register. Reading this
       --  bit always returns the value 0.
-      CWCKCFG       : SAI_ACLRFR_CWCKCFG_Field := 16#0#;
+      CWCKCFG       : Boolean := False;
       --  unspecified
       Reserved_3_3  : STM32_SVD.Bit := 16#0#;
       --  Write-only. Clear Codec not ready flag. This bit is write only.
@@ -537,21 +499,21 @@ package STM32_SVD.SAI is
       --  register. This bit is used only when the AC97 audio protocol is
       --  selected in the SAI_xCR1 register. Reading this bit always returns
       --  the value 0.
-      CCNRDY        : SAI_ACLRFR_CCNRDY_Field := 16#0#;
+      CCNRDY        : Boolean := False;
       --  Write-only. Clear anticipated frame synchronization detection flag.
       --  This bit is write only. Programming this bit to 1 clears the AFSDET
       --  flag in the SAI_xSR register. It is not used in AC97or SPDIF mode.
       --  Reading this bit always returns the value 0.
-      CAFSDET       : SAI_ACLRFR_CAFSDET_Field := 16#0#;
+      CAFSDET       : Boolean := False;
       --  Write-only. Clear late frame synchronization detection flag. This bit
       --  is write only. Programming this bit to 1 clears the LFSDET flag in
       --  the SAI_xSR register. This bit is not used in AC97or SPDIF mode
       --  Reading this bit always returns the value 0.
-      CLFSDET       : SAI_ACLRFR_CLFSDET_Field := 16#0#;
+      CLFSDET       : Boolean := False;
       --  unspecified
       Reserved_7_31 : STM32_SVD.UInt25 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_ACLRFR_Register use record
@@ -568,16 +530,8 @@ package STM32_SVD.SAI is
    subtype SAI_BCR1_MODE_Field is STM32_SVD.UInt2;
    subtype SAI_BCR1_PRTCFG_Field is STM32_SVD.UInt2;
    subtype SAI_BCR1_DS_Field is STM32_SVD.UInt3;
-   subtype SAI_BCR1_LSBFIRST_Field is STM32_SVD.Bit;
-   subtype SAI_BCR1_CKSTR_Field is STM32_SVD.Bit;
    subtype SAI_BCR1_SYNCEN_Field is STM32_SVD.UInt2;
-   subtype SAI_BCR1_MONO_Field is STM32_SVD.Bit;
-   subtype SAI_BCR1_OUTDRIV_Field is STM32_SVD.Bit;
-   subtype SAI_BCR1_SAIXEN_Field is STM32_SVD.Bit;
-   subtype SAI_BCR1_DMAEN_Field is STM32_SVD.Bit;
-   subtype SAI_BCR1_NOMCK_Field is STM32_SVD.Bit;
    subtype SAI_BCR1_MCKDIV_Field is STM32_SVD.UInt4;
-   subtype SAI_BCR1_OSR_Field is STM32_SVD.Bit;
 
    --  Configuration register 1
    type SAI_BCR1_Register is record
@@ -601,11 +555,11 @@ package STM32_SVD.SAI is
       --  transferred with the MSB first. This bit has no meaning in SPDIF
       --  audio protocol since in SPDIF data are always transferred with LSB
       --  first.
-      LSBFIRST       : SAI_BCR1_LSBFIRST_Field := 16#0#;
+      LSBFIRST       : Boolean := False;
       --  Clock strobing edge. This bit is set and cleared by software. It must
       --  be configured when the audio block is disabled. This bit has no
       --  meaning in SPDIF audio protocol.
-      CKSTR          : SAI_BCR1_CKSTR_Field := 16#0#;
+      CKSTR          : Boolean := False;
       --  Synchronization enable. These bits are set and cleared by software.
       --  They must be configured when the audio sub-block is disabled. Note:
       --  The audio sub-block should be configured as asynchronous when SPDIF
@@ -617,11 +571,11 @@ package STM32_SVD.SAI is
       --  operates as a transmitter. In reception mode, the slot1 is discarded
       --  and only the data received from slot 0 are stored. Refer to Section:
       --  Mono/stereo mode for more details.
-      MONO           : SAI_BCR1_MONO_Field := 16#0#;
+      MONO           : Boolean := False;
       --  Output drive. This bit is set and cleared by software. Note: This bit
       --  has to be set before enabling the audio block and after the audio
       --  block configuration.
-      OUTDRIV        : SAI_BCR1_OUTDRIV_Field := 16#0#;
+      OUTDRIV        : Boolean := False;
       --  unspecified
       Reserved_14_15 : STM32_SVD.UInt2 := 16#0#;
       --  Audio block enable where x is A or B. This bit is set by software. To
@@ -635,16 +589,16 @@ package STM32_SVD.SAI is
       --  of this audio frame transfer. Note: When SAIx block is configured in
       --  master mode, the clock must be present on the input of SAIx before
       --  setting SAIXEN bit.
-      SAIXEN         : SAI_BCR1_SAIXEN_Field := 16#0#;
+      SAIXEN         : Boolean := False;
       --  DMA enable. This bit is set and cleared by software. Note: Since the
       --  audio block defaults to operate as a transmitter after reset, the
       --  MODE[1:0] bits must be configured before setting DMAEN to avoid a DMA
       --  request in receiver mode.
-      DMAEN          : SAI_BCR1_DMAEN_Field := 16#0#;
+      DMAEN          : Boolean := False;
       --  unspecified
       Reserved_18_18 : STM32_SVD.Bit := 16#0#;
       --  No divider
-      NOMCK          : SAI_BCR1_NOMCK_Field := 16#0#;
+      NOMCK          : Boolean := False;
       --  Master clock divider. These bits are set and cleared by software.
       --  These bits are meaningless when the audio block operates in slave
       --  mode. They have to be configured when the audio block is disabled.
@@ -654,11 +608,11 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_24_25 : STM32_SVD.UInt2 := 16#0#;
       --  Oversampling ratio for master clock
-      OSR            : SAI_BCR1_OSR_Field := 16#0#;
+      OSR            : Boolean := False;
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_BCR1_Register use record
@@ -683,12 +637,7 @@ package STM32_SVD.SAI is
    end record;
 
    subtype SAI_BCR2_FTH_Field is STM32_SVD.UInt3;
-   subtype SAI_BCR2_FFLUSH_Field is STM32_SVD.Bit;
-   subtype SAI_BCR2_TRIS_Field is STM32_SVD.Bit;
-   subtype SAI_BCR2_MUTE_Field is STM32_SVD.Bit;
-   subtype SAI_BCR2_MUTEVAL_Field is STM32_SVD.Bit;
    subtype SAI_BCR2_MUTECNT_Field is STM32_SVD.UInt6;
-   subtype SAI_BCR2_CPL_Field is STM32_SVD.Bit;
    subtype SAI_BCR2_COMP_Field is STM32_SVD.UInt2;
 
    --  Configuration register 2
@@ -697,21 +646,21 @@ package STM32_SVD.SAI is
       FTH            : SAI_BCR2_FTH_Field := 16#0#;
       --  Write-only. FIFO flush. This bit is set by software. It is always
       --  read as 0. This bit should be configured when the SAI is disabled.
-      FFLUSH         : SAI_BCR2_FFLUSH_Field := 16#0#;
+      FFLUSH         : Boolean := False;
       --  Tristate management on data line. This bit is set and cleared by
       --  software. It is meaningful only if the audio block is configured as a
       --  transmitter. This bit is not used when the audio block is configured
       --  in SPDIF mode. It should be configured when SAI is disabled. Refer to
       --  Section: Output data line management on an inactive slot for more
       --  details.
-      TRIS           : SAI_BCR2_TRIS_Field := 16#0#;
+      TRIS           : Boolean := False;
       --  Mute. This bit is set and cleared by software. It is meaningful only
       --  when the audio block operates as a transmitter. The MUTE value is
       --  linked to value of MUTEVAL if the number of slots is lower or equal
       --  to 2, or equal to 0 if it is greater than 2. Refer to Section: Mute
       --  mode for more details. Note: This bit is meaningless and should not
       --  be used for SPDIF audio blocks.
-      MUTE           : SAI_BCR2_MUTE_Field := 16#0#;
+      MUTE           : Boolean := False;
       --  Mute value. This bit is set and cleared by software.It must be
       --  written before enabling the audio block: SAIXEN. This bit is
       --  meaningful only when the audio block operates as a transmitter, the
@@ -722,7 +671,7 @@ package STM32_SVD.SAI is
       --  transmitted for each slot is the one sent during the previous frame.
       --  Refer to Section: Mute mode for more details. Note: This bit is
       --  meaningless and should not be used for SPDIF audio blocks.
-      MUTEVAL        : SAI_BCR2_MUTEVAL_Field := 16#0#;
+      MUTEVAL        : Boolean := False;
       --  Mute counter. These bits are set and cleared by software. They are
       --  used only in reception mode. The value set in these bits is compared
       --  to the number of consecutive mute frames detected in reception. When
@@ -734,7 +683,7 @@ package STM32_SVD.SAI is
       --  the type of complement to be used for companding mode Note: This bit
       --  has effect only when the companding mode is -Law algorithm or A-Law
       --  algorithm.
-      CPL            : SAI_BCR2_CPL_Field := 16#0#;
+      CPL            : Boolean := False;
       --  Companding mode. These bits are set and cleared by software. The -Law
       --  and the A-Law log are a part of the CCITT G.711 recommendation, the
       --  type of complement that will be used depends on CPL bit. The data
@@ -748,7 +697,7 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_BCR2_Register use record
@@ -765,9 +714,6 @@ package STM32_SVD.SAI is
 
    subtype SAI_BFRCR_FRL_Field is STM32_SVD.Byte;
    subtype SAI_BFRCR_FSALL_Field is STM32_SVD.UInt7;
-   subtype SAI_BFRCR_FSDEF_Field is STM32_SVD.Bit;
-   subtype SAI_BFRCR_FSPOL_Field is STM32_SVD.Bit;
-   subtype SAI_BFRCR_FSOFF_Field is STM32_SVD.Bit;
 
    --  This register has no meaning in AC97 and SPDIF audio protocol
    type SAI_BFRCR_Register is record
@@ -802,22 +748,22 @@ package STM32_SVD.SAI is
       --  MSB/LSB-justified protocols...). This bit is meaningless and is not
       --  used in AC97 or SPDIF audio block configuration. It must be
       --  configured when the audio block is disabled.
-      FSDEF          : SAI_BFRCR_FSDEF_Field := 16#0#;
+      FSDEF          : Boolean := False;
       --  Frame synchronization polarity. This bit is set and cleared by
       --  software. It is used to configure the level of the start of frame on
       --  the FS signal. It is meaningless and is not used in AC97 or SPDIF
       --  audio block configuration. This bit must be configured when the audio
       --  block is disabled.
-      FSPOL          : SAI_BFRCR_FSPOL_Field := 16#0#;
+      FSPOL          : Boolean := False;
       --  Frame synchronization offset. This bit is set and cleared by
       --  software. It is meaningless and is not used in AC97 or SPDIF audio
       --  block configuration. This bit must be configured when the audio block
       --  is disabled.
-      FSOFF          : SAI_BFRCR_FSOFF_Field := 16#0#;
+      FSOFF          : Boolean := False;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_BFRCR_Register use record
@@ -870,7 +816,7 @@ package STM32_SVD.SAI is
       --  ignored in AC97 or SPDIF mode.
       SLOTEN         : SAI_BSLOTR_SLOTEN_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_BSLOTR_Register use record
@@ -882,39 +828,31 @@ package STM32_SVD.SAI is
       SLOTEN         at 0 range 16 .. 31;
    end record;
 
-   subtype SAI_BIM_OVRUDRIE_Field is STM32_SVD.Bit;
-   subtype SAI_BIM_MUTEDETIE_Field is STM32_SVD.Bit;
-   subtype SAI_BIM_WCKCFGIE_Field is STM32_SVD.Bit;
-   subtype SAI_BIM_FREQIE_Field is STM32_SVD.Bit;
-   subtype SAI_BIM_CNRDYIE_Field is STM32_SVD.Bit;
-   subtype SAI_BIM_AFSDETIE_Field is STM32_SVD.Bit;
-   subtype SAI_BIM_LFSDETIE_Field is STM32_SVD.Bit;
-
    --  Interrupt mask register 2
    type SAI_BIM_Register is record
       --  Overrun/underrun interrupt enable. This bit is set and cleared by
       --  software. When this bit is set, an interrupt is generated if the
       --  OVRUDR bit in the SAI_xSR register is set.
-      OVRUDRIE      : SAI_BIM_OVRUDRIE_Field := 16#0#;
+      OVRUDRIE      : Boolean := False;
       --  Mute detection interrupt enable. This bit is set and cleared by
       --  software. When this bit is set, an interrupt is generated if the
       --  MUTEDET bit in the SAI_xSR register is set. This bit has a meaning
       --  only if the audio block is configured in receiver mode.
-      MUTEDETIE     : SAI_BIM_MUTEDETIE_Field := 16#0#;
+      MUTEDETIE     : Boolean := False;
       --  Wrong clock configuration interrupt enable. This bit is set and
       --  cleared by software. This bit is taken into account only if the audio
       --  block is configured as a master (MODE[1] = 0) and NODIV = 0. It
       --  generates an interrupt if the WCKCFG flag in the SAI_xSR register is
       --  set. Note: This bit is used only in TDM mode and is meaningless in
       --  other modes.
-      WCKCFGIE      : SAI_BIM_WCKCFGIE_Field := 16#0#;
+      WCKCFGIE      : Boolean := False;
       --  FIFO request interrupt enable. This bit is set and cleared by
       --  software. When this bit is set, an interrupt is generated if the FREQ
       --  bit in the SAI_xSR register is set. Since the audio block defaults to
       --  operate as a transmitter after reset, the MODE bit must be configured
       --  before setting FREQIE to avoid a parasitic interruption in receiver
       --  mode,
-      FREQIE        : SAI_BIM_FREQIE_Field := 16#0#;
+      FREQIE        : Boolean := False;
       --  Codec not ready interrupt enable (AC97). This bit is set and cleared
       --  by software. When the interrupt is enabled, the audio block detects
       --  in the slot 0 (tag0) of the AC97 frame if the Codec connected to this
@@ -922,23 +860,23 @@ package STM32_SVD.SAI is
       --  SAI_xSR register is set and an interruption i generated. This bit has
       --  a meaning only if the AC97 mode is selected through PRTCFG[1:0] bits
       --  and the audio block is operates as a receiver.
-      CNRDYIE       : SAI_BIM_CNRDYIE_Field := 16#0#;
+      CNRDYIE       : Boolean := False;
       --  Anticipated frame synchronization detection interrupt enable. This
       --  bit is set and cleared by software. When this bit is set, an
       --  interrupt will be generated if the AFSDET bit in the SAI_xSR register
       --  is set. This bit is meaningless in AC97, SPDIF mode or when the audio
       --  block operates as a master.
-      AFSDETIE      : SAI_BIM_AFSDETIE_Field := 16#0#;
+      AFSDETIE      : Boolean := False;
       --  Late frame synchronization detection interrupt enable. This bit is
       --  set and cleared by software. When this bit is set, an interrupt will
       --  be generated if the LFSDET bit is set in the SAI_xSR register. This
       --  bit is meaningless in AC97, SPDIF mode or when the audio block
       --  operates as a master.
-      LFSDETIE      : SAI_BIM_LFSDETIE_Field := 16#0#;
+      LFSDETIE      : Boolean := False;
       --  unspecified
       Reserved_7_31 : STM32_SVD.UInt25 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_BIM_Register use record
@@ -952,13 +890,6 @@ package STM32_SVD.SAI is
       Reserved_7_31 at 0 range 7 .. 31;
    end record;
 
-   subtype SAI_BSR_OVRUDR_Field is STM32_SVD.Bit;
-   subtype SAI_BSR_MUTEDET_Field is STM32_SVD.Bit;
-   subtype SAI_BSR_WCKCFG_Field is STM32_SVD.Bit;
-   subtype SAI_BSR_FREQ_Field is STM32_SVD.Bit;
-   subtype SAI_BSR_CNRDY_Field is STM32_SVD.Bit;
-   subtype SAI_BSR_AFSDET_Field is STM32_SVD.Bit;
-   subtype SAI_BSR_LFSDET_Field is STM32_SVD.Bit;
    subtype SAI_BSR_FLVL_Field is STM32_SVD.UInt3;
 
    --  Status register
@@ -968,20 +899,20 @@ package STM32_SVD.SAI is
       --  as a receiver and a transmitter, respectively. It can generate an
       --  interrupt if OVRUDRIE bit is set in SAI_xIM register. This flag is
       --  cleared when the software sets COVRUDR bit in SAI_xCLRFR register.
-      OVRUDR         : SAI_BSR_OVRUDR_Field;
+      OVRUDR         : Boolean;
       --  Read-only. Mute detection. This bit is read only. This flag is set if
       --  consecutive 0 values are received in each slot of a given audio frame
       --  and for a consecutive number of audio frames (set in the MUTECNT bit
       --  in the SAI_xCR2 register). It can generate an interrupt if MUTEDETIE
       --  bit is set in SAI_xIM register. This flag is cleared when the
       --  software sets bit CMUTEDET in the SAI_xCLRFR register.
-      MUTEDET        : SAI_BSR_MUTEDET_Field;
+      MUTEDET        : Boolean;
       --  Read-only. Wrong clock configuration flag. This bit is read only.
       --  This bit is used only when the audio block operates in master mode
       --  (MODE[1] = 0) and NODIV = 0. It can generate an interrupt if WCKCFGIE
       --  bit is set in SAI_xIM register. This flag is cleared when the
       --  software sets CWCKCFG bit in SAI_xCLRFR register.
-      WCKCFG         : SAI_BSR_WCKCFG_Field;
+      WCKCFG         : Boolean;
       --  Read-only. FIFO request. This bit is read only. The request depends
       --  on the audio block configuration: If the block is configured in
       --  transmission mode, the FIFO request is related to a write request
@@ -989,25 +920,25 @@ package STM32_SVD.SAI is
       --  FIFO request related to a read request operation from the SAI_xDR.
       --  This flag can generate an interrupt if FREQIE bit is set in SAI_xIM
       --  register.
-      FREQ           : SAI_BSR_FREQ_Field;
+      FREQ           : Boolean;
       --  Read-only. Codec not ready. This bit is read only. This bit is used
       --  only when the AC97 audio protocol is selected in the SAI_xCR1
       --  register and configured in receiver mode. It can generate an
       --  interrupt if CNRDYIE bit is set in SAI_xIM register. This flag is
       --  cleared when the software sets CCNRDY bit in SAI_xCLRFR register.
-      CNRDY          : SAI_BSR_CNRDY_Field;
+      CNRDY          : Boolean;
       --  Read-only. Anticipated frame synchronization detection. This bit is
       --  read only. This flag can be set only if the audio block is configured
       --  in slave mode. It is not used in AC97or SPDIF mode. It can generate
       --  an interrupt if AFSDETIE bit is set in SAI_xIM register. This flag is
       --  cleared when the software sets CAFSDET bit in SAI_xCLRFR register.
-      AFSDET         : SAI_BSR_AFSDET_Field;
+      AFSDET         : Boolean;
       --  Read-only. Late frame synchronization detection. This bit is read
       --  only. This flag can be set only if the audio block is configured in
       --  slave mode. It is not used in AC97 or SPDIF mode. It can generate an
       --  interrupt if LFSDETIE bit is set in the SAI_xIM register. This flag
       --  is cleared when the software sets bit CLFSDET in SAI_xCLRFR register
-      LFSDET         : SAI_BSR_LFSDET_Field;
+      LFSDET         : Boolean;
       --  unspecified
       Reserved_7_15  : STM32_SVD.UInt9;
       --  Read-only. FIFO level threshold. This bit is read only. The FIFO
@@ -1019,7 +950,7 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_BSR_Register use record
@@ -1035,29 +966,22 @@ package STM32_SVD.SAI is
       Reserved_19_31 at 0 range 19 .. 31;
    end record;
 
-   subtype SAI_BCLRFR_COVRUDR_Field is STM32_SVD.Bit;
-   subtype SAI_BCLRFR_CMUTEDET_Field is STM32_SVD.Bit;
-   subtype SAI_BCLRFR_CWCKCFG_Field is STM32_SVD.Bit;
-   subtype SAI_BCLRFR_CCNRDY_Field is STM32_SVD.Bit;
-   subtype SAI_BCLRFR_CAFSDET_Field is STM32_SVD.Bit;
-   subtype SAI_BCLRFR_CLFSDET_Field is STM32_SVD.Bit;
-
    --  Clear flag register
    type SAI_BCLRFR_Register is record
       --  Write-only. Clear overrun / underrun. This bit is write only.
       --  Programming this bit to 1 clears the OVRUDR flag in the SAI_xSR
       --  register. Reading this bit always returns the value 0.
-      COVRUDR       : SAI_BCLRFR_COVRUDR_Field := 16#0#;
+      COVRUDR       : Boolean := False;
       --  Write-only. Mute detection flag. This bit is write only. Programming
       --  this bit to 1 clears the MUTEDET flag in the SAI_xSR register.
       --  Reading this bit always returns the value 0.
-      CMUTEDET      : SAI_BCLRFR_CMUTEDET_Field := 16#0#;
+      CMUTEDET      : Boolean := False;
       --  Write-only. Clear wrong clock configuration flag. This bit is write
       --  only. Programming this bit to 1 clears the WCKCFG flag in the SAI_xSR
       --  register. This bit is used only when the audio block is set as master
       --  (MODE[1] = 0) and NODIV = 0 in the SAI_xCR1 register. Reading this
       --  bit always returns the value 0.
-      CWCKCFG       : SAI_BCLRFR_CWCKCFG_Field := 16#0#;
+      CWCKCFG       : Boolean := False;
       --  unspecified
       Reserved_3_3  : STM32_SVD.Bit := 16#0#;
       --  Write-only. Clear Codec not ready flag. This bit is write only.
@@ -1065,21 +989,21 @@ package STM32_SVD.SAI is
       --  register. This bit is used only when the AC97 audio protocol is
       --  selected in the SAI_xCR1 register. Reading this bit always returns
       --  the value 0.
-      CCNRDY        : SAI_BCLRFR_CCNRDY_Field := 16#0#;
+      CCNRDY        : Boolean := False;
       --  Write-only. Clear anticipated frame synchronization detection flag.
       --  This bit is write only. Programming this bit to 1 clears the AFSDET
       --  flag in the SAI_xSR register. It is not used in AC97or SPDIF mode.
       --  Reading this bit always returns the value 0.
-      CAFSDET       : SAI_BCLRFR_CAFSDET_Field := 16#0#;
+      CAFSDET       : Boolean := False;
       --  Write-only. Clear late frame synchronization detection flag. This bit
       --  is write only. Programming this bit to 1 clears the LFSDET flag in
       --  the SAI_xSR register. This bit is not used in AC97or SPDIF mode
       --  Reading this bit always returns the value 0.
-      CLFSDET       : SAI_BCLRFR_CLFSDET_Field := 16#0#;
+      CLFSDET       : Boolean := False;
       --  unspecified
       Reserved_7_31 : STM32_SVD.UInt25 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_BCLRFR_Register use record
@@ -1093,14 +1017,10 @@ package STM32_SVD.SAI is
       Reserved_7_31 at 0 range 7 .. 31;
    end record;
 
-   subtype SAI_PDMCR_PDMEN_Field is STM32_SVD.Bit;
    subtype SAI_PDMCR_MICNBR_Field is STM32_SVD.UInt2;
-   --  SAI_PDMCR_CKEN array element
-   subtype SAI_PDMCR_CKEN_Element is STM32_SVD.Bit;
 
    --  SAI_PDMCR_CKEN array
-   type SAI_PDMCR_CKEN_Field_Array is array (1 .. 4)
-     of SAI_PDMCR_CKEN_Element
+   type SAI_PDMCR_CKEN_Field_Array is array (1 .. 4) of Boolean
      with Component_Size => 1, Size => 4;
 
    --  Type definition for SAI_PDMCR_CKEN
@@ -1126,7 +1046,7 @@ package STM32_SVD.SAI is
    --  PDM control register
    type SAI_PDMCR_Register is record
       --  PDM enable
-      PDMEN          : SAI_PDMCR_PDMEN_Field := 16#0#;
+      PDMEN          : Boolean := False;
       --  unspecified
       Reserved_1_3   : STM32_SVD.UInt3 := 16#0#;
       --  Number of microphones
@@ -1139,7 +1059,7 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_PDMCR_Register use record
@@ -1195,7 +1115,7 @@ package STM32_SVD.SAI is
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SAI_PDMDLY_Register use record
@@ -1288,18 +1208,18 @@ package STM32_SVD.SAI is
 
    --  SAI
    SAI1_Periph : aliased SAI_Peripheral
-     with Import, Address => System'To_Address (16#40015800#);
+     with Import, Address => SAI1_Base;
 
    --  SAI
    SAI2_Periph : aliased SAI_Peripheral
-     with Import, Address => System'To_Address (16#40015C00#);
+     with Import, Address => SAI2_Base;
 
    --  SAI
    SAI3_Periph : aliased SAI_Peripheral
-     with Import, Address => System'To_Address (16#40016000#);
+     with Import, Address => SAI3_Base;
 
    --  SAI
    SAI4_Periph : aliased SAI_Peripheral
-     with Import, Address => System'To_Address (16#58005400#);
+     with Import, Address => SAI4_Base;
 
 end STM32_SVD.SAI;

@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -14,7 +14,6 @@ package STM32_SVD.WWDG is
    ---------------
 
    subtype WWDG_CR_T_Field is STM32_SVD.UInt7;
-   subtype WWDG_CR_WDGA_Field is STM32_SVD.Bit;
 
    --  Control register
    type WWDG_CR_Register is record
@@ -26,11 +25,11 @@ package STM32_SVD.WWDG is
       --  Activation bit This bit is set by software and only cleared by
       --  hardware after a reset. When WDGA=1, the watchdog can generate a
       --  reset.
-      WDGA          : WWDG_CR_WDGA_Field := 16#0#;
+      WDGA          : Boolean := False;
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for WWDG_CR_Register use record
@@ -40,7 +39,6 @@ package STM32_SVD.WWDG is
    end record;
 
    subtype WWDG_CFR_W_Field is STM32_SVD.UInt7;
-   subtype WWDG_CFR_EWI_Field is STM32_SVD.Bit;
    subtype WWDG_CFR_WDGTB_Field is STM32_SVD.UInt2;
 
    --  Configuration register
@@ -53,7 +51,7 @@ package STM32_SVD.WWDG is
       --  Early wakeup interrupt When set, an interrupt occurs whenever the
       --  counter reaches the value 0x40. This interrupt is only cleared by
       --  hardware after a reset.
-      EWI            : WWDG_CFR_EWI_Field := 16#0#;
+      EWI            : Boolean := False;
       --  unspecified
       Reserved_10_10 : STM32_SVD.Bit := 16#0#;
       --  Timer base The time base of the prescaler can be modified as follows:
@@ -61,7 +59,7 @@ package STM32_SVD.WWDG is
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for WWDG_CFR_Register use record
@@ -73,19 +71,17 @@ package STM32_SVD.WWDG is
       Reserved_13_31 at 0 range 13 .. 31;
    end record;
 
-   subtype WWDG_SR_EWIF_Field is STM32_SVD.Bit;
-
    --  Status register
    type WWDG_SR_Register is record
       --  Early wakeup interrupt flag This bit is set by hardware when the
       --  counter has reached the value 0x40. It must be cleared by software by
       --  writing 0. A write of 1 has no effect. This bit is also set if the
       --  interrupt is not enabled.
-      EWIF          : WWDG_SR_EWIF_Field := 16#0#;
+      EWIF          : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for WWDG_SR_Register use record
@@ -116,6 +112,6 @@ package STM32_SVD.WWDG is
 
    --  WWDG
    WWDG_Periph : aliased WWDG_Peripheral
-     with Import, Address => System'To_Address (16#50003000#);
+     with Import, Address => WWDG_Base;
 
 end STM32_SVD.WWDG;

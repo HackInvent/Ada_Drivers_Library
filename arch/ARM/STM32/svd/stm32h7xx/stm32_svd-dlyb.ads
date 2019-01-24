@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,19 +13,16 @@ package STM32_SVD.DLYB is
    -- Registers --
    ---------------
 
-   subtype CR_DEN_Field is STM32_SVD.Bit;
-   subtype CR_SEN_Field is STM32_SVD.Bit;
-
    --  DLYB control register
    type CR_Register is record
       --  Delay block enable bit
-      DEN           : CR_DEN_Field := 16#0#;
+      DEN           : Boolean := False;
       --  Sampler length enable bit
-      SEN           : CR_SEN_Field := 16#0#;
+      SEN           : Boolean := False;
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -37,7 +34,6 @@ package STM32_SVD.DLYB is
    subtype CFGR_SEL_Field is STM32_SVD.UInt4;
    subtype CFGR_UNIT_Field is STM32_SVD.UInt7;
    subtype CFGR_LNG_Field is STM32_SVD.UInt12;
-   subtype CFGR_LNGF_Field is STM32_SVD.Bit;
 
    --  DLYB configuration register
    type CFGR_Register is record
@@ -54,9 +50,9 @@ package STM32_SVD.DLYB is
       --  unspecified
       Reserved_28_30 : STM32_SVD.UInt3 := 16#0#;
       --  Length valid flag
-      LNGF           : CFGR_LNGF_Field := 16#0#;
+      LNGF           : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CFGR_Register use record
@@ -89,14 +85,14 @@ package STM32_SVD.DLYB is
 
    --  DELAY_Block_SDMMC1
    DELAY_Block_QUADSPI_Periph : aliased DLYB_Peripheral
-     with Import, Address => System'To_Address (16#52006000#);
+     with Import, Address => DELAY_Block_QUADSPI_Base;
 
    --  DELAY_Block_SDMMC1
    DELAY_Block_SDMMC1_Periph : aliased DLYB_Peripheral
-     with Import, Address => System'To_Address (16#52008000#);
+     with Import, Address => DELAY_Block_SDMMC1_Base;
 
    --  DELAY_Block_SDMMC1
    DELAY_Block_SDMMC2_Periph : aliased DLYB_Peripheral
-     with Import, Address => System'To_Address (16#48022800#);
+     with Import, Address => DELAY_Block_SDMMC2_Base;
 
 end STM32_SVD.DLYB;

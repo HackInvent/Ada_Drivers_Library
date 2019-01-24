@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,40 +13,28 @@ package STM32_SVD.DCMI is
    -- Registers --
    ---------------
 
-   subtype CR_CAPTURE_Field is STM32_SVD.Bit;
-   subtype CR_CM_Field is STM32_SVD.Bit;
-   subtype CR_CROP_Field is STM32_SVD.Bit;
-   subtype CR_JPEG_Field is STM32_SVD.Bit;
-   subtype CR_ESS_Field is STM32_SVD.Bit;
-   subtype CR_PCKPOL_Field is STM32_SVD.Bit;
-   subtype CR_HSPOL_Field is STM32_SVD.Bit;
-   subtype CR_VSPOL_Field is STM32_SVD.Bit;
    subtype CR_FCRC_Field is STM32_SVD.UInt2;
    subtype CR_EDM_Field is STM32_SVD.UInt2;
-   subtype CR_ENABLE_Field is STM32_SVD.Bit;
    subtype CR_BSM_Field is STM32_SVD.UInt2;
-   subtype CR_OEBS_Field is STM32_SVD.Bit;
-   subtype CR_LSM_Field is STM32_SVD.Bit;
-   subtype CR_OELS_Field is STM32_SVD.Bit;
 
    --  control register 1
    type CR_Register is record
       --  Capture enable
-      CAPTURE        : CR_CAPTURE_Field := 16#0#;
+      CAPTURE        : Boolean := False;
       --  Capture mode
-      CM             : CR_CM_Field := 16#0#;
+      CM             : Boolean := False;
       --  Crop feature
-      CROP           : CR_CROP_Field := 16#0#;
+      CROP           : Boolean := False;
       --  JPEG format
-      JPEG           : CR_JPEG_Field := 16#0#;
+      JPEG           : Boolean := False;
       --  Embedded synchronization select
-      ESS            : CR_ESS_Field := 16#0#;
+      ESS            : Boolean := False;
       --  Pixel clock polarity
-      PCKPOL         : CR_PCKPOL_Field := 16#0#;
+      PCKPOL         : Boolean := False;
       --  Horizontal synchronization polarity
-      HSPOL          : CR_HSPOL_Field := 16#0#;
+      HSPOL          : Boolean := False;
       --  Vertical synchronization polarity
-      VSPOL          : CR_VSPOL_Field := 16#0#;
+      VSPOL          : Boolean := False;
       --  Frame capture rate control
       FCRC           : CR_FCRC_Field := 16#0#;
       --  Extended data mode
@@ -54,21 +42,21 @@ package STM32_SVD.DCMI is
       --  unspecified
       Reserved_12_13 : STM32_SVD.UInt2 := 16#0#;
       --  DCMI enable
-      ENABLE         : CR_ENABLE_Field := 16#0#;
+      ENABLE         : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Byte Select mode
       BSM            : CR_BSM_Field := 16#0#;
       --  Odd/Even Byte Select (Byte Select Start)
-      OEBS           : CR_OEBS_Field := 16#0#;
+      OEBS           : Boolean := False;
       --  Line Select mode
-      LSM            : CR_LSM_Field := 16#0#;
+      LSM            : Boolean := False;
       --  Odd/Even Line Select (Line Select Start)
-      OELS           : CR_OELS_Field := 16#0#;
+      OELS           : Boolean := False;
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -92,22 +80,18 @@ package STM32_SVD.DCMI is
       Reserved_21_31 at 0 range 21 .. 31;
    end record;
 
-   subtype SR_HSYNC_Field is STM32_SVD.Bit;
-   subtype SR_VSYNC_Field is STM32_SVD.Bit;
-   subtype SR_FNE_Field is STM32_SVD.Bit;
-
    --  status register
    type SR_Register is record
       --  Read-only. HSYNC
-      HSYNC         : SR_HSYNC_Field;
+      HSYNC         : Boolean;
       --  Read-only. VSYNC
-      VSYNC         : SR_VSYNC_Field;
+      VSYNC         : Boolean;
       --  Read-only. FIFO not empty
-      FNE           : SR_FNE_Field;
+      FNE           : Boolean;
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register use record
@@ -117,28 +101,22 @@ package STM32_SVD.DCMI is
       Reserved_3_31 at 0 range 3 .. 31;
    end record;
 
-   subtype RIS_FRAME_RIS_Field is STM32_SVD.Bit;
-   subtype RIS_OVR_RIS_Field is STM32_SVD.Bit;
-   subtype RIS_ERR_RIS_Field is STM32_SVD.Bit;
-   subtype RIS_VSYNC_RIS_Field is STM32_SVD.Bit;
-   subtype RIS_LINE_RIS_Field is STM32_SVD.Bit;
-
    --  raw interrupt status register
    type RIS_Register is record
       --  Read-only. Capture complete raw interrupt status
-      FRAME_RIS     : RIS_FRAME_RIS_Field;
+      FRAME_RIS     : Boolean;
       --  Read-only. Overrun raw interrupt status
-      OVR_RIS       : RIS_OVR_RIS_Field;
+      OVR_RIS       : Boolean;
       --  Read-only. Synchronization error raw interrupt status
-      ERR_RIS       : RIS_ERR_RIS_Field;
+      ERR_RIS       : Boolean;
       --  Read-only. VSYNC raw interrupt status
-      VSYNC_RIS     : RIS_VSYNC_RIS_Field;
+      VSYNC_RIS     : Boolean;
       --  Read-only. Line raw interrupt status
-      LINE_RIS      : RIS_LINE_RIS_Field;
+      LINE_RIS      : Boolean;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RIS_Register use record
@@ -150,28 +128,22 @@ package STM32_SVD.DCMI is
       Reserved_5_31 at 0 range 5 .. 31;
    end record;
 
-   subtype IER_FRAME_IE_Field is STM32_SVD.Bit;
-   subtype IER_OVR_IE_Field is STM32_SVD.Bit;
-   subtype IER_ERR_IE_Field is STM32_SVD.Bit;
-   subtype IER_VSYNC_IE_Field is STM32_SVD.Bit;
-   subtype IER_LINE_IE_Field is STM32_SVD.Bit;
-
    --  interrupt enable register
    type IER_Register is record
       --  Capture complete interrupt enable
-      FRAME_IE      : IER_FRAME_IE_Field := 16#0#;
+      FRAME_IE      : Boolean := False;
       --  Overrun interrupt enable
-      OVR_IE        : IER_OVR_IE_Field := 16#0#;
+      OVR_IE        : Boolean := False;
       --  Synchronization error interrupt enable
-      ERR_IE        : IER_ERR_IE_Field := 16#0#;
+      ERR_IE        : Boolean := False;
       --  VSYNC interrupt enable
-      VSYNC_IE      : IER_VSYNC_IE_Field := 16#0#;
+      VSYNC_IE      : Boolean := False;
       --  Line interrupt enable
-      LINE_IE       : IER_LINE_IE_Field := 16#0#;
+      LINE_IE       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IER_Register use record
@@ -183,28 +155,22 @@ package STM32_SVD.DCMI is
       Reserved_5_31 at 0 range 5 .. 31;
    end record;
 
-   subtype MIS_FRAME_MIS_Field is STM32_SVD.Bit;
-   subtype MIS_OVR_MIS_Field is STM32_SVD.Bit;
-   subtype MIS_ERR_MIS_Field is STM32_SVD.Bit;
-   subtype MIS_VSYNC_MIS_Field is STM32_SVD.Bit;
-   subtype MIS_LINE_MIS_Field is STM32_SVD.Bit;
-
    --  masked interrupt status register
    type MIS_Register is record
       --  Read-only. Capture complete masked interrupt status
-      FRAME_MIS     : MIS_FRAME_MIS_Field;
+      FRAME_MIS     : Boolean;
       --  Read-only. Overrun masked interrupt status
-      OVR_MIS       : MIS_OVR_MIS_Field;
+      OVR_MIS       : Boolean;
       --  Read-only. Synchronization error masked interrupt status
-      ERR_MIS       : MIS_ERR_MIS_Field;
+      ERR_MIS       : Boolean;
       --  Read-only. VSYNC masked interrupt status
-      VSYNC_MIS     : MIS_VSYNC_MIS_Field;
+      VSYNC_MIS     : Boolean;
       --  Read-only. Line masked interrupt status
-      LINE_MIS      : MIS_LINE_MIS_Field;
+      LINE_MIS      : Boolean;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MIS_Register use record
@@ -216,28 +182,22 @@ package STM32_SVD.DCMI is
       Reserved_5_31 at 0 range 5 .. 31;
    end record;
 
-   subtype ICR_FRAME_ISC_Field is STM32_SVD.Bit;
-   subtype ICR_OVR_ISC_Field is STM32_SVD.Bit;
-   subtype ICR_ERR_ISC_Field is STM32_SVD.Bit;
-   subtype ICR_VSYNC_ISC_Field is STM32_SVD.Bit;
-   subtype ICR_LINE_ISC_Field is STM32_SVD.Bit;
-
    --  interrupt clear register
    type ICR_Register is record
       --  Write-only. Capture complete interrupt status clear
-      FRAME_ISC     : ICR_FRAME_ISC_Field := 16#0#;
+      FRAME_ISC     : Boolean := False;
       --  Write-only. Overrun interrupt status clear
-      OVR_ISC       : ICR_OVR_ISC_Field := 16#0#;
+      OVR_ISC       : Boolean := False;
       --  Write-only. Synchronization error interrupt status clear
-      ERR_ISC       : ICR_ERR_ISC_Field := 16#0#;
+      ERR_ISC       : Boolean := False;
       --  Write-only. Vertical synch interrupt status clear
-      VSYNC_ISC     : ICR_VSYNC_ISC_Field := 16#0#;
+      VSYNC_ISC     : Boolean := False;
       --  Write-only. line interrupt status clear
-      LINE_ISC      : ICR_LINE_ISC_Field := 16#0#;
+      LINE_ISC      : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ICR_Register use record
@@ -265,7 +225,7 @@ package STM32_SVD.DCMI is
       --  Frame end delimiter code
       FEC : ESCR_FEC_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ESCR_Register use record
@@ -291,7 +251,7 @@ package STM32_SVD.DCMI is
       --  Frame end delimiter unmask
       FEU : ESUR_FEU_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ESUR_Register use record
@@ -315,7 +275,7 @@ package STM32_SVD.DCMI is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CWSTRT_Register use record
@@ -339,7 +299,7 @@ package STM32_SVD.DCMI is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CWSIZE_Register use record
@@ -369,7 +329,7 @@ package STM32_SVD.DCMI is
             Arr : DR_Byte_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DR_Register use record
@@ -424,6 +384,6 @@ package STM32_SVD.DCMI is
 
    --  Digital camera interface
    DCMI_Periph : aliased DCMI_Peripheral
-     with Import, Address => System'To_Address (16#48020000#);
+     with Import, Address => DCMI_Base;
 
 end STM32_SVD.DCMI;

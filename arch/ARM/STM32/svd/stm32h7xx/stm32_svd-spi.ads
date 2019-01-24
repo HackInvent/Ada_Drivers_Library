@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,45 +13,34 @@ package STM32_SVD.SPI is
    -- Registers --
    ---------------
 
-   subtype CR1_SPE_Field is STM32_SVD.Bit;
-   subtype CR1_MASRX_Field is STM32_SVD.Bit;
-   subtype CR1_CSTART_Field is STM32_SVD.Bit;
-   subtype CR1_CSUSP_Field is STM32_SVD.Bit;
-   subtype CR1_HDDIR_Field is STM32_SVD.Bit;
-   subtype CR1_SSI_Field is STM32_SVD.Bit;
-   subtype CR1_CRC33_17_Field is STM32_SVD.Bit;
-   subtype CR1_RCRCI_Field is STM32_SVD.Bit;
-   subtype CR1_TCRCI_Field is STM32_SVD.Bit;
-   subtype CR1_IOLOCK_Field is STM32_SVD.Bit;
-
    --  control register 1
    type CR1_Register is record
       --  Serial Peripheral Enable
-      SPE            : CR1_SPE_Field := 16#0#;
+      SPE            : Boolean := False;
       --  unspecified
       Reserved_1_7   : STM32_SVD.UInt7 := 16#0#;
       --  Master automatic SUSP in Receive mode
-      MASRX          : CR1_MASRX_Field := 16#0#;
+      MASRX          : Boolean := False;
       --  Read-only. Master transfer start
-      CSTART         : CR1_CSTART_Field := 16#0#;
+      CSTART         : Boolean := False;
       --  Write-only. Master SUSPend request
-      CSUSP          : CR1_CSUSP_Field := 16#0#;
+      CSUSP          : Boolean := False;
       --  Rx/Tx direction at Half-duplex mode
-      HDDIR          : CR1_HDDIR_Field := 16#0#;
+      HDDIR          : Boolean := False;
       --  Internal SS signal input level
-      SSI            : CR1_SSI_Field := 16#0#;
+      SSI            : Boolean := False;
       --  32-bit CRC polynomial configuration
-      CRC33_17       : CR1_CRC33_17_Field := 16#0#;
+      CRC33_17       : Boolean := False;
       --  CRC calculation initialization pattern control for receiver
-      RCRCI          : CR1_RCRCI_Field := 16#0#;
+      RCRCI          : Boolean := False;
       --  CRC calculation initialization pattern control for transmitter
-      TCRCI          : CR1_TCRCI_Field := 16#0#;
+      TCRCI          : Boolean := False;
       --  Read-only. Locking the AF configuration of associated IOs
-      IOLOCK         : CR1_IOLOCK_Field := 16#0#;
+      IOLOCK         : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR1_Register use record
@@ -80,7 +69,7 @@ package STM32_SVD.SPI is
       --  just when a previous
       TSER  : CR2_TSER_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR2_Register use record
@@ -92,10 +81,7 @@ package STM32_SVD.SPI is
    subtype CFG1_FTHVL_Field is STM32_SVD.UInt4;
    subtype CFG1_UDRCFG_Field is STM32_SVD.UInt2;
    subtype CFG1_UDRDET_Field is STM32_SVD.UInt2;
-   subtype CFG1_RXDMAEN_Field is STM32_SVD.Bit;
-   subtype CFG1_TXDMAEN_Field is STM32_SVD.Bit;
    subtype CFG1_CRCSIZE_Field is STM32_SVD.UInt5;
-   subtype CFG1_CRCEN_Field is STM32_SVD.Bit;
    subtype CFG1_MBR_Field is STM32_SVD.UInt3;
 
    --  configuration register 1
@@ -111,15 +97,15 @@ package STM32_SVD.SPI is
       --  unspecified
       Reserved_13_13 : STM32_SVD.Bit := 16#0#;
       --  Rx DMA stream enable
-      RXDMAEN        : CFG1_RXDMAEN_Field := 16#0#;
+      RXDMAEN        : Boolean := False;
       --  Tx DMA stream enable
-      TXDMAEN        : CFG1_TXDMAEN_Field := 16#0#;
+      TXDMAEN        : Boolean := False;
       --  Length of CRC frame to be transacted and compared
       CRCSIZE        : CFG1_CRCSIZE_Field := 16#7#;
       --  unspecified
       Reserved_21_21 : STM32_SVD.Bit := 16#0#;
       --  Hardware CRC computation enable
-      CRCEN          : CFG1_CRCEN_Field := 16#0#;
+      CRCEN          : Boolean := False;
       --  unspecified
       Reserved_23_27 : STM32_SVD.UInt5 := 16#0#;
       --  Master baud rate
@@ -127,7 +113,7 @@ package STM32_SVD.SPI is
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CFG1_Register use record
@@ -148,18 +134,8 @@ package STM32_SVD.SPI is
 
    subtype CFG2_MSSI_Field is STM32_SVD.UInt4;
    subtype CFG2_MIDI_Field is STM32_SVD.UInt4;
-   subtype CFG2_IOSWP_Field is STM32_SVD.Bit;
    subtype CFG2_COMM_Field is STM32_SVD.UInt2;
    subtype CFG2_SP_Field is STM32_SVD.UInt3;
-   subtype CFG2_MASTER_Field is STM32_SVD.Bit;
-   subtype CFG2_LSBFRST_Field is STM32_SVD.Bit;
-   subtype CFG2_CPHA_Field is STM32_SVD.Bit;
-   subtype CFG2_CPOL_Field is STM32_SVD.Bit;
-   subtype CFG2_SSM_Field is STM32_SVD.Bit;
-   subtype CFG2_SSIOP_Field is STM32_SVD.Bit;
-   subtype CFG2_SSOE_Field is STM32_SVD.Bit;
-   subtype CFG2_SSOM_Field is STM32_SVD.Bit;
-   subtype CFG2_AFCNTR_Field is STM32_SVD.Bit;
 
    --  configuration register 2
    type CFG2_Register is record
@@ -170,7 +146,7 @@ package STM32_SVD.SPI is
       --  unspecified
       Reserved_8_14  : STM32_SVD.UInt7 := 16#0#;
       --  Swap functionality of MISO and MOSI pins
-      IOSWP          : CFG2_IOSWP_Field := 16#0#;
+      IOSWP          : Boolean := False;
       --  unspecified
       Reserved_16_16 : STM32_SVD.Bit := 16#0#;
       --  SPI Communication Mode
@@ -178,27 +154,27 @@ package STM32_SVD.SPI is
       --  Serial Protocol
       SP             : CFG2_SP_Field := 16#0#;
       --  SPI Master
-      MASTER         : CFG2_MASTER_Field := 16#0#;
+      MASTER         : Boolean := False;
       --  Data frame format
-      LSBFRST        : CFG2_LSBFRST_Field := 16#0#;
+      LSBFRST        : Boolean := False;
       --  Clock phase
-      CPHA           : CFG2_CPHA_Field := 16#0#;
+      CPHA           : Boolean := False;
       --  Clock polarity
-      CPOL           : CFG2_CPOL_Field := 16#0#;
+      CPOL           : Boolean := False;
       --  Software management of SS signal input
-      SSM            : CFG2_SSM_Field := 16#0#;
+      SSM            : Boolean := False;
       --  unspecified
       Reserved_27_27 : STM32_SVD.Bit := 16#0#;
       --  SS input/output polarity
-      SSIOP          : CFG2_SSIOP_Field := 16#0#;
+      SSIOP          : Boolean := False;
       --  SS output enable
-      SSOE           : CFG2_SSOE_Field := 16#0#;
+      SSOE           : Boolean := False;
       --  SS output management in master mode
-      SSOM           : CFG2_SSOM_Field := 16#0#;
+      SSOM           : Boolean := False;
       --  Alternate function GPIOs control
-      AFCNTR         : CFG2_AFCNTR_Field := 16#0#;
+      AFCNTR         : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CFG2_Register use record
@@ -221,46 +197,34 @@ package STM32_SVD.SPI is
       AFCNTR         at 0 range 31 .. 31;
    end record;
 
-   subtype IER_RXPIE_Field is STM32_SVD.Bit;
-   subtype IER_TXPIE_Field is STM32_SVD.Bit;
-   subtype IER_DPXPIE_Field is STM32_SVD.Bit;
-   subtype IER_EOTIE_Field is STM32_SVD.Bit;
-   subtype IER_TXTFIE_Field is STM32_SVD.Bit;
-   subtype IER_UDRIE_Field is STM32_SVD.Bit;
-   subtype IER_OVRIE_Field is STM32_SVD.Bit;
-   subtype IER_CRCEIE_Field is STM32_SVD.Bit;
-   subtype IER_TIFREIE_Field is STM32_SVD.Bit;
-   subtype IER_MODFIE_Field is STM32_SVD.Bit;
-   subtype IER_TSERFIE_Field is STM32_SVD.Bit;
-
    --  Interrupt Enable Register
    type IER_Register is record
       --  RXP Interrupt Enable
-      RXPIE          : IER_RXPIE_Field := 16#0#;
+      RXPIE          : Boolean := False;
       --  Read-only. TXP interrupt enable
-      TXPIE          : IER_TXPIE_Field := 16#0#;
+      TXPIE          : Boolean := False;
       --  Read-only. DXP interrupt enabled
-      DPXPIE         : IER_DPXPIE_Field := 16#0#;
+      DPXPIE         : Boolean := False;
       --  EOT, SUSP and TXC interrupt enable
-      EOTIE          : IER_EOTIE_Field := 16#0#;
+      EOTIE          : Boolean := False;
       --  TXTFIE interrupt enable
-      TXTFIE         : IER_TXTFIE_Field := 16#0#;
+      TXTFIE         : Boolean := False;
       --  UDR interrupt enable
-      UDRIE          : IER_UDRIE_Field := 16#0#;
+      UDRIE          : Boolean := False;
       --  OVR interrupt enable
-      OVRIE          : IER_OVRIE_Field := 16#0#;
+      OVRIE          : Boolean := False;
       --  CRC Interrupt enable
-      CRCEIE         : IER_CRCEIE_Field := 16#0#;
+      CRCEIE         : Boolean := False;
       --  TIFRE interrupt enable
-      TIFREIE        : IER_TIFREIE_Field := 16#0#;
+      TIFREIE        : Boolean := False;
       --  Mode Fault interrupt enable
-      MODFIE         : IER_MODFIE_Field := 16#0#;
+      MODFIE         : Boolean := False;
       --  Additional number of transactions reload interrupt enable
-      TSERFIE        : IER_TSERFIE_Field := 16#0#;
+      TSERFIE        : Boolean := False;
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IER_Register use record
@@ -278,59 +242,45 @@ package STM32_SVD.SPI is
       Reserved_11_31 at 0 range 11 .. 31;
    end record;
 
-   subtype SR_RXP_Field is STM32_SVD.Bit;
-   subtype SR_TXP_Field is STM32_SVD.Bit;
-   subtype SR_DXP_Field is STM32_SVD.Bit;
-   subtype SR_EOT_Field is STM32_SVD.Bit;
-   subtype SR_TXTF_Field is STM32_SVD.Bit;
-   subtype SR_UDR_Field is STM32_SVD.Bit;
-   subtype SR_OVR_Field is STM32_SVD.Bit;
-   subtype SR_CRCE_Field is STM32_SVD.Bit;
-   subtype SR_TIFRE_Field is STM32_SVD.Bit;
-   subtype SR_MODF_Field is STM32_SVD.Bit;
-   subtype SR_TSERF_Field is STM32_SVD.Bit;
-   subtype SR_SUSP_Field is STM32_SVD.Bit;
-   subtype SR_TXC_Field is STM32_SVD.Bit;
    subtype SR_RXPLVL_Field is STM32_SVD.UInt2;
-   subtype SR_RXWNE_Field is STM32_SVD.Bit;
    subtype SR_CTSIZE_Field is STM32_SVD.UInt16;
 
    --  Status Register
    type SR_Register is record
       --  Read-only. Rx-Packet available
-      RXP    : SR_RXP_Field;
+      RXP    : Boolean;
       --  Read-only. Tx-Packet space available
-      TXP    : SR_TXP_Field;
+      TXP    : Boolean;
       --  Read-only. Duplex Packet
-      DXP    : SR_DXP_Field;
+      DXP    : Boolean;
       --  Read-only. End Of Transfer
-      EOT    : SR_EOT_Field;
+      EOT    : Boolean;
       --  Read-only. Transmission Transfer Filled
-      TXTF   : SR_TXTF_Field;
+      TXTF   : Boolean;
       --  Read-only. Underrun at slave transmission mode
-      UDR    : SR_UDR_Field;
+      UDR    : Boolean;
       --  Read-only. Overrun
-      OVR    : SR_OVR_Field;
+      OVR    : Boolean;
       --  Read-only. CRC Error
-      CRCE   : SR_CRCE_Field;
+      CRCE   : Boolean;
       --  Read-only. TI frame format error
-      TIFRE  : SR_TIFRE_Field;
+      TIFRE  : Boolean;
       --  Read-only. Mode Fault
-      MODF   : SR_MODF_Field;
+      MODF   : Boolean;
       --  Read-only. Additional number of SPI data to be transacted was reload
-      TSERF  : SR_TSERF_Field;
+      TSERF  : Boolean;
       --  Read-only. SUSPend
-      SUSP   : SR_SUSP_Field;
+      SUSP   : Boolean;
       --  Read-only. TxFIFO transmission complete
-      TXC    : SR_TXC_Field;
+      TXC    : Boolean;
       --  Read-only. RxFIFO Packing LeVeL
       RXPLVL : SR_RXPLVL_Field;
       --  Read-only. RxFIFO Word Not Empty
-      RXWNE  : SR_RXWNE_Field;
+      RXWNE  : Boolean;
       --  Read-only. Number of data frames remaining in current TSIZE session
       CTSIZE : SR_CTSIZE_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register use record
@@ -352,42 +302,32 @@ package STM32_SVD.SPI is
       CTSIZE at 0 range 16 .. 31;
    end record;
 
-   subtype IFCR_EOTC_Field is STM32_SVD.Bit;
-   subtype IFCR_TXTFC_Field is STM32_SVD.Bit;
-   subtype IFCR_UDRC_Field is STM32_SVD.Bit;
-   subtype IFCR_OVRC_Field is STM32_SVD.Bit;
-   subtype IFCR_CRCEC_Field is STM32_SVD.Bit;
-   subtype IFCR_TIFREC_Field is STM32_SVD.Bit;
-   subtype IFCR_MODFC_Field is STM32_SVD.Bit;
-   subtype IFCR_TSERFC_Field is STM32_SVD.Bit;
-   subtype IFCR_SUSPC_Field is STM32_SVD.Bit;
-
    --  Interrupt/Status Flags Clear Register
    type IFCR_Register is record
       --  unspecified
       Reserved_0_2   : STM32_SVD.UInt3 := 16#0#;
       --  Write-only. End Of Transfer flag clear
-      EOTC           : IFCR_EOTC_Field := 16#0#;
+      EOTC           : Boolean := False;
       --  Write-only. Transmission Transfer Filled flag clear
-      TXTFC          : IFCR_TXTFC_Field := 16#0#;
+      TXTFC          : Boolean := False;
       --  Write-only. Underrun flag clear
-      UDRC           : IFCR_UDRC_Field := 16#0#;
+      UDRC           : Boolean := False;
       --  Write-only. Overrun flag clear
-      OVRC           : IFCR_OVRC_Field := 16#0#;
+      OVRC           : Boolean := False;
       --  Write-only. CRC Error flag clear
-      CRCEC          : IFCR_CRCEC_Field := 16#0#;
+      CRCEC          : Boolean := False;
       --  Write-only. TI frame format error flag clear
-      TIFREC         : IFCR_TIFREC_Field := 16#0#;
+      TIFREC         : Boolean := False;
       --  Write-only. Mode Fault flag clear
-      MODFC          : IFCR_MODFC_Field := 16#0#;
+      MODFC          : Boolean := False;
       --  Write-only. TSERFC flag clear
-      TSERFC         : IFCR_TSERFC_Field := 16#0#;
+      TSERFC         : Boolean := False;
       --  Write-only. SUSPend flag clear
-      SUSPC          : IFCR_SUSPC_Field := 16#0#;
+      SUSPC          : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IFCR_Register use record
@@ -404,24 +344,15 @@ package STM32_SVD.SPI is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype CGFR_I2SMOD_Field is STM32_SVD.Bit;
    subtype CGFR_I2SCFG_Field is STM32_SVD.UInt3;
    subtype CGFR_I2SSTD_Field is STM32_SVD.UInt2;
-   subtype CGFR_PCMSYNC_Field is STM32_SVD.Bit;
    subtype CGFR_DATLEN_Field is STM32_SVD.UInt2;
-   subtype CGFR_CHLEN_Field is STM32_SVD.Bit;
-   subtype CGFR_CKPOL_Field is STM32_SVD.Bit;
-   subtype CGFR_FIXCH_Field is STM32_SVD.Bit;
-   subtype CGFR_WSINV_Field is STM32_SVD.Bit;
-   subtype CGFR_DATFMT_Field is STM32_SVD.Bit;
    subtype CGFR_I2SDIV_Field is STM32_SVD.Byte;
-   subtype CGFR_ODD_Field is STM32_SVD.Bit;
-   subtype CGFR_MCKOE_Field is STM32_SVD.Bit;
 
    --  configuration register
    type CGFR_Register is record
       --  I2S mode selection
-      I2SMOD         : CGFR_I2SMOD_Field := 16#0#;
+      I2SMOD         : Boolean := False;
       --  I2S configuration mode
       I2SCFG         : CGFR_I2SCFG_Field := 16#0#;
       --  I2S standard selection
@@ -429,31 +360,31 @@ package STM32_SVD.SPI is
       --  unspecified
       Reserved_6_6   : STM32_SVD.Bit := 16#0#;
       --  PCM frame synchronization
-      PCMSYNC        : CGFR_PCMSYNC_Field := 16#0#;
+      PCMSYNC        : Boolean := False;
       --  Data length to be transferred
       DATLEN         : CGFR_DATLEN_Field := 16#0#;
       --  Channel length (number of bits per audio channel)
-      CHLEN          : CGFR_CHLEN_Field := 16#0#;
+      CHLEN          : Boolean := False;
       --  Serial audio clock polarity
-      CKPOL          : CGFR_CKPOL_Field := 16#0#;
+      CKPOL          : Boolean := False;
       --  Word select inversion
-      FIXCH          : CGFR_FIXCH_Field := 16#0#;
+      FIXCH          : Boolean := False;
       --  Fixed channel length in SLAVE
-      WSINV          : CGFR_WSINV_Field := 16#0#;
+      WSINV          : Boolean := False;
       --  Data format
-      DATFMT         : CGFR_DATFMT_Field := 16#0#;
+      DATFMT         : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  I2S linear prescaler
       I2SDIV         : CGFR_I2SDIV_Field := 16#0#;
       --  Odd factor for the prescaler
-      ODD            : CGFR_ODD_Field := 16#0#;
+      ODD            : Boolean := False;
       --  Master clock output enable
-      MCKOE          : CGFR_MCKOE_Field := 16#0#;
+      MCKOE          : Boolean := False;
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CGFR_Register use record
@@ -531,26 +462,26 @@ package STM32_SVD.SPI is
 
    --  Serial peripheral interface
    SPI1_Periph : aliased SPI_Peripheral
-     with Import, Address => System'To_Address (16#40013000#);
+     with Import, Address => SPI1_Base;
 
    --  Serial peripheral interface
    SPI2_Periph : aliased SPI_Peripheral
-     with Import, Address => System'To_Address (16#40003800#);
+     with Import, Address => SPI2_Base;
 
    --  Serial peripheral interface
    SPI3_Periph : aliased SPI_Peripheral
-     with Import, Address => System'To_Address (16#40003C00#);
+     with Import, Address => SPI3_Base;
 
    --  Serial peripheral interface
    SPI4_Periph : aliased SPI_Peripheral
-     with Import, Address => System'To_Address (16#40013400#);
+     with Import, Address => SPI4_Base;
 
    --  Serial peripheral interface
    SPI5_Periph : aliased SPI_Peripheral
-     with Import, Address => System'To_Address (16#40015000#);
+     with Import, Address => SPI5_Base;
 
    --  Serial peripheral interface
    SPI6_Periph : aliased SPI_Peripheral
-     with Import, Address => System'To_Address (16#58001400#);
+     with Import, Address => SPI6_Base;
 
 end STM32_SVD.SPI;

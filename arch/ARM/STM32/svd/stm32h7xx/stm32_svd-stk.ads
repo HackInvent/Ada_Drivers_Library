@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,27 +13,22 @@ package STM32_SVD.STK is
    -- Registers --
    ---------------
 
-   subtype CSR_ENABLE_Field is STM32_SVD.Bit;
-   subtype CSR_TICKINT_Field is STM32_SVD.Bit;
-   subtype CSR_CLKSOURCE_Field is STM32_SVD.Bit;
-   subtype CSR_COUNTFLAG_Field is STM32_SVD.Bit;
-
    --  SysTick control and status register
    type CSR_Register is record
       --  Counter enable
-      ENABLE         : CSR_ENABLE_Field := 16#0#;
+      ENABLE         : Boolean := False;
       --  SysTick exception request enable
-      TICKINT        : CSR_TICKINT_Field := 16#0#;
+      TICKINT        : Boolean := False;
       --  Clock source selection
-      CLKSOURCE      : CSR_CLKSOURCE_Field := 16#0#;
+      CLKSOURCE      : Boolean := False;
       --  unspecified
       Reserved_3_15  : STM32_SVD.UInt13 := 16#0#;
       --  COUNTFLAG
-      COUNTFLAG      : CSR_COUNTFLAG_Field := 16#0#;
+      COUNTFLAG      : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CSR_Register use record
@@ -54,7 +49,7 @@ package STM32_SVD.STK is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RVR_Register use record
@@ -71,7 +66,7 @@ package STM32_SVD.STK is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CVR_Register use record
@@ -80,8 +75,6 @@ package STM32_SVD.STK is
    end record;
 
    subtype CALIB_TENMS_Field is STM32_SVD.UInt24;
-   subtype CALIB_SKEW_Field is STM32_SVD.Bit;
-   subtype CALIB_NOREF_Field is STM32_SVD.Bit;
 
    --  SysTick calibration value register
    type CALIB_Register is record
@@ -90,11 +83,11 @@ package STM32_SVD.STK is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  SKEW flag: Indicates whether the TENMS value is exact
-      SKEW           : CALIB_SKEW_Field := 16#0#;
+      SKEW           : Boolean := False;
       --  NOREF flag. Reads as zero
-      NOREF          : CALIB_NOREF_Field := 16#0#;
+      NOREF          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CALIB_Register use record
@@ -130,6 +123,6 @@ package STM32_SVD.STK is
 
    --  SysTick timer
    STK_Periph : aliased STK_Peripheral
-     with Import, Address => System'To_Address (16#E000E010#);
+     with Import, Address => STK_Base;
 
 end STM32_SVD.STK;

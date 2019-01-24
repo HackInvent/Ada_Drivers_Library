@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,33 +13,28 @@ package STM32_SVD.MDIOS is
    -- Registers --
    ---------------
 
-   subtype MDIOS_CR_EN_Field is STM32_SVD.Bit;
-   subtype MDIOS_CR_WRIE_Field is STM32_SVD.Bit;
-   subtype MDIOS_CR_RDIE_Field is STM32_SVD.Bit;
-   subtype MDIOS_CR_EIE_Field is STM32_SVD.Bit;
-   subtype MDIOS_CR_DPC_Field is STM32_SVD.Bit;
    subtype MDIOS_CR_PORT_ADDRESS_Field is STM32_SVD.UInt5;
 
    --  MDIOS configuration register
    type MDIOS_CR_Register is record
       --  Peripheral enable
-      EN             : MDIOS_CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Register write interrupt enable
-      WRIE           : MDIOS_CR_WRIE_Field := 16#0#;
+      WRIE           : Boolean := False;
       --  Register Read Interrupt Enable
-      RDIE           : MDIOS_CR_RDIE_Field := 16#0#;
+      RDIE           : Boolean := False;
       --  Error interrupt enable
-      EIE            : MDIOS_CR_EIE_Field := 16#0#;
+      EIE            : Boolean := False;
       --  unspecified
       Reserved_4_6   : STM32_SVD.UInt3 := 16#0#;
       --  Disable Preamble Check
-      DPC            : MDIOS_CR_DPC_Field := 16#0#;
+      DPC            : Boolean := False;
       --  Slaves's address
       PORT_ADDRESS   : MDIOS_CR_PORT_ADDRESS_Field := 16#0#;
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_CR_Register use record
@@ -53,22 +48,18 @@ package STM32_SVD.MDIOS is
       Reserved_13_31 at 0 range 13 .. 31;
    end record;
 
-   subtype MDIOS_SR_PERF_Field is STM32_SVD.Bit;
-   subtype MDIOS_SR_SERF_Field is STM32_SVD.Bit;
-   subtype MDIOS_SR_TERF_Field is STM32_SVD.Bit;
-
    --  MDIOS status register
    type MDIOS_SR_Register is record
       --  Read-only. Preamble error flag
-      PERF          : MDIOS_SR_PERF_Field;
+      PERF          : Boolean;
       --  Read-only. Start error flag
-      SERF          : MDIOS_SR_SERF_Field;
+      SERF          : Boolean;
       --  Read-only. Turnaround error flag
-      TERF          : MDIOS_SR_TERF_Field;
+      TERF          : Boolean;
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_SR_Register use record
@@ -78,22 +69,18 @@ package STM32_SVD.MDIOS is
       Reserved_3_31 at 0 range 3 .. 31;
    end record;
 
-   subtype MDIOS_CLRFR_CPERF_Field is STM32_SVD.Bit;
-   subtype MDIOS_CLRFR_CSERF_Field is STM32_SVD.Bit;
-   subtype MDIOS_CLRFR_CTERF_Field is STM32_SVD.Bit;
-
    --  MDIOS clear flag register
    type MDIOS_CLRFR_Register is record
       --  Clear the preamble error flag
-      CPERF         : MDIOS_CLRFR_CPERF_Field := 16#0#;
+      CPERF         : Boolean := False;
       --  Clear the start error flag
-      CSERF         : MDIOS_CLRFR_CSERF_Field := 16#0#;
+      CSERF         : Boolean := False;
       --  Clear the turnaround error flag
-      CTERF         : MDIOS_CLRFR_CTERF_Field := 16#0#;
+      CTERF         : Boolean := False;
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_CLRFR_Register use record
@@ -112,7 +99,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR0_Register use record
@@ -129,7 +116,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR1_Register use record
@@ -146,7 +133,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR2_Register use record
@@ -163,7 +150,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR3_Register use record
@@ -180,7 +167,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR4_Register use record
@@ -197,7 +184,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR5_Register use record
@@ -214,7 +201,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR6_Register use record
@@ -231,7 +218,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR7_Register use record
@@ -248,7 +235,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR8_Register use record
@@ -265,7 +252,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR9_Register use record
@@ -282,7 +269,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR10_Register use record
@@ -299,7 +286,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR11_Register use record
@@ -316,7 +303,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR12_Register use record
@@ -333,7 +320,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR13_Register use record
@@ -350,7 +337,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR14_Register use record
@@ -367,7 +354,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR15_Register use record
@@ -384,7 +371,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR16_Register use record
@@ -401,7 +388,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR17_Register use record
@@ -418,7 +405,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR18_Register use record
@@ -435,7 +422,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR19_Register use record
@@ -452,7 +439,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR20_Register use record
@@ -469,7 +456,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR21_Register use record
@@ -486,7 +473,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR22_Register use record
@@ -503,7 +490,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR23_Register use record
@@ -520,7 +507,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR24_Register use record
@@ -537,7 +524,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR25_Register use record
@@ -554,7 +541,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR26_Register use record
@@ -571,7 +558,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR27_Register use record
@@ -588,7 +575,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR28_Register use record
@@ -605,7 +592,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR29_Register use record
@@ -622,7 +609,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR30_Register use record
@@ -639,7 +626,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DINR31_Register use record
@@ -656,7 +643,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR0_Register use record
@@ -673,7 +660,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR1_Register use record
@@ -690,7 +677,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR2_Register use record
@@ -707,7 +694,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR3_Register use record
@@ -724,7 +711,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR4_Register use record
@@ -741,7 +728,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR5_Register use record
@@ -758,7 +745,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR6_Register use record
@@ -775,7 +762,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR7_Register use record
@@ -792,7 +779,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR8_Register use record
@@ -809,7 +796,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR9_Register use record
@@ -826,7 +813,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR10_Register use record
@@ -843,7 +830,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR11_Register use record
@@ -860,7 +847,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR12_Register use record
@@ -877,7 +864,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR13_Register use record
@@ -894,7 +881,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR14_Register use record
@@ -911,7 +898,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR15_Register use record
@@ -928,7 +915,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR16_Register use record
@@ -945,7 +932,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR17_Register use record
@@ -962,7 +949,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR18_Register use record
@@ -979,7 +966,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR19_Register use record
@@ -996,7 +983,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR20_Register use record
@@ -1013,7 +1000,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR21_Register use record
@@ -1030,7 +1017,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR22_Register use record
@@ -1047,7 +1034,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR23_Register use record
@@ -1064,7 +1051,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR24_Register use record
@@ -1081,7 +1068,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR25_Register use record
@@ -1098,7 +1085,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR26_Register use record
@@ -1115,7 +1102,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR27_Register use record
@@ -1132,7 +1119,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR28_Register use record
@@ -1149,7 +1136,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR29_Register use record
@@ -1166,7 +1153,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR30_Register use record
@@ -1183,7 +1170,7 @@ package STM32_SVD.MDIOS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MDIOS_DOUTR31_Register use record
@@ -1418,6 +1405,6 @@ package STM32_SVD.MDIOS is
 
    --  Management data input/output slave
    MDIOS_Periph : aliased MDIOS_Peripheral
-     with Import, Address => System'To_Address (16#40009400#);
+     with Import, Address => MDIOS_Base;
 
 end STM32_SVD.MDIOS;

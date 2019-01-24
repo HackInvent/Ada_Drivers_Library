@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -25,7 +25,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_PERIPH_ID_4_Register use record
@@ -43,7 +43,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_PERIPH_ID_0_Register use record
@@ -63,7 +63,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_PERIPH_ID_1_Register use record
@@ -73,7 +73,6 @@ package STM32_SVD.AXI is
    end record;
 
    subtype AXI_PERIPH_ID_2_JEP106ID_Field is STM32_SVD.UInt3;
-   subtype AXI_PERIPH_ID_2_JEDEC_Field is STM32_SVD.Bit;
    subtype AXI_PERIPH_ID_2_REVISION_Field is STM32_SVD.UInt4;
 
    --  AXI interconnect - peripheral ID2 register
@@ -81,13 +80,13 @@ package STM32_SVD.AXI is
       --  Read-only. JEP106 Identity bits 4 to 6
       JEP106ID      : AXI_PERIPH_ID_2_JEP106ID_Field;
       --  Read-only. JEP106 code flag
-      JEDEC         : AXI_PERIPH_ID_2_JEDEC_Field;
+      JEDEC         : Boolean;
       --  Read-only. Peripheral revision number
       REVISION      : AXI_PERIPH_ID_2_REVISION_Field;
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_PERIPH_ID_2_Register use record
@@ -109,7 +108,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_PERIPH_ID_3_Register use record
@@ -127,7 +126,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_COMP_ID_0_Register use record
@@ -147,7 +146,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_COMP_ID_1_Register use record
@@ -165,7 +164,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_COMP_ID_2_Register use record
@@ -182,7 +181,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_COMP_ID_3_Register use record
@@ -190,21 +189,16 @@ package STM32_SVD.AXI is
       Reserved_8_31 at 0 range 8 .. 31;
    end record;
 
-   subtype AXI_TARG1_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG1_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix issuing functionality register
    type AXI_TARG1_FN_MOD_ISS_BM_Register is record
       --  READ_ISS_OVERRIDE
-      READ_ISS_OVERRIDE  : AXI_TARG1_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field :=
-                            16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Switch matrix write issuing override for target
-      WRITE_ISS_OVERRIDE : AXI_TARG1_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field :=
-                            16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG1_FN_MOD_ISS_BM_Register use record
@@ -213,16 +207,14 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG1_FN_MOD2_BYPASS_MERGE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix functionality 2 register
    type AXI_TARG1_FN_MOD2_Register is record
       --  Disable packing of beats to match the output data width
-      BYPASS_MERGE  : AXI_TARG1_FN_MOD2_BYPASS_MERGE_Field := 16#0#;
+      BYPASS_MERGE  : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#2#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG1_FN_MOD2_Register use record
@@ -230,16 +222,14 @@ package STM32_SVD.AXI is
       Reserved_1_31 at 0 range 1 .. 31;
    end record;
 
-   subtype AXI_TARG1_FN_MOD_LB_FN_MOD_LB_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x long burst functionality modification
    type AXI_TARG1_FN_MOD_LB_Register is record
       --  Controls burst breaking of long bursts
-      FN_MOD_LB     : AXI_TARG1_FN_MOD_LB_FN_MOD_LB_Field := 16#0#;
+      FN_MOD_LB     : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#2#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG1_FN_MOD_LB_Register use record
@@ -247,19 +237,16 @@ package STM32_SVD.AXI is
       Reserved_1_31 at 0 range 1 .. 31;
    end record;
 
-   subtype AXI_TARG1_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG1_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x long burst functionality modification
    type AXI_TARG1_FN_MOD_Register is record
       --  Override AMIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_TARG1_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override AMIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_TARG1_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG1_FN_MOD_Register use record
@@ -268,21 +255,16 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG2_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG2_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix issuing functionality register
    type AXI_TARG2_FN_MOD_ISS_BM_Register is record
       --  READ_ISS_OVERRIDE
-      READ_ISS_OVERRIDE  : AXI_TARG2_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field :=
-                            16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Switch matrix write issuing override for target
-      WRITE_ISS_OVERRIDE : AXI_TARG2_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field :=
-                            16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG2_FN_MOD_ISS_BM_Register use record
@@ -291,16 +273,14 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG2_FN_MOD2_BYPASS_MERGE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix functionality 2 register
    type AXI_TARG2_FN_MOD2_Register is record
       --  Disable packing of beats to match the output data width
-      BYPASS_MERGE  : AXI_TARG2_FN_MOD2_BYPASS_MERGE_Field := 16#0#;
+      BYPASS_MERGE  : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#2#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG2_FN_MOD2_Register use record
@@ -308,16 +288,14 @@ package STM32_SVD.AXI is
       Reserved_1_31 at 0 range 1 .. 31;
    end record;
 
-   subtype AXI_TARG2_FN_MOD_LB_FN_MOD_LB_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x long burst functionality modification
    type AXI_TARG2_FN_MOD_LB_Register is record
       --  Controls burst breaking of long bursts
-      FN_MOD_LB     : AXI_TARG2_FN_MOD_LB_FN_MOD_LB_Field := 16#0#;
+      FN_MOD_LB     : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#2#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG2_FN_MOD_LB_Register use record
@@ -325,19 +303,16 @@ package STM32_SVD.AXI is
       Reserved_1_31 at 0 range 1 .. 31;
    end record;
 
-   subtype AXI_TARG2_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG2_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x long burst functionality modification
    type AXI_TARG2_FN_MOD_Register is record
       --  Override AMIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_TARG2_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override AMIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_TARG2_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG2_FN_MOD_Register use record
@@ -346,21 +321,16 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG3_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG3_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix issuing functionality register
    type AXI_TARG3_FN_MOD_ISS_BM_Register is record
       --  READ_ISS_OVERRIDE
-      READ_ISS_OVERRIDE  : AXI_TARG3_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field :=
-                            16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Switch matrix write issuing override for target
-      WRITE_ISS_OVERRIDE : AXI_TARG3_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field :=
-                            16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG3_FN_MOD_ISS_BM_Register use record
@@ -369,21 +339,16 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG4_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG4_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix issuing functionality register
    type AXI_TARG4_FN_MOD_ISS_BM_Register is record
       --  READ_ISS_OVERRIDE
-      READ_ISS_OVERRIDE  : AXI_TARG4_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field :=
-                            16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Switch matrix write issuing override for target
-      WRITE_ISS_OVERRIDE : AXI_TARG4_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field :=
-                            16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG4_FN_MOD_ISS_BM_Register use record
@@ -392,21 +357,16 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG5_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG5_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix issuing functionality register
    type AXI_TARG5_FN_MOD_ISS_BM_Register is record
       --  READ_ISS_OVERRIDE
-      READ_ISS_OVERRIDE  : AXI_TARG5_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field :=
-                            16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Switch matrix write issuing override for target
-      WRITE_ISS_OVERRIDE : AXI_TARG5_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field :=
-                            16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG5_FN_MOD_ISS_BM_Register use record
@@ -415,21 +375,16 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG6_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG6_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix issuing functionality register
    type AXI_TARG6_FN_MOD_ISS_BM_Register is record
       --  READ_ISS_OVERRIDE
-      READ_ISS_OVERRIDE  : AXI_TARG6_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field :=
-                            16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Switch matrix write issuing override for target
-      WRITE_ISS_OVERRIDE : AXI_TARG6_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field :=
-                            16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG6_FN_MOD_ISS_BM_Register use record
@@ -438,21 +393,16 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG7_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG7_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix issuing functionality register
    type AXI_TARG7_FN_MOD_ISS_BM_Register is record
       --  READ_ISS_OVERRIDE
-      READ_ISS_OVERRIDE  : AXI_TARG7_FN_MOD_ISS_BM_READ_ISS_OVERRIDE_Field :=
-                            16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Switch matrix write issuing override for target
-      WRITE_ISS_OVERRIDE : AXI_TARG7_FN_MOD_ISS_BM_WRITE_ISS_OVERRIDE_Field :=
-                            16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG7_FN_MOD_ISS_BM_Register use record
@@ -461,16 +411,14 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_TARG7_FN_MOD2_BYPASS_MERGE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x bus matrix functionality 2 register
    type AXI_TARG7_FN_MOD2_Register is record
       --  Disable packing of beats to match the output data width
-      BYPASS_MERGE  : AXI_TARG7_FN_MOD2_BYPASS_MERGE_Field := 16#0#;
+      BYPASS_MERGE  : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#2#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG7_FN_MOD2_Register use record
@@ -478,19 +426,16 @@ package STM32_SVD.AXI is
       Reserved_1_31 at 0 range 1 .. 31;
    end record;
 
-   subtype AXI_TARG7_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_TARG7_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - TARG x long burst functionality modification
    type AXI_TARG7_FN_MOD_Register is record
       --  Override AMIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_TARG7_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override AMIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_TARG7_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_TARG7_FN_MOD_Register use record
@@ -499,17 +444,15 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_INI1_FN_MOD2_BYPASS_MERGE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x functionality modification 2 register
    type AXI_INI1_FN_MOD2_Register is record
       --  Disables alteration of transactions by the up-sizer unless required
       --  by the protocol
-      BYPASS_MERGE  : AXI_INI1_FN_MOD2_BYPASS_MERGE_Field := 16#0#;
+      BYPASS_MERGE  : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#2#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI1_FN_MOD2_Register use record
@@ -517,21 +460,18 @@ package STM32_SVD.AXI is
       Reserved_1_31 at 0 range 1 .. 31;
    end record;
 
-   subtype AXI_INI1_FN_MOD_AHB_RD_INC_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_INI1_FN_MOD_AHB_WR_INC_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x AHB functionality modification register
    type AXI_INI1_FN_MOD_AHB_Register is record
       --  Converts all AHB-Lite write transactions to a series of single beat
       --  AXI
-      RD_INC_OVERRIDE : AXI_INI1_FN_MOD_AHB_RD_INC_OVERRIDE_Field := 16#0#;
+      RD_INC_OVERRIDE : Boolean := False;
       --  Converts all AHB-Lite read transactions to a series of single beat
       --  AXI
-      WR_INC_OVERRIDE : AXI_INI1_FN_MOD_AHB_WR_INC_OVERRIDE_Field := 16#0#;
+      WR_INC_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31   : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI1_FN_MOD_AHB_Register use record
@@ -549,7 +489,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI1_READ_QOS_Register use record
@@ -566,7 +506,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI1_WRITE_QOS_Register use record
@@ -574,19 +514,16 @@ package STM32_SVD.AXI is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype AXI_INI1_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_INI1_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x issuing functionality modification register
    type AXI_INI1_FN_MOD_Register is record
       --  Override ASIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_INI1_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override ASIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_INI1_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI1_FN_MOD_Register use record
@@ -604,7 +541,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI2_READ_QOS_Register use record
@@ -621,7 +558,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI2_WRITE_QOS_Register use record
@@ -629,19 +566,16 @@ package STM32_SVD.AXI is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype AXI_INI2_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_INI2_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x issuing functionality modification register
    type AXI_INI2_FN_MOD_Register is record
       --  Override ASIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_INI2_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override ASIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_INI2_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI2_FN_MOD_Register use record
@@ -650,17 +584,15 @@ package STM32_SVD.AXI is
       Reserved_2_31      at 0 range 2 .. 31;
    end record;
 
-   subtype AXI_INI3_FN_MOD2_BYPASS_MERGE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x functionality modification 2 register
    type AXI_INI3_FN_MOD2_Register is record
       --  Disables alteration of transactions by the up-sizer unless required
       --  by the protocol
-      BYPASS_MERGE  : AXI_INI3_FN_MOD2_BYPASS_MERGE_Field := 16#0#;
+      BYPASS_MERGE  : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#2#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI3_FN_MOD2_Register use record
@@ -668,21 +600,18 @@ package STM32_SVD.AXI is
       Reserved_1_31 at 0 range 1 .. 31;
    end record;
 
-   subtype AXI_INI3_FN_MOD_AHB_RD_INC_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_INI3_FN_MOD_AHB_WR_INC_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x AHB functionality modification register
    type AXI_INI3_FN_MOD_AHB_Register is record
       --  Converts all AHB-Lite write transactions to a series of single beat
       --  AXI
-      RD_INC_OVERRIDE : AXI_INI3_FN_MOD_AHB_RD_INC_OVERRIDE_Field := 16#0#;
+      RD_INC_OVERRIDE : Boolean := False;
       --  Converts all AHB-Lite read transactions to a series of single beat
       --  AXI
-      WR_INC_OVERRIDE : AXI_INI3_FN_MOD_AHB_WR_INC_OVERRIDE_Field := 16#0#;
+      WR_INC_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31   : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI3_FN_MOD_AHB_Register use record
@@ -700,7 +629,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI3_READ_QOS_Register use record
@@ -717,7 +646,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI3_WRITE_QOS_Register use record
@@ -725,19 +654,16 @@ package STM32_SVD.AXI is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype AXI_INI3_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_INI3_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x issuing functionality modification register
    type AXI_INI3_FN_MOD_Register is record
       --  Override ASIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_INI3_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override ASIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_INI3_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI3_FN_MOD_Register use record
@@ -755,7 +681,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI4_READ_QOS_Register use record
@@ -772,7 +698,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI4_WRITE_QOS_Register use record
@@ -780,19 +706,16 @@ package STM32_SVD.AXI is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype AXI_INI4_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_INI4_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x issuing functionality modification register
    type AXI_INI4_FN_MOD_Register is record
       --  Override ASIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_INI4_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override ASIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_INI4_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI4_FN_MOD_Register use record
@@ -810,7 +733,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI5_READ_QOS_Register use record
@@ -827,7 +750,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI5_WRITE_QOS_Register use record
@@ -835,19 +758,16 @@ package STM32_SVD.AXI is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype AXI_INI5_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_INI5_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x issuing functionality modification register
    type AXI_INI5_FN_MOD_Register is record
       --  Override ASIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_INI5_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override ASIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_INI5_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI5_FN_MOD_Register use record
@@ -865,7 +785,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI6_READ_QOS_Register use record
@@ -882,7 +802,7 @@ package STM32_SVD.AXI is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI6_WRITE_QOS_Register use record
@@ -890,19 +810,16 @@ package STM32_SVD.AXI is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype AXI_INI6_FN_MOD_READ_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-   subtype AXI_INI6_FN_MOD_WRITE_ISS_OVERRIDE_Field is STM32_SVD.Bit;
-
    --  AXI interconnect - INI x issuing functionality modification register
    type AXI_INI6_FN_MOD_Register is record
       --  Override ASIB read issuing capability
-      READ_ISS_OVERRIDE  : AXI_INI6_FN_MOD_READ_ISS_OVERRIDE_Field := 16#0#;
+      READ_ISS_OVERRIDE  : Boolean := False;
       --  Override ASIB write issuing capability
-      WRITE_ISS_OVERRIDE : AXI_INI6_FN_MOD_WRITE_ISS_OVERRIDE_Field := 16#0#;
+      WRITE_ISS_OVERRIDE : Boolean := False;
       --  unspecified
       Reserved_2_31      : STM32_SVD.UInt30 := 16#1#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AXI_INI6_FN_MOD_Register use record
@@ -1063,6 +980,6 @@ package STM32_SVD.AXI is
 
    --  AXI interconnect registers
    AXI_Periph : aliased AXI_Peripheral
-     with Import, Address => System'To_Address (16#51000000#);
+     with Import, Address => AXI_Base;
 
 end STM32_SVD.AXI;

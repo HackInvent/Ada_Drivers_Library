@@ -360,16 +360,16 @@ package body STM32.GPIO is
             null;
          when Mode_Out =>
             if Config.Output_Type = Open_Drain then
-               This.Periph.GPIOA_OTYPER.OT.Arr (Index) := 16#1#;
+               This.Periph.GPIOA_OTYPER.OT.Arr (Index) := True;
             else
-               This.Periph.GPIOA_OTYPER.OT.Arr (Index) := 16#0#;
+               This.Periph.GPIOA_OTYPER.OT.Arr (Index) := False;
             end if;
             This.Periph.GPIOA_OSPEEDR.Arr (Index)   := Pin_Output_Speeds'Enum_Rep (Config.Speed);
          when Mode_AF =>
             if Config.AF_Output_Type = Open_Drain then
-               This.Periph.GPIOA_OTYPER.OT.Arr (Index) := 16#1#;
+               This.Periph.GPIOA_OTYPER.OT.Arr (Index) := True;
             else
-               This.Periph.GPIOA_OTYPER.OT.Arr (Index) := 16#0#;
+               This.Periph.GPIOA_OTYPER.OT.Arr (Index) := False;
             end if;
             This.Periph.GPIOA_OSPEEDR.Arr (Index)   := Pin_Output_Speeds'Enum_Rep (Config.AF_Speed);
             Configure_Alternate_Function (This, Config.AF);

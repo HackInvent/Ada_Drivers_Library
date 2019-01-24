@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,11 +13,8 @@ package STM32_SVD.EXTI is
    -- Registers --
    ---------------
 
-   --  RTSR1_TR array element
-   subtype RTSR1_TR_Element is STM32_SVD.Bit;
-
    --  RTSR1_TR array
-   type RTSR1_TR_Field_Array is array (0 .. 21) of RTSR1_TR_Element
+   type RTSR1_TR_Field_Array is array (0 .. 21) of Boolean
      with Component_Size => 1, Size => 22;
 
    --  Type definition for RTSR1_TR
@@ -47,7 +44,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTSR1_Register use record
@@ -55,11 +52,8 @@ package STM32_SVD.EXTI is
       Reserved_22_31 at 0 range 22 .. 31;
    end record;
 
-   --  FTSR1_TR array element
-   subtype FTSR1_TR_Element is STM32_SVD.Bit;
-
    --  FTSR1_TR array
-   type FTSR1_TR_Field_Array is array (0 .. 21) of FTSR1_TR_Element
+   type FTSR1_TR_Field_Array is array (0 .. 21) of Boolean
      with Component_Size => 1, Size => 22;
 
    --  Type definition for FTSR1_TR
@@ -89,7 +83,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FTSR1_Register use record
@@ -97,11 +91,8 @@ package STM32_SVD.EXTI is
       Reserved_22_31 at 0 range 22 .. 31;
    end record;
 
-   --  SWIER1_SWIER array element
-   subtype SWIER1_SWIER_Element is STM32_SVD.Bit;
-
    --  SWIER1_SWIER array
-   type SWIER1_SWIER_Field_Array is array (0 .. 21) of SWIER1_SWIER_Element
+   type SWIER1_SWIER_Field_Array is array (0 .. 21) of Boolean
      with Component_Size => 1, Size => 22;
 
    --  Type definition for SWIER1_SWIER
@@ -132,7 +123,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SWIER1_Register use record
@@ -140,11 +131,8 @@ package STM32_SVD.EXTI is
       Reserved_22_31 at 0 range 22 .. 31;
    end record;
 
-   --  D3PMR1_MR array element
-   subtype D3PMR1_MR_Element is STM32_SVD.Bit;
-
    --  D3PMR1_MR array
-   type D3PMR1_MR_Field_Array is array (0 .. 15) of D3PMR1_MR_Element
+   type D3PMR1_MR_Field_Array is array (0 .. 15) of Boolean
      with Component_Size => 1, Size => 16;
 
    --  Type definition for D3PMR1_MR
@@ -168,7 +156,7 @@ package STM32_SVD.EXTI is
    end record;
 
    --  D3PMR1_MR array
-   type D3PMR1_MR_Field_Array_1 is array (19 .. 21) of D3PMR1_MR_Element
+   type D3PMR1_MR_Field_Array_1 is array (19 .. 21) of Boolean
      with Component_Size => 1, Size => 3;
 
    --  Type definition for D3PMR1_MR
@@ -191,8 +179,6 @@ package STM32_SVD.EXTI is
       Arr at 0 range 0 .. 2;
    end record;
 
-   subtype D3PMR1_MR25_Field is STM32_SVD.Bit;
-
    --  EXTI D3 pending mask register
    type D3PMR1_Register is record
       --  Rising trigger event configuration bit of Configurable Event input
@@ -204,11 +190,11 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_22_24 : STM32_SVD.UInt3 := 16#0#;
       --  Rising trigger event configuration bit of Configurable Event input
-      MR25           : D3PMR1_MR25_Field := 16#0#;
+      MR25           : Boolean := False;
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for D3PMR1_Register use record
@@ -240,7 +226,7 @@ package STM32_SVD.EXTI is
             Arr : D3PCR1L_PCS_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for D3PCR1L_Register use record
@@ -292,7 +278,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for D3PCR1H_Register use record
@@ -303,25 +289,22 @@ package STM32_SVD.EXTI is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   subtype RTSR2_TR49_Field is STM32_SVD.Bit;
-   subtype RTSR2_TR51_Field is STM32_SVD.Bit;
-
    --  EXTI rising trigger selection register
    type RTSR2_Register is record
       --  unspecified
       Reserved_0_16  : STM32_SVD.UInt17 := 16#0#;
       --  Rising trigger event configuration bit of Configurable Event input
       --  x+32
-      TR49           : RTSR2_TR49_Field := 16#0#;
+      TR49           : Boolean := False;
       --  unspecified
       Reserved_18_18 : STM32_SVD.Bit := 16#0#;
       --  Rising trigger event configuration bit of Configurable Event input
       --  x+32
-      TR51           : RTSR2_TR51_Field := 16#0#;
+      TR51           : Boolean := False;
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTSR2_Register use record
@@ -332,25 +315,22 @@ package STM32_SVD.EXTI is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   subtype FTSR2_TR49_Field is STM32_SVD.Bit;
-   subtype FTSR2_TR51_Field is STM32_SVD.Bit;
-
    --  EXTI falling trigger selection register
    type FTSR2_Register is record
       --  unspecified
       Reserved_0_16  : STM32_SVD.UInt17 := 16#0#;
       --  Falling trigger event configuration bit of Configurable Event input
       --  x+32
-      TR49           : FTSR2_TR49_Field := 16#0#;
+      TR49           : Boolean := False;
       --  unspecified
       Reserved_18_18 : STM32_SVD.Bit := 16#0#;
       --  Falling trigger event configuration bit of Configurable Event input
       --  x+32
-      TR51           : FTSR2_TR51_Field := 16#0#;
+      TR51           : Boolean := False;
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FTSR2_Register use record
@@ -361,23 +341,20 @@ package STM32_SVD.EXTI is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   subtype SWIER2_SWIER49_Field is STM32_SVD.Bit;
-   subtype SWIER2_SWIER51_Field is STM32_SVD.Bit;
-
    --  EXTI software interrupt event register
    type SWIER2_Register is record
       --  unspecified
       Reserved_0_16  : STM32_SVD.UInt17 := 16#0#;
       --  Software interrupt on line x+32
-      SWIER49        : SWIER2_SWIER49_Field := 16#0#;
+      SWIER49        : Boolean := False;
       --  unspecified
       Reserved_18_18 : STM32_SVD.Bit := 16#0#;
       --  Software interrupt on line x+32
-      SWIER51        : SWIER2_SWIER51_Field := 16#0#;
+      SWIER51        : Boolean := False;
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SWIER2_Register use record
@@ -388,11 +365,8 @@ package STM32_SVD.EXTI is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   --  D3PMR2_MR array element
-   subtype D3PMR2_MR_Element is STM32_SVD.Bit;
-
    --  D3PMR2_MR array
-   type D3PMR2_MR_Field_Array is array (34 .. 35) of D3PMR2_MR_Element
+   type D3PMR2_MR_Field_Array is array (34 .. 35) of Boolean
      with Component_Size => 1, Size => 2;
 
    --  Type definition for D3PMR2_MR
@@ -415,10 +389,8 @@ package STM32_SVD.EXTI is
       Arr at 0 range 0 .. 1;
    end record;
 
-   subtype D3PMR2_MR41_Field is STM32_SVD.Bit;
-
    --  D3PMR2_MR array
-   type D3PMR2_MR_Field_Array_1 is array (48 .. 53) of D3PMR2_MR_Element
+   type D3PMR2_MR_Field_Array_1 is array (48 .. 53) of Boolean
      with Component_Size => 1, Size => 6;
 
    --  Type definition for D3PMR2_MR
@@ -450,7 +422,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_4_8   : STM32_SVD.UInt5 := 16#0#;
       --  D3 Pending Mask on Event input x+32
-      MR41           : D3PMR2_MR41_Field := 16#0#;
+      MR41           : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  D3 Pending Mask on Event input x+32
@@ -458,7 +430,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for D3PMR2_Register use record
@@ -515,7 +487,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for D3PCR2L_Register use record
@@ -561,7 +533,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for D3PCR2H_Register use record
@@ -569,12 +541,8 @@ package STM32_SVD.EXTI is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype RTSR3_TR82_Field is STM32_SVD.Bit;
-   --  RTSR3_TR array element
-   subtype RTSR3_TR_Element is STM32_SVD.Bit;
-
    --  RTSR3_TR array
-   type RTSR3_TR_Field_Array is array (84 .. 86) of RTSR3_TR_Element
+   type RTSR3_TR_Field_Array is array (84 .. 86) of Boolean
      with Component_Size => 1, Size => 3;
 
    --  Type definition for RTSR3_TR
@@ -603,7 +571,7 @@ package STM32_SVD.EXTI is
       Reserved_0_17  : STM32_SVD.UInt18 := 16#0#;
       --  Rising trigger event configuration bit of Configurable Event input
       --  x+64
-      TR82           : RTSR3_TR82_Field := 16#0#;
+      TR82           : Boolean := False;
       --  unspecified
       Reserved_19_19 : STM32_SVD.Bit := 16#0#;
       --  Rising trigger event configuration bit of Configurable Event input
@@ -612,7 +580,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTSR3_Register use record
@@ -623,12 +591,8 @@ package STM32_SVD.EXTI is
       Reserved_23_31 at 0 range 23 .. 31;
    end record;
 
-   subtype FTSR3_TR82_Field is STM32_SVD.Bit;
-   --  FTSR3_TR array element
-   subtype FTSR3_TR_Element is STM32_SVD.Bit;
-
    --  FTSR3_TR array
-   type FTSR3_TR_Field_Array is array (84 .. 86) of FTSR3_TR_Element
+   type FTSR3_TR_Field_Array is array (84 .. 86) of Boolean
      with Component_Size => 1, Size => 3;
 
    --  Type definition for FTSR3_TR
@@ -657,7 +621,7 @@ package STM32_SVD.EXTI is
       Reserved_0_17  : STM32_SVD.UInt18 := 16#0#;
       --  Falling trigger event configuration bit of Configurable Event input
       --  x+64
-      TR82           : FTSR3_TR82_Field := 16#0#;
+      TR82           : Boolean := False;
       --  unspecified
       Reserved_19_19 : STM32_SVD.Bit := 16#0#;
       --  Falling trigger event configuration bit of Configurable Event input
@@ -666,7 +630,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FTSR3_Register use record
@@ -677,12 +641,8 @@ package STM32_SVD.EXTI is
       Reserved_23_31 at 0 range 23 .. 31;
    end record;
 
-   subtype SWIER3_SWIER82_Field is STM32_SVD.Bit;
-   --  SWIER3_SWIER array element
-   subtype SWIER3_SWIER_Element is STM32_SVD.Bit;
-
    --  SWIER3_SWIER array
-   type SWIER3_SWIER_Field_Array is array (84 .. 86) of SWIER3_SWIER_Element
+   type SWIER3_SWIER_Field_Array is array (84 .. 86) of Boolean
      with Component_Size => 1, Size => 3;
 
    --  Type definition for SWIER3_SWIER
@@ -710,7 +670,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_0_17  : STM32_SVD.UInt18 := 16#0#;
       --  Software interrupt on line x+64
-      SWIER82        : SWIER3_SWIER82_Field := 16#0#;
+      SWIER82        : Boolean := False;
       --  unspecified
       Reserved_19_19 : STM32_SVD.Bit := 16#0#;
       --  Software interrupt on line x+64
@@ -719,7 +679,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SWIER3_Register use record
@@ -730,18 +690,16 @@ package STM32_SVD.EXTI is
       Reserved_23_31 at 0 range 23 .. 31;
    end record;
 
-   subtype D3PMR3_MR88_Field is STM32_SVD.Bit;
-
    --  EXTI D3 pending mask register
    type D3PMR3_Register is record
       --  unspecified
       Reserved_0_23  : STM32_SVD.UInt24 := 16#0#;
       --  D3 Pending Mask on Event input x+64
-      MR88           : D3PMR3_MR88_Field := 16#0#;
+      MR88           : Boolean := False;
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for D3PMR3_Register use record
@@ -762,7 +720,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for D3PCR3H_Register use record
@@ -771,11 +729,8 @@ package STM32_SVD.EXTI is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   --  CPUIMR1_MR array element
-   subtype CPUIMR1_MR_Element is STM32_SVD.Bit;
-
    --  CPUIMR1_MR array
-   type CPUIMR1_MR_Field_Array is array (0 .. 31) of CPUIMR1_MR_Element
+   type CPUIMR1_MR_Field_Array is array (0 .. 31) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  EXTI interrupt mask register
@@ -791,7 +746,7 @@ package STM32_SVD.EXTI is
             Arr : CPUIMR1_MR_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUIMR1_Register use record
@@ -799,11 +754,8 @@ package STM32_SVD.EXTI is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  CPUEMR1_MR array element
-   subtype CPUEMR1_MR_Element is STM32_SVD.Bit;
-
    --  CPUEMR1_MR array
-   type CPUEMR1_MR_Field_Array is array (0 .. 31) of CPUEMR1_MR_Element
+   type CPUEMR1_MR_Field_Array is array (0 .. 31) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  EXTI event mask register
@@ -819,7 +771,7 @@ package STM32_SVD.EXTI is
             Arr : CPUEMR1_MR_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUEMR1_Register use record
@@ -827,11 +779,8 @@ package STM32_SVD.EXTI is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  CPUPR1_PR array element
-   subtype CPUPR1_PR_Element is STM32_SVD.Bit;
-
    --  CPUPR1_PR array
-   type CPUPR1_PR_Field_Array is array (0 .. 21) of CPUPR1_PR_Element
+   type CPUPR1_PR_Field_Array is array (0 .. 21) of Boolean
      with Component_Size => 1, Size => 22;
 
    --  Type definition for CPUPR1_PR
@@ -861,7 +810,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUPR1_Register use record
@@ -869,11 +818,8 @@ package STM32_SVD.EXTI is
       Reserved_22_31 at 0 range 22 .. 31;
    end record;
 
-   --  CPUIMR2_MR array element
-   subtype CPUIMR2_MR_Element is STM32_SVD.Bit;
-
    --  CPUIMR2_MR array
-   type CPUIMR2_MR_Field_Array is array (0 .. 12) of CPUIMR2_MR_Element
+   type CPUIMR2_MR_Field_Array is array (0 .. 12) of Boolean
      with Component_Size => 1, Size => 13;
 
    --  Type definition for CPUIMR2_MR
@@ -897,7 +843,7 @@ package STM32_SVD.EXTI is
    end record;
 
    --  CPUIMR2_MR array
-   type CPUIMR2_MR_Field_Array_1 is array (14 .. 31) of CPUIMR2_MR_Element
+   type CPUIMR2_MR_Field_Array_1 is array (14 .. 31) of Boolean
      with Component_Size => 1, Size => 18;
 
    --  Type definition for CPUIMR2_MR
@@ -930,7 +876,7 @@ package STM32_SVD.EXTI is
       MR_1           : CPUIMR2_MR_Field_1 :=
                         (As_Array => False, Val => 16#0#);
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUIMR2_Register use record
@@ -939,11 +885,8 @@ package STM32_SVD.EXTI is
       MR_1           at 0 range 14 .. 31;
    end record;
 
-   --  CPUEMR2_MR array element
-   subtype CPUEMR2_MR_Element is STM32_SVD.Bit;
-
    --  CPUEMR2_MR array
-   type CPUEMR2_MR_Field_Array is array (32 .. 44) of CPUEMR2_MR_Element
+   type CPUEMR2_MR_Field_Array is array (32 .. 44) of Boolean
      with Component_Size => 1, Size => 13;
 
    --  Type definition for CPUEMR2_MR
@@ -967,7 +910,7 @@ package STM32_SVD.EXTI is
    end record;
 
    --  CPUEMR2_MR array
-   type CPUEMR2_MR_Field_Array_1 is array (46 .. 63) of CPUEMR2_MR_Element
+   type CPUEMR2_MR_Field_Array_1 is array (46 .. 63) of Boolean
      with Component_Size => 1, Size => 18;
 
    --  Type definition for CPUEMR2_MR
@@ -1000,7 +943,7 @@ package STM32_SVD.EXTI is
       MR_1           : CPUEMR2_MR_Field_1 :=
                         (As_Array => False, Val => 16#0#);
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUEMR2_Register use record
@@ -1009,23 +952,20 @@ package STM32_SVD.EXTI is
       MR_1           at 0 range 14 .. 31;
    end record;
 
-   subtype CPUPR2_PR49_Field is STM32_SVD.Bit;
-   subtype CPUPR2_PR51_Field is STM32_SVD.Bit;
-
    --  EXTI pending register
    type CPUPR2_Register is record
       --  unspecified
       Reserved_0_16  : STM32_SVD.UInt17;
       --  Read-only. Configurable event inputs x+32 Pending bit
-      PR49           : CPUPR2_PR49_Field;
+      PR49           : Boolean;
       --  unspecified
       Reserved_18_18 : STM32_SVD.Bit;
       --  Read-only. Configurable event inputs x+32 Pending bit
-      PR51           : CPUPR2_PR51_Field;
+      PR51           : Boolean;
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUPR2_Register use record
@@ -1036,11 +976,8 @@ package STM32_SVD.EXTI is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   --  CPUIMR3_MR array element
-   subtype CPUIMR3_MR_Element is STM32_SVD.Bit;
-
    --  CPUIMR3_MR array
-   type CPUIMR3_MR_Field_Array is array (64 .. 80) of CPUIMR3_MR_Element
+   type CPUIMR3_MR_Field_Array is array (64 .. 80) of Boolean
      with Component_Size => 1, Size => 17;
 
    --  Type definition for CPUIMR3_MR
@@ -1063,10 +1000,8 @@ package STM32_SVD.EXTI is
       Arr at 0 range 0 .. 16;
    end record;
 
-   subtype CPUIMR3_MR82_Field is STM32_SVD.Bit;
-
    --  CPUIMR3_MR array
-   type CPUIMR3_MR_Field_Array_1 is array (84 .. 88) of CPUIMR3_MR_Element
+   type CPUIMR3_MR_Field_Array_1 is array (84 .. 88) of Boolean
      with Component_Size => 1, Size => 5;
 
    --  Type definition for CPUIMR3_MR
@@ -1096,7 +1031,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_17_17 : STM32_SVD.Bit;
       --  Read-only. CPU Interrupt Mask on Direct Event input x+64
-      MR82           : CPUIMR3_MR82_Field;
+      MR82           : Boolean;
       --  unspecified
       Reserved_19_19 : STM32_SVD.Bit;
       --  Read-only. CPU Interrupt Mask on Direct Event input x+64
@@ -1104,7 +1039,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUIMR3_Register use record
@@ -1116,11 +1051,8 @@ package STM32_SVD.EXTI is
       Reserved_25_31 at 0 range 25 .. 31;
    end record;
 
-   --  CPUEMR3_MR array element
-   subtype CPUEMR3_MR_Element is STM32_SVD.Bit;
-
    --  CPUEMR3_MR array
-   type CPUEMR3_MR_Field_Array is array (64 .. 80) of CPUEMR3_MR_Element
+   type CPUEMR3_MR_Field_Array is array (64 .. 80) of Boolean
      with Component_Size => 1, Size => 17;
 
    --  Type definition for CPUEMR3_MR
@@ -1143,10 +1075,8 @@ package STM32_SVD.EXTI is
       Arr at 0 range 0 .. 16;
    end record;
 
-   subtype CPUEMR3_MR82_Field is STM32_SVD.Bit;
-
    --  CPUEMR3_MR array
-   type CPUEMR3_MR_Field_Array_1 is array (84 .. 88) of CPUEMR3_MR_Element
+   type CPUEMR3_MR_Field_Array_1 is array (84 .. 88) of Boolean
      with Component_Size => 1, Size => 5;
 
    --  Type definition for CPUEMR3_MR
@@ -1176,7 +1106,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_17_17 : STM32_SVD.Bit;
       --  Read-only. CPU Event mask on Event input x+64
-      MR82           : CPUEMR3_MR82_Field;
+      MR82           : Boolean;
       --  unspecified
       Reserved_19_19 : STM32_SVD.Bit;
       --  Read-only. CPU Event mask on Event input x+64
@@ -1184,7 +1114,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUEMR3_Register use record
@@ -1196,12 +1126,8 @@ package STM32_SVD.EXTI is
       Reserved_25_31 at 0 range 25 .. 31;
    end record;
 
-   subtype CPUPR3_PR82_Field is STM32_SVD.Bit;
-   --  CPUPR3_PR array element
-   subtype CPUPR3_PR_Element is STM32_SVD.Bit;
-
    --  CPUPR3_PR array
-   type CPUPR3_PR_Field_Array is array (84 .. 86) of CPUPR3_PR_Element
+   type CPUPR3_PR_Field_Array is array (84 .. 86) of Boolean
      with Component_Size => 1, Size => 3;
 
    --  Type definition for CPUPR3_PR
@@ -1229,7 +1155,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_0_17  : STM32_SVD.UInt18;
       --  Read-only. Configurable event inputs x+64 Pending bit
-      PR82           : CPUPR3_PR82_Field;
+      PR82           : Boolean;
       --  unspecified
       Reserved_19_19 : STM32_SVD.Bit;
       --  Read-only. Configurable event inputs x+64 Pending bit
@@ -1237,7 +1163,7 @@ package STM32_SVD.EXTI is
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUPR3_Register use record
@@ -1340,6 +1266,6 @@ package STM32_SVD.EXTI is
 
    --  External interrupt/event controller
    EXTI_Periph : aliased EXTI_Peripheral
-     with Import, Address => System'To_Address (16#58000000#);
+     with Import, Address => EXTI_Base;
 
 end STM32_SVD.EXTI;

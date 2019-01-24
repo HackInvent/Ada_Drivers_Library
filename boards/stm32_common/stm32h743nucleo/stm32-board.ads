@@ -37,6 +37,8 @@
 
 with STM32.Device;         use STM32.Device;
 with STM32.GPIO;           use STM32.GPIO;
+with STM32.SPI;            use STM32.SPI;
+with HAL;
 
 use STM32;
 
@@ -71,6 +73,33 @@ package STM32.Board is
    procedure All_LEDs_On  with Inline;
    procedure Toggle_LEDs (These : in out GPIO_Points)
      renames STM32.GPIO.Toggle;
+
+   ---------
+   -- SPI --
+   ---------
+   -- for tests we use the SPI4
+   -- Rx & TxFIFO size (N) [x 8-bit] = 8
+   -- Maximum configurable data size [bits] = 16
+   -- No I2S feature
+
+   EXT_SPI  : SPI_Port renames SPI_4;
+   EXT_SCK  : GPIO_Point renames PE2;
+   EXT_MISO : GPIO_Point renames PE5;
+   EXT_MOSI : GPIO_Point renames PE6;
+--     EXT_NSS  : GPIO_Point renames PE4;
+
+   SPI4_Points : constant STM32.GPIO.GPIO_Points :=
+     (EXT_SCK,
+      EXT_MISO,
+      EXT_MOSI);
+
+   procedure Initialize_SPI4;
+   --  Initialize the SPI port (SPI4)
+   procedure WriteRegister_SPI4(add : in HAL.UInt8; val : in HAL.UInt8);
+
+
+
+
 
    --  GPIO Pins for FMC
 

@@ -39,7 +39,7 @@ package body STM32.RCC is
 
    procedure SYSCFG_Clock_Enable is
    begin
-      RCC_Periph.APB4ENR.SYSCFGEN := 1;
+      RCC_Periph.APB4ENR.SYSCFGEN := True;
       --  BEH changed from APB2
    end SYSCFG_Clock_Enable;
 

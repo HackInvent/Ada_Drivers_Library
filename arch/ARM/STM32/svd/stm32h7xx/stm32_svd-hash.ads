@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,49 +13,41 @@ package STM32_SVD.HASH is
    -- Registers --
    ---------------
 
-   subtype CR_INIT_Field is STM32_SVD.Bit;
-   subtype CR_DMAE_Field is STM32_SVD.Bit;
    subtype CR_DATATYPE_Field is STM32_SVD.UInt2;
-   subtype CR_MODE_Field is STM32_SVD.Bit;
-   subtype CR_ALGO0_Field is STM32_SVD.Bit;
    subtype CR_NBW_Field is STM32_SVD.UInt4;
-   subtype CR_DINNE_Field is STM32_SVD.Bit;
-   subtype CR_MDMAT_Field is STM32_SVD.Bit;
-   subtype CR_LKEY_Field is STM32_SVD.Bit;
-   subtype CR_ALGO1_Field is STM32_SVD.Bit;
 
    --  control register
    type CR_Register is record
       --  unspecified
       Reserved_0_1   : STM32_SVD.UInt2 := 16#0#;
       --  Write-only. Initialize message digest calculation
-      INIT           : CR_INIT_Field := 16#0#;
+      INIT           : Boolean := False;
       --  DMA enable
-      DMAE           : CR_DMAE_Field := 16#0#;
+      DMAE           : Boolean := False;
       --  Data type selection
       DATATYPE       : CR_DATATYPE_Field := 16#0#;
       --  Mode selection
-      MODE           : CR_MODE_Field := 16#0#;
+      MODE           : Boolean := False;
       --  Algorithm selection
-      ALGO0          : CR_ALGO0_Field := 16#0#;
+      ALGO0          : Boolean := False;
       --  Read-only. Number of words already pushed
       NBW            : CR_NBW_Field := 16#0#;
       --  Read-only. DIN not empty
-      DINNE          : CR_DINNE_Field := 16#0#;
+      DINNE          : Boolean := False;
       --  Multiple DMA Transfers
-      MDMAT          : CR_MDMAT_Field := 16#0#;
+      MDMAT          : Boolean := False;
       --  unspecified
       Reserved_14_15 : STM32_SVD.UInt2 := 16#0#;
       --  Long key selection
-      LKEY           : CR_LKEY_Field := 16#0#;
+      LKEY           : Boolean := False;
       --  unspecified
       Reserved_17_17 : STM32_SVD.Bit := 16#0#;
       --  ALGO
-      ALGO1          : CR_ALGO1_Field := 16#0#;
+      ALGO1          : Boolean := False;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -76,7 +68,6 @@ package STM32_SVD.HASH is
    end record;
 
    subtype STR_NBLW_Field is STM32_SVD.UInt5;
-   subtype STR_DCAL_Field is STM32_SVD.Bit;
 
    --  start register
    type STR_Register is record
@@ -85,11 +76,11 @@ package STM32_SVD.HASH is
       --  unspecified
       Reserved_5_7  : STM32_SVD.UInt3 := 16#0#;
       --  Write-only. Digest calculation
-      DCAL          : STR_DCAL_Field := 16#0#;
+      DCAL          : Boolean := False;
       --  unspecified
       Reserved_9_31 : STM32_SVD.UInt23 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for STR_Register use record
@@ -99,19 +90,16 @@ package STM32_SVD.HASH is
       Reserved_9_31 at 0 range 9 .. 31;
    end record;
 
-   subtype IMR_DINIE_Field is STM32_SVD.Bit;
-   subtype IMR_DCIE_Field is STM32_SVD.Bit;
-
    --  interrupt enable register
    type IMR_Register is record
       --  Data input interrupt enable
-      DINIE         : IMR_DINIE_Field := 16#0#;
+      DINIE         : Boolean := False;
       --  Digest calculation completion interrupt enable
-      DCIE          : IMR_DCIE_Field := 16#0#;
+      DCIE          : Boolean := False;
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IMR_Register use record
@@ -120,25 +108,20 @@ package STM32_SVD.HASH is
       Reserved_2_31 at 0 range 2 .. 31;
    end record;
 
-   subtype SR_DINIS_Field is STM32_SVD.Bit;
-   subtype SR_DCIS_Field is STM32_SVD.Bit;
-   subtype SR_DMAS_Field is STM32_SVD.Bit;
-   subtype SR_BUSY_Field is STM32_SVD.Bit;
-
    --  status register
    type SR_Register is record
       --  Data input interrupt status
-      DINIS         : SR_DINIS_Field := 16#1#;
+      DINIS         : Boolean := True;
       --  Digest calculation completion interrupt status
-      DCIS          : SR_DCIS_Field := 16#0#;
+      DCIS          : Boolean := False;
       --  Read-only. DMA Status
-      DMAS          : SR_DMAS_Field := 16#0#;
+      DMAS          : Boolean := False;
       --  Read-only. Busy bit
-      BUSY          : SR_BUSY_Field := 16#0#;
+      BUSY          : Boolean := False;
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register use record
@@ -379,6 +362,6 @@ package STM32_SVD.HASH is
 
    --  Hash processor
    HASH_Periph : aliased HASH_Peripheral
-     with Import, Address => System'To_Address (16#48021400#);
+     with Import, Address => HASH_Base;
 
 end STM32_SVD.HASH;

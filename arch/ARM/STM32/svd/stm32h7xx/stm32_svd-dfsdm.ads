@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -15,15 +15,9 @@ package STM32_SVD.DFSDM is
 
    subtype DFSDM_CHCFG0R1_SITP_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG0R1_SPICKSEL_Field is STM32_SVD.UInt2;
-   subtype DFSDM_CHCFG0R1_SCDEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG0R1_CKABEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG0R1_CHEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG0R1_CHINSEL_Field is STM32_SVD.Bit;
    subtype DFSDM_CHCFG0R1_DATMPX_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG0R1_DATPACK_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG0R1_CKOUTDIV_Field is STM32_SVD.Byte;
-   subtype DFSDM_CHCFG0R1_CKOUTSRC_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG0R1_DFSDMEN_Field is STM32_SVD.Bit;
 
    --  DFSDM channel configuration 0 register 1
    type DFSDM_CHCFG0R1_Register is record
@@ -34,13 +28,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_4_4   : STM32_SVD.Bit := 16#0#;
       --  Short-circuit detector enable on channel 0
-      SCDEN          : DFSDM_CHCFG0R1_SCDEN_Field := 16#0#;
+      SCDEN          : Boolean := False;
       --  Clock absence detector enable on channel 0
-      CKABEN         : DFSDM_CHCFG0R1_CKABEN_Field := 16#0#;
+      CKABEN         : Boolean := False;
       --  Channel 0 enable
-      CHEN           : DFSDM_CHCFG0R1_CHEN_Field := 16#0#;
+      CHEN           : Boolean := False;
       --  Channel inputs selection
-      CHINSEL        : DFSDM_CHCFG0R1_CHINSEL_Field := 16#0#;
+      CHINSEL        : Boolean := False;
       --  unspecified
       Reserved_9_11  : STM32_SVD.UInt3 := 16#0#;
       --  Input data multiplexer for channel 0
@@ -52,11 +46,11 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  Output serial clock source selection
-      CKOUTSRC       : DFSDM_CHCFG0R1_CKOUTSRC_Field := 16#0#;
+      CKOUTSRC       : Boolean := False;
       --  Global enable for DFSDM interface
-      DFSDMEN        : DFSDM_CHCFG0R1_DFSDMEN_Field := 16#0#;
+      DFSDMEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG0R1_Register use record
@@ -78,15 +72,9 @@ package STM32_SVD.DFSDM is
 
    subtype DFSDM_CHCFG1R1_SITP_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG1R1_SPICKSEL_Field is STM32_SVD.UInt2;
-   subtype DFSDM_CHCFG1R1_SCDEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG1R1_CKABEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG1R1_CHEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG1R1_CHINSEL_Field is STM32_SVD.Bit;
    subtype DFSDM_CHCFG1R1_DATMPX_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG1R1_DATPACK_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG1R1_CKOUTDIV_Field is STM32_SVD.Byte;
-   subtype DFSDM_CHCFG1R1_CKOUTSRC_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG1R1_DFSDMEN_Field is STM32_SVD.Bit;
 
    --  DFSDM channel configuration 1 register 1
    type DFSDM_CHCFG1R1_Register is record
@@ -97,13 +85,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_4_4   : STM32_SVD.Bit := 16#0#;
       --  Short-circuit detector enable on channel 1
-      SCDEN          : DFSDM_CHCFG1R1_SCDEN_Field := 16#0#;
+      SCDEN          : Boolean := False;
       --  Clock absence detector enable on channel 1
-      CKABEN         : DFSDM_CHCFG1R1_CKABEN_Field := 16#0#;
+      CKABEN         : Boolean := False;
       --  Channel 1 enable
-      CHEN           : DFSDM_CHCFG1R1_CHEN_Field := 16#0#;
+      CHEN           : Boolean := False;
       --  Channel inputs selection
-      CHINSEL        : DFSDM_CHCFG1R1_CHINSEL_Field := 16#0#;
+      CHINSEL        : Boolean := False;
       --  unspecified
       Reserved_9_11  : STM32_SVD.UInt3 := 16#0#;
       --  Input data multiplexer for channel 1
@@ -115,11 +103,11 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  Output serial clock source selection
-      CKOUTSRC       : DFSDM_CHCFG1R1_CKOUTSRC_Field := 16#0#;
+      CKOUTSRC       : Boolean := False;
       --  Global enable for DFSDM interface
-      DFSDMEN        : DFSDM_CHCFG1R1_DFSDMEN_Field := 16#0#;
+      DFSDMEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG1R1_Register use record
@@ -141,15 +129,9 @@ package STM32_SVD.DFSDM is
 
    subtype DFSDM_CHCFG2R1_SITP_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG2R1_SPICKSEL_Field is STM32_SVD.UInt2;
-   subtype DFSDM_CHCFG2R1_SCDEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG2R1_CKABEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG2R1_CHEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG2R1_CHINSEL_Field is STM32_SVD.Bit;
    subtype DFSDM_CHCFG2R1_DATMPX_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG2R1_DATPACK_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG2R1_CKOUTDIV_Field is STM32_SVD.Byte;
-   subtype DFSDM_CHCFG2R1_CKOUTSRC_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG2R1_DFSDMEN_Field is STM32_SVD.Bit;
 
    --  DFSDM channel configuration 2 register 1
    type DFSDM_CHCFG2R1_Register is record
@@ -160,13 +142,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_4_4   : STM32_SVD.Bit := 16#0#;
       --  Short-circuit detector enable on channel 2
-      SCDEN          : DFSDM_CHCFG2R1_SCDEN_Field := 16#0#;
+      SCDEN          : Boolean := False;
       --  Clock absence detector enable on channel 2
-      CKABEN         : DFSDM_CHCFG2R1_CKABEN_Field := 16#0#;
+      CKABEN         : Boolean := False;
       --  Channel 2 enable
-      CHEN           : DFSDM_CHCFG2R1_CHEN_Field := 16#0#;
+      CHEN           : Boolean := False;
       --  Channel inputs selection
-      CHINSEL        : DFSDM_CHCFG2R1_CHINSEL_Field := 16#0#;
+      CHINSEL        : Boolean := False;
       --  unspecified
       Reserved_9_11  : STM32_SVD.UInt3 := 16#0#;
       --  Input data multiplexer for channel 2
@@ -178,11 +160,11 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  Output serial clock source selection
-      CKOUTSRC       : DFSDM_CHCFG2R1_CKOUTSRC_Field := 16#0#;
+      CKOUTSRC       : Boolean := False;
       --  Global enable for DFSDM interface
-      DFSDMEN        : DFSDM_CHCFG2R1_DFSDMEN_Field := 16#0#;
+      DFSDMEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG2R1_Register use record
@@ -204,15 +186,9 @@ package STM32_SVD.DFSDM is
 
    subtype DFSDM_CHCFG3R1_SITP_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG3R1_SPICKSEL_Field is STM32_SVD.UInt2;
-   subtype DFSDM_CHCFG3R1_SCDEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG3R1_CKABEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG3R1_CHEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG3R1_CHINSEL_Field is STM32_SVD.Bit;
    subtype DFSDM_CHCFG3R1_DATMPX_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG3R1_DATPACK_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG3R1_CKOUTDIV_Field is STM32_SVD.Byte;
-   subtype DFSDM_CHCFG3R1_CKOUTSRC_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG3R1_DFSDMEN_Field is STM32_SVD.Bit;
 
    --  DFSDM channel configuration 3 register 1
    type DFSDM_CHCFG3R1_Register is record
@@ -223,13 +199,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_4_4   : STM32_SVD.Bit := 16#0#;
       --  Short-circuit detector enable on channel 3
-      SCDEN          : DFSDM_CHCFG3R1_SCDEN_Field := 16#0#;
+      SCDEN          : Boolean := False;
       --  Clock absence detector enable on channel 3
-      CKABEN         : DFSDM_CHCFG3R1_CKABEN_Field := 16#0#;
+      CKABEN         : Boolean := False;
       --  Channel 3 enable
-      CHEN           : DFSDM_CHCFG3R1_CHEN_Field := 16#0#;
+      CHEN           : Boolean := False;
       --  Channel inputs selection
-      CHINSEL        : DFSDM_CHCFG3R1_CHINSEL_Field := 16#0#;
+      CHINSEL        : Boolean := False;
       --  unspecified
       Reserved_9_11  : STM32_SVD.UInt3 := 16#0#;
       --  Input data multiplexer for channel 3
@@ -241,11 +217,11 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  Output serial clock source selection
-      CKOUTSRC       : DFSDM_CHCFG3R1_CKOUTSRC_Field := 16#0#;
+      CKOUTSRC       : Boolean := False;
       --  Global enable for DFSDM interface
-      DFSDMEN        : DFSDM_CHCFG3R1_DFSDMEN_Field := 16#0#;
+      DFSDMEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG3R1_Register use record
@@ -267,15 +243,9 @@ package STM32_SVD.DFSDM is
 
    subtype DFSDM_CHCFG4R1_SITP_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG4R1_SPICKSEL_Field is STM32_SVD.UInt2;
-   subtype DFSDM_CHCFG4R1_SCDEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG4R1_CKABEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG4R1_CHEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG4R1_CHINSEL_Field is STM32_SVD.Bit;
    subtype DFSDM_CHCFG4R1_DATMPX_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG4R1_DATPACK_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG4R1_CKOUTDIV_Field is STM32_SVD.Byte;
-   subtype DFSDM_CHCFG4R1_CKOUTSRC_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG4R1_DFSDMEN_Field is STM32_SVD.Bit;
 
    --  DFSDM channel configuration 4 register 1
    type DFSDM_CHCFG4R1_Register is record
@@ -286,13 +256,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_4_4   : STM32_SVD.Bit := 16#0#;
       --  Short-circuit detector enable on channel 4
-      SCDEN          : DFSDM_CHCFG4R1_SCDEN_Field := 16#0#;
+      SCDEN          : Boolean := False;
       --  Clock absence detector enable on channel 4
-      CKABEN         : DFSDM_CHCFG4R1_CKABEN_Field := 16#0#;
+      CKABEN         : Boolean := False;
       --  Channel 4 enable
-      CHEN           : DFSDM_CHCFG4R1_CHEN_Field := 16#0#;
+      CHEN           : Boolean := False;
       --  Channel inputs selection
-      CHINSEL        : DFSDM_CHCFG4R1_CHINSEL_Field := 16#0#;
+      CHINSEL        : Boolean := False;
       --  unspecified
       Reserved_9_11  : STM32_SVD.UInt3 := 16#0#;
       --  Input data multiplexer for channel 4
@@ -304,11 +274,11 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  Output serial clock source selection
-      CKOUTSRC       : DFSDM_CHCFG4R1_CKOUTSRC_Field := 16#0#;
+      CKOUTSRC       : Boolean := False;
       --  Global enable for DFSDM interface
-      DFSDMEN        : DFSDM_CHCFG4R1_DFSDMEN_Field := 16#0#;
+      DFSDMEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG4R1_Register use record
@@ -330,15 +300,9 @@ package STM32_SVD.DFSDM is
 
    subtype DFSDM_CHCFG5R1_SITP_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG5R1_SPICKSEL_Field is STM32_SVD.UInt2;
-   subtype DFSDM_CHCFG5R1_SCDEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG5R1_CKABEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG5R1_CHEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG5R1_CHINSEL_Field is STM32_SVD.Bit;
    subtype DFSDM_CHCFG5R1_DATMPX_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG5R1_DATPACK_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG5R1_CKOUTDIV_Field is STM32_SVD.Byte;
-   subtype DFSDM_CHCFG5R1_CKOUTSRC_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG5R1_DFSDMEN_Field is STM32_SVD.Bit;
 
    --  DFSDM channel configuration 5 register 1
    type DFSDM_CHCFG5R1_Register is record
@@ -349,13 +313,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_4_4   : STM32_SVD.Bit := 16#0#;
       --  Short-circuit detector enable on channel 5
-      SCDEN          : DFSDM_CHCFG5R1_SCDEN_Field := 16#0#;
+      SCDEN          : Boolean := False;
       --  Clock absence detector enable on channel 5
-      CKABEN         : DFSDM_CHCFG5R1_CKABEN_Field := 16#0#;
+      CKABEN         : Boolean := False;
       --  Channel 5 enable
-      CHEN           : DFSDM_CHCFG5R1_CHEN_Field := 16#0#;
+      CHEN           : Boolean := False;
       --  Channel inputs selection
-      CHINSEL        : DFSDM_CHCFG5R1_CHINSEL_Field := 16#0#;
+      CHINSEL        : Boolean := False;
       --  unspecified
       Reserved_9_11  : STM32_SVD.UInt3 := 16#0#;
       --  Input data multiplexer for channel 5
@@ -367,11 +331,11 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  Output serial clock source selection
-      CKOUTSRC       : DFSDM_CHCFG5R1_CKOUTSRC_Field := 16#0#;
+      CKOUTSRC       : Boolean := False;
       --  Global enable for DFSDM interface
-      DFSDMEN        : DFSDM_CHCFG5R1_DFSDMEN_Field := 16#0#;
+      DFSDMEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG5R1_Register use record
@@ -393,15 +357,9 @@ package STM32_SVD.DFSDM is
 
    subtype DFSDM_CHCFG6R1_SITP_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG6R1_SPICKSEL_Field is STM32_SVD.UInt2;
-   subtype DFSDM_CHCFG6R1_SCDEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG6R1_CKABEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG6R1_CHEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG6R1_CHINSEL_Field is STM32_SVD.Bit;
    subtype DFSDM_CHCFG6R1_DATMPX_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG6R1_DATPACK_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG6R1_CKOUTDIV_Field is STM32_SVD.Byte;
-   subtype DFSDM_CHCFG6R1_CKOUTSRC_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG6R1_DFSDMEN_Field is STM32_SVD.Bit;
 
    --  DFSDM channel configuration 6 register 1
    type DFSDM_CHCFG6R1_Register is record
@@ -412,13 +370,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_4_4   : STM32_SVD.Bit := 16#0#;
       --  Short-circuit detector enable on channel 6
-      SCDEN          : DFSDM_CHCFG6R1_SCDEN_Field := 16#0#;
+      SCDEN          : Boolean := False;
       --  Clock absence detector enable on channel 6
-      CKABEN         : DFSDM_CHCFG6R1_CKABEN_Field := 16#0#;
+      CKABEN         : Boolean := False;
       --  Channel 6 enable
-      CHEN           : DFSDM_CHCFG6R1_CHEN_Field := 16#0#;
+      CHEN           : Boolean := False;
       --  Channel inputs selection
-      CHINSEL        : DFSDM_CHCFG6R1_CHINSEL_Field := 16#0#;
+      CHINSEL        : Boolean := False;
       --  unspecified
       Reserved_9_11  : STM32_SVD.UInt3 := 16#0#;
       --  Input data multiplexer for channel 6
@@ -430,11 +388,11 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  Output serial clock source selection
-      CKOUTSRC       : DFSDM_CHCFG6R1_CKOUTSRC_Field := 16#0#;
+      CKOUTSRC       : Boolean := False;
       --  Global enable for DFSDM interface
-      DFSDMEN        : DFSDM_CHCFG6R1_DFSDMEN_Field := 16#0#;
+      DFSDMEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG6R1_Register use record
@@ -456,15 +414,9 @@ package STM32_SVD.DFSDM is
 
    subtype DFSDM_CHCFG7R1_SITP_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG7R1_SPICKSEL_Field is STM32_SVD.UInt2;
-   subtype DFSDM_CHCFG7R1_SCDEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG7R1_CKABEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG7R1_CHEN_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG7R1_CHINSEL_Field is STM32_SVD.Bit;
    subtype DFSDM_CHCFG7R1_DATMPX_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG7R1_DATPACK_Field is STM32_SVD.UInt2;
    subtype DFSDM_CHCFG7R1_CKOUTDIV_Field is STM32_SVD.Byte;
-   subtype DFSDM_CHCFG7R1_CKOUTSRC_Field is STM32_SVD.Bit;
-   subtype DFSDM_CHCFG7R1_DFSDMEN_Field is STM32_SVD.Bit;
 
    --  DFSDM channel configuration 7 register 1
    type DFSDM_CHCFG7R1_Register is record
@@ -475,13 +427,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_4_4   : STM32_SVD.Bit := 16#0#;
       --  Short-circuit detector enable on channel 7
-      SCDEN          : DFSDM_CHCFG7R1_SCDEN_Field := 16#0#;
+      SCDEN          : Boolean := False;
       --  Clock absence detector enable on channel 7
-      CKABEN         : DFSDM_CHCFG7R1_CKABEN_Field := 16#0#;
+      CKABEN         : Boolean := False;
       --  Channel 7 enable
-      CHEN           : DFSDM_CHCFG7R1_CHEN_Field := 16#0#;
+      CHEN           : Boolean := False;
       --  Channel inputs selection
-      CHINSEL        : DFSDM_CHCFG7R1_CHINSEL_Field := 16#0#;
+      CHINSEL        : Boolean := False;
       --  unspecified
       Reserved_9_11  : STM32_SVD.UInt3 := 16#0#;
       --  Input data multiplexer for channel 7
@@ -493,11 +445,11 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_29 : STM32_SVD.UInt6 := 16#0#;
       --  Output serial clock source selection
-      CKOUTSRC       : DFSDM_CHCFG7R1_CKOUTSRC_Field := 16#0#;
+      CKOUTSRC       : Boolean := False;
       --  Global enable for DFSDM interface
-      DFSDMEN        : DFSDM_CHCFG7R1_DFSDMEN_Field := 16#0#;
+      DFSDMEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG7R1_Register use record
@@ -529,7 +481,7 @@ package STM32_SVD.DFSDM is
       --  24-bit calibration offset for channel 0
       OFFSET       : DFSDM_CHCFG0R2_OFFSET_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG0R2_Register use record
@@ -550,7 +502,7 @@ package STM32_SVD.DFSDM is
       --  24-bit calibration offset for channel 1
       OFFSET       : DFSDM_CHCFG1R2_OFFSET_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG1R2_Register use record
@@ -571,7 +523,7 @@ package STM32_SVD.DFSDM is
       --  24-bit calibration offset for channel 2
       OFFSET       : DFSDM_CHCFG2R2_OFFSET_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG2R2_Register use record
@@ -592,7 +544,7 @@ package STM32_SVD.DFSDM is
       --  24-bit calibration offset for channel 3
       OFFSET       : DFSDM_CHCFG3R2_OFFSET_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG3R2_Register use record
@@ -613,7 +565,7 @@ package STM32_SVD.DFSDM is
       --  24-bit calibration offset for channel 4
       OFFSET       : DFSDM_CHCFG4R2_OFFSET_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG4R2_Register use record
@@ -634,7 +586,7 @@ package STM32_SVD.DFSDM is
       --  24-bit calibration offset for channel 5
       OFFSET       : DFSDM_CHCFG5R2_OFFSET_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG5R2_Register use record
@@ -655,7 +607,7 @@ package STM32_SVD.DFSDM is
       --  24-bit calibration offset for channel 6
       OFFSET       : DFSDM_CHCFG6R2_OFFSET_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG6R2_Register use record
@@ -676,7 +628,7 @@ package STM32_SVD.DFSDM is
       --  24-bit calibration offset for channel 7
       OFFSET       : DFSDM_CHCFG7R2_OFFSET_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHCFG7R2_Register use record
@@ -708,7 +660,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_AWSCD0R_Register use record
@@ -744,7 +696,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_AWSCD1R_Register use record
@@ -780,7 +732,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_AWSCD2R_Register use record
@@ -816,7 +768,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_AWSCD3R_Register use record
@@ -852,7 +804,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_AWSCD4R_Register use record
@@ -888,7 +840,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_AWSCD5R_Register use record
@@ -924,7 +876,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_AWSCD6R_Register use record
@@ -960,7 +912,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_AWSCD7R_Register use record
@@ -982,7 +934,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHWDAT0R_Register use record
@@ -999,7 +951,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHWDAT1R_Register use record
@@ -1016,7 +968,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHWDAT2R_Register use record
@@ -1033,7 +985,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHWDAT3R_Register use record
@@ -1050,7 +1002,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHWDAT4R_Register use record
@@ -1067,7 +1019,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHWDAT5R_Register use record
@@ -1084,7 +1036,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHWDAT6R_Register use record
@@ -1101,7 +1053,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHWDAT7R_Register use record
@@ -1130,7 +1082,7 @@ package STM32_SVD.DFSDM is
             Arr : DFSDM_CHDATIN0R_INDAT_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHDATIN0R_Register use record
@@ -1159,7 +1111,7 @@ package STM32_SVD.DFSDM is
             Arr : DFSDM_CHDATIN1R_INDAT_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHDATIN1R_Register use record
@@ -1188,7 +1140,7 @@ package STM32_SVD.DFSDM is
             Arr : DFSDM_CHDATIN2R_INDAT_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHDATIN2R_Register use record
@@ -1217,7 +1169,7 @@ package STM32_SVD.DFSDM is
             Arr : DFSDM_CHDATIN3R_INDAT_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHDATIN3R_Register use record
@@ -1246,7 +1198,7 @@ package STM32_SVD.DFSDM is
             Arr : DFSDM_CHDATIN4R_INDAT_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHDATIN4R_Register use record
@@ -1275,7 +1227,7 @@ package STM32_SVD.DFSDM is
             Arr : DFSDM_CHDATIN5R_INDAT_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHDATIN5R_Register use record
@@ -1304,7 +1256,7 @@ package STM32_SVD.DFSDM is
             Arr : DFSDM_CHDATIN6R_INDAT_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHDATIN6R_Register use record
@@ -1333,7 +1285,7 @@ package STM32_SVD.DFSDM is
             Arr : DFSDM_CHDATIN7R_INDAT_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM_CHDATIN7R_Register use record
@@ -1341,36 +1293,25 @@ package STM32_SVD.DFSDM is
       Arr at 0 range 0 .. 31;
    end record;
 
-   subtype DFSDM0_CR1_DFEN_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR1_JSWSTART_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR1_JSYNC_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR1_JSCAN_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR1_JDMAEN_Field is STM32_SVD.Bit;
    subtype DFSDM0_CR1_JEXTSEL_Field is STM32_SVD.UInt5;
    subtype DFSDM0_CR1_JEXTEN_Field is STM32_SVD.UInt2;
-   subtype DFSDM0_CR1_RSWSTART_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR1_RCONT_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR1_RSYNC_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR1_RDMAEN_Field is STM32_SVD.Bit;
    subtype DFSDM0_CR1_RCH_Field is STM32_SVD.UInt3;
-   subtype DFSDM0_CR1_FAST_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR1_AWFSEL_Field is STM32_SVD.Bit;
 
    --  DFSDM control register 1
    type DFSDM0_CR1_Register is record
       --  DFSDM enable
-      DFEN           : DFSDM0_CR1_DFEN_Field := 16#0#;
+      DFEN           : Boolean := False;
       --  Start a conversion of the injected group of channels
-      JSWSTART       : DFSDM0_CR1_JSWSTART_Field := 16#0#;
+      JSWSTART       : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  Launch an injected conversion synchronously with the DFSDM0 JSWSTART
       --  trigger
-      JSYNC          : DFSDM0_CR1_JSYNC_Field := 16#0#;
+      JSYNC          : Boolean := False;
       --  Scanning conversion mode for injected conversions
-      JSCAN          : DFSDM0_CR1_JSCAN_Field := 16#0#;
+      JSCAN          : Boolean := False;
       --  DMA channel enabled to read data for the injected channel group
-      JDMAEN         : DFSDM0_CR1_JDMAEN_Field := 16#0#;
+      JDMAEN         : Boolean := False;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2 := 16#0#;
       --  Trigger signal selection for launching injected conversions
@@ -1380,15 +1321,15 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_15_16 : STM32_SVD.UInt2 := 16#0#;
       --  Software start of a conversion on the regular channel
-      RSWSTART       : DFSDM0_CR1_RSWSTART_Field := 16#0#;
+      RSWSTART       : Boolean := False;
       --  Continuous mode selection for regular conversions
-      RCONT          : DFSDM0_CR1_RCONT_Field := 16#0#;
+      RCONT          : Boolean := False;
       --  Launch regular conversion synchronously with DFSDM0
-      RSYNC          : DFSDM0_CR1_RSYNC_Field := 16#0#;
+      RSYNC          : Boolean := False;
       --  unspecified
       Reserved_20_20 : STM32_SVD.Bit := 16#0#;
       --  DMA channel enabled to read data for the regular conversion
-      RDMAEN         : DFSDM0_CR1_RDMAEN_Field := 16#0#;
+      RDMAEN         : Boolean := False;
       --  unspecified
       Reserved_22_23 : STM32_SVD.UInt2 := 16#0#;
       --  Regular channel selection
@@ -1396,13 +1337,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_27_28 : STM32_SVD.UInt2 := 16#0#;
       --  Fast conversion mode selection for regular conversions
-      FAST           : DFSDM0_CR1_FAST_Field := 16#0#;
+      FAST           : Boolean := False;
       --  Analog watchdog fast mode select
-      AWFSEL         : DFSDM0_CR1_AWFSEL_Field := 16#0#;
+      AWFSEL         : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_CR1_Register use record
@@ -1429,36 +1370,25 @@ package STM32_SVD.DFSDM is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   subtype DFSDM1_CR1_DFEN_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR1_JSWSTART_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR1_JSYNC_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR1_JSCAN_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR1_JDMAEN_Field is STM32_SVD.Bit;
    subtype DFSDM1_CR1_JEXTSEL_Field is STM32_SVD.UInt5;
    subtype DFSDM1_CR1_JEXTEN_Field is STM32_SVD.UInt2;
-   subtype DFSDM1_CR1_RSWSTART_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR1_RCONT_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR1_RSYNC_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR1_RDMAEN_Field is STM32_SVD.Bit;
    subtype DFSDM1_CR1_RCH_Field is STM32_SVD.UInt3;
-   subtype DFSDM1_CR1_FAST_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR1_AWFSEL_Field is STM32_SVD.Bit;
 
    --  DFSDM control register 1
    type DFSDM1_CR1_Register is record
       --  DFSDM enable
-      DFEN           : DFSDM1_CR1_DFEN_Field := 16#0#;
+      DFEN           : Boolean := False;
       --  Start a conversion of the injected group of channels
-      JSWSTART       : DFSDM1_CR1_JSWSTART_Field := 16#0#;
+      JSWSTART       : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  Launch an injected conversion synchronously with the DFSDM0 JSWSTART
       --  trigger
-      JSYNC          : DFSDM1_CR1_JSYNC_Field := 16#0#;
+      JSYNC          : Boolean := False;
       --  Scanning conversion mode for injected conversions
-      JSCAN          : DFSDM1_CR1_JSCAN_Field := 16#0#;
+      JSCAN          : Boolean := False;
       --  DMA channel enabled to read data for the injected channel group
-      JDMAEN         : DFSDM1_CR1_JDMAEN_Field := 16#0#;
+      JDMAEN         : Boolean := False;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2 := 16#0#;
       --  Trigger signal selection for launching injected conversions
@@ -1468,15 +1398,15 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_15_16 : STM32_SVD.UInt2 := 16#0#;
       --  Software start of a conversion on the regular channel
-      RSWSTART       : DFSDM1_CR1_RSWSTART_Field := 16#0#;
+      RSWSTART       : Boolean := False;
       --  Continuous mode selection for regular conversions
-      RCONT          : DFSDM1_CR1_RCONT_Field := 16#0#;
+      RCONT          : Boolean := False;
       --  Launch regular conversion synchronously with DFSDM0
-      RSYNC          : DFSDM1_CR1_RSYNC_Field := 16#0#;
+      RSYNC          : Boolean := False;
       --  unspecified
       Reserved_20_20 : STM32_SVD.Bit := 16#0#;
       --  DMA channel enabled to read data for the regular conversion
-      RDMAEN         : DFSDM1_CR1_RDMAEN_Field := 16#0#;
+      RDMAEN         : Boolean := False;
       --  unspecified
       Reserved_22_23 : STM32_SVD.UInt2 := 16#0#;
       --  Regular channel selection
@@ -1484,13 +1414,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_27_28 : STM32_SVD.UInt2 := 16#0#;
       --  Fast conversion mode selection for regular conversions
-      FAST           : DFSDM1_CR1_FAST_Field := 16#0#;
+      FAST           : Boolean := False;
       --  Analog watchdog fast mode select
-      AWFSEL         : DFSDM1_CR1_AWFSEL_Field := 16#0#;
+      AWFSEL         : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_CR1_Register use record
@@ -1517,36 +1447,25 @@ package STM32_SVD.DFSDM is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   subtype DFSDM2_CR1_DFEN_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR1_JSWSTART_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR1_JSYNC_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR1_JSCAN_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR1_JDMAEN_Field is STM32_SVD.Bit;
    subtype DFSDM2_CR1_JEXTSEL_Field is STM32_SVD.UInt5;
    subtype DFSDM2_CR1_JEXTEN_Field is STM32_SVD.UInt2;
-   subtype DFSDM2_CR1_RSWSTART_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR1_RCONT_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR1_RSYNC_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR1_RDMAEN_Field is STM32_SVD.Bit;
    subtype DFSDM2_CR1_RCH_Field is STM32_SVD.UInt3;
-   subtype DFSDM2_CR1_FAST_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR1_AWFSEL_Field is STM32_SVD.Bit;
 
    --  DFSDM control register 1
    type DFSDM2_CR1_Register is record
       --  DFSDM enable
-      DFEN           : DFSDM2_CR1_DFEN_Field := 16#0#;
+      DFEN           : Boolean := False;
       --  Start a conversion of the injected group of channels
-      JSWSTART       : DFSDM2_CR1_JSWSTART_Field := 16#0#;
+      JSWSTART       : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  Launch an injected conversion synchronously with the DFSDM0 JSWSTART
       --  trigger
-      JSYNC          : DFSDM2_CR1_JSYNC_Field := 16#0#;
+      JSYNC          : Boolean := False;
       --  Scanning conversion mode for injected conversions
-      JSCAN          : DFSDM2_CR1_JSCAN_Field := 16#0#;
+      JSCAN          : Boolean := False;
       --  DMA channel enabled to read data for the injected channel group
-      JDMAEN         : DFSDM2_CR1_JDMAEN_Field := 16#0#;
+      JDMAEN         : Boolean := False;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2 := 16#0#;
       --  Trigger signal selection for launching injected conversions
@@ -1556,15 +1475,15 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_15_16 : STM32_SVD.UInt2 := 16#0#;
       --  Software start of a conversion on the regular channel
-      RSWSTART       : DFSDM2_CR1_RSWSTART_Field := 16#0#;
+      RSWSTART       : Boolean := False;
       --  Continuous mode selection for regular conversions
-      RCONT          : DFSDM2_CR1_RCONT_Field := 16#0#;
+      RCONT          : Boolean := False;
       --  Launch regular conversion synchronously with DFSDM0
-      RSYNC          : DFSDM2_CR1_RSYNC_Field := 16#0#;
+      RSYNC          : Boolean := False;
       --  unspecified
       Reserved_20_20 : STM32_SVD.Bit := 16#0#;
       --  DMA channel enabled to read data for the regular conversion
-      RDMAEN         : DFSDM2_CR1_RDMAEN_Field := 16#0#;
+      RDMAEN         : Boolean := False;
       --  unspecified
       Reserved_22_23 : STM32_SVD.UInt2 := 16#0#;
       --  Regular channel selection
@@ -1572,13 +1491,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_27_28 : STM32_SVD.UInt2 := 16#0#;
       --  Fast conversion mode selection for regular conversions
-      FAST           : DFSDM2_CR1_FAST_Field := 16#0#;
+      FAST           : Boolean := False;
       --  Analog watchdog fast mode select
-      AWFSEL         : DFSDM2_CR1_AWFSEL_Field := 16#0#;
+      AWFSEL         : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_CR1_Register use record
@@ -1605,36 +1524,25 @@ package STM32_SVD.DFSDM is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   subtype DFSDM3_CR1_DFEN_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR1_JSWSTART_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR1_JSYNC_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR1_JSCAN_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR1_JDMAEN_Field is STM32_SVD.Bit;
    subtype DFSDM3_CR1_JEXTSEL_Field is STM32_SVD.UInt5;
    subtype DFSDM3_CR1_JEXTEN_Field is STM32_SVD.UInt2;
-   subtype DFSDM3_CR1_RSWSTART_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR1_RCONT_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR1_RSYNC_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR1_RDMAEN_Field is STM32_SVD.Bit;
    subtype DFSDM3_CR1_RCH_Field is STM32_SVD.UInt3;
-   subtype DFSDM3_CR1_FAST_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR1_AWFSEL_Field is STM32_SVD.Bit;
 
    --  DFSDM control register 1
    type DFSDM3_CR1_Register is record
       --  DFSDM enable
-      DFEN           : DFSDM3_CR1_DFEN_Field := 16#0#;
+      DFEN           : Boolean := False;
       --  Start a conversion of the injected group of channels
-      JSWSTART       : DFSDM3_CR1_JSWSTART_Field := 16#0#;
+      JSWSTART       : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  Launch an injected conversion synchronously with the DFSDM0 JSWSTART
       --  trigger
-      JSYNC          : DFSDM3_CR1_JSYNC_Field := 16#0#;
+      JSYNC          : Boolean := False;
       --  Scanning conversion mode for injected conversions
-      JSCAN          : DFSDM3_CR1_JSCAN_Field := 16#0#;
+      JSCAN          : Boolean := False;
       --  DMA channel enabled to read data for the injected channel group
-      JDMAEN         : DFSDM3_CR1_JDMAEN_Field := 16#0#;
+      JDMAEN         : Boolean := False;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2 := 16#0#;
       --  Trigger signal selection for launching injected conversions
@@ -1644,15 +1552,15 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_15_16 : STM32_SVD.UInt2 := 16#0#;
       --  Software start of a conversion on the regular channel
-      RSWSTART       : DFSDM3_CR1_RSWSTART_Field := 16#0#;
+      RSWSTART       : Boolean := False;
       --  Continuous mode selection for regular conversions
-      RCONT          : DFSDM3_CR1_RCONT_Field := 16#0#;
+      RCONT          : Boolean := False;
       --  Launch regular conversion synchronously with DFSDM0
-      RSYNC          : DFSDM3_CR1_RSYNC_Field := 16#0#;
+      RSYNC          : Boolean := False;
       --  unspecified
       Reserved_20_20 : STM32_SVD.Bit := 16#0#;
       --  DMA channel enabled to read data for the regular conversion
-      RDMAEN         : DFSDM3_CR1_RDMAEN_Field := 16#0#;
+      RDMAEN         : Boolean := False;
       --  unspecified
       Reserved_22_23 : STM32_SVD.UInt2 := 16#0#;
       --  Regular channel selection
@@ -1660,13 +1568,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_27_28 : STM32_SVD.UInt2 := 16#0#;
       --  Fast conversion mode selection for regular conversions
-      FAST           : DFSDM3_CR1_FAST_Field := 16#0#;
+      FAST           : Boolean := False;
       --  Analog watchdog fast mode select
-      AWFSEL         : DFSDM3_CR1_AWFSEL_Field := 16#0#;
+      AWFSEL         : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_CR1_Register use record
@@ -1693,32 +1601,25 @@ package STM32_SVD.DFSDM is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   subtype DFSDM0_CR2_JEOCIE_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR2_REOCIE_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR2_JOVRIE_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR2_ROVRIE_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR2_AWDIE_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR2_SCDIE_Field is STM32_SVD.Bit;
-   subtype DFSDM0_CR2_CKABIE_Field is STM32_SVD.Bit;
    subtype DFSDM0_CR2_EXCH_Field is STM32_SVD.Byte;
    subtype DFSDM0_CR2_AWDCH_Field is STM32_SVD.Byte;
 
    --  DFSDM control register 2
    type DFSDM0_CR2_Register is record
       --  Injected end of conversion interrupt enable
-      JEOCIE         : DFSDM0_CR2_JEOCIE_Field := 16#0#;
+      JEOCIE         : Boolean := False;
       --  Regular end of conversion interrupt enable
-      REOCIE         : DFSDM0_CR2_REOCIE_Field := 16#0#;
+      REOCIE         : Boolean := False;
       --  Injected data overrun interrupt enable
-      JOVRIE         : DFSDM0_CR2_JOVRIE_Field := 16#0#;
+      JOVRIE         : Boolean := False;
       --  Regular data overrun interrupt enable
-      ROVRIE         : DFSDM0_CR2_ROVRIE_Field := 16#0#;
+      ROVRIE         : Boolean := False;
       --  Analog watchdog interrupt enable
-      AWDIE          : DFSDM0_CR2_AWDIE_Field := 16#0#;
+      AWDIE          : Boolean := False;
       --  Short-circuit detector interrupt enable
-      SCDIE          : DFSDM0_CR2_SCDIE_Field := 16#0#;
+      SCDIE          : Boolean := False;
       --  Clock absence interrupt enable
-      CKABIE         : DFSDM0_CR2_CKABIE_Field := 16#0#;
+      CKABIE         : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  Extremes detector channel selection
@@ -1728,7 +1629,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_CR2_Register use record
@@ -1745,32 +1646,25 @@ package STM32_SVD.DFSDM is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM1_CR2_JEOCIE_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR2_REOCIE_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR2_JOVRIE_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR2_ROVRIE_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR2_AWDIE_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR2_SCDIE_Field is STM32_SVD.Bit;
-   subtype DFSDM1_CR2_CKABIE_Field is STM32_SVD.Bit;
    subtype DFSDM1_CR2_EXCH_Field is STM32_SVD.Byte;
    subtype DFSDM1_CR2_AWDCH_Field is STM32_SVD.Byte;
 
    --  DFSDM control register 2
    type DFSDM1_CR2_Register is record
       --  Injected end of conversion interrupt enable
-      JEOCIE         : DFSDM1_CR2_JEOCIE_Field := 16#0#;
+      JEOCIE         : Boolean := False;
       --  Regular end of conversion interrupt enable
-      REOCIE         : DFSDM1_CR2_REOCIE_Field := 16#0#;
+      REOCIE         : Boolean := False;
       --  Injected data overrun interrupt enable
-      JOVRIE         : DFSDM1_CR2_JOVRIE_Field := 16#0#;
+      JOVRIE         : Boolean := False;
       --  Regular data overrun interrupt enable
-      ROVRIE         : DFSDM1_CR2_ROVRIE_Field := 16#0#;
+      ROVRIE         : Boolean := False;
       --  Analog watchdog interrupt enable
-      AWDIE          : DFSDM1_CR2_AWDIE_Field := 16#0#;
+      AWDIE          : Boolean := False;
       --  Short-circuit detector interrupt enable
-      SCDIE          : DFSDM1_CR2_SCDIE_Field := 16#0#;
+      SCDIE          : Boolean := False;
       --  Clock absence interrupt enable
-      CKABIE         : DFSDM1_CR2_CKABIE_Field := 16#0#;
+      CKABIE         : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  Extremes detector channel selection
@@ -1780,7 +1674,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_CR2_Register use record
@@ -1797,32 +1691,25 @@ package STM32_SVD.DFSDM is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM2_CR2_JEOCIE_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR2_REOCIE_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR2_JOVRIE_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR2_ROVRIE_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR2_AWDIE_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR2_SCDIE_Field is STM32_SVD.Bit;
-   subtype DFSDM2_CR2_CKABIE_Field is STM32_SVD.Bit;
    subtype DFSDM2_CR2_EXCH_Field is STM32_SVD.Byte;
    subtype DFSDM2_CR2_AWDCH_Field is STM32_SVD.Byte;
 
    --  DFSDM control register 2
    type DFSDM2_CR2_Register is record
       --  Injected end of conversion interrupt enable
-      JEOCIE         : DFSDM2_CR2_JEOCIE_Field := 16#0#;
+      JEOCIE         : Boolean := False;
       --  Regular end of conversion interrupt enable
-      REOCIE         : DFSDM2_CR2_REOCIE_Field := 16#0#;
+      REOCIE         : Boolean := False;
       --  Injected data overrun interrupt enable
-      JOVRIE         : DFSDM2_CR2_JOVRIE_Field := 16#0#;
+      JOVRIE         : Boolean := False;
       --  Regular data overrun interrupt enable
-      ROVRIE         : DFSDM2_CR2_ROVRIE_Field := 16#0#;
+      ROVRIE         : Boolean := False;
       --  Analog watchdog interrupt enable
-      AWDIE          : DFSDM2_CR2_AWDIE_Field := 16#0#;
+      AWDIE          : Boolean := False;
       --  Short-circuit detector interrupt enable
-      SCDIE          : DFSDM2_CR2_SCDIE_Field := 16#0#;
+      SCDIE          : Boolean := False;
       --  Clock absence interrupt enable
-      CKABIE         : DFSDM2_CR2_CKABIE_Field := 16#0#;
+      CKABIE         : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  Extremes detector channel selection
@@ -1832,7 +1719,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_CR2_Register use record
@@ -1849,32 +1736,25 @@ package STM32_SVD.DFSDM is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM3_CR2_JEOCIE_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR2_REOCIE_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR2_JOVRIE_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR2_ROVRIE_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR2_AWDIE_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR2_SCDIE_Field is STM32_SVD.Bit;
-   subtype DFSDM3_CR2_CKABIE_Field is STM32_SVD.Bit;
    subtype DFSDM3_CR2_EXCH_Field is STM32_SVD.Byte;
    subtype DFSDM3_CR2_AWDCH_Field is STM32_SVD.Byte;
 
    --  DFSDM control register 2
    type DFSDM3_CR2_Register is record
       --  Injected end of conversion interrupt enable
-      JEOCIE         : DFSDM3_CR2_JEOCIE_Field := 16#0#;
+      JEOCIE         : Boolean := False;
       --  Regular end of conversion interrupt enable
-      REOCIE         : DFSDM3_CR2_REOCIE_Field := 16#0#;
+      REOCIE         : Boolean := False;
       --  Injected data overrun interrupt enable
-      JOVRIE         : DFSDM3_CR2_JOVRIE_Field := 16#0#;
+      JOVRIE         : Boolean := False;
       --  Regular data overrun interrupt enable
-      ROVRIE         : DFSDM3_CR2_ROVRIE_Field := 16#0#;
+      ROVRIE         : Boolean := False;
       --  Analog watchdog interrupt enable
-      AWDIE          : DFSDM3_CR2_AWDIE_Field := 16#0#;
+      AWDIE          : Boolean := False;
       --  Short-circuit detector interrupt enable
-      SCDIE          : DFSDM3_CR2_SCDIE_Field := 16#0#;
+      SCDIE          : Boolean := False;
       --  Clock absence interrupt enable
-      CKABIE         : DFSDM3_CR2_CKABIE_Field := 16#0#;
+      CKABIE         : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  Extremes detector channel selection
@@ -1884,7 +1764,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_CR2_Register use record
@@ -1901,34 +1781,27 @@ package STM32_SVD.DFSDM is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM0_ISR_JEOCF_Field is STM32_SVD.Bit;
-   subtype DFSDM0_ISR_REOCF_Field is STM32_SVD.Bit;
-   subtype DFSDM0_ISR_JOVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM0_ISR_ROVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM0_ISR_AWDF_Field is STM32_SVD.Bit;
-   subtype DFSDM0_ISR_JCIP_Field is STM32_SVD.Bit;
-   subtype DFSDM0_ISR_RCIP_Field is STM32_SVD.Bit;
    subtype DFSDM0_ISR_CKABF_Field is STM32_SVD.Byte;
    subtype DFSDM0_ISR_SCDF_Field is STM32_SVD.Byte;
 
    --  DFSDM interrupt and status register
    type DFSDM0_ISR_Register is record
       --  Read-only. End of injected conversion flag
-      JEOCF          : DFSDM0_ISR_JEOCF_Field;
+      JEOCF          : Boolean;
       --  Read-only. End of regular conversion flag
-      REOCF          : DFSDM0_ISR_REOCF_Field;
+      REOCF          : Boolean;
       --  Read-only. Injected conversion overrun flag
-      JOVRF          : DFSDM0_ISR_JOVRF_Field;
+      JOVRF          : Boolean;
       --  Read-only. Regular conversion overrun flag
-      ROVRF          : DFSDM0_ISR_ROVRF_Field;
+      ROVRF          : Boolean;
       --  Read-only. Analog watchdog
-      AWDF           : DFSDM0_ISR_AWDF_Field;
+      AWDF           : Boolean;
       --  unspecified
       Reserved_5_12  : STM32_SVD.Byte;
       --  Read-only. Injected conversion in progress status
-      JCIP           : DFSDM0_ISR_JCIP_Field;
+      JCIP           : Boolean;
       --  Read-only. Regular conversion in progress status
-      RCIP           : DFSDM0_ISR_RCIP_Field;
+      RCIP           : Boolean;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit;
       --  Read-only. Clock absence flag
@@ -1936,7 +1809,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. short-circuit detector flag
       SCDF           : DFSDM0_ISR_SCDF_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_ISR_Register use record
@@ -1953,34 +1826,27 @@ package STM32_SVD.DFSDM is
       SCDF           at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM1_ISR_JEOCF_Field is STM32_SVD.Bit;
-   subtype DFSDM1_ISR_REOCF_Field is STM32_SVD.Bit;
-   subtype DFSDM1_ISR_JOVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM1_ISR_ROVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM1_ISR_AWDF_Field is STM32_SVD.Bit;
-   subtype DFSDM1_ISR_JCIP_Field is STM32_SVD.Bit;
-   subtype DFSDM1_ISR_RCIP_Field is STM32_SVD.Bit;
    subtype DFSDM1_ISR_CKABF_Field is STM32_SVD.Byte;
    subtype DFSDM1_ISR_SCDF_Field is STM32_SVD.Byte;
 
    --  DFSDM interrupt and status register
    type DFSDM1_ISR_Register is record
       --  Read-only. End of injected conversion flag
-      JEOCF          : DFSDM1_ISR_JEOCF_Field;
+      JEOCF          : Boolean;
       --  Read-only. End of regular conversion flag
-      REOCF          : DFSDM1_ISR_REOCF_Field;
+      REOCF          : Boolean;
       --  Read-only. Injected conversion overrun flag
-      JOVRF          : DFSDM1_ISR_JOVRF_Field;
+      JOVRF          : Boolean;
       --  Read-only. Regular conversion overrun flag
-      ROVRF          : DFSDM1_ISR_ROVRF_Field;
+      ROVRF          : Boolean;
       --  Read-only. Analog watchdog
-      AWDF           : DFSDM1_ISR_AWDF_Field;
+      AWDF           : Boolean;
       --  unspecified
       Reserved_5_12  : STM32_SVD.Byte;
       --  Read-only. Injected conversion in progress status
-      JCIP           : DFSDM1_ISR_JCIP_Field;
+      JCIP           : Boolean;
       --  Read-only. Regular conversion in progress status
-      RCIP           : DFSDM1_ISR_RCIP_Field;
+      RCIP           : Boolean;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit;
       --  Read-only. Clock absence flag
@@ -1988,7 +1854,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. short-circuit detector flag
       SCDF           : DFSDM1_ISR_SCDF_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_ISR_Register use record
@@ -2005,34 +1871,27 @@ package STM32_SVD.DFSDM is
       SCDF           at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM2_ISR_JEOCF_Field is STM32_SVD.Bit;
-   subtype DFSDM2_ISR_REOCF_Field is STM32_SVD.Bit;
-   subtype DFSDM2_ISR_JOVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM2_ISR_ROVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM2_ISR_AWDF_Field is STM32_SVD.Bit;
-   subtype DFSDM2_ISR_JCIP_Field is STM32_SVD.Bit;
-   subtype DFSDM2_ISR_RCIP_Field is STM32_SVD.Bit;
    subtype DFSDM2_ISR_CKABF_Field is STM32_SVD.Byte;
    subtype DFSDM2_ISR_SCDF_Field is STM32_SVD.Byte;
 
    --  DFSDM interrupt and status register
    type DFSDM2_ISR_Register is record
       --  Read-only. End of injected conversion flag
-      JEOCF          : DFSDM2_ISR_JEOCF_Field;
+      JEOCF          : Boolean;
       --  Read-only. End of regular conversion flag
-      REOCF          : DFSDM2_ISR_REOCF_Field;
+      REOCF          : Boolean;
       --  Read-only. Injected conversion overrun flag
-      JOVRF          : DFSDM2_ISR_JOVRF_Field;
+      JOVRF          : Boolean;
       --  Read-only. Regular conversion overrun flag
-      ROVRF          : DFSDM2_ISR_ROVRF_Field;
+      ROVRF          : Boolean;
       --  Read-only. Analog watchdog
-      AWDF           : DFSDM2_ISR_AWDF_Field;
+      AWDF           : Boolean;
       --  unspecified
       Reserved_5_12  : STM32_SVD.Byte;
       --  Read-only. Injected conversion in progress status
-      JCIP           : DFSDM2_ISR_JCIP_Field;
+      JCIP           : Boolean;
       --  Read-only. Regular conversion in progress status
-      RCIP           : DFSDM2_ISR_RCIP_Field;
+      RCIP           : Boolean;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit;
       --  Read-only. Clock absence flag
@@ -2040,7 +1899,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. short-circuit detector flag
       SCDF           : DFSDM2_ISR_SCDF_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_ISR_Register use record
@@ -2057,34 +1916,27 @@ package STM32_SVD.DFSDM is
       SCDF           at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM3_ISR_JEOCF_Field is STM32_SVD.Bit;
-   subtype DFSDM3_ISR_REOCF_Field is STM32_SVD.Bit;
-   subtype DFSDM3_ISR_JOVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM3_ISR_ROVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM3_ISR_AWDF_Field is STM32_SVD.Bit;
-   subtype DFSDM3_ISR_JCIP_Field is STM32_SVD.Bit;
-   subtype DFSDM3_ISR_RCIP_Field is STM32_SVD.Bit;
    subtype DFSDM3_ISR_CKABF_Field is STM32_SVD.Byte;
    subtype DFSDM3_ISR_SCDF_Field is STM32_SVD.Byte;
 
    --  DFSDM interrupt and status register
    type DFSDM3_ISR_Register is record
       --  Read-only. End of injected conversion flag
-      JEOCF          : DFSDM3_ISR_JEOCF_Field;
+      JEOCF          : Boolean;
       --  Read-only. End of regular conversion flag
-      REOCF          : DFSDM3_ISR_REOCF_Field;
+      REOCF          : Boolean;
       --  Read-only. Injected conversion overrun flag
-      JOVRF          : DFSDM3_ISR_JOVRF_Field;
+      JOVRF          : Boolean;
       --  Read-only. Regular conversion overrun flag
-      ROVRF          : DFSDM3_ISR_ROVRF_Field;
+      ROVRF          : Boolean;
       --  Read-only. Analog watchdog
-      AWDF           : DFSDM3_ISR_AWDF_Field;
+      AWDF           : Boolean;
       --  unspecified
       Reserved_5_12  : STM32_SVD.Byte;
       --  Read-only. Injected conversion in progress status
-      JCIP           : DFSDM3_ISR_JCIP_Field;
+      JCIP           : Boolean;
       --  Read-only. Regular conversion in progress status
-      RCIP           : DFSDM3_ISR_RCIP_Field;
+      RCIP           : Boolean;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit;
       --  Read-only. Clock absence flag
@@ -2092,7 +1944,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. short-circuit detector flag
       SCDF           : DFSDM3_ISR_SCDF_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_ISR_Register use record
@@ -2109,8 +1961,6 @@ package STM32_SVD.DFSDM is
       SCDF           at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM0_ICR_CLRJOVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM0_ICR_CLRROVRF_Field is STM32_SVD.Bit;
    subtype DFSDM0_ICR_CLRCKABF_Field is STM32_SVD.Byte;
    subtype DFSDM0_ICR_CLRSCDF_Field is STM32_SVD.Byte;
 
@@ -2119,9 +1969,9 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_0_1  : STM32_SVD.UInt2 := 16#0#;
       --  Clear the injected conversion overrun flag
-      CLRJOVRF      : DFSDM0_ICR_CLRJOVRF_Field := 16#0#;
+      CLRJOVRF      : Boolean := False;
       --  Clear the regular conversion overrun flag
-      CLRROVRF      : DFSDM0_ICR_CLRROVRF_Field := 16#0#;
+      CLRROVRF      : Boolean := False;
       --  unspecified
       Reserved_4_15 : STM32_SVD.UInt12 := 16#0#;
       --  Clear the clock absence flag
@@ -2129,7 +1979,7 @@ package STM32_SVD.DFSDM is
       --  Clear the short-circuit detector flag
       CLRSCDF       : DFSDM0_ICR_CLRSCDF_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_ICR_Register use record
@@ -2141,8 +1991,6 @@ package STM32_SVD.DFSDM is
       CLRSCDF       at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM1_ICR_CLRJOVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM1_ICR_CLRROVRF_Field is STM32_SVD.Bit;
    subtype DFSDM1_ICR_CLRCKABF_Field is STM32_SVD.Byte;
    subtype DFSDM1_ICR_CLRSCDF_Field is STM32_SVD.Byte;
 
@@ -2151,9 +1999,9 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_0_1  : STM32_SVD.UInt2 := 16#0#;
       --  Clear the injected conversion overrun flag
-      CLRJOVRF      : DFSDM1_ICR_CLRJOVRF_Field := 16#0#;
+      CLRJOVRF      : Boolean := False;
       --  Clear the regular conversion overrun flag
-      CLRROVRF      : DFSDM1_ICR_CLRROVRF_Field := 16#0#;
+      CLRROVRF      : Boolean := False;
       --  unspecified
       Reserved_4_15 : STM32_SVD.UInt12 := 16#0#;
       --  Clear the clock absence flag
@@ -2161,7 +2009,7 @@ package STM32_SVD.DFSDM is
       --  Clear the short-circuit detector flag
       CLRSCDF       : DFSDM1_ICR_CLRSCDF_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_ICR_Register use record
@@ -2173,8 +2021,6 @@ package STM32_SVD.DFSDM is
       CLRSCDF       at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM2_ICR_CLRJOVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM2_ICR_CLRROVRF_Field is STM32_SVD.Bit;
    subtype DFSDM2_ICR_CLRCKABF_Field is STM32_SVD.Byte;
    subtype DFSDM2_ICR_CLRSCDF_Field is STM32_SVD.Byte;
 
@@ -2183,9 +2029,9 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_0_1  : STM32_SVD.UInt2 := 16#0#;
       --  Clear the injected conversion overrun flag
-      CLRJOVRF      : DFSDM2_ICR_CLRJOVRF_Field := 16#0#;
+      CLRJOVRF      : Boolean := False;
       --  Clear the regular conversion overrun flag
-      CLRROVRF      : DFSDM2_ICR_CLRROVRF_Field := 16#0#;
+      CLRROVRF      : Boolean := False;
       --  unspecified
       Reserved_4_15 : STM32_SVD.UInt12 := 16#0#;
       --  Clear the clock absence flag
@@ -2193,7 +2039,7 @@ package STM32_SVD.DFSDM is
       --  Clear the short-circuit detector flag
       CLRSCDF       : DFSDM2_ICR_CLRSCDF_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_ICR_Register use record
@@ -2205,8 +2051,6 @@ package STM32_SVD.DFSDM is
       CLRSCDF       at 0 range 24 .. 31;
    end record;
 
-   subtype DFSDM3_ICR_CLRJOVRF_Field is STM32_SVD.Bit;
-   subtype DFSDM3_ICR_CLRROVRF_Field is STM32_SVD.Bit;
    subtype DFSDM3_ICR_CLRCKABF_Field is STM32_SVD.Byte;
    subtype DFSDM3_ICR_CLRSCDF_Field is STM32_SVD.Byte;
 
@@ -2215,9 +2059,9 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_0_1  : STM32_SVD.UInt2 := 16#0#;
       --  Clear the injected conversion overrun flag
-      CLRJOVRF      : DFSDM3_ICR_CLRJOVRF_Field := 16#0#;
+      CLRJOVRF      : Boolean := False;
       --  Clear the regular conversion overrun flag
-      CLRROVRF      : DFSDM3_ICR_CLRROVRF_Field := 16#0#;
+      CLRROVRF      : Boolean := False;
       --  unspecified
       Reserved_4_15 : STM32_SVD.UInt12 := 16#0#;
       --  Clear the clock absence flag
@@ -2225,7 +2069,7 @@ package STM32_SVD.DFSDM is
       --  Clear the short-circuit detector flag
       CLRSCDF       : DFSDM3_ICR_CLRSCDF_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_ICR_Register use record
@@ -2246,7 +2090,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_JCHGR_Register use record
@@ -2263,7 +2107,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_JCHGR_Register use record
@@ -2280,7 +2124,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_JCHGR_Register use record
@@ -2297,7 +2141,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_JCHGR_Register use record
@@ -2322,7 +2166,7 @@ package STM32_SVD.DFSDM is
       --  Sinc filter order
       FORD           : DFSDM0_FCR_FORD_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_FCR_Register use record
@@ -2350,7 +2194,7 @@ package STM32_SVD.DFSDM is
       --  Sinc filter order
       FORD           : DFSDM1_FCR_FORD_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_FCR_Register use record
@@ -2378,7 +2222,7 @@ package STM32_SVD.DFSDM is
       --  Sinc filter order
       FORD           : DFSDM2_FCR_FORD_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_FCR_Register use record
@@ -2406,7 +2250,7 @@ package STM32_SVD.DFSDM is
       --  Sinc filter order
       FORD           : DFSDM3_FCR_FORD_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_FCR_Register use record
@@ -2429,7 +2273,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Injected group conversion data
       JDATA        : DFSDM0_JDATAR_JDATA_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_JDATAR_Register use record
@@ -2450,7 +2294,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Injected group conversion data
       JDATA        : DFSDM1_JDATAR_JDATA_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_JDATAR_Register use record
@@ -2471,7 +2315,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Injected group conversion data
       JDATA        : DFSDM2_JDATAR_JDATA_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_JDATAR_Register use record
@@ -2492,7 +2336,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Injected group conversion data
       JDATA        : DFSDM3_JDATAR_JDATA_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_JDATAR_Register use record
@@ -2502,7 +2346,6 @@ package STM32_SVD.DFSDM is
    end record;
 
    subtype DFSDM0_RDATAR_RDATACH_Field is STM32_SVD.UInt3;
-   subtype DFSDM0_RDATAR_RPEND_Field is STM32_SVD.Bit;
    subtype DFSDM0_RDATAR_RDATA_Field is STM32_SVD.UInt24;
 
    --  DFSDM data register for the regular channel
@@ -2512,13 +2355,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_3_3 : STM32_SVD.Bit;
       --  Read-only. Regular channel pending data
-      RPEND        : DFSDM0_RDATAR_RPEND_Field;
+      RPEND        : Boolean;
       --  unspecified
       Reserved_5_7 : STM32_SVD.UInt3;
       --  Read-only. Regular channel conversion data
       RDATA        : DFSDM0_RDATAR_RDATA_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_RDATAR_Register use record
@@ -2530,7 +2373,6 @@ package STM32_SVD.DFSDM is
    end record;
 
    subtype DFSDM1_RDATAR_RDATACH_Field is STM32_SVD.UInt3;
-   subtype DFSDM1_RDATAR_RPEND_Field is STM32_SVD.Bit;
    subtype DFSDM1_RDATAR_RDATA_Field is STM32_SVD.UInt24;
 
    --  DFSDM data register for the regular channel
@@ -2540,13 +2382,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_3_3 : STM32_SVD.Bit;
       --  Read-only. Regular channel pending data
-      RPEND        : DFSDM1_RDATAR_RPEND_Field;
+      RPEND        : Boolean;
       --  unspecified
       Reserved_5_7 : STM32_SVD.UInt3;
       --  Read-only. Regular channel conversion data
       RDATA        : DFSDM1_RDATAR_RDATA_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_RDATAR_Register use record
@@ -2558,7 +2400,6 @@ package STM32_SVD.DFSDM is
    end record;
 
    subtype DFSDM2_RDATAR_RDATACH_Field is STM32_SVD.UInt3;
-   subtype DFSDM2_RDATAR_RPEND_Field is STM32_SVD.Bit;
    subtype DFSDM2_RDATAR_RDATA_Field is STM32_SVD.UInt24;
 
    --  DFSDM data register for the regular channel
@@ -2568,13 +2409,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_3_3 : STM32_SVD.Bit;
       --  Read-only. Regular channel pending data
-      RPEND        : DFSDM2_RDATAR_RPEND_Field;
+      RPEND        : Boolean;
       --  unspecified
       Reserved_5_7 : STM32_SVD.UInt3;
       --  Read-only. Regular channel conversion data
       RDATA        : DFSDM2_RDATAR_RDATA_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_RDATAR_Register use record
@@ -2586,7 +2427,6 @@ package STM32_SVD.DFSDM is
    end record;
 
    subtype DFSDM3_RDATAR_RDATACH_Field is STM32_SVD.UInt3;
-   subtype DFSDM3_RDATAR_RPEND_Field is STM32_SVD.Bit;
    subtype DFSDM3_RDATAR_RDATA_Field is STM32_SVD.UInt24;
 
    --  DFSDM data register for the regular channel
@@ -2596,13 +2436,13 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_3_3 : STM32_SVD.Bit;
       --  Read-only. Regular channel pending data
-      RPEND        : DFSDM3_RDATAR_RPEND_Field;
+      RPEND        : Boolean;
       --  unspecified
       Reserved_5_7 : STM32_SVD.UInt3;
       --  Read-only. Regular channel conversion data
       RDATA        : DFSDM3_RDATAR_RDATA_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_RDATAR_Register use record
@@ -2625,7 +2465,7 @@ package STM32_SVD.DFSDM is
       --  Analog watchdog high threshold
       AWHT         : DFSDM0_AWHTR_AWHT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_AWHTR_Register use record
@@ -2646,7 +2486,7 @@ package STM32_SVD.DFSDM is
       --  Analog watchdog high threshold
       AWHT         : DFSDM1_AWHTR_AWHT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_AWHTR_Register use record
@@ -2667,7 +2507,7 @@ package STM32_SVD.DFSDM is
       --  Analog watchdog high threshold
       AWHT         : DFSDM2_AWHTR_AWHT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_AWHTR_Register use record
@@ -2688,7 +2528,7 @@ package STM32_SVD.DFSDM is
       --  Analog watchdog high threshold
       AWHT         : DFSDM3_AWHTR_AWHT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_AWHTR_Register use record
@@ -2709,7 +2549,7 @@ package STM32_SVD.DFSDM is
       --  Analog watchdog low threshold
       AWLT         : DFSDM0_AWLTR_AWLT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_AWLTR_Register use record
@@ -2730,7 +2570,7 @@ package STM32_SVD.DFSDM is
       --  Analog watchdog low threshold
       AWLT         : DFSDM1_AWLTR_AWLT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_AWLTR_Register use record
@@ -2751,7 +2591,7 @@ package STM32_SVD.DFSDM is
       --  Analog watchdog low threshold
       AWLT         : DFSDM2_AWLTR_AWLT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_AWLTR_Register use record
@@ -2772,7 +2612,7 @@ package STM32_SVD.DFSDM is
       --  Analog watchdog low threshold
       AWLT         : DFSDM3_AWLTR_AWLT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_AWLTR_Register use record
@@ -2793,7 +2633,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_AWSR_Register use record
@@ -2814,7 +2654,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_AWSR_Register use record
@@ -2835,7 +2675,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_AWSR_Register use record
@@ -2856,7 +2696,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_AWSR_Register use record
@@ -2877,7 +2717,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_AWCFR_Register use record
@@ -2898,7 +2738,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_AWCFR_Register use record
@@ -2919,7 +2759,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_AWCFR_Register use record
@@ -2940,7 +2780,7 @@ package STM32_SVD.DFSDM is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_AWCFR_Register use record
@@ -2961,7 +2801,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Extremes detector maximum value
       EXMAX        : DFSDM0_EXMAX_EXMAX_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_EXMAX_Register use record
@@ -2982,7 +2822,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Extremes detector maximum value
       EXMAX        : DFSDM1_EXMAX_EXMAX_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_EXMAX_Register use record
@@ -3003,7 +2843,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Extremes detector maximum value
       EXMAX        : DFSDM2_EXMAX_EXMAX_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_EXMAX_Register use record
@@ -3024,7 +2864,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Extremes detector maximum value
       EXMAX        : DFSDM3_EXMAX_EXMAX_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_EXMAX_Register use record
@@ -3045,7 +2885,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Extremes detector minimum value
       EXMIN        : DFSDM0_EXMIN_EXMIN_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_EXMIN_Register use record
@@ -3066,7 +2906,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Extremes detector minimum value
       EXMIN        : DFSDM1_EXMIN_EXMIN_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_EXMIN_Register use record
@@ -3087,7 +2927,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Extremes detector minimum value
       EXMIN        : DFSDM2_EXMIN_EXMIN_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_EXMIN_Register use record
@@ -3108,7 +2948,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. Extremes detector minimum value
       EXMIN        : DFSDM3_EXMIN_EXMIN_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_EXMIN_Register use record
@@ -3126,7 +2966,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. 28-bit timer counting conversion time
       CNVCNT       : DFSDM0_CNVTIMR_CNVCNT_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM0_CNVTIMR_Register use record
@@ -3143,7 +2983,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. 28-bit timer counting conversion time
       CNVCNT       : DFSDM1_CNVTIMR_CNVCNT_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM1_CNVTIMR_Register use record
@@ -3160,7 +3000,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. 28-bit timer counting conversion time
       CNVCNT       : DFSDM2_CNVTIMR_CNVCNT_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM2_CNVTIMR_Register use record
@@ -3177,7 +3017,7 @@ package STM32_SVD.DFSDM is
       --  Read-only. 28-bit timer counting conversion time
       CNVCNT       : DFSDM3_CNVTIMR_CNVCNT_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DFSDM3_CNVTIMR_Register use record
@@ -3499,6 +3339,6 @@ package STM32_SVD.DFSDM is
 
    --  Digital filter for sigma delta modulators
    DFSDM_Periph : aliased DFSDM_Peripheral
-     with Import, Address => System'To_Address (16#40017000#);
+     with Import, Address => DFSDM_Base;
 
 end STM32_SVD.DFSDM;

@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,30 +13,20 @@ package STM32_SVD.DAC is
    -- Registers --
    ---------------
 
-   subtype DAC_CR_EN1_Field is STM32_SVD.Bit;
-   subtype DAC_CR_TEN1_Field is STM32_SVD.Bit;
    subtype DAC_CR_TSEL1_Field is STM32_SVD.UInt3;
    subtype DAC_CR_WAVE1_Field is STM32_SVD.UInt2;
    subtype DAC_CR_MAMP1_Field is STM32_SVD.UInt4;
-   subtype DAC_CR_DMAEN1_Field is STM32_SVD.Bit;
-   subtype DAC_CR_DMAUDRIE1_Field is STM32_SVD.Bit;
-   subtype DAC_CR_CEN1_Field is STM32_SVD.Bit;
-   subtype DAC_CR_EN2_Field is STM32_SVD.Bit;
-   subtype DAC_CR_TEN2_Field is STM32_SVD.Bit;
    subtype DAC_CR_TSEL2_Field is STM32_SVD.UInt3;
    subtype DAC_CR_WAVE2_Field is STM32_SVD.UInt2;
    subtype DAC_CR_MAMP2_Field is STM32_SVD.UInt4;
-   subtype DAC_CR_DMAEN2_Field is STM32_SVD.Bit;
-   subtype DAC_CR_DMAUDRIE2_Field is STM32_SVD.Bit;
-   subtype DAC_CR_CEN2_Field is STM32_SVD.Bit;
 
    --  DAC control register
    type DAC_CR_Register is record
       --  DAC channel1 enable This bit is set and cleared by software to
       --  enable/disable DAC channel1.
-      EN1            : DAC_CR_EN1_Field := 16#0#;
+      EN1            : Boolean := False;
       --  DAC channel1 trigger enable
-      TEN1           : DAC_CR_TEN1_Field := 16#0#;
+      TEN1           : Boolean := False;
       --  DAC channel1 trigger selection These bits select the external event
       --  used to trigger DAC channel1. Note: Only used if bit TEN1 = 1 (DAC
       --  channel1 trigger enabled).
@@ -53,23 +43,23 @@ package STM32_SVD.DAC is
       --  amplitude equal to 4095
       MAMP1          : DAC_CR_MAMP1_Field := 16#0#;
       --  DAC channel1 DMA enable This bit is set and cleared by software.
-      DMAEN1         : DAC_CR_DMAEN1_Field := 16#0#;
+      DMAEN1         : Boolean := False;
       --  DAC channel1 DMA Underrun Interrupt enable This bit is set and
       --  cleared by software.
-      DMAUDRIE1      : DAC_CR_DMAUDRIE1_Field := 16#0#;
+      DMAUDRIE1      : Boolean := False;
       --  DAC Channel 1 calibration enable This bit is set and cleared by
       --  software to enable/disable DAC channel 1 calibration, it can be
       --  written only if bit EN1=0 into DAC_CR (the calibration mode can be
       --  entered/exit only when the DAC channel is disabled) Otherwise, the
       --  write operation is ignored.
-      CEN1           : DAC_CR_CEN1_Field := 16#0#;
+      CEN1           : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  DAC channel2 enable This bit is set and cleared by software to
       --  enable/disable DAC channel2.
-      EN2            : DAC_CR_EN2_Field := 16#0#;
+      EN2            : Boolean := False;
       --  DAC channel2 trigger enable
-      TEN2           : DAC_CR_TEN2_Field := 16#0#;
+      TEN2           : Boolean := False;
       --  DAC channel2 trigger selection These bits select the external event
       --  used to trigger DAC channel2 Note: Only used if bit TEN2 = 1 (DAC
       --  channel2 trigger enabled).
@@ -86,20 +76,20 @@ package STM32_SVD.DAC is
       --  amplitude equal to 4095
       MAMP2          : DAC_CR_MAMP2_Field := 16#0#;
       --  DAC channel2 DMA enable This bit is set and cleared by software.
-      DMAEN2         : DAC_CR_DMAEN2_Field := 16#0#;
+      DMAEN2         : Boolean := False;
       --  DAC channel2 DMA underrun interrupt enable This bit is set and
       --  cleared by software.
-      DMAUDRIE2      : DAC_CR_DMAUDRIE2_Field := 16#0#;
+      DMAUDRIE2      : Boolean := False;
       --  DAC Channel 2 calibration enable This bit is set and cleared by
       --  software to enable/disable DAC channel 2 calibration, it can be
       --  written only if bit EN2=0 into DAC_CR (the calibration mode can be
       --  entered/exit only when the DAC channel is disabled) Otherwise, the
       --  write operation is ignored.
-      CEN2           : DAC_CR_CEN2_Field := 16#0#;
+      CEN2           : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_CR_Register use record
@@ -125,12 +115,8 @@ package STM32_SVD.DAC is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   --  DAC_SWTRGR_SWTRIG array element
-   subtype DAC_SWTRGR_SWTRIG_Element is STM32_SVD.Bit;
-
    --  DAC_SWTRGR_SWTRIG array
-   type DAC_SWTRGR_SWTRIG_Field_Array is array (1 .. 2)
-     of DAC_SWTRGR_SWTRIG_Element
+   type DAC_SWTRGR_SWTRIG_Field_Array is array (1 .. 2) of Boolean
      with Component_Size => 1, Size => 2;
 
    --  Type definition for DAC_SWTRGR_SWTRIG
@@ -164,7 +150,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_SWTRGR_Register use record
@@ -182,7 +168,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR12R1_Register use record
@@ -202,7 +188,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR12L1_Register use record
@@ -221,7 +207,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR8R1_Register use record
@@ -239,7 +225,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR12R2_Register use record
@@ -259,7 +245,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR12L2_Register use record
@@ -278,7 +264,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR8R2_Register use record
@@ -302,7 +288,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR12RD_Register use record
@@ -328,7 +314,7 @@ package STM32_SVD.DAC is
       --  software which specifies 12-bit data for DAC channel2.
       DACC2DHR       : DAC_DHR12LD_DACC2DHR_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR12LD_Register use record
@@ -352,7 +338,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DHR8RD_Register use record
@@ -371,7 +357,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DOR1_Register use record
@@ -389,7 +375,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_DOR2_Register use record
@@ -397,45 +383,38 @@ package STM32_SVD.DAC is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype DAC_SR_DMAUDR1_Field is STM32_SVD.Bit;
-   subtype DAC_SR_CAL_FLAG1_Field is STM32_SVD.Bit;
-   subtype DAC_SR_BWST1_Field is STM32_SVD.Bit;
-   subtype DAC_SR_DMAUDR2_Field is STM32_SVD.Bit;
-   subtype DAC_SR_CAL_FLAG2_Field is STM32_SVD.Bit;
-   subtype DAC_SR_BWST2_Field is STM32_SVD.Bit;
-
    --  DAC status register
    type DAC_SR_Register is record
       --  unspecified
       Reserved_0_12  : STM32_SVD.UInt13 := 16#0#;
       --  DAC channel1 DMA underrun flag This bit is set by hardware and
       --  cleared by software (by writing it to 1).
-      DMAUDR1        : DAC_SR_DMAUDR1_Field := 16#0#;
+      DMAUDR1        : Boolean := False;
       --  Read-only. DAC Channel 1 calibration offset status This bit is set
       --  and cleared by hardware
-      CAL_FLAG1      : DAC_SR_CAL_FLAG1_Field := 16#0#;
+      CAL_FLAG1      : Boolean := False;
       --  Read-only. DAC Channel 1 busy writing sample time flag This bit is
       --  systematically set just after Sample & Hold mode enable and is set
       --  each time the software writes the register DAC_SHSR1, It is cleared
       --  by hardware when the write operation of DAC_SHSR1 is complete. (It
       --  takes about 3LSI periods of synchronization).
-      BWST1          : DAC_SR_BWST1_Field := 16#0#;
+      BWST1          : Boolean := False;
       --  unspecified
       Reserved_16_28 : STM32_SVD.UInt13 := 16#0#;
       --  DAC channel2 DMA underrun flag This bit is set by hardware and
       --  cleared by software (by writing it to 1).
-      DMAUDR2        : DAC_SR_DMAUDR2_Field := 16#0#;
+      DMAUDR2        : Boolean := False;
       --  Read-only. DAC Channel 2 calibration offset status This bit is set
       --  and cleared by hardware
-      CAL_FLAG2      : DAC_SR_CAL_FLAG2_Field := 16#0#;
+      CAL_FLAG2      : Boolean := False;
       --  Read-only. DAC Channel 2 busy writing sample time flag This bit is
       --  systematically set just after Sample & Hold mode enable and is set
       --  each time the software writes the register DAC_SHSR2, It is cleared
       --  by hardware when the write operation of DAC_SHSR2 is complete. (It
       --  takes about 3 LSI periods of synchronization).
-      BWST2          : DAC_SR_BWST2_Field := 16#0#;
+      BWST2          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_SR_Register use record
@@ -463,7 +442,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_CCR_Register use record
@@ -497,7 +476,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_MCR_Register use record
@@ -520,7 +499,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_10_31 : STM32_SVD.UInt22 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_SHSR1_Register use record
@@ -541,7 +520,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_10_31 : STM32_SVD.UInt22 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_SHSR2_Register use record
@@ -565,7 +544,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_SHHR_Register use record
@@ -591,7 +570,7 @@ package STM32_SVD.DAC is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DAC_SHRR_Register use record
@@ -675,6 +654,6 @@ package STM32_SVD.DAC is
 
    --  DAC
    DAC_Periph : aliased DAC_Peripheral
-     with Import, Address => System'To_Address (16#40007400#);
+     with Import, Address => DAC_Base;
 
 end STM32_SVD.DAC;

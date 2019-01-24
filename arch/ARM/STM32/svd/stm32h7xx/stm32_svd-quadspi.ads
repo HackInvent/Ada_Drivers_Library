@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,36 +13,22 @@ package STM32_SVD.QUADSPI is
    -- Registers --
    ---------------
 
-   subtype QUADSPI_CR_EN_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_ABORT_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_DMAEN_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_TCEN_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_SSHIFT_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_DFM_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_FSEL_Field is STM32_SVD.Bit;
    subtype QUADSPI_CR_FTHRES_Field is STM32_SVD.UInt5;
-   subtype QUADSPI_CR_TEIE_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_TCIE_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_FTIE_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_SMIE_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_TOIE_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_APMS_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CR_PMM_Field is STM32_SVD.Bit;
    subtype QUADSPI_CR_PRESCALER_Field is STM32_SVD.Byte;
 
    --  QUADSPI control register
    type QUADSPI_CR_Register is record
       --  Enable Enable the QUADSPI.
-      EN             : QUADSPI_CR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Abort request This bit aborts the on-going command sequence. It is
       --  automatically reset once the abort is complete. This bit stops the
       --  current transfer. In polling mode or memory-mapped mode, this bit
       --  also reset the APM bit or the DM bit.
-      ABORT_k        : QUADSPI_CR_ABORT_Field := 16#0#;
+      ABORT_k        : Boolean := False;
       --  DMA enable In indirect mode, DMA can be used to input or output data
       --  via the QUADSPI_DR register. DMA transfers are initiated when the
       --  FIFO threshold flag, FTF, is set.
-      DMAEN          : QUADSPI_CR_DMAEN_Field := 16#0#;
+      DMAEN          : Boolean := False;
       --  Timeout counter enable This bit is valid only when memory-mapped mode
       --  (FMODE = 11) is selected. Activating this bit causes the chip select
       --  (nCS) to be released (and thus reduces consumption) if there has not
@@ -57,23 +43,23 @@ package STM32_SVD.QUADSPI is
       --  (QUADSPI_LPTR) cycles have elapsed without an access since when the
       --  FIFO becomes full with prefetch data. This bit can be modified only
       --  when BUSY = 0.
-      TCEN           : QUADSPI_CR_TCEN_Field := 16#0#;
+      TCEN           : Boolean := False;
       --  Sample shift By default, the QUADSPI samples data 1/2 of a CLK cycle
       --  after the data is driven by the Flash memory. This bit allows the
       --  data is to be sampled later in order to account for external signal
       --  delays. Firmware must assure that SSHIFT = 0 when in DDR mode (when
       --  DDRM = 1). This field can be modified only when BUSY = 0.
-      SSHIFT         : QUADSPI_CR_SSHIFT_Field := 16#0#;
+      SSHIFT         : Boolean := False;
       --  unspecified
       Reserved_5_5   : STM32_SVD.Bit := 16#0#;
       --  Dual-flash mode This bit activates dual-flash mode, where two
       --  external Flash memories are used simultaneously to double throughput
       --  and capacity. This bit can be modified only when BUSY = 0.
-      DFM            : QUADSPI_CR_DFM_Field := 16#0#;
+      DFM            : Boolean := False;
       --  Flash memory selection This bit selects the Flash memory to be
       --  addressed in single flash mode (when DFM = 0). This bit can be
       --  modified only when BUSY = 0. This bit is ignored when DFM = 1.
-      FSEL           : QUADSPI_CR_FSEL_Field := 16#0#;
+      FSEL           : Boolean := False;
       --  FIFO threshold level Defines, in indirect mode, the threshold number
       --  of bytes in the FIFO that will cause the FIFO threshold flag (FTF,
       --  QUADSPI_SR[2]) to be set. In indirect write mode (FMODE = 00): ... In
@@ -85,31 +71,31 @@ package STM32_SVD.QUADSPI is
       Reserved_13_15 : STM32_SVD.UInt3 := 16#0#;
       --  Transfer error interrupt enable This bit enables the transfer error
       --  interrupt.
-      TEIE           : QUADSPI_CR_TEIE_Field := 16#0#;
+      TEIE           : Boolean := False;
       --  Transfer complete interrupt enable This bit enables the transfer
       --  complete interrupt.
-      TCIE           : QUADSPI_CR_TCIE_Field := 16#0#;
+      TCIE           : Boolean := False;
       --  FIFO threshold interrupt enable This bit enables the FIFO threshold
       --  interrupt.
-      FTIE           : QUADSPI_CR_FTIE_Field := 16#0#;
+      FTIE           : Boolean := False;
       --  Status match interrupt enable This bit enables the status match
       --  interrupt.
-      SMIE           : QUADSPI_CR_SMIE_Field := 16#0#;
+      SMIE           : Boolean := False;
       --  TimeOut interrupt enable This bit enables the TimeOut interrupt.
-      TOIE           : QUADSPI_CR_TOIE_Field := 16#0#;
+      TOIE           : Boolean := False;
       --  unspecified
       Reserved_21_21 : STM32_SVD.Bit := 16#0#;
       --  Automatic poll mode stop This bit determines if automatic polling is
       --  stopped after a match. This bit can be modified only when BUSY = 0.
-      APMS           : QUADSPI_CR_APMS_Field := 16#0#;
+      APMS           : Boolean := False;
       --  Polling match mode This bit indicates which method should be used for
       --  determining a match during automatic polling mode. This bit can be
       --  modified only when BUSY = 0.
-      PMM            : QUADSPI_CR_PMM_Field := 16#0#;
+      PMM            : Boolean := False;
       --  clock prescaler
       PRESCALER      : QUADSPI_CR_PRESCALER_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for QUADSPI_CR_Register use record
@@ -134,14 +120,13 @@ package STM32_SVD.QUADSPI is
       PRESCALER      at 0 range 24 .. 31;
    end record;
 
-   subtype QUADSPI_DCR_CKMODE_Field is STM32_SVD.Bit;
    subtype QUADSPI_DCR_CSHT_Field is STM32_SVD.UInt3;
    subtype QUADSPI_DCR_FSIZE_Field is STM32_SVD.UInt5;
 
    --  QUADSPI device configuration register
    type QUADSPI_DCR_Register is record
       --  indicates the level that clk takes between command
-      CKMODE         : QUADSPI_DCR_CKMODE_Field := 16#0#;
+      CKMODE         : Boolean := False;
       --  unspecified
       Reserved_1_7   : STM32_SVD.UInt7 := 16#0#;
       --  Chip select high time CSHT+1 defines the minimum number of CLK cycles
@@ -163,7 +148,7 @@ package STM32_SVD.QUADSPI is
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for QUADSPI_DCR_Register use record
@@ -175,12 +160,6 @@ package STM32_SVD.QUADSPI is
       Reserved_21_31 at 0 range 21 .. 31;
    end record;
 
-   subtype QUADSPI_SR_TEF_Field is STM32_SVD.Bit;
-   subtype QUADSPI_SR_TCF_Field is STM32_SVD.Bit;
-   subtype QUADSPI_SR_FTF_Field is STM32_SVD.Bit;
-   subtype QUADSPI_SR_SMF_Field is STM32_SVD.Bit;
-   subtype QUADSPI_SR_TOF_Field is STM32_SVD.Bit;
-   subtype QUADSPI_SR_BUSY_Field is STM32_SVD.Bit;
    subtype QUADSPI_SR_FLEVEL_Field is STM32_SVD.UInt6;
 
    --  QUADSPI status register
@@ -188,12 +167,12 @@ package STM32_SVD.QUADSPI is
       --  Read-only. Transfer error flag This bit is set in indirect mode when
       --  an invalid address is being accessed in indirect mode. It is cleared
       --  by writing 1 to CTEF.
-      TEF            : QUADSPI_SR_TEF_Field;
+      TEF            : Boolean;
       --  Read-only. Transfer complete flag This bit is set in indirect mode
       --  when the programmed number of data has been transferred or in any
       --  mode when the transfer has been aborted.It is cleared by writing 1 to
       --  CTCF.
-      TCF            : QUADSPI_SR_TCF_Field;
+      TCF            : Boolean;
       --  Read-only. FIFO threshold flag In indirect mode, this bit is set when
       --  the FIFO threshold has been reached, or if there is any data left in
       --  the FIFO after reads from the Flash memory are complete. It is
@@ -201,19 +180,19 @@ package STM32_SVD.QUADSPI is
       --  true. In automatic polling mode this bit is set every time the status
       --  register is read, and the bit is cleared when the data register is
       --  read.
-      FTF            : QUADSPI_SR_FTF_Field;
+      FTF            : Boolean;
       --  Read-only. Status match flag This bit is set in automatic polling
       --  mode when the unmasked received data matches the corresponding bits
       --  in the match register (QUADSPI_PSMAR). It is cleared by writing 1 to
       --  CSMF.
-      SMF            : QUADSPI_SR_SMF_Field;
+      SMF            : Boolean;
       --  Read-only. Timeout flag This bit is set when timeout occurs. It is
       --  cleared by writing 1 to CTOF.
-      TOF            : QUADSPI_SR_TOF_Field;
+      TOF            : Boolean;
       --  Read-only. Busy This bit is set when an operation is on going. This
       --  bit clears automatically when the operation with the Flash memory is
       --  finished and the FIFO is empty.
-      BUSY           : QUADSPI_SR_BUSY_Field;
+      BUSY           : Boolean;
       --  unspecified
       Reserved_6_7   : STM32_SVD.UInt2;
       --  Read-only. FIFO level This field gives the number of valid bytes
@@ -224,7 +203,7 @@ package STM32_SVD.QUADSPI is
       --  unspecified
       Reserved_14_31 : STM32_SVD.UInt18;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for QUADSPI_SR_Register use record
@@ -239,31 +218,26 @@ package STM32_SVD.QUADSPI is
       Reserved_14_31 at 0 range 14 .. 31;
    end record;
 
-   subtype QUADSPI_FCR_CTEF_Field is STM32_SVD.Bit;
-   subtype QUADSPI_FCR_CTCF_Field is STM32_SVD.Bit;
-   subtype QUADSPI_FCR_CSMF_Field is STM32_SVD.Bit;
-   subtype QUADSPI_FCR_CTOF_Field is STM32_SVD.Bit;
-
    --  QUADSPI flag clear register
    type QUADSPI_FCR_Register is record
       --  Clear transfer error flag Writing 1 clears the TEF flag in the
       --  QUADSPI_SR register
-      CTEF          : QUADSPI_FCR_CTEF_Field := 16#0#;
+      CTEF          : Boolean := False;
       --  Clear transfer complete flag Writing 1 clears the TCF flag in the
       --  QUADSPI_SR register
-      CTCF          : QUADSPI_FCR_CTCF_Field := 16#0#;
+      CTCF          : Boolean := False;
       --  unspecified
       Reserved_2_2  : STM32_SVD.Bit := 16#0#;
       --  Clear status match flag Writing 1 clears the SMF flag in the
       --  QUADSPI_SR register
-      CSMF          : QUADSPI_FCR_CSMF_Field := 16#0#;
+      CSMF          : Boolean := False;
       --  Clear timeout flag Writing 1 clears the TOF flag in the QUADSPI_SR
       --  register
-      CTOF          : QUADSPI_FCR_CTOF_Field := 16#0#;
+      CTOF          : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for QUADSPI_FCR_Register use record
@@ -284,9 +258,6 @@ package STM32_SVD.QUADSPI is
    subtype QUADSPI_CCR_DCYC_Field is STM32_SVD.UInt5;
    subtype QUADSPI_CCR_DMODE_Field is STM32_SVD.UInt2;
    subtype QUADSPI_CCR_FMODE_Field is STM32_SVD.UInt2;
-   subtype QUADSPI_CCR_SIOO_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CCR_DHHC_Field is STM32_SVD.Bit;
-   subtype QUADSPI_CCR_DDRM_Field is STM32_SVD.Bit;
 
    --  QUADSPI communication configuration register
    type QUADSPI_CCR_Register is record
@@ -326,19 +297,19 @@ package STM32_SVD.QUADSPI is
       --  Send instruction only once mode See Section15.3.11: Sending the
       --  instruction only once on page13. This bit has no effect when IMODE =
       --  00. This field can be written only when BUSY = 0.
-      SIOO           : QUADSPI_CCR_SIOO_Field := 16#0#;
+      SIOO           : Boolean := False;
       --  unspecified
       Reserved_29_29 : STM32_SVD.Bit := 16#0#;
       --  DDR hold Delay the data output by 1/4 of the QUADSPI output clock
       --  cycle in DDR mode: This feature is only active in DDR mode. This
       --  field can be written only when BUSY = 0.
-      DHHC           : QUADSPI_CCR_DHHC_Field := 16#0#;
+      DHHC           : Boolean := False;
       --  Double data rate mode This bit sets the DDR mode for the address,
       --  alternate byte and data phase: This field can be written only when
       --  BUSY = 0.
-      DDRM           : QUADSPI_CCR_DDRM_Field := 16#0#;
+      DDRM           : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for QUADSPI_CCR_Register use record
@@ -369,7 +340,7 @@ package STM32_SVD.QUADSPI is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for QUADSPI_PIR_Register use record
@@ -391,7 +362,7 @@ package STM32_SVD.QUADSPI is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for QUADSPI_LPTR_Register use record
@@ -452,6 +423,6 @@ package STM32_SVD.QUADSPI is
 
    --  QUADSPI
    QUADSPI_Periph : aliased QUADSPI_Peripheral
-     with Import, Address => System'To_Address (16#52005000#);
+     with Import, Address => QUADSPI_Base;
 
 end STM32_SVD.QUADSPI;

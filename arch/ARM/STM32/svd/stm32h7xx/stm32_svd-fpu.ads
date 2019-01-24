@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,44 +13,34 @@ package STM32_SVD.FPU is
    -- Registers --
    ---------------
 
-   subtype FPCCR_LSPACT_Field is STM32_SVD.Bit;
-   subtype FPCCR_USER_Field is STM32_SVD.Bit;
-   subtype FPCCR_THREAD_Field is STM32_SVD.Bit;
-   subtype FPCCR_HFRDY_Field is STM32_SVD.Bit;
-   subtype FPCCR_MMRDY_Field is STM32_SVD.Bit;
-   subtype FPCCR_BFRDY_Field is STM32_SVD.Bit;
-   subtype FPCCR_MONRDY_Field is STM32_SVD.Bit;
-   subtype FPCCR_LSPEN_Field is STM32_SVD.Bit;
-   subtype FPCCR_ASPEN_Field is STM32_SVD.Bit;
-
    --  Floating-point context control register
    type FPCCR_Register is record
       --  LSPACT
-      LSPACT        : FPCCR_LSPACT_Field := 16#0#;
+      LSPACT        : Boolean := False;
       --  USER
-      USER          : FPCCR_USER_Field := 16#0#;
+      USER          : Boolean := False;
       --  unspecified
       Reserved_2_2  : STM32_SVD.Bit := 16#0#;
       --  THREAD
-      THREAD        : FPCCR_THREAD_Field := 16#0#;
+      THREAD        : Boolean := False;
       --  HFRDY
-      HFRDY         : FPCCR_HFRDY_Field := 16#0#;
+      HFRDY         : Boolean := False;
       --  MMRDY
-      MMRDY         : FPCCR_MMRDY_Field := 16#0#;
+      MMRDY         : Boolean := False;
       --  BFRDY
-      BFRDY         : FPCCR_BFRDY_Field := 16#0#;
+      BFRDY         : Boolean := False;
       --  unspecified
       Reserved_7_7  : STM32_SVD.Bit := 16#0#;
       --  MONRDY
-      MONRDY        : FPCCR_MONRDY_Field := 16#0#;
+      MONRDY        : Boolean := False;
       --  unspecified
       Reserved_9_29 : STM32_SVD.UInt21 := 16#0#;
       --  LSPEN
-      LSPEN         : FPCCR_LSPEN_Field := 16#0#;
+      LSPEN         : Boolean := False;
       --  ASPEN
-      ASPEN         : FPCCR_ASPEN_Field := 16#0#;
+      ASPEN         : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FPCCR_Register use record
@@ -77,7 +67,7 @@ package STM32_SVD.FPU is
       --  Location of unpopulated floating-point
       ADDRESS      : FPCAR_ADDRESS_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FPCAR_Register use record
@@ -85,59 +75,46 @@ package STM32_SVD.FPU is
       ADDRESS      at 0 range 3 .. 31;
    end record;
 
-   subtype FPSCR_IOC_Field is STM32_SVD.Bit;
-   subtype FPSCR_DZC_Field is STM32_SVD.Bit;
-   subtype FPSCR_OFC_Field is STM32_SVD.Bit;
-   subtype FPSCR_UFC_Field is STM32_SVD.Bit;
-   subtype FPSCR_IXC_Field is STM32_SVD.Bit;
-   subtype FPSCR_IDC_Field is STM32_SVD.Bit;
    subtype FPSCR_RMode_Field is STM32_SVD.UInt2;
-   subtype FPSCR_FZ_Field is STM32_SVD.Bit;
-   subtype FPSCR_DN_Field is STM32_SVD.Bit;
-   subtype FPSCR_AHP_Field is STM32_SVD.Bit;
-   subtype FPSCR_V_Field is STM32_SVD.Bit;
-   subtype FPSCR_C_Field is STM32_SVD.Bit;
-   subtype FPSCR_Z_Field is STM32_SVD.Bit;
-   subtype FPSCR_N_Field is STM32_SVD.Bit;
 
    --  Floating-point status control register
    type FPSCR_Register is record
       --  Invalid operation cumulative exception bit
-      IOC            : FPSCR_IOC_Field := 16#0#;
+      IOC            : Boolean := False;
       --  Division by zero cumulative exception bit.
-      DZC            : FPSCR_DZC_Field := 16#0#;
+      DZC            : Boolean := False;
       --  Overflow cumulative exception bit
-      OFC            : FPSCR_OFC_Field := 16#0#;
+      OFC            : Boolean := False;
       --  Underflow cumulative exception bit
-      UFC            : FPSCR_UFC_Field := 16#0#;
+      UFC            : Boolean := False;
       --  Inexact cumulative exception bit
-      IXC            : FPSCR_IXC_Field := 16#0#;
+      IXC            : Boolean := False;
       --  unspecified
       Reserved_5_6   : STM32_SVD.UInt2 := 16#0#;
       --  Input denormal cumulative exception bit.
-      IDC            : FPSCR_IDC_Field := 16#0#;
+      IDC            : Boolean := False;
       --  unspecified
       Reserved_8_21  : STM32_SVD.UInt14 := 16#0#;
       --  Rounding Mode control field
       RMode          : FPSCR_RMode_Field := 16#0#;
       --  Flush-to-zero mode control bit:
-      FZ             : FPSCR_FZ_Field := 16#0#;
+      FZ             : Boolean := False;
       --  Default NaN mode control bit
-      DN             : FPSCR_DN_Field := 16#0#;
+      DN             : Boolean := False;
       --  Alternative half-precision control bit
-      AHP            : FPSCR_AHP_Field := 16#0#;
+      AHP            : Boolean := False;
       --  unspecified
       Reserved_27_27 : STM32_SVD.Bit := 16#0#;
       --  Overflow condition code flag
-      V              : FPSCR_V_Field := 16#0#;
+      V              : Boolean := False;
       --  Carry condition code flag
-      C              : FPSCR_C_Field := 16#0#;
+      C              : Boolean := False;
       --  Zero condition code flag
-      Z              : FPSCR_Z_Field := 16#0#;
+      Z              : Boolean := False;
       --  Negative condition code flag
-      N              : FPSCR_N_Field := 16#0#;
+      N              : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FPSCR_Register use record
@@ -171,7 +148,7 @@ package STM32_SVD.FPU is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPACR_Register use record
@@ -203,7 +180,7 @@ package STM32_SVD.FPU is
 
    --  Floting point unit
    FPU_Periph : aliased FPU_Peripheral
-     with Import, Address => System'To_Address (16#E000EF34#);
+     with Import, Address => FPU_Base;
 
    --  Floating point unit CPACR
    type FPU_CPACR_Peripheral is record
@@ -218,6 +195,6 @@ package STM32_SVD.FPU is
 
    --  Floating point unit CPACR
    FPU_CPACR_Periph : aliased FPU_CPACR_Peripheral
-     with Import, Address => System'To_Address (16#E000ED88#);
+     with Import, Address => FPU_CPACR_Base;
 
 end STM32_SVD.FPU;

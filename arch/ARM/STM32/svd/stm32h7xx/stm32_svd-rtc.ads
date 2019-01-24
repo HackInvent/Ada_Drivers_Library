@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -19,7 +19,6 @@ package STM32_SVD.RTC is
    subtype RTC_TR_MNT_Field is STM32_SVD.UInt3;
    subtype RTC_TR_HU_Field is STM32_SVD.UInt4;
    subtype RTC_TR_HT_Field is STM32_SVD.UInt2;
-   subtype RTC_TR_PM_Field is STM32_SVD.Bit;
 
    --  The RTC_TR is the calendar time shadow register. This register must be
    --  written in initialization mode only. Refer to Calendar initialization
@@ -44,11 +43,11 @@ package STM32_SVD.RTC is
       --  Hour tens in BCD format
       HT             : RTC_TR_HT_Field := 16#0#;
       --  AM/PM notation
-      PM             : RTC_TR_PM_Field := 16#0#;
+      PM             : Boolean := False;
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_TR_Register use record
@@ -67,7 +66,6 @@ package STM32_SVD.RTC is
    subtype RTC_DR_DU_Field is STM32_SVD.UInt4;
    subtype RTC_DR_DT_Field is STM32_SVD.UInt2;
    subtype RTC_DR_MU_Field is STM32_SVD.UInt4;
-   subtype RTC_DR_MT_Field is STM32_SVD.Bit;
    subtype RTC_DR_WDU_Field is STM32_SVD.UInt3;
    subtype RTC_DR_YU_Field is STM32_SVD.UInt4;
    subtype RTC_DR_YT_Field is STM32_SVD.UInt4;
@@ -87,7 +85,7 @@ package STM32_SVD.RTC is
       --  Month units in BCD format
       MU             : RTC_DR_MU_Field := 16#1#;
       --  Month tens in BCD format
-      MT             : RTC_DR_MT_Field := 16#0#;
+      MT             : Boolean := False;
       --  Week day units
       WDU            : RTC_DR_WDU_Field := 16#1#;
       --  Year units in BCD format
@@ -97,7 +95,7 @@ package STM32_SVD.RTC is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_DR_Register use record
@@ -113,26 +111,7 @@ package STM32_SVD.RTC is
    end record;
 
    subtype RTC_CR_WUCKSEL_Field is STM32_SVD.UInt3;
-   subtype RTC_CR_TSEDGE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_REFCKON_Field is STM32_SVD.Bit;
-   subtype RTC_CR_BYPSHAD_Field is STM32_SVD.Bit;
-   subtype RTC_CR_FMT_Field is STM32_SVD.Bit;
-   subtype RTC_CR_ALRAE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_ALRBE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_WUTE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_TSE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_ALRAIE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_ALRBIE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_WUTIE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_TSIE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_ADD1H_Field is STM32_SVD.Bit;
-   subtype RTC_CR_SUB1H_Field is STM32_SVD.Bit;
-   subtype RTC_CR_BKP_Field is STM32_SVD.Bit;
-   subtype RTC_CR_COSEL_Field is STM32_SVD.Bit;
-   subtype RTC_CR_POL_Field is STM32_SVD.Bit;
    subtype RTC_CR_OSEL_Field is STM32_SVD.UInt2;
-   subtype RTC_CR_COE_Field is STM32_SVD.Bit;
-   subtype RTC_CR_ITSE_Field is STM32_SVD.Bit;
 
    --  RTC control register
    type RTC_CR_Register is record
@@ -140,65 +119,65 @@ package STM32_SVD.RTC is
       WUCKSEL        : RTC_CR_WUCKSEL_Field := 16#0#;
       --  Time-stamp event active edge TSE must be reset when TSEDGE is changed
       --  to avoid unwanted TSF setting.
-      TSEDGE         : RTC_CR_TSEDGE_Field := 16#0#;
+      TSEDGE         : Boolean := False;
       --  RTC_REFIN reference clock detection enable (50 or 60Hz) Note:
       --  PREDIV_S must be 0x00FF.
-      REFCKON        : RTC_CR_REFCKON_Field := 16#0#;
+      REFCKON        : Boolean := False;
       --  Bypass the shadow registers Note: If the frequency of the APB clock
       --  is less than seven times the frequency of RTCCLK, BYPSHAD must be set
       --  to 1.
-      BYPSHAD        : RTC_CR_BYPSHAD_Field := 16#0#;
+      BYPSHAD        : Boolean := False;
       --  Hour format
-      FMT            : RTC_CR_FMT_Field := 16#0#;
+      FMT            : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  Alarm A enable
-      ALRAE          : RTC_CR_ALRAE_Field := 16#0#;
+      ALRAE          : Boolean := False;
       --  Alarm B enable
-      ALRBE          : RTC_CR_ALRBE_Field := 16#0#;
+      ALRBE          : Boolean := False;
       --  Wakeup timer enable
-      WUTE           : RTC_CR_WUTE_Field := 16#0#;
+      WUTE           : Boolean := False;
       --  timestamp enable
-      TSE            : RTC_CR_TSE_Field := 16#0#;
+      TSE            : Boolean := False;
       --  Alarm A interrupt enable
-      ALRAIE         : RTC_CR_ALRAIE_Field := 16#0#;
+      ALRAIE         : Boolean := False;
       --  Alarm B interrupt enable
-      ALRBIE         : RTC_CR_ALRBIE_Field := 16#0#;
+      ALRBIE         : Boolean := False;
       --  Wakeup timer interrupt enable
-      WUTIE          : RTC_CR_WUTIE_Field := 16#0#;
+      WUTIE          : Boolean := False;
       --  Time-stamp interrupt enable
-      TSIE           : RTC_CR_TSIE_Field := 16#0#;
+      TSIE           : Boolean := False;
       --  Write-only. Add 1 hour (summer time change) When this bit is set
       --  outside initialization mode, 1 hour is added to the calendar time.
       --  This bit is always read as 0.
-      ADD1H          : RTC_CR_ADD1H_Field := 16#0#;
+      ADD1H          : Boolean := False;
       --  Write-only. Subtract 1 hour (winter time change) When this bit is set
       --  outside initialization mode, 1 hour is subtracted to the calendar
       --  time if the current hour is not 0. This bit is always read as 0.
       --  Setting this bit has no effect when current hour is 0.
-      SUB1H          : RTC_CR_SUB1H_Field := 16#0#;
+      SUB1H          : Boolean := False;
       --  Backup This bit can be written by the user to memorize whether the
       --  daylight saving time change has been performed or not.
-      BKP            : RTC_CR_BKP_Field := 16#0#;
+      BKP            : Boolean := False;
       --  Calibration output selection When COE=1, this bit selects which
       --  signal is output on RTC_CALIB. These frequencies are valid for RTCCLK
       --  at 32.768 kHz and prescalers at their default values (PREDIV_A=127
       --  and PREDIV_S=255). Refer to Section24.3.15: Calibration clock output
-      COSEL          : RTC_CR_COSEL_Field := 16#0#;
+      COSEL          : Boolean := False;
       --  Output polarity This bit is used to configure the polarity of
       --  RTC_ALARM output
-      POL            : RTC_CR_POL_Field := 16#0#;
+      POL            : Boolean := False;
       --  Output selection These bits are used to select the flag to be routed
       --  to RTC_ALARM output
       OSEL           : RTC_CR_OSEL_Field := 16#0#;
       --  Calibration output enable This bit enables the RTC_CALIB output
-      COE            : RTC_CR_COE_Field := 16#0#;
+      COE            : Boolean := False;
       --  timestamp on internal event enable
-      ITSE           : RTC_CR_ITSE_Field := 16#0#;
+      ITSE           : Boolean := False;
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_CR_Register use record
@@ -227,25 +206,6 @@ package STM32_SVD.RTC is
       Reserved_25_31 at 0 range 25 .. 31;
    end record;
 
-   subtype RTC_ISR_ALRAWF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_ALRBWF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_WUTWF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_SHPF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_INITS_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_RSF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_INITF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_INIT_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_ALRAF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_ALRBF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_WUTF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_TSF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_TSOVF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_TAMP1F_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_TAMP2F_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_TAMP3F_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_RECALPF_Field is STM32_SVD.Bit;
-   subtype RTC_ISR_ITSF_Field is STM32_SVD.Bit;
-
    --  This register is write protected (except for RTC_ISR[13:8] bits). The
    --  write access procedure is described in RTC register write protection on
    --  page9.
@@ -253,26 +213,26 @@ package STM32_SVD.RTC is
       --  Read-only. Alarm A write flag This bit is set by hardware when Alarm
       --  A values can be changed, after the ALRAE bit has been set to 0 in
       --  RTC_CR. It is cleared by hardware in initialization mode.
-      ALRAWF         : RTC_ISR_ALRAWF_Field := 16#1#;
+      ALRAWF         : Boolean := True;
       --  Read-only. Alarm B write flag This bit is set by hardware when Alarm
       --  B values can be changed, after the ALRBE bit has been set to 0 in
       --  RTC_CR. It is cleared by hardware in initialization mode.
-      ALRBWF         : RTC_ISR_ALRBWF_Field := 16#1#;
+      ALRBWF         : Boolean := True;
       --  Read-only. Wakeup timer write flag This bit is set by hardware up to
       --  2 RTCCLK cycles after the WUTE bit has been set to 0 in RTC_CR, and
       --  is cleared up to 2 RTCCLK cycles after the WUTE bit has been set to
       --  1. The wakeup timer values can be changed when WUTE bit is cleared
       --  and WUTWF is set.
-      WUTWF          : RTC_ISR_WUTWF_Field := 16#1#;
+      WUTWF          : Boolean := True;
       --  Read-only. Shift operation pending This flag is set by hardware as
       --  soon as a shift operation is initiated by a write to the RTC_SHIFTR
       --  register. It is cleared by hardware when the corresponding shift
       --  operation has been executed. Writing to the SHPF bit has no effect.
-      SHPF           : RTC_ISR_SHPF_Field := 16#0#;
+      SHPF           : Boolean := False;
       --  Read-only. Initialization status flag This bit is set by hardware
       --  when the calendar year field is different from 0 (Backup domain reset
       --  state).
-      INITS          : RTC_ISR_INITS_Field := 16#0#;
+      INITS          : Boolean := False;
       --  Registers synchronization flag This bit is set by hardware each time
       --  the calendar registers are copied into the shadow registers
       --  (RTC_SSRx, RTC_TRx and RTC_DRx). This bit is cleared by hardware in
@@ -280,60 +240,60 @@ package STM32_SVD.RTC is
       --  when in bypass shadow register mode (BYPSHAD=1). This bit can also be
       --  cleared by software. It is cleared either by software or by hardware
       --  in initialization mode.
-      RSF            : RTC_ISR_RSF_Field := 16#0#;
+      RSF            : Boolean := False;
       --  Read-only. Initialization flag When this bit is set to 1, the RTC is
       --  in initialization state, and the time, date and prescaler registers
       --  can be updated.
-      INITF          : RTC_ISR_INITF_Field := 16#0#;
+      INITF          : Boolean := False;
       --  Initialization mode
-      INIT           : RTC_ISR_INIT_Field := 16#0#;
+      INIT           : Boolean := False;
       --  Alarm A flag This flag is set by hardware when the time/date
       --  registers (RTC_TR and RTC_DR) match the Alarm A register
       --  (RTC_ALRMAR). This flag is cleared by software by writing 0.
-      ALRAF          : RTC_ISR_ALRAF_Field := 16#0#;
+      ALRAF          : Boolean := False;
       --  Alarm B flag This flag is set by hardware when the time/date
       --  registers (RTC_TR and RTC_DR) match the Alarm B register
       --  (RTC_ALRMBR). This flag is cleared by software by writing 0.
-      ALRBF          : RTC_ISR_ALRBF_Field := 16#0#;
+      ALRBF          : Boolean := False;
       --  Wakeup timer flag This flag is set by hardware when the wakeup
       --  auto-reload counter reaches 0. This flag is cleared by software by
       --  writing 0. This flag must be cleared by software at least 1.5 RTCCLK
       --  periods before WUTF is set to 1 again.
-      WUTF           : RTC_ISR_WUTF_Field := 16#0#;
+      WUTF           : Boolean := False;
       --  Time-stamp flag This flag is set by hardware when a time-stamp event
       --  occurs. This flag is cleared by software by writing 0.
-      TSF            : RTC_ISR_TSF_Field := 16#0#;
+      TSF            : Boolean := False;
       --  Time-stamp overflow flag This flag is set by hardware when a
       --  time-stamp event occurs while TSF is already set. This flag is
       --  cleared by software by writing 0. It is recommended to check and then
       --  clear TSOVF only after clearing the TSF bit. Otherwise, an overflow
       --  might not be noticed if a time-stamp event occurs immediately before
       --  the TSF bit is cleared.
-      TSOVF          : RTC_ISR_TSOVF_Field := 16#0#;
+      TSOVF          : Boolean := False;
       --  RTC_TAMP1 detection flag This flag is set by hardware when a tamper
       --  detection event is detected on the RTC_TAMP1 input. It is cleared by
       --  software writing 0
-      TAMP1F         : RTC_ISR_TAMP1F_Field := 16#0#;
+      TAMP1F         : Boolean := False;
       --  RTC_TAMP2 detection flag This flag is set by hardware when a tamper
       --  detection event is detected on the RTC_TAMP2 input. It is cleared by
       --  software writing 0
-      TAMP2F         : RTC_ISR_TAMP2F_Field := 16#0#;
+      TAMP2F         : Boolean := False;
       --  RTC_TAMP3 detection flag This flag is set by hardware when a tamper
       --  detection event is detected on the RTC_TAMP3 input. It is cleared by
       --  software writing 0
-      TAMP3F         : RTC_ISR_TAMP3F_Field := 16#0#;
+      TAMP3F         : Boolean := False;
       --  Read-only. Recalibration pending Flag The RECALPF status flag is
       --  automatically set to 1 when software writes to the RTC_CALR register,
       --  indicating that the RTC_CALR register is blocked. When the new
       --  calibration settings are taken into account, this bit returns to 0.
       --  Refer to Re-calibration on-the-fly.
-      RECALPF        : RTC_ISR_RECALPF_Field := 16#0#;
+      RECALPF        : Boolean := False;
       --  Internal tTime-stamp flag
-      ITSF           : RTC_ISR_ITSF_Field := 16#0#;
+      ITSF           : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_ISR_Register use record
@@ -378,7 +338,7 @@ package STM32_SVD.RTC is
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_PRER_Register use record
@@ -406,7 +366,7 @@ package STM32_SVD.RTC is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_WUTR_Register use record
@@ -416,18 +376,12 @@ package STM32_SVD.RTC is
 
    subtype RTC_ALRMAR_SU_Field is STM32_SVD.UInt4;
    subtype RTC_ALRMAR_ST_Field is STM32_SVD.UInt3;
-   subtype RTC_ALRMAR_MSK1_Field is STM32_SVD.Bit;
    subtype RTC_ALRMAR_MNU_Field is STM32_SVD.UInt4;
    subtype RTC_ALRMAR_MNT_Field is STM32_SVD.UInt3;
-   subtype RTC_ALRMAR_MSK2_Field is STM32_SVD.Bit;
    subtype RTC_ALRMAR_HU_Field is STM32_SVD.UInt4;
    subtype RTC_ALRMAR_HT_Field is STM32_SVD.UInt2;
-   subtype RTC_ALRMAR_PM_Field is STM32_SVD.Bit;
-   subtype RTC_ALRMAR_MSK3_Field is STM32_SVD.Bit;
    subtype RTC_ALRMAR_DU_Field is STM32_SVD.UInt4;
    subtype RTC_ALRMAR_DT_Field is STM32_SVD.UInt2;
-   subtype RTC_ALRMAR_WDSEL_Field is STM32_SVD.Bit;
-   subtype RTC_ALRMAR_MSK4_Field is STM32_SVD.Bit;
 
    --  This register can be written only when ALRAWF is set to 1 in RTC_ISR, or
    --  in initialization mode.This register is write protected. The write
@@ -438,31 +392,31 @@ package STM32_SVD.RTC is
       --  Second tens in BCD format.
       ST    : RTC_ALRMAR_ST_Field := 16#0#;
       --  Alarm A seconds mask
-      MSK1  : RTC_ALRMAR_MSK1_Field := 16#0#;
+      MSK1  : Boolean := False;
       --  Minute units in BCD format.
       MNU   : RTC_ALRMAR_MNU_Field := 16#0#;
       --  Minute tens in BCD format.
       MNT   : RTC_ALRMAR_MNT_Field := 16#0#;
       --  Alarm A minutes mask
-      MSK2  : RTC_ALRMAR_MSK2_Field := 16#0#;
+      MSK2  : Boolean := False;
       --  Hour units in BCD format.
       HU    : RTC_ALRMAR_HU_Field := 16#0#;
       --  Hour tens in BCD format.
       HT    : RTC_ALRMAR_HT_Field := 16#0#;
       --  AM/PM notation
-      PM    : RTC_ALRMAR_PM_Field := 16#0#;
+      PM    : Boolean := False;
       --  Alarm A hours mask
-      MSK3  : RTC_ALRMAR_MSK3_Field := 16#0#;
+      MSK3  : Boolean := False;
       --  Date units or day in BCD format.
       DU    : RTC_ALRMAR_DU_Field := 16#0#;
       --  Date tens in BCD format.
       DT    : RTC_ALRMAR_DT_Field := 16#0#;
       --  Week day selection
-      WDSEL : RTC_ALRMAR_WDSEL_Field := 16#0#;
+      WDSEL : Boolean := False;
       --  Alarm A date mask
-      MSK4  : RTC_ALRMAR_MSK4_Field := 16#0#;
+      MSK4  : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_ALRMAR_Register use record
@@ -484,18 +438,12 @@ package STM32_SVD.RTC is
 
    subtype RTC_ALRMBR_SU_Field is STM32_SVD.UInt4;
    subtype RTC_ALRMBR_ST_Field is STM32_SVD.UInt3;
-   subtype RTC_ALRMBR_MSK1_Field is STM32_SVD.Bit;
    subtype RTC_ALRMBR_MNU_Field is STM32_SVD.UInt4;
    subtype RTC_ALRMBR_MNT_Field is STM32_SVD.UInt3;
-   subtype RTC_ALRMBR_MSK2_Field is STM32_SVD.Bit;
    subtype RTC_ALRMBR_HU_Field is STM32_SVD.UInt4;
    subtype RTC_ALRMBR_HT_Field is STM32_SVD.UInt2;
-   subtype RTC_ALRMBR_PM_Field is STM32_SVD.Bit;
-   subtype RTC_ALRMBR_MSK3_Field is STM32_SVD.Bit;
    subtype RTC_ALRMBR_DU_Field is STM32_SVD.UInt4;
    subtype RTC_ALRMBR_DT_Field is STM32_SVD.UInt2;
-   subtype RTC_ALRMBR_WDSEL_Field is STM32_SVD.Bit;
-   subtype RTC_ALRMBR_MSK4_Field is STM32_SVD.Bit;
 
    --  This register can be written only when ALRBWF is set to 1 in RTC_ISR, or
    --  in initialization mode.This register is write protected. The write
@@ -506,31 +454,31 @@ package STM32_SVD.RTC is
       --  Second tens in BCD format
       ST    : RTC_ALRMBR_ST_Field := 16#0#;
       --  Alarm B seconds mask
-      MSK1  : RTC_ALRMBR_MSK1_Field := 16#0#;
+      MSK1  : Boolean := False;
       --  Minute units in BCD format
       MNU   : RTC_ALRMBR_MNU_Field := 16#0#;
       --  Minute tens in BCD format
       MNT   : RTC_ALRMBR_MNT_Field := 16#0#;
       --  Alarm B minutes mask
-      MSK2  : RTC_ALRMBR_MSK2_Field := 16#0#;
+      MSK2  : Boolean := False;
       --  Hour units in BCD format
       HU    : RTC_ALRMBR_HU_Field := 16#0#;
       --  Hour tens in BCD format
       HT    : RTC_ALRMBR_HT_Field := 16#0#;
       --  AM/PM notation
-      PM    : RTC_ALRMBR_PM_Field := 16#0#;
+      PM    : Boolean := False;
       --  Alarm B hours mask
-      MSK3  : RTC_ALRMBR_MSK3_Field := 16#0#;
+      MSK3  : Boolean := False;
       --  Date units or day in BCD format
       DU    : RTC_ALRMBR_DU_Field := 16#0#;
       --  Date tens in BCD format
       DT    : RTC_ALRMBR_DT_Field := 16#0#;
       --  Week day selection
-      WDSEL : RTC_ALRMBR_WDSEL_Field := 16#0#;
+      WDSEL : Boolean := False;
       --  Alarm B date mask
-      MSK4  : RTC_ALRMBR_MSK4_Field := 16#0#;
+      MSK4  : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_ALRMBR_Register use record
@@ -562,7 +510,7 @@ package STM32_SVD.RTC is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_WPR_Register use record
@@ -584,7 +532,7 @@ package STM32_SVD.RTC is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_SSR_Register use record
@@ -593,7 +541,6 @@ package STM32_SVD.RTC is
    end record;
 
    subtype RTC_SHIFTR_SUBFS_Field is STM32_SVD.UInt15;
-   subtype RTC_SHIFTR_ADD1S_Field is STM32_SVD.Bit;
 
    --  This register is write protected. The write access procedure is
    --  described in RTC register write protection on page9.
@@ -618,9 +565,9 @@ package STM32_SVD.RTC is
       --  pending (when SHPF=1, in RTC_ISR). This function is intended to be
       --  used with SUBFS (see description below) in order to effectively add a
       --  fraction of a second to the clock in an atomic operation.
-      ADD1S          : RTC_SHIFTR_ADD1S_Field := 16#0#;
+      ADD1S          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_SHIFTR_Register use record
@@ -635,7 +582,6 @@ package STM32_SVD.RTC is
    subtype RTC_TSTR_MNT_Field is STM32_SVD.UInt3;
    subtype RTC_TSTR_HU_Field is STM32_SVD.UInt4;
    subtype RTC_TSTR_HT_Field is STM32_SVD.UInt2;
-   subtype RTC_TSTR_PM_Field is STM32_SVD.Bit;
 
    --  The content of this register is valid only when TSF is set to 1 in
    --  RTC_ISR. It is cleared when TSF bit is reset.
@@ -657,11 +603,11 @@ package STM32_SVD.RTC is
       --  Read-only. Hour tens in BCD format.
       HT             : RTC_TSTR_HT_Field;
       --  Read-only. AM/PM notation
-      PM             : RTC_TSTR_PM_Field;
+      PM             : Boolean;
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_TSTR_Register use record
@@ -680,7 +626,6 @@ package STM32_SVD.RTC is
    subtype RTC_TSDR_DU_Field is STM32_SVD.UInt4;
    subtype RTC_TSDR_DT_Field is STM32_SVD.UInt2;
    subtype RTC_TSDR_MU_Field is STM32_SVD.UInt4;
-   subtype RTC_TSDR_MT_Field is STM32_SVD.Bit;
    subtype RTC_TSDR_WDU_Field is STM32_SVD.UInt3;
 
    --  The content of this register is valid only when TSF is set to 1 in
@@ -695,13 +640,13 @@ package STM32_SVD.RTC is
       --  Read-only. Month units in BCD format
       MU             : RTC_TSDR_MU_Field;
       --  Read-only. Month tens in BCD format
-      MT             : RTC_TSDR_MT_Field;
+      MT             : Boolean;
       --  Read-only. Week day units
       WDU            : RTC_TSDR_WDU_Field;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_TSDR_Register use record
@@ -725,7 +670,7 @@ package STM32_SVD.RTC is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_TSSSR_Register use record
@@ -734,9 +679,6 @@ package STM32_SVD.RTC is
    end record;
 
    subtype RTC_CALR_CALM_Field is STM32_SVD.UInt9;
-   subtype RTC_CALR_CALW16_Field is STM32_SVD.Bit;
-   subtype RTC_CALR_CALW8_Field is STM32_SVD.Bit;
-   subtype RTC_CALR_CALP_Field is STM32_SVD.Bit;
 
    --  This register is write protected. The write access procedure is
    --  described in RTC register write protection on page9.
@@ -754,23 +696,23 @@ package STM32_SVD.RTC is
       --  16-second calibration cycle period is selected.This bit must not be
       --  set to 1 if CALW8=1. Note: CALM[0] is stuck at 0 when CALW16= 1.
       --  Refer to Section24.3.12: RTC smooth digital calibration.
-      CALW16         : RTC_CALR_CALW16_Field := 16#0#;
+      CALW16         : Boolean := False;
       --  Use an 8-second calibration cycle period When CALW8 is set to 1, the
       --  8-second calibration cycle period is selected. Note: CALM[1:0] are
       --  stuck at 00; when CALW8= 1. Refer to Section24.3.12: RTC smooth
       --  digital calibration.
-      CALW8          : RTC_CALR_CALW8_Field := 16#0#;
+      CALW8          : Boolean := False;
       --  Increase frequency of RTC by 488.5 ppm This feature is intended to be
       --  used in conjunction with CALM, which lowers the frequency of the
       --  calendar with a fine resolution. if the input frequency is 32768 Hz,
       --  the number of RTCCLK pulses added during a 32-second window is
       --  calculated as follows: (512 * CALP) - CALM. Refer to Section24.3.12:
       --  RTC smooth digital calibration.
-      CALP           : RTC_CALR_CALP_Field := 16#0#;
+      CALP           : Boolean := False;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_CALR_Register use record
@@ -782,47 +724,29 @@ package STM32_SVD.RTC is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype RTC_TAMPCR_TAMP1E_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP1TRG_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMPIE_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP2E_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP2TRG_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP3E_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP3TRG_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMPTS_Field is STM32_SVD.Bit;
    subtype RTC_TAMPCR_TAMPFREQ_Field is STM32_SVD.UInt3;
    subtype RTC_TAMPCR_TAMPFLT_Field is STM32_SVD.UInt2;
    subtype RTC_TAMPCR_TAMPPRCH_Field is STM32_SVD.UInt2;
-   subtype RTC_TAMPCR_TAMPPUDIS_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP1IE_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP1NOERASE_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP1MF_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP2IE_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP2NOERASE_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP2MF_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP3IE_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP3NOERASE_Field is STM32_SVD.Bit;
-   subtype RTC_TAMPCR_TAMP3MF_Field is STM32_SVD.Bit;
 
    --  RTC tamper and alternate function configuration register
    type RTC_TAMPCR_Register is record
       --  RTC_TAMP1 input detection enable
-      TAMP1E         : RTC_TAMPCR_TAMP1E_Field := 16#0#;
+      TAMP1E         : Boolean := False;
       --  Active level for RTC_TAMP1 input If TAMPFLT != 00 if TAMPFLT = 00:
-      TAMP1TRG       : RTC_TAMPCR_TAMP1TRG_Field := 16#0#;
+      TAMP1TRG       : Boolean := False;
       --  Tamper interrupt enable
-      TAMPIE         : RTC_TAMPCR_TAMPIE_Field := 16#0#;
+      TAMPIE         : Boolean := False;
       --  RTC_TAMP2 input detection enable
-      TAMP2E         : RTC_TAMPCR_TAMP2E_Field := 16#0#;
+      TAMP2E         : Boolean := False;
       --  Active level for RTC_TAMP2 input if TAMPFLT != 00: if TAMPFLT = 00:
-      TAMP2TRG       : RTC_TAMPCR_TAMP2TRG_Field := 16#0#;
+      TAMP2TRG       : Boolean := False;
       --  RTC_TAMP3 detection enable
-      TAMP3E         : RTC_TAMPCR_TAMP3E_Field := 16#0#;
+      TAMP3E         : Boolean := False;
       --  Active level for RTC_TAMP3 input if TAMPFLT != 00: if TAMPFLT = 00:
-      TAMP3TRG       : RTC_TAMPCR_TAMP3TRG_Field := 16#0#;
+      TAMP3TRG       : Boolean := False;
       --  Activate timestamp on tamper detection event TAMPTS is valid even if
       --  TSE=0 in the RTC_CR register.
-      TAMPTS         : RTC_TAMPCR_TAMPTS_Field := 16#0#;
+      TAMPTS         : Boolean := False;
       --  Tamper sampling frequency Determines the frequency at which each of
       --  the RTC_TAMPx inputs are sampled.
       TAMPFREQ       : RTC_TAMPCR_TAMPFREQ_Field := 16#0#;
@@ -837,29 +761,29 @@ package STM32_SVD.RTC is
       TAMPPRCH       : RTC_TAMPCR_TAMPPRCH_Field := 16#0#;
       --  RTC_TAMPx pull-up disable This bit determines if each of the
       --  RTC_TAMPx pins are pre-charged before each sample.
-      TAMPPUDIS      : RTC_TAMPCR_TAMPPUDIS_Field := 16#0#;
+      TAMPPUDIS      : Boolean := False;
       --  Tamper 1 interrupt enable
-      TAMP1IE        : RTC_TAMPCR_TAMP1IE_Field := 16#0#;
+      TAMP1IE        : Boolean := False;
       --  Tamper 1 no erase
-      TAMP1NOERASE   : RTC_TAMPCR_TAMP1NOERASE_Field := 16#0#;
+      TAMP1NOERASE   : Boolean := False;
       --  Tamper 1 mask flag
-      TAMP1MF        : RTC_TAMPCR_TAMP1MF_Field := 16#0#;
+      TAMP1MF        : Boolean := False;
       --  Tamper 2 interrupt enable
-      TAMP2IE        : RTC_TAMPCR_TAMP2IE_Field := 16#0#;
+      TAMP2IE        : Boolean := False;
       --  Tamper 2 no erase
-      TAMP2NOERASE   : RTC_TAMPCR_TAMP2NOERASE_Field := 16#0#;
+      TAMP2NOERASE   : Boolean := False;
       --  Tamper 2 mask flag
-      TAMP2MF        : RTC_TAMPCR_TAMP2MF_Field := 16#0#;
+      TAMP2MF        : Boolean := False;
       --  Tamper 3 interrupt enable
-      TAMP3IE        : RTC_TAMPCR_TAMP3IE_Field := 16#0#;
+      TAMP3IE        : Boolean := False;
       --  Tamper 3 no erase
-      TAMP3NOERASE   : RTC_TAMPCR_TAMP3NOERASE_Field := 16#0#;
+      TAMP3NOERASE   : Boolean := False;
       --  Tamper 3 mask flag
-      TAMP3MF        : RTC_TAMPCR_TAMP3MF_Field := 16#0#;
+      TAMP3MF        : Boolean := False;
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_TAMPCR_Register use record
@@ -908,7 +832,7 @@ package STM32_SVD.RTC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_ALRMASSR_Register use record
@@ -939,7 +863,7 @@ package STM32_SVD.RTC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_ALRMBSSR_Register use record
@@ -949,19 +873,16 @@ package STM32_SVD.RTC is
       Reserved_28_31 at 0 range 28 .. 31;
    end record;
 
-   subtype RTC_OR_RTC_ALARM_TYPE_Field is STM32_SVD.Bit;
-   subtype RTC_OR_RTC_OUT_RMP_Field is STM32_SVD.Bit;
-
    --  RTC option register
    type RTC_OR_Register is record
       --  RTC_ALARM output type on PC13
-      RTC_ALARM_TYPE : RTC_OR_RTC_ALARM_TYPE_Field := 16#0#;
+      RTC_ALARM_TYPE : Boolean := False;
       --  RTC_OUT remap
-      RTC_OUT_RMP    : RTC_OR_RTC_OUT_RMP_Field := 16#0#;
+      RTC_OUT_RMP    : Boolean := False;
       --  unspecified
       Reserved_2_31  : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RTC_OR_Register use record
@@ -1170,6 +1091,6 @@ package STM32_SVD.RTC is
 
    --  RTC
    RTC_Periph : aliased RTC_Peripheral
-     with Import, Address => System'To_Address (16#58004000#);
+     with Import, Address => RTC_Base;
 
 end STM32_SVD.RTC;

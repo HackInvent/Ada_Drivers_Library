@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,21 +13,17 @@ package STM32_SVD.CRYP is
    -- Registers --
    ---------------
 
-   subtype CR_ALGODIR_Field is STM32_SVD.Bit;
    subtype CR_ALGOMODE0_Field is STM32_SVD.UInt3;
    subtype CR_DATATYPE_Field is STM32_SVD.UInt2;
    subtype CR_KEYSIZE_Field is STM32_SVD.UInt2;
-   subtype CR_FFLUSH_Field is STM32_SVD.Bit;
-   subtype CR_CRYPEN_Field is STM32_SVD.Bit;
    subtype CR_GCM_CCMPH_Field is STM32_SVD.UInt2;
-   subtype CR_ALGOMODE3_Field is STM32_SVD.Bit;
 
    --  control register
    type CR_Register is record
       --  unspecified
       Reserved_0_1   : STM32_SVD.UInt2 := 16#0#;
       --  Algorithm direction
-      ALGODIR        : CR_ALGODIR_Field := 16#0#;
+      ALGODIR        : Boolean := False;
       --  Algorithm mode
       ALGOMODE0      : CR_ALGOMODE0_Field := 16#0#;
       --  Data type selection
@@ -37,19 +33,19 @@ package STM32_SVD.CRYP is
       --  unspecified
       Reserved_10_13 : STM32_SVD.UInt4 := 16#0#;
       --  Write-only. FIFO flush
-      FFLUSH         : CR_FFLUSH_Field := 16#0#;
+      FFLUSH         : Boolean := False;
       --  Cryptographic processor enable
-      CRYPEN         : CR_CRYPEN_Field := 16#0#;
+      CRYPEN         : Boolean := False;
       --  GCM_CCMPH
       GCM_CCMPH      : CR_GCM_CCMPH_Field := 16#0#;
       --  unspecified
       Reserved_18_18 : STM32_SVD.Bit := 16#0#;
       --  ALGOMODE
-      ALGOMODE3      : CR_ALGOMODE3_Field := 16#0#;
+      ALGOMODE3      : Boolean := False;
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -67,28 +63,22 @@ package STM32_SVD.CRYP is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   subtype SR_IFEM_Field is STM32_SVD.Bit;
-   subtype SR_IFNF_Field is STM32_SVD.Bit;
-   subtype SR_OFNE_Field is STM32_SVD.Bit;
-   subtype SR_OFFU_Field is STM32_SVD.Bit;
-   subtype SR_BUSY_Field is STM32_SVD.Bit;
-
    --  status register
    type SR_Register is record
       --  Read-only. Input FIFO empty
-      IFEM          : SR_IFEM_Field;
+      IFEM          : Boolean;
       --  Read-only. Input FIFO not full
-      IFNF          : SR_IFNF_Field;
+      IFNF          : Boolean;
       --  Read-only. Output FIFO not empty
-      OFNE          : SR_OFNE_Field;
+      OFNE          : Boolean;
       --  Read-only. Output FIFO full
-      OFFU          : SR_OFFU_Field;
+      OFFU          : Boolean;
       --  Read-only. Busy bit
-      BUSY          : SR_BUSY_Field;
+      BUSY          : Boolean;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register use record
@@ -100,19 +90,16 @@ package STM32_SVD.CRYP is
       Reserved_5_31 at 0 range 5 .. 31;
    end record;
 
-   subtype DMACR_DIEN_Field is STM32_SVD.Bit;
-   subtype DMACR_DOEN_Field is STM32_SVD.Bit;
-
    --  DMA control register
    type DMACR_Register is record
       --  DMA input enable
-      DIEN          : DMACR_DIEN_Field := 16#0#;
+      DIEN          : Boolean := False;
       --  DMA output enable
-      DOEN          : DMACR_DOEN_Field := 16#0#;
+      DOEN          : Boolean := False;
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DMACR_Register use record
@@ -121,19 +108,16 @@ package STM32_SVD.CRYP is
       Reserved_2_31 at 0 range 2 .. 31;
    end record;
 
-   subtype IMSCR_INIM_Field is STM32_SVD.Bit;
-   subtype IMSCR_OUTIM_Field is STM32_SVD.Bit;
-
    --  interrupt mask set/clear register
    type IMSCR_Register is record
       --  Input FIFO service interrupt mask
-      INIM          : IMSCR_INIM_Field := 16#0#;
+      INIM          : Boolean := False;
       --  Output FIFO service interrupt mask
-      OUTIM         : IMSCR_OUTIM_Field := 16#0#;
+      OUTIM         : Boolean := False;
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IMSCR_Register use record
@@ -142,19 +126,16 @@ package STM32_SVD.CRYP is
       Reserved_2_31 at 0 range 2 .. 31;
    end record;
 
-   subtype RISR_INRIS_Field is STM32_SVD.Bit;
-   subtype RISR_OUTRIS_Field is STM32_SVD.Bit;
-
    --  raw interrupt status register
    type RISR_Register is record
       --  Read-only. Input FIFO service raw interrupt status
-      INRIS         : RISR_INRIS_Field;
+      INRIS         : Boolean;
       --  Read-only. Output FIFO service raw interrupt status
-      OUTRIS        : RISR_OUTRIS_Field;
+      OUTRIS        : Boolean;
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for RISR_Register use record
@@ -163,19 +144,16 @@ package STM32_SVD.CRYP is
       Reserved_2_31 at 0 range 2 .. 31;
    end record;
 
-   subtype MISR_INMIS_Field is STM32_SVD.Bit;
-   subtype MISR_OUTMIS_Field is STM32_SVD.Bit;
-
    --  masked interrupt status register
    type MISR_Register is record
       --  Read-only. Input FIFO service masked interrupt status
-      INMIS         : MISR_INMIS_Field;
+      INMIS         : Boolean;
       --  Read-only. Output FIFO service masked interrupt status
-      OUTMIS        : MISR_OUTMIS_Field;
+      OUTMIS        : Boolean;
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for MISR_Register use record
@@ -184,11 +162,8 @@ package STM32_SVD.CRYP is
       Reserved_2_31 at 0 range 2 .. 31;
    end record;
 
-   --  K0LR_b array element
-   subtype K0LR_b_Element is STM32_SVD.Bit;
-
    --  K0LR_b array
-   type K0LR_b_Field_Array is array (224 .. 255) of K0LR_b_Element
+   type K0LR_b_Field_Array is array (224 .. 255) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  key registers
@@ -204,7 +179,7 @@ package STM32_SVD.CRYP is
             Arr : K0LR_b_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for K0LR_Register use record
@@ -212,11 +187,8 @@ package STM32_SVD.CRYP is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  K0RR_b array element
-   subtype K0RR_b_Element is STM32_SVD.Bit;
-
    --  K0RR_b array
-   type K0RR_b_Field_Array is array (192 .. 223) of K0RR_b_Element
+   type K0RR_b_Field_Array is array (192 .. 223) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  key registers
@@ -232,7 +204,7 @@ package STM32_SVD.CRYP is
             Arr : K0RR_b_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for K0RR_Register use record
@@ -240,11 +212,8 @@ package STM32_SVD.CRYP is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  K1LR_b array element
-   subtype K1LR_b_Element is STM32_SVD.Bit;
-
    --  K1LR_b array
-   type K1LR_b_Field_Array is array (160 .. 191) of K1LR_b_Element
+   type K1LR_b_Field_Array is array (160 .. 191) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  key registers
@@ -260,7 +229,7 @@ package STM32_SVD.CRYP is
             Arr : K1LR_b_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for K1LR_Register use record
@@ -268,11 +237,8 @@ package STM32_SVD.CRYP is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  K1RR_b array element
-   subtype K1RR_b_Element is STM32_SVD.Bit;
-
    --  K1RR_b array
-   type K1RR_b_Field_Array is array (128 .. 159) of K1RR_b_Element
+   type K1RR_b_Field_Array is array (128 .. 159) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  key registers
@@ -288,7 +254,7 @@ package STM32_SVD.CRYP is
             Arr : K1RR_b_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for K1RR_Register use record
@@ -296,11 +262,8 @@ package STM32_SVD.CRYP is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  K2LR_b array element
-   subtype K2LR_b_Element is STM32_SVD.Bit;
-
    --  K2LR_b array
-   type K2LR_b_Field_Array is array (96 .. 127) of K2LR_b_Element
+   type K2LR_b_Field_Array is array (96 .. 127) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  key registers
@@ -316,7 +279,7 @@ package STM32_SVD.CRYP is
             Arr : K2LR_b_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for K2LR_Register use record
@@ -324,11 +287,8 @@ package STM32_SVD.CRYP is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  K2RR_b array element
-   subtype K2RR_b_Element is STM32_SVD.Bit;
-
    --  K2RR_b array
-   type K2RR_b_Field_Array is array (64 .. 95) of K2RR_b_Element
+   type K2RR_b_Field_Array is array (64 .. 95) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  key registers
@@ -344,7 +304,7 @@ package STM32_SVD.CRYP is
             Arr : K2RR_b_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for K2RR_Register use record
@@ -352,11 +312,8 @@ package STM32_SVD.CRYP is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  K3LR_b array element
-   subtype K3LR_b_Element is STM32_SVD.Bit;
-
    --  K3LR_b array
-   type K3LR_b_Field_Array is array (32 .. 63) of K3LR_b_Element
+   type K3LR_b_Field_Array is array (32 .. 63) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  key registers
@@ -372,7 +329,7 @@ package STM32_SVD.CRYP is
             Arr : K3LR_b_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for K3LR_Register use record
@@ -380,11 +337,8 @@ package STM32_SVD.CRYP is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  K3RR_b array element
-   subtype K3RR_b_Element is STM32_SVD.Bit;
-
    --  K3RR_b array
-   type K3RR_b_Field_Array is array (0 .. 31) of K3RR_b_Element
+   type K3RR_b_Field_Array is array (0 .. 31) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  key registers
@@ -400,7 +354,7 @@ package STM32_SVD.CRYP is
             Arr : K3RR_b_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for K3RR_Register use record
@@ -408,107 +362,74 @@ package STM32_SVD.CRYP is
       Arr at 0 range 0 .. 31;
    end record;
 
-   subtype IV0LR_IV31_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV30_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV29_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV28_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV27_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV26_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV25_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV24_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV23_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV22_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV21_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV20_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV19_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV18_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV17_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV16_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV15_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV14_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV13_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV12_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV11_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV10_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV9_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV8_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV7_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV6_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV5_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV4_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV3_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV2_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV1_Field is STM32_SVD.Bit;
-   subtype IV0LR_IV0_Field is STM32_SVD.Bit;
-
    --  initialization vector registers
    type IV0LR_Register is record
       --  IV31
-      IV31 : IV0LR_IV31_Field := 16#0#;
+      IV31 : Boolean := False;
       --  IV30
-      IV30 : IV0LR_IV30_Field := 16#0#;
+      IV30 : Boolean := False;
       --  IV29
-      IV29 : IV0LR_IV29_Field := 16#0#;
+      IV29 : Boolean := False;
       --  IV28
-      IV28 : IV0LR_IV28_Field := 16#0#;
+      IV28 : Boolean := False;
       --  IV27
-      IV27 : IV0LR_IV27_Field := 16#0#;
+      IV27 : Boolean := False;
       --  IV26
-      IV26 : IV0LR_IV26_Field := 16#0#;
+      IV26 : Boolean := False;
       --  IV25
-      IV25 : IV0LR_IV25_Field := 16#0#;
+      IV25 : Boolean := False;
       --  IV24
-      IV24 : IV0LR_IV24_Field := 16#0#;
+      IV24 : Boolean := False;
       --  IV23
-      IV23 : IV0LR_IV23_Field := 16#0#;
+      IV23 : Boolean := False;
       --  IV22
-      IV22 : IV0LR_IV22_Field := 16#0#;
+      IV22 : Boolean := False;
       --  IV21
-      IV21 : IV0LR_IV21_Field := 16#0#;
+      IV21 : Boolean := False;
       --  IV20
-      IV20 : IV0LR_IV20_Field := 16#0#;
+      IV20 : Boolean := False;
       --  IV19
-      IV19 : IV0LR_IV19_Field := 16#0#;
+      IV19 : Boolean := False;
       --  IV18
-      IV18 : IV0LR_IV18_Field := 16#0#;
+      IV18 : Boolean := False;
       --  IV17
-      IV17 : IV0LR_IV17_Field := 16#0#;
+      IV17 : Boolean := False;
       --  IV16
-      IV16 : IV0LR_IV16_Field := 16#0#;
+      IV16 : Boolean := False;
       --  IV15
-      IV15 : IV0LR_IV15_Field := 16#0#;
+      IV15 : Boolean := False;
       --  IV14
-      IV14 : IV0LR_IV14_Field := 16#0#;
+      IV14 : Boolean := False;
       --  IV13
-      IV13 : IV0LR_IV13_Field := 16#0#;
+      IV13 : Boolean := False;
       --  IV12
-      IV12 : IV0LR_IV12_Field := 16#0#;
+      IV12 : Boolean := False;
       --  IV11
-      IV11 : IV0LR_IV11_Field := 16#0#;
+      IV11 : Boolean := False;
       --  IV10
-      IV10 : IV0LR_IV10_Field := 16#0#;
+      IV10 : Boolean := False;
       --  IV9
-      IV9  : IV0LR_IV9_Field := 16#0#;
+      IV9  : Boolean := False;
       --  IV8
-      IV8  : IV0LR_IV8_Field := 16#0#;
+      IV8  : Boolean := False;
       --  IV7
-      IV7  : IV0LR_IV7_Field := 16#0#;
+      IV7  : Boolean := False;
       --  IV6
-      IV6  : IV0LR_IV6_Field := 16#0#;
+      IV6  : Boolean := False;
       --  IV5
-      IV5  : IV0LR_IV5_Field := 16#0#;
+      IV5  : Boolean := False;
       --  IV4
-      IV4  : IV0LR_IV4_Field := 16#0#;
+      IV4  : Boolean := False;
       --  IV3
-      IV3  : IV0LR_IV3_Field := 16#0#;
+      IV3  : Boolean := False;
       --  IV2
-      IV2  : IV0LR_IV2_Field := 16#0#;
+      IV2  : Boolean := False;
       --  IV1
-      IV1  : IV0LR_IV1_Field := 16#0#;
+      IV1  : Boolean := False;
       --  IV0
-      IV0  : IV0LR_IV0_Field := 16#0#;
+      IV0  : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IV0LR_Register use record
@@ -546,107 +467,74 @@ package STM32_SVD.CRYP is
       IV0  at 0 range 31 .. 31;
    end record;
 
-   subtype IV0RR_IV63_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV62_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV61_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV60_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV59_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV58_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV57_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV56_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV55_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV54_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV53_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV52_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV51_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV50_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV49_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV48_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV47_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV46_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV45_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV44_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV43_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV42_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV41_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV40_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV39_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV38_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV37_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV36_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV35_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV34_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV33_Field is STM32_SVD.Bit;
-   subtype IV0RR_IV32_Field is STM32_SVD.Bit;
-
    --  initialization vector registers
    type IV0RR_Register is record
       --  IV63
-      IV63 : IV0RR_IV63_Field := 16#0#;
+      IV63 : Boolean := False;
       --  IV62
-      IV62 : IV0RR_IV62_Field := 16#0#;
+      IV62 : Boolean := False;
       --  IV61
-      IV61 : IV0RR_IV61_Field := 16#0#;
+      IV61 : Boolean := False;
       --  IV60
-      IV60 : IV0RR_IV60_Field := 16#0#;
+      IV60 : Boolean := False;
       --  IV59
-      IV59 : IV0RR_IV59_Field := 16#0#;
+      IV59 : Boolean := False;
       --  IV58
-      IV58 : IV0RR_IV58_Field := 16#0#;
+      IV58 : Boolean := False;
       --  IV57
-      IV57 : IV0RR_IV57_Field := 16#0#;
+      IV57 : Boolean := False;
       --  IV56
-      IV56 : IV0RR_IV56_Field := 16#0#;
+      IV56 : Boolean := False;
       --  IV55
-      IV55 : IV0RR_IV55_Field := 16#0#;
+      IV55 : Boolean := False;
       --  IV54
-      IV54 : IV0RR_IV54_Field := 16#0#;
+      IV54 : Boolean := False;
       --  IV53
-      IV53 : IV0RR_IV53_Field := 16#0#;
+      IV53 : Boolean := False;
       --  IV52
-      IV52 : IV0RR_IV52_Field := 16#0#;
+      IV52 : Boolean := False;
       --  IV51
-      IV51 : IV0RR_IV51_Field := 16#0#;
+      IV51 : Boolean := False;
       --  IV50
-      IV50 : IV0RR_IV50_Field := 16#0#;
+      IV50 : Boolean := False;
       --  IV49
-      IV49 : IV0RR_IV49_Field := 16#0#;
+      IV49 : Boolean := False;
       --  IV48
-      IV48 : IV0RR_IV48_Field := 16#0#;
+      IV48 : Boolean := False;
       --  IV47
-      IV47 : IV0RR_IV47_Field := 16#0#;
+      IV47 : Boolean := False;
       --  IV46
-      IV46 : IV0RR_IV46_Field := 16#0#;
+      IV46 : Boolean := False;
       --  IV45
-      IV45 : IV0RR_IV45_Field := 16#0#;
+      IV45 : Boolean := False;
       --  IV44
-      IV44 : IV0RR_IV44_Field := 16#0#;
+      IV44 : Boolean := False;
       --  IV43
-      IV43 : IV0RR_IV43_Field := 16#0#;
+      IV43 : Boolean := False;
       --  IV42
-      IV42 : IV0RR_IV42_Field := 16#0#;
+      IV42 : Boolean := False;
       --  IV41
-      IV41 : IV0RR_IV41_Field := 16#0#;
+      IV41 : Boolean := False;
       --  IV40
-      IV40 : IV0RR_IV40_Field := 16#0#;
+      IV40 : Boolean := False;
       --  IV39
-      IV39 : IV0RR_IV39_Field := 16#0#;
+      IV39 : Boolean := False;
       --  IV38
-      IV38 : IV0RR_IV38_Field := 16#0#;
+      IV38 : Boolean := False;
       --  IV37
-      IV37 : IV0RR_IV37_Field := 16#0#;
+      IV37 : Boolean := False;
       --  IV36
-      IV36 : IV0RR_IV36_Field := 16#0#;
+      IV36 : Boolean := False;
       --  IV35
-      IV35 : IV0RR_IV35_Field := 16#0#;
+      IV35 : Boolean := False;
       --  IV34
-      IV34 : IV0RR_IV34_Field := 16#0#;
+      IV34 : Boolean := False;
       --  IV33
-      IV33 : IV0RR_IV33_Field := 16#0#;
+      IV33 : Boolean := False;
       --  IV32
-      IV32 : IV0RR_IV32_Field := 16#0#;
+      IV32 : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IV0RR_Register use record
@@ -684,107 +572,74 @@ package STM32_SVD.CRYP is
       IV32 at 0 range 31 .. 31;
    end record;
 
-   subtype IV1LR_IV95_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV94_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV93_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV92_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV91_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV90_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV89_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV88_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV87_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV86_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV85_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV84_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV83_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV82_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV81_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV80_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV79_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV78_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV77_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV76_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV75_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV74_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV73_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV72_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV71_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV70_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV69_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV68_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV67_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV66_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV65_Field is STM32_SVD.Bit;
-   subtype IV1LR_IV64_Field is STM32_SVD.Bit;
-
    --  initialization vector registers
    type IV1LR_Register is record
       --  IV95
-      IV95 : IV1LR_IV95_Field := 16#0#;
+      IV95 : Boolean := False;
       --  IV94
-      IV94 : IV1LR_IV94_Field := 16#0#;
+      IV94 : Boolean := False;
       --  IV93
-      IV93 : IV1LR_IV93_Field := 16#0#;
+      IV93 : Boolean := False;
       --  IV92
-      IV92 : IV1LR_IV92_Field := 16#0#;
+      IV92 : Boolean := False;
       --  IV91
-      IV91 : IV1LR_IV91_Field := 16#0#;
+      IV91 : Boolean := False;
       --  IV90
-      IV90 : IV1LR_IV90_Field := 16#0#;
+      IV90 : Boolean := False;
       --  IV89
-      IV89 : IV1LR_IV89_Field := 16#0#;
+      IV89 : Boolean := False;
       --  IV88
-      IV88 : IV1LR_IV88_Field := 16#0#;
+      IV88 : Boolean := False;
       --  IV87
-      IV87 : IV1LR_IV87_Field := 16#0#;
+      IV87 : Boolean := False;
       --  IV86
-      IV86 : IV1LR_IV86_Field := 16#0#;
+      IV86 : Boolean := False;
       --  IV85
-      IV85 : IV1LR_IV85_Field := 16#0#;
+      IV85 : Boolean := False;
       --  IV84
-      IV84 : IV1LR_IV84_Field := 16#0#;
+      IV84 : Boolean := False;
       --  IV83
-      IV83 : IV1LR_IV83_Field := 16#0#;
+      IV83 : Boolean := False;
       --  IV82
-      IV82 : IV1LR_IV82_Field := 16#0#;
+      IV82 : Boolean := False;
       --  IV81
-      IV81 : IV1LR_IV81_Field := 16#0#;
+      IV81 : Boolean := False;
       --  IV80
-      IV80 : IV1LR_IV80_Field := 16#0#;
+      IV80 : Boolean := False;
       --  IV79
-      IV79 : IV1LR_IV79_Field := 16#0#;
+      IV79 : Boolean := False;
       --  IV78
-      IV78 : IV1LR_IV78_Field := 16#0#;
+      IV78 : Boolean := False;
       --  IV77
-      IV77 : IV1LR_IV77_Field := 16#0#;
+      IV77 : Boolean := False;
       --  IV76
-      IV76 : IV1LR_IV76_Field := 16#0#;
+      IV76 : Boolean := False;
       --  IV75
-      IV75 : IV1LR_IV75_Field := 16#0#;
+      IV75 : Boolean := False;
       --  IV74
-      IV74 : IV1LR_IV74_Field := 16#0#;
+      IV74 : Boolean := False;
       --  IV73
-      IV73 : IV1LR_IV73_Field := 16#0#;
+      IV73 : Boolean := False;
       --  IV72
-      IV72 : IV1LR_IV72_Field := 16#0#;
+      IV72 : Boolean := False;
       --  IV71
-      IV71 : IV1LR_IV71_Field := 16#0#;
+      IV71 : Boolean := False;
       --  IV70
-      IV70 : IV1LR_IV70_Field := 16#0#;
+      IV70 : Boolean := False;
       --  IV69
-      IV69 : IV1LR_IV69_Field := 16#0#;
+      IV69 : Boolean := False;
       --  IV68
-      IV68 : IV1LR_IV68_Field := 16#0#;
+      IV68 : Boolean := False;
       --  IV67
-      IV67 : IV1LR_IV67_Field := 16#0#;
+      IV67 : Boolean := False;
       --  IV66
-      IV66 : IV1LR_IV66_Field := 16#0#;
+      IV66 : Boolean := False;
       --  IV65
-      IV65 : IV1LR_IV65_Field := 16#0#;
+      IV65 : Boolean := False;
       --  IV64
-      IV64 : IV1LR_IV64_Field := 16#0#;
+      IV64 : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IV1LR_Register use record
@@ -822,107 +677,74 @@ package STM32_SVD.CRYP is
       IV64 at 0 range 31 .. 31;
    end record;
 
-   subtype IV1RR_IV127_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV126_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV125_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV124_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV123_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV122_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV121_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV120_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV119_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV118_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV117_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV116_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV115_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV114_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV113_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV112_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV111_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV110_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV109_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV108_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV107_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV106_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV105_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV104_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV103_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV102_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV101_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV100_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV99_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV98_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV97_Field is STM32_SVD.Bit;
-   subtype IV1RR_IV96_Field is STM32_SVD.Bit;
-
    --  initialization vector registers
    type IV1RR_Register is record
       --  IV127
-      IV127 : IV1RR_IV127_Field := 16#0#;
+      IV127 : Boolean := False;
       --  IV126
-      IV126 : IV1RR_IV126_Field := 16#0#;
+      IV126 : Boolean := False;
       --  IV125
-      IV125 : IV1RR_IV125_Field := 16#0#;
+      IV125 : Boolean := False;
       --  IV124
-      IV124 : IV1RR_IV124_Field := 16#0#;
+      IV124 : Boolean := False;
       --  IV123
-      IV123 : IV1RR_IV123_Field := 16#0#;
+      IV123 : Boolean := False;
       --  IV122
-      IV122 : IV1RR_IV122_Field := 16#0#;
+      IV122 : Boolean := False;
       --  IV121
-      IV121 : IV1RR_IV121_Field := 16#0#;
+      IV121 : Boolean := False;
       --  IV120
-      IV120 : IV1RR_IV120_Field := 16#0#;
+      IV120 : Boolean := False;
       --  IV119
-      IV119 : IV1RR_IV119_Field := 16#0#;
+      IV119 : Boolean := False;
       --  IV118
-      IV118 : IV1RR_IV118_Field := 16#0#;
+      IV118 : Boolean := False;
       --  IV117
-      IV117 : IV1RR_IV117_Field := 16#0#;
+      IV117 : Boolean := False;
       --  IV116
-      IV116 : IV1RR_IV116_Field := 16#0#;
+      IV116 : Boolean := False;
       --  IV115
-      IV115 : IV1RR_IV115_Field := 16#0#;
+      IV115 : Boolean := False;
       --  IV114
-      IV114 : IV1RR_IV114_Field := 16#0#;
+      IV114 : Boolean := False;
       --  IV113
-      IV113 : IV1RR_IV113_Field := 16#0#;
+      IV113 : Boolean := False;
       --  IV112
-      IV112 : IV1RR_IV112_Field := 16#0#;
+      IV112 : Boolean := False;
       --  IV111
-      IV111 : IV1RR_IV111_Field := 16#0#;
+      IV111 : Boolean := False;
       --  IV110
-      IV110 : IV1RR_IV110_Field := 16#0#;
+      IV110 : Boolean := False;
       --  IV109
-      IV109 : IV1RR_IV109_Field := 16#0#;
+      IV109 : Boolean := False;
       --  IV108
-      IV108 : IV1RR_IV108_Field := 16#0#;
+      IV108 : Boolean := False;
       --  IV107
-      IV107 : IV1RR_IV107_Field := 16#0#;
+      IV107 : Boolean := False;
       --  IV106
-      IV106 : IV1RR_IV106_Field := 16#0#;
+      IV106 : Boolean := False;
       --  IV105
-      IV105 : IV1RR_IV105_Field := 16#0#;
+      IV105 : Boolean := False;
       --  IV104
-      IV104 : IV1RR_IV104_Field := 16#0#;
+      IV104 : Boolean := False;
       --  IV103
-      IV103 : IV1RR_IV103_Field := 16#0#;
+      IV103 : Boolean := False;
       --  IV102
-      IV102 : IV1RR_IV102_Field := 16#0#;
+      IV102 : Boolean := False;
       --  IV101
-      IV101 : IV1RR_IV101_Field := 16#0#;
+      IV101 : Boolean := False;
       --  IV100
-      IV100 : IV1RR_IV100_Field := 16#0#;
+      IV100 : Boolean := False;
       --  IV99
-      IV99  : IV1RR_IV99_Field := 16#0#;
+      IV99  : Boolean := False;
       --  IV98
-      IV98  : IV1RR_IV98_Field := 16#0#;
+      IV98  : Boolean := False;
       --  IV97
-      IV97  : IV1RR_IV97_Field := 16#0#;
+      IV97  : Boolean := False;
       --  IV96
-      IV96  : IV1RR_IV96_Field := 16#0#;
+      IV96  : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IV1RR_Register use record
@@ -1082,6 +904,6 @@ package STM32_SVD.CRYP is
 
    --  Cryptographic processor
    CRYP_Periph : aliased CRYP_Peripheral
-     with Import, Address => System'To_Address (16#48021000#);
+     with Import, Address => CRYP_Base;
 
 end STM32_SVD.CRYP;

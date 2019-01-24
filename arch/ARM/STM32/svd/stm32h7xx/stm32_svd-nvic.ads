@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -33,7 +33,7 @@ package STM32_SVD.NVIC is
             Arr : IPR_IPR_N_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IPR_Register use record
@@ -50,7 +50,7 @@ package STM32_SVD.NVIC is
       --  unspecified
       Reserved_9_31 : STM32_SVD.UInt23 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for STIR_Register use record
@@ -180,7 +180,7 @@ package STM32_SVD.NVIC is
 
    --  Nested Vectored Interrupt Controller
    NVIC_Periph : aliased NVIC_Peripheral
-     with Import, Address => System'To_Address (16#E000E100#);
+     with Import, Address => NVIC_Base;
 
    --  Nested vectored interrupt controller
    type NVIC_STIR_Peripheral is record
@@ -195,6 +195,6 @@ package STM32_SVD.NVIC is
 
    --  Nested vectored interrupt controller
    NVIC_STIR_Periph : aliased NVIC_STIR_Peripheral
-     with Import, Address => System'To_Address (16#E000EF00#);
+     with Import, Address => NVIC_STIR_Base;
 
 end STM32_SVD.NVIC;

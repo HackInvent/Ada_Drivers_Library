@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,24 +13,10 @@ package STM32_SVD.FMC is
    -- Registers --
    ---------------
 
-   subtype FMC_BCR_MBKEN_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_MUXEN_Field is STM32_SVD.Bit;
    subtype FMC_BCR_MTYP_Field is STM32_SVD.UInt2;
    subtype FMC_BCR_MWID_Field is STM32_SVD.UInt2;
-   subtype FMC_BCR_FACCEN_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_BURSTEN_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_WAITPOL_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_WAITCFG_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_WREN_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_WAITEN_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_EXTMOD_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_ASYNCWAIT_Field is STM32_SVD.Bit;
    subtype FMC_BCR_CPSIZE_Field is STM32_SVD.UInt3;
-   subtype FMC_BCR_CBURSTRW_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_CCLKEN_Field is STM32_SVD.Bit;
-   subtype FMC_BCR_WFDIS_Field is STM32_SVD.Bit;
    subtype FMC_BCR_BMAP_Field is STM32_SVD.UInt2;
-   subtype FMC_BCR_FMCEN_Field is STM32_SVD.Bit;
 
    --  This register contains the control information of each memory bank, used
    --  for SRAMs, PSRAM and NOR Flash memories.
@@ -38,11 +24,11 @@ package STM32_SVD.FMC is
       --  Memory bank enable bit This bit enables the memory bank. After reset
       --  Bank1 is enabled, all others are disabled. Accessing a disabled bank
       --  causes an ERROR on AXI bus.
-      MBKEN          : FMC_BCR_MBKEN_Field := 16#1#;
+      MBKEN          : Boolean := True;
       --  Address/data multiplexing enable bit When this bit is set, the
       --  address and data values are multiplexed on the data bus, valid only
       --  with NOR and PSRAM memories:
-      MUXEN          : FMC_BCR_MUXEN_Field := 16#1#;
+      MUXEN          : Boolean := True;
       --  Memory type These bits define the type of external memory attached to
       --  the corresponding memory bank:
       MTYP           : FMC_BCR_MTYP_Field := 16#2#;
@@ -51,17 +37,17 @@ package STM32_SVD.FMC is
       MWID           : FMC_BCR_MWID_Field := 16#1#;
       --  Flash access enable This bit enables NOR Flash memory access
       --  operations.
-      FACCEN         : FMC_BCR_FACCEN_Field := 16#1#;
+      FACCEN         : Boolean := True;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#1#;
       --  Burst enable bit This bit enables/disables synchronous accesses
       --  during read operations. It is valid only for synchronous memories
       --  operating in Burst mode:
-      BURSTEN        : FMC_BCR_BURSTEN_Field := 16#0#;
+      BURSTEN        : Boolean := False;
       --  Wait signal polarity bit This bit defines the polarity of the wait
       --  signal from memory used for either in synchronous or asynchronous
       --  mode:
-      WAITPOL        : FMC_BCR_WAITPOL_Field := 16#0#;
+      WAITPOL        : Boolean := False;
       --  unspecified
       Reserved_10_10 : STM32_SVD.Bit := 16#0#;
       --  Wait timing configuration The NWAIT signal indicates whether the data
@@ -69,13 +55,13 @@ package STM32_SVD.FMC is
       --  accessing the memory in synchronous mode. This configuration bit
       --  determines if NWAIT is asserted by the memory one clock cycle before
       --  the wait state or during the wait state:
-      WAITCFG        : FMC_BCR_WAITCFG_Field := 16#0#;
+      WAITCFG        : Boolean := False;
       --  Write enable bit This bit indicates whether write operations are
       --  enabled/disabled in the bank by the FMC:
-      WREN           : FMC_BCR_WREN_Field := 16#1#;
+      WREN           : Boolean := True;
       --  Wait enable bit This bit enables/disables wait-state insertion via
       --  the NWAIT signal when accessing the memory in synchronous mode.
-      WAITEN         : FMC_BCR_WAITEN_Field := 16#1#;
+      WAITEN         : Boolean := True;
       --  Extended mode enable. This bit enables the FMC to program the write
       --  timings for asynchronous accesses inside the FMC_BWTR register, thus
       --  resulting in different timings for read and write operations. Note:
@@ -83,10 +69,10 @@ package STM32_SVD.FMC is
       --  Mode2 as follows: ** Mode 1 is the default mode when the SRAM/PSRAM
       --  memory type is selected (MTYP =0x0 or 0x01) ** Mode 2 is the default
       --  mode when the NOR memory type is selected (MTYP = 0x10).
-      EXTMOD         : FMC_BCR_EXTMOD_Field := 16#0#;
+      EXTMOD         : Boolean := False;
       --  Wait signal during asynchronous transfers This bit enables/disables
       --  the FMC to use the wait signal even during an asynchronous protocol.
-      ASYNCWAIT      : FMC_BCR_ASYNCWAIT_Field := 16#0#;
+      ASYNCWAIT      : Boolean := False;
       --  CRAM Page Size These are used for Cellular RAM 1.5 which does not
       --  allow burst access to cross the address boundaries between pages.
       --  When these bits are configured, the FMC controller splits
@@ -98,7 +84,7 @@ package STM32_SVD.FMC is
       --  enables synchronous accesses during write operations. The enable bit
       --  for synchronous read accesses is the BURSTEN bit in the FMC_BCRx
       --  register.
-      CBURSTRW       : FMC_BCR_CBURSTRW_Field := 16#0#;
+      CBURSTRW       : Boolean := False;
       --  Continuous Clock Enable This bit enables the FMC_CLK clock output to
       --  external memory devices. Note: The CCLKEN bit of the FMC_BCR2..4
       --  registers is dont care. It is only enabled through the FMC_BCR1
@@ -110,11 +96,11 @@ package STM32_SVD.FMC is
       --  Bank 1 are clocked by the same clock (the CLKDIV value in the
       --  FMC_BTR2..4 and FMC_BWTR2..4 registers for other banks has no
       --  effect.)
-      CCLKEN         : FMC_BCR_CCLKEN_Field := 16#0#;
+      CCLKEN         : Boolean := False;
       --  Write FIFO Disable This bit disables the Write FIFO used by the FMC
       --  controller. Note: The WFDIS bit of the FMC_BCR2..4 registers is dont
       --  care. It is only enabled through the FMC_BCR1 register.
-      WFDIS          : FMC_BCR_WFDIS_Field := 16#0#;
+      WFDIS          : Boolean := False;
       --  unspecified
       Reserved_22_23 : STM32_SVD.UInt2 := 16#0#;
       --  FMC bank mapping These bits allows different to remap SDRAM bank2 or
@@ -127,9 +113,9 @@ package STM32_SVD.FMC is
       --  FMC controller Enable This bit enables/disables the FMC controller.
       --  Note: The FMCEN bit of the FMC_BCR2..4 registers is dont care. It is
       --  only enabled through the FMC_BCR1 register.
-      FMCEN          : FMC_BCR_FMCEN_Field := 16#0#;
+      FMCEN          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_BCR_Register use record
@@ -248,7 +234,7 @@ package STM32_SVD.FMC is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_BTR_Register use record
@@ -262,10 +248,7 @@ package STM32_SVD.FMC is
       Reserved_30_31 at 0 range 30 .. 31;
    end record;
 
-   subtype FMC_PCR_PWAITEN_Field is STM32_SVD.Bit;
-   subtype FMC_PCR_PBKEN_Field is STM32_SVD.Bit;
    subtype FMC_PCR_PWID_Field is STM32_SVD.UInt2;
-   subtype FMC_PCR_ECCEN_Field is STM32_SVD.Bit;
    subtype FMC_PCR_TCLR_Field is STM32_SVD.UInt4;
    subtype FMC_PCR_TAR_Field is STM32_SVD.UInt4;
    subtype FMC_PCR_ECCPS_Field is STM32_SVD.UInt3;
@@ -276,16 +259,16 @@ package STM32_SVD.FMC is
       Reserved_0_0   : STM32_SVD.Bit := 16#0#;
       --  Wait feature enable bit. This bit enables the Wait feature for the
       --  NAND Flash memory bank:
-      PWAITEN        : FMC_PCR_PWAITEN_Field := 16#0#;
+      PWAITEN        : Boolean := False;
       --  NAND Flash memory bank enable bit. This bit enables the memory bank.
       --  Accessing a disabled memory bank causes an ERROR on AXI bus
-      PBKEN          : FMC_PCR_PBKEN_Field := 16#0#;
+      PBKEN          : Boolean := False;
       --  unspecified
       Reserved_3_3   : STM32_SVD.Bit := 16#1#;
       --  Data bus width. These bits define the external memory device width.
       PWID           : FMC_PCR_PWID_Field := 16#1#;
       --  ECC computation logic enable bit
-      ECCEN          : FMC_PCR_ECCEN_Field := 16#0#;
+      ECCEN          : Boolean := False;
       --  unspecified
       Reserved_7_8   : STM32_SVD.UInt2 := 16#0#;
       --  CLE to RE delay. These bits set time from CLE low to RE low in number
@@ -304,7 +287,7 @@ package STM32_SVD.FMC is
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_PCR_Register use record
@@ -321,14 +304,6 @@ package STM32_SVD.FMC is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   subtype FMC_SR_IRS_Field is STM32_SVD.Bit;
-   subtype FMC_SR_ILS_Field is STM32_SVD.Bit;
-   subtype FMC_SR_IFS_Field is STM32_SVD.Bit;
-   subtype FMC_SR_IREN_Field is STM32_SVD.Bit;
-   subtype FMC_SR_ILEN_Field is STM32_SVD.Bit;
-   subtype FMC_SR_IFEN_Field is STM32_SVD.Bit;
-   subtype FMC_SR_FEMPT_Field is STM32_SVD.Bit;
-
    --  This register contains information about the FIFO status and interrupt.
    --  The FMC features a FIFO that is used when writing to memories to
    --  transfer up to 16 words of data.This is used to quickly write to the
@@ -342,27 +317,27 @@ package STM32_SVD.FMC is
       --  Interrupt rising edge status The flag is set by hardware and reset by
       --  software. Note: If this bit is written by software to 1 it will be
       --  set.
-      IRS           : FMC_SR_IRS_Field := 16#0#;
+      IRS           : Boolean := False;
       --  Interrupt high-level status The flag is set by hardware and reset by
       --  software.
-      ILS           : FMC_SR_ILS_Field := 16#0#;
+      ILS           : Boolean := False;
       --  Interrupt falling edge status The flag is set by hardware and reset
       --  by software. Note: If this bit is written by software to 1 it will be
       --  set.
-      IFS           : FMC_SR_IFS_Field := 16#0#;
+      IFS           : Boolean := False;
       --  Interrupt rising edge detection enable bit
-      IREN          : FMC_SR_IREN_Field := 16#0#;
+      IREN          : Boolean := False;
       --  Interrupt high-level detection enable bit
-      ILEN          : FMC_SR_ILEN_Field := 16#0#;
+      ILEN          : Boolean := False;
       --  Interrupt falling edge detection enable bit
-      IFEN          : FMC_SR_IFEN_Field := 16#0#;
+      IFEN          : Boolean := False;
       --  Read-only. FIFO empty. Read-only bit that provides the status of the
       --  FIFO
-      FEMPT         : FMC_SR_FEMPT_Field := 16#1#;
+      FEMPT         : Boolean := True;
       --  unspecified
       Reserved_7_31 : STM32_SVD.UInt25 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_SR_Register use record
@@ -409,7 +384,7 @@ package STM32_SVD.FMC is
       --  only valid for write transactions:
       MEMHIZ  : FMC_PMEM_MEMHIZ_Field := 16#FC#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_PMEM_Register use record
@@ -452,7 +427,7 @@ package STM32_SVD.FMC is
       --  socket. Only valid for writ transaction:
       ATTHIZ  : FMC_PATT_ATTHIZ_Field := 16#FC#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_PATT_Register use record
@@ -522,7 +497,7 @@ package STM32_SVD.FMC is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_BWTR_Register use record
@@ -538,11 +513,8 @@ package STM32_SVD.FMC is
    subtype FMC_SDCR_NC_Field is STM32_SVD.UInt2;
    subtype FMC_SDCR_NR_Field is STM32_SVD.UInt2;
    subtype FMC_SDCR_MWID_Field is STM32_SVD.UInt2;
-   subtype FMC_SDCR_NB_Field is STM32_SVD.Bit;
    subtype FMC_SDCR_CAS_Field is STM32_SVD.UInt2;
-   subtype FMC_SDCR_WP_Field is STM32_SVD.Bit;
    subtype FMC_SDCR_SDCLK_Field is STM32_SVD.UInt2;
-   subtype FMC_SDCR_RBURST_Field is STM32_SVD.Bit;
    subtype FMC_SDCR_RPIPE_Field is STM32_SVD.UInt2;
 
    --  This register contains the control parameters for each SDRAM memory bank
@@ -556,13 +528,13 @@ package STM32_SVD.FMC is
       --  Memory data bus width. These bits define the memory device width.
       MWID           : FMC_SDCR_MWID_Field := 16#1#;
       --  Number of internal banks This bit sets the number of internal banks.
-      NB             : FMC_SDCR_NB_Field := 16#1#;
+      NB             : Boolean := True;
       --  CAS Latency This bits sets the SDRAM CAS latency in number of memory
       --  clock cycles
       CAS            : FMC_SDCR_CAS_Field := 16#1#;
       --  Write protection This bit enables write mode access to the SDRAM
       --  bank.
-      WP             : FMC_SDCR_WP_Field := 16#1#;
+      WP             : Boolean := True;
       --  SDRAM clock configuration These bits define the SDRAM clock period
       --  for both SDRAM banks and allow disabling the clock before changing
       --  the frequency. In this case the SDRAM must be re-initialized. Note:
@@ -572,7 +544,7 @@ package STM32_SVD.FMC is
       --  anticipates the next read commands during the CAS latency and stores
       --  data in the Read FIFO. Note: The corresponding bit in the FMC_SDCR2
       --  register is read only.
-      RBURST         : FMC_SDCR_RBURST_Field := 16#0#;
+      RBURST         : Boolean := False;
       --  Read pipe These bits define the delay, in KCK_FMC clock cycles, for
       --  reading data after CAS latency. Note: The corresponding bits in the
       --  FMC_SDCR2 register is read only.
@@ -580,7 +552,7 @@ package STM32_SVD.FMC is
       --  unspecified
       Reserved_15_31 : STM32_SVD.UInt17 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_SDCR_Register use record
@@ -653,7 +625,7 @@ package STM32_SVD.FMC is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_SDTR_Register use record
@@ -668,8 +640,6 @@ package STM32_SVD.FMC is
    end record;
 
    subtype FMC_SDCMR_MODE_Field is STM32_SVD.UInt3;
-   subtype FMC_SDCMR_CTB2_Field is STM32_SVD.Bit;
-   subtype FMC_SDCMR_CTB1_Field is STM32_SVD.Bit;
    subtype FMC_SDCMR_NRFS_Field is STM32_SVD.UInt4;
    subtype FMC_SDCMR_MRD_Field is STM32_SVD.UInt14;
 
@@ -692,10 +662,10 @@ package STM32_SVD.FMC is
       MODE           : FMC_SDCMR_MODE_Field := 16#0#;
       --  Command Target Bank 2 This bit indicates whether the command will be
       --  issued to SDRAM Bank 2 or not.
-      CTB2           : FMC_SDCMR_CTB2_Field := 16#0#;
+      CTB2           : Boolean := False;
       --  Command Target Bank 1 This bit indicates whether the command will be
       --  issued to SDRAM Bank 1 or not.
-      CTB1           : FMC_SDCMR_CTB1_Field := 16#0#;
+      CTB1           : Boolean := False;
       --  Number of Auto-refresh These bits define the number of consecutive
       --  Auto-refresh commands issued when MODE = 011. ....
       NRFS           : FMC_SDCMR_NRFS_Field := 16#0#;
@@ -707,7 +677,7 @@ package STM32_SVD.FMC is
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_SDCMR_Register use record
@@ -719,9 +689,7 @@ package STM32_SVD.FMC is
       Reserved_23_31 at 0 range 23 .. 31;
    end record;
 
-   subtype FMC_SDRTR_CRE_Field is STM32_SVD.Bit;
    subtype FMC_SDRTR_COUNT_Field is STM32_SVD.UInt13;
-   subtype FMC_SDRTR_REIE_Field is STM32_SVD.Bit;
 
    --  This register sets the refresh rate in number of SDCLK clock cycles
    --  between the refresh cycles by configuring the Refresh Timer Count
@@ -746,7 +714,7 @@ package STM32_SVD.FMC is
    type FMC_SDRTR_Register is record
       --  Write-only. Clear Refresh error flag This bit is used to clear the
       --  Refresh Error Flag (RE) in the Status Register.
-      CRE            : FMC_SDRTR_CRE_Field := 16#0#;
+      CRE            : Boolean := False;
       --  Refresh Timer Count This 13-bit field defines the refresh rate of the
       --  SDRAM device. It is expressed in number of memory clock cycles. It
       --  must be set at least to 41 SDRAM clock cycles (0x29). Refresh rate =
@@ -754,11 +722,11 @@ package STM32_SVD.FMC is
       --  Number of rows) - 20
       COUNT          : FMC_SDRTR_COUNT_Field := 16#0#;
       --  RES Interrupt Enable
-      REIE           : FMC_SDRTR_REIE_Field := 16#0#;
+      REIE           : Boolean := False;
       --  unspecified
       Reserved_15_31 : STM32_SVD.UInt17 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_SDRTR_Register use record
@@ -768,7 +736,6 @@ package STM32_SVD.FMC is
       Reserved_15_31 at 0 range 15 .. 31;
    end record;
 
-   subtype FMC_SDSR_RE_Field is STM32_SVD.Bit;
    --  FMC_SDSR_MODES array element
    subtype FMC_SDSR_MODES_Element is STM32_SVD.UInt2;
 
@@ -801,14 +768,14 @@ package STM32_SVD.FMC is
    type FMC_SDSR_Register is record
       --  Read-only. Refresh error flag An interrupt is generated if REIE = 1
       --  and RE = 1
-      RE            : FMC_SDSR_RE_Field;
+      RE            : Boolean;
       --  Read-only. Status Mode for Bank 1 These bits define the Status Mode
       --  of SDRAM Bank 1.
       MODES         : FMC_SDSR_MODES_Field;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FMC_SDSR_Register use record
@@ -995,6 +962,6 @@ package STM32_SVD.FMC is
 
    --  FMC
    FMC_Periph : aliased FMC_Peripheral
-     with Import, Address => System'To_Address (16#52004000#);
+     with Import, Address => FMC_Base;
 
 end STM32_SVD.FMC;

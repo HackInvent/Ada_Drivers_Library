@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,24 +13,17 @@ package STM32_SVD.OPAMP is
    -- Registers --
    ---------------
 
-   subtype OPAMP1_CSR_OPAEN_Field is STM32_SVD.Bit;
-   subtype OPAMP1_CSR_FORCE_VP_Field is STM32_SVD.Bit;
    subtype OPAMP1_CSR_VP_SEL_Field is STM32_SVD.UInt2;
    subtype OPAMP1_CSR_VM_SEL_Field is STM32_SVD.UInt2;
-   subtype OPAMP1_CSR_OPAHSM_Field is STM32_SVD.Bit;
-   subtype OPAMP1_CSR_CALON_Field is STM32_SVD.Bit;
    subtype OPAMP1_CSR_CALSEL_Field is STM32_SVD.UInt2;
    subtype OPAMP1_CSR_PGA_GAIN_Field is STM32_SVD.UInt4;
-   subtype OPAMP1_CSR_USERTRIM_Field is STM32_SVD.Bit;
-   subtype OPAMP1_CSR_TSTREF_Field is STM32_SVD.Bit;
-   subtype OPAMP1_CSR_CALOUT_Field is STM32_SVD.Bit;
 
    --  OPAMP1 control/status register
    type OPAMP1_CSR_Register is record
       --  Operational amplifier Enable
-      OPAEN          : OPAMP1_CSR_OPAEN_Field := 16#0#;
+      OPAEN          : Boolean := False;
       --  Force internal reference on VP (reserved for test
-      FORCE_VP       : OPAMP1_CSR_FORCE_VP_Field := 16#0#;
+      FORCE_VP       : Boolean := False;
       --  Operational amplifier PGA mode
       VP_SEL         : OPAMP1_CSR_VP_SEL_Field := 16#0#;
       --  unspecified
@@ -40,28 +33,28 @@ package STM32_SVD.OPAMP is
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  Operational amplifier high-speed mode
-      OPAHSM         : OPAMP1_CSR_OPAHSM_Field := 16#0#;
+      OPAHSM         : Boolean := False;
       --  unspecified
       Reserved_9_10  : STM32_SVD.UInt2 := 16#0#;
       --  Calibration mode enabled
-      CALON          : OPAMP1_CSR_CALON_Field := 16#0#;
+      CALON          : Boolean := False;
       --  Calibration selection
       CALSEL         : OPAMP1_CSR_CALSEL_Field := 16#0#;
       --  allows to switch from AOP offset trimmed values to AOP offset
       PGA_GAIN       : OPAMP1_CSR_PGA_GAIN_Field := 16#0#;
       --  User trimming enable
-      USERTRIM       : OPAMP1_CSR_USERTRIM_Field := 16#0#;
+      USERTRIM       : Boolean := False;
       --  unspecified
       Reserved_19_28 : STM32_SVD.UInt10 := 16#0#;
       --  OPAMP calibration reference voltage output control (reserved for
       --  test)
-      TSTREF         : OPAMP1_CSR_TSTREF_Field := 16#0#;
+      TSTREF         : Boolean := False;
       --  Operational amplifier calibration output
-      CALOUT         : OPAMP1_CSR_CALOUT_Field := 16#0#;
+      CALOUT         : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OPAMP1_CSR_Register use record
@@ -97,7 +90,7 @@ package STM32_SVD.OPAMP is
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OPAMP1_OTR_Register use record
@@ -121,7 +114,7 @@ package STM32_SVD.OPAMP is
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OPAMP1_HSOTR_Register use record
@@ -131,23 +124,16 @@ package STM32_SVD.OPAMP is
       Reserved_13_31 at 0 range 13 .. 31;
    end record;
 
-   subtype OPAMP2_CSR_OPAEN_Field is STM32_SVD.Bit;
-   subtype OPAMP2_CSR_FORCE_VP_Field is STM32_SVD.Bit;
    subtype OPAMP2_CSR_VM_SEL_Field is STM32_SVD.UInt2;
-   subtype OPAMP2_CSR_OPAHSM_Field is STM32_SVD.Bit;
-   subtype OPAMP2_CSR_CALON_Field is STM32_SVD.Bit;
    subtype OPAMP2_CSR_CALSEL_Field is STM32_SVD.UInt2;
    subtype OPAMP2_CSR_PGA_GAIN_Field is STM32_SVD.UInt4;
-   subtype OPAMP2_CSR_USERTRIM_Field is STM32_SVD.Bit;
-   subtype OPAMP2_CSR_TSTREF_Field is STM32_SVD.Bit;
-   subtype OPAMP2_CSR_CALOUT_Field is STM32_SVD.Bit;
 
    --  OPAMP2 control/status register
    type OPAMP2_CSR_Register is record
       --  Operational amplifier Enable
-      OPAEN          : OPAMP2_CSR_OPAEN_Field := 16#0#;
+      OPAEN          : Boolean := False;
       --  Force internal reference on VP (reserved for test)
-      FORCE_VP       : OPAMP2_CSR_FORCE_VP_Field := 16#0#;
+      FORCE_VP       : Boolean := False;
       --  unspecified
       Reserved_2_4   : STM32_SVD.UInt3 := 16#0#;
       --  Inverting input selection
@@ -155,28 +141,28 @@ package STM32_SVD.OPAMP is
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  Operational amplifier high-speed mode
-      OPAHSM         : OPAMP2_CSR_OPAHSM_Field := 16#0#;
+      OPAHSM         : Boolean := False;
       --  unspecified
       Reserved_9_10  : STM32_SVD.UInt2 := 16#0#;
       --  Calibration mode enabled
-      CALON          : OPAMP2_CSR_CALON_Field := 16#0#;
+      CALON          : Boolean := False;
       --  Calibration selection
       CALSEL         : OPAMP2_CSR_CALSEL_Field := 16#0#;
       --  Operational amplifier Programmable amplifier gain value
       PGA_GAIN       : OPAMP2_CSR_PGA_GAIN_Field := 16#0#;
       --  User trimming enable
-      USERTRIM       : OPAMP2_CSR_USERTRIM_Field := 16#0#;
+      USERTRIM       : Boolean := False;
       --  unspecified
       Reserved_19_28 : STM32_SVD.UInt10 := 16#0#;
       --  OPAMP calibration reference voltage output control (reserved for
       --  test)
-      TSTREF         : OPAMP2_CSR_TSTREF_Field := 16#0#;
+      TSTREF         : Boolean := False;
       --  Operational amplifier calibration output
-      CALOUT         : OPAMP2_CSR_CALOUT_Field := 16#0#;
+      CALOUT         : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OPAMP2_CSR_Register use record
@@ -211,7 +197,7 @@ package STM32_SVD.OPAMP is
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OPAMP2_OTR_Register use record
@@ -235,7 +221,7 @@ package STM32_SVD.OPAMP is
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OPAMP2_HSOTR_Register use record
@@ -277,6 +263,6 @@ package STM32_SVD.OPAMP is
 
    --  Operational amplifiers
    OPAMP_Periph : aliased OPAMP_Peripheral
-     with Import, Address => System'To_Address (16#40009000#);
+     with Import, Address => OPAMP_Base;
 
 end STM32_SVD.OPAMP;

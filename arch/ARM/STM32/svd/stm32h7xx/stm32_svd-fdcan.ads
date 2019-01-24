@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -35,7 +35,7 @@ package STM32_SVD.FDCAN is
       --  Read-only. Core release
       REL     : FDCAN_CREL_REL_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_CREL_Register use record
@@ -51,7 +51,6 @@ package STM32_SVD.FDCAN is
    subtype FDCAN_DBTP_DTSEG2_Field is STM32_SVD.UInt4;
    subtype FDCAN_DBTP_DTSEG1_Field is STM32_SVD.UInt5;
    subtype FDCAN_DBTP_DBRP_Field is STM32_SVD.UInt5;
-   subtype FDCAN_DBTP_TDC_Field is STM32_SVD.Bit;
 
    --  FDCAN Data Bit Timing and Prescaler Register
    type FDCAN_DBTP_Register is record
@@ -68,11 +67,11 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_21_22 : STM32_SVD.UInt2;
       --  Read-only. Transceiver Delay Compensation
-      TDC            : FDCAN_DBTP_TDC_Field;
+      TDC            : Boolean;
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_DBTP_Register use record
@@ -86,24 +85,22 @@ package STM32_SVD.FDCAN is
       Reserved_24_31 at 0 range 24 .. 31;
    end record;
 
-   subtype FDCAN_TEST_LBCK_Field is STM32_SVD.Bit;
    subtype FDCAN_TEST_TX_Field is STM32_SVD.UInt2;
-   subtype FDCAN_TEST_RX_Field is STM32_SVD.Bit;
 
    --  FDCAN Test Register
    type FDCAN_TEST_Register is record
       --  unspecified
       Reserved_0_3  : STM32_SVD.UInt4;
       --  Read-only. Loop Back mode
-      LBCK          : FDCAN_TEST_LBCK_Field;
+      LBCK          : Boolean;
       --  Read-only. Loop Back mode
       TX            : FDCAN_TEST_TX_Field;
       --  Read-only. Control of Transmit Pin
-      RX            : FDCAN_TEST_RX_Field;
+      RX            : Boolean;
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TEST_Register use record
@@ -126,7 +123,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RWD_Register use record
@@ -135,57 +132,42 @@ package STM32_SVD.FDCAN is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype FDCAN_CCCR_INIT_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_CCE_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_ASM_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_CSA_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_CSR_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_MON_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_DAR_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_TEST_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_FDOE_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_BSE_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_PXHD_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_EFBI_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_TXP_Field is STM32_SVD.Bit;
-   subtype FDCAN_CCCR_NISO_Field is STM32_SVD.Bit;
-
    --  FDCAN CC Control Register
    type FDCAN_CCCR_Register is record
       --  Initialization
-      INIT           : FDCAN_CCCR_INIT_Field := 16#0#;
+      INIT           : Boolean := False;
       --  Configuration Change Enable
-      CCE            : FDCAN_CCCR_CCE_Field := 16#0#;
+      CCE            : Boolean := False;
       --  ASM Restricted Operation Mode
-      ASM            : FDCAN_CCCR_ASM_Field := 16#0#;
+      ASM            : Boolean := False;
       --  Clock Stop Acknowledge
-      CSA            : FDCAN_CCCR_CSA_Field := 16#0#;
+      CSA            : Boolean := False;
       --  Clock Stop Request
-      CSR            : FDCAN_CCCR_CSR_Field := 16#0#;
+      CSR            : Boolean := False;
       --  Bus Monitoring Mode
-      MON            : FDCAN_CCCR_MON_Field := 16#0#;
+      MON            : Boolean := False;
       --  Disable Automatic Retransmission
-      DAR            : FDCAN_CCCR_DAR_Field := 16#0#;
+      DAR            : Boolean := False;
       --  Test Mode Enable
-      TEST           : FDCAN_CCCR_TEST_Field := 16#0#;
+      TEST           : Boolean := False;
       --  FD Operation Enable
-      FDOE           : FDCAN_CCCR_FDOE_Field := 16#0#;
+      FDOE           : Boolean := False;
       --  FDCAN Bit Rate Switching
-      BSE            : FDCAN_CCCR_BSE_Field := 16#0#;
+      BSE            : Boolean := False;
       --  unspecified
       Reserved_10_11 : STM32_SVD.UInt2 := 16#0#;
       --  Protocol Exception Handling Disable
-      PXHD           : FDCAN_CCCR_PXHD_Field := 16#0#;
+      PXHD           : Boolean := False;
       --  Edge Filtering during Bus Integration
-      EFBI           : FDCAN_CCCR_EFBI_Field := 16#0#;
+      EFBI           : Boolean := False;
       --  TXP
-      TXP            : FDCAN_CCCR_TXP_Field := 16#0#;
+      TXP            : Boolean := False;
       --  Non ISO Operation
-      NISO           : FDCAN_CCCR_NISO_Field := 16#0#;
+      NISO           : Boolean := False;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_CCCR_Register use record
@@ -225,7 +207,7 @@ package STM32_SVD.FDCAN is
       --  NSJW: Nominal (Re)Synchronization Jump Width
       NSJW         : FDCAN_NBTP_NSJW_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_NBTP_Register use record
@@ -250,7 +232,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TSCC_Register use record
@@ -269,7 +251,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TSCV_Register use record
@@ -277,14 +259,13 @@ package STM32_SVD.FDCAN is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype FDCAN_TOCC_ETOC_Field is STM32_SVD.Bit;
    subtype FDCAN_TOCC_TOS_Field is STM32_SVD.UInt2;
    subtype FDCAN_TOCC_TOP_Field is STM32_SVD.UInt16;
 
    --  FDCAN Timeout Counter Configuration Register
    type FDCAN_TOCC_Register is record
       --  Enable Timeout Counter
-      ETOC          : FDCAN_TOCC_ETOC_Field := 16#0#;
+      ETOC          : Boolean := False;
       --  Timeout Select
       TOS           : FDCAN_TOCC_TOS_Field := 16#0#;
       --  unspecified
@@ -292,7 +273,7 @@ package STM32_SVD.FDCAN is
       --  Timeout Period
       TOP           : FDCAN_TOCC_TOP_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TOCC_Register use record
@@ -311,7 +292,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TOCV_Register use record
@@ -321,7 +302,6 @@ package STM32_SVD.FDCAN is
 
    subtype FDCAN_ECR_TEC_Field is STM32_SVD.Byte;
    subtype FDCAN_ECR_TREC_Field is STM32_SVD.UInt7;
-   subtype FDCAN_ECR_RP_Field is STM32_SVD.Bit;
    subtype FDCAN_ECR_CEL_Field is STM32_SVD.Byte;
 
    --  FDCAN Error Counter Register
@@ -331,13 +311,13 @@ package STM32_SVD.FDCAN is
       --  Receive Error Counter
       TREC           : FDCAN_ECR_TREC_Field := 16#0#;
       --  Receive Error Passive
-      RP             : FDCAN_ECR_RP_Field := 16#0#;
+      RP             : Boolean := False;
       --  AN Error Logging
       CEL            : FDCAN_ECR_CEL_Field := 16#0#;
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_ECR_Register use record
@@ -350,14 +330,7 @@ package STM32_SVD.FDCAN is
 
    subtype FDCAN_PSR_LEC_Field is STM32_SVD.UInt3;
    subtype FDCAN_PSR_ACT_Field is STM32_SVD.UInt2;
-   subtype FDCAN_PSR_EP_Field is STM32_SVD.Bit;
-   subtype FDCAN_PSR_EW_Field is STM32_SVD.Bit;
-   subtype FDCAN_PSR_BO_Field is STM32_SVD.Bit;
    subtype FDCAN_PSR_DLEC_Field is STM32_SVD.UInt3;
-   subtype FDCAN_PSR_RESI_Field is STM32_SVD.Bit;
-   subtype FDCAN_PSR_RBRS_Field is STM32_SVD.Bit;
-   subtype FDCAN_PSR_REDL_Field is STM32_SVD.Bit;
-   subtype FDCAN_PSR_PXE_Field is STM32_SVD.Bit;
    subtype FDCAN_PSR_TDCV_Field is STM32_SVD.UInt7;
 
    --  FDCAN Protocol Status Register
@@ -367,21 +340,21 @@ package STM32_SVD.FDCAN is
       --  Activity
       ACT            : FDCAN_PSR_ACT_Field := 16#0#;
       --  Error Passive
-      EP             : FDCAN_PSR_EP_Field := 16#0#;
+      EP             : Boolean := False;
       --  Warning Status
-      EW             : FDCAN_PSR_EW_Field := 16#0#;
+      EW             : Boolean := False;
       --  Bus_Off Status
-      BO             : FDCAN_PSR_BO_Field := 16#0#;
+      BO             : Boolean := False;
       --  Data Last Error Code
       DLEC           : FDCAN_PSR_DLEC_Field := 16#0#;
       --  ESI flag of last received FDCAN Message
-      RESI           : FDCAN_PSR_RESI_Field := 16#0#;
+      RESI           : Boolean := False;
       --  BRS flag of last received FDCAN Message
-      RBRS           : FDCAN_PSR_RBRS_Field := 16#0#;
+      RBRS           : Boolean := False;
       --  Received FDCAN Message
-      REDL           : FDCAN_PSR_REDL_Field := 16#0#;
+      REDL           : Boolean := False;
       --  Protocol Exception Event
-      PXE            : FDCAN_PSR_PXE_Field := 16#0#;
+      PXE            : Boolean := False;
       --  unspecified
       Reserved_15_15 : STM32_SVD.Bit := 16#0#;
       --  Transmitter Delay Compensation Value
@@ -389,7 +362,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_PSR_Register use record
@@ -422,7 +395,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_15_31 : STM32_SVD.UInt17;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TDCR_Register use record
@@ -432,100 +405,71 @@ package STM32_SVD.FDCAN is
       Reserved_15_31 at 0 range 15 .. 31;
    end record;
 
-   subtype FDCAN_IR_RF0N_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_RF0W_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_RF0F_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_RF0L_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_RF1N_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_RF1W_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_RF1F_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_RF1L_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_HPM_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TC_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TCF_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TEF_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TEFN_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TEFW_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TEFF_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TEFL_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TSW_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_MRAF_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_TOO_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_DRX_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_ELO_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_EP_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_EW_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_BO_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_WDI_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_PEA_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_PED_Field is STM32_SVD.Bit;
-   subtype FDCAN_IR_ARA_Field is STM32_SVD.Bit;
-
    --  FDCAN Interrupt Register
    type FDCAN_IR_Register is record
       --  Read-only. Rx FIFO 0 New Message
-      RF0N           : FDCAN_IR_RF0N_Field;
+      RF0N           : Boolean;
       --  Read-only. Rx FIFO 0 Full
-      RF0W           : FDCAN_IR_RF0W_Field;
+      RF0W           : Boolean;
       --  Read-only. Rx FIFO 0 Full
-      RF0F           : FDCAN_IR_RF0F_Field;
+      RF0F           : Boolean;
       --  Read-only. Rx FIFO 0 Message Lost
-      RF0L           : FDCAN_IR_RF0L_Field;
+      RF0L           : Boolean;
       --  Read-only. Rx FIFO 1 New Message
-      RF1N           : FDCAN_IR_RF1N_Field;
+      RF1N           : Boolean;
       --  Read-only. Rx FIFO 1 Watermark Reached
-      RF1W           : FDCAN_IR_RF1W_Field;
+      RF1W           : Boolean;
       --  Read-only. Rx FIFO 1 Watermark Reached
-      RF1F           : FDCAN_IR_RF1F_Field;
+      RF1F           : Boolean;
       --  Read-only. Rx FIFO 1 Message Lost
-      RF1L           : FDCAN_IR_RF1L_Field;
+      RF1L           : Boolean;
       --  Read-only. High Priority Message
-      HPM            : FDCAN_IR_HPM_Field;
+      HPM            : Boolean;
       --  Read-only. Transmission Completed
-      TC             : FDCAN_IR_TC_Field;
+      TC             : Boolean;
       --  Read-only. Transmission Cancellation Finished
-      TCF            : FDCAN_IR_TCF_Field;
+      TCF            : Boolean;
       --  Read-only. Tx FIFO Empty
-      TEF            : FDCAN_IR_TEF_Field;
+      TEF            : Boolean;
       --  Read-only. Tx Event FIFO New Entry
-      TEFN           : FDCAN_IR_TEFN_Field;
+      TEFN           : Boolean;
       --  Read-only. Tx Event FIFO Watermark Reached
-      TEFW           : FDCAN_IR_TEFW_Field;
+      TEFW           : Boolean;
       --  Read-only. Tx Event FIFO Full
-      TEFF           : FDCAN_IR_TEFF_Field;
+      TEFF           : Boolean;
       --  Read-only. Tx Event FIFO Element Lost
-      TEFL           : FDCAN_IR_TEFL_Field;
+      TEFL           : Boolean;
       --  Read-only. Timestamp Wraparound
-      TSW            : FDCAN_IR_TSW_Field;
+      TSW            : Boolean;
       --  Read-only. Message RAM Access Failure
-      MRAF           : FDCAN_IR_MRAF_Field;
+      MRAF           : Boolean;
       --  Read-only. Timeout Occurred
-      TOO            : FDCAN_IR_TOO_Field;
+      TOO            : Boolean;
       --  Read-only. Message stored to Dedicated Rx Buffer
-      DRX            : FDCAN_IR_DRX_Field;
+      DRX            : Boolean;
       --  unspecified
       Reserved_20_21 : STM32_SVD.UInt2;
       --  Read-only. Error Logging Overflow
-      ELO            : FDCAN_IR_ELO_Field;
+      ELO            : Boolean;
       --  Read-only. Error Passive
-      EP             : FDCAN_IR_EP_Field;
+      EP             : Boolean;
       --  Read-only. Warning Status
-      EW             : FDCAN_IR_EW_Field;
+      EW             : Boolean;
       --  Read-only. Bus_Off Status
-      BO             : FDCAN_IR_BO_Field;
+      BO             : Boolean;
       --  Read-only. Watchdog Interrupt
-      WDI            : FDCAN_IR_WDI_Field;
+      WDI            : Boolean;
       --  Read-only. Protocol Error in Arbitration Phase (Nominal Bit Time is
       --  used)
-      PEA            : FDCAN_IR_PEA_Field;
+      PEA            : Boolean;
       --  Read-only. Protocol Error in Data Phase (Data Bit Time is used)
-      PED            : FDCAN_IR_PED_Field;
+      PED            : Boolean;
       --  Read-only. Access to Reserved Address
-      ARA            : FDCAN_IR_ARA_Field;
+      ARA            : Boolean;
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_IR_Register use record
@@ -561,103 +505,72 @@ package STM32_SVD.FDCAN is
       Reserved_30_31 at 0 range 30 .. 31;
    end record;
 
-   subtype FDCAN_IE_RF0NE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_RF0WE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_RF0FE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_RF0LE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_RF1NE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_RF1WE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_RF1FE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_RF1LE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_HPME_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TCE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TCFE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TEFE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TEFNE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TEFWE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TEFFE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TEFLE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TSWE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_MRAFE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_TOOE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_DRXE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_BECE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_BEUE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_ELOE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_EPE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_EWE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_BOE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_WDIE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_PEAE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_PEDE_Field is STM32_SVD.Bit;
-   subtype FDCAN_IE_ARAE_Field is STM32_SVD.Bit;
-
    --  FDCAN Interrupt Enable Register
    type FDCAN_IE_Register is record
       --  Read-only. Rx FIFO 0 New Message Enable
-      RF0NE          : FDCAN_IE_RF0NE_Field;
+      RF0NE          : Boolean;
       --  Read-only. Rx FIFO 0 Full Enable
-      RF0WE          : FDCAN_IE_RF0WE_Field;
+      RF0WE          : Boolean;
       --  Read-only. Rx FIFO 0 Full Enable
-      RF0FE          : FDCAN_IE_RF0FE_Field;
+      RF0FE          : Boolean;
       --  Read-only. Rx FIFO 0 Message Lost Enable
-      RF0LE          : FDCAN_IE_RF0LE_Field;
+      RF0LE          : Boolean;
       --  Read-only. Rx FIFO 1 New Message Enable
-      RF1NE          : FDCAN_IE_RF1NE_Field;
+      RF1NE          : Boolean;
       --  Read-only. Rx FIFO 1 Watermark Reached Enable
-      RF1WE          : FDCAN_IE_RF1WE_Field;
+      RF1WE          : Boolean;
       --  Read-only. Rx FIFO 1 Watermark Reached Enable
-      RF1FE          : FDCAN_IE_RF1FE_Field;
+      RF1FE          : Boolean;
       --  Read-only. Rx FIFO 1 Message Lost Enable
-      RF1LE          : FDCAN_IE_RF1LE_Field;
+      RF1LE          : Boolean;
       --  Read-only. High Priority Message Enable
-      HPME           : FDCAN_IE_HPME_Field;
+      HPME           : Boolean;
       --  Read-only. Transmission Completed Enable
-      TCE            : FDCAN_IE_TCE_Field;
+      TCE            : Boolean;
       --  Read-only. Transmission Cancellation Finished Enable
-      TCFE           : FDCAN_IE_TCFE_Field;
+      TCFE           : Boolean;
       --  Read-only. Tx FIFO Empty Enable
-      TEFE           : FDCAN_IE_TEFE_Field;
+      TEFE           : Boolean;
       --  Read-only. Tx Event FIFO New Entry Enable
-      TEFNE          : FDCAN_IE_TEFNE_Field;
+      TEFNE          : Boolean;
       --  Read-only. Tx Event FIFO Watermark Reached Enable
-      TEFWE          : FDCAN_IE_TEFWE_Field;
+      TEFWE          : Boolean;
       --  Read-only. Tx Event FIFO Full Enable
-      TEFFE          : FDCAN_IE_TEFFE_Field;
+      TEFFE          : Boolean;
       --  Read-only. Tx Event FIFO Element Lost Enable
-      TEFLE          : FDCAN_IE_TEFLE_Field;
+      TEFLE          : Boolean;
       --  Read-only. Timestamp Wraparound Enable
-      TSWE           : FDCAN_IE_TSWE_Field;
+      TSWE           : Boolean;
       --  Read-only. Message RAM Access Failure Enable
-      MRAFE          : FDCAN_IE_MRAFE_Field;
+      MRAFE          : Boolean;
       --  Read-only. Timeout Occurred Enable
-      TOOE           : FDCAN_IE_TOOE_Field;
+      TOOE           : Boolean;
       --  Read-only. Message stored to Dedicated Rx Buffer Enable
-      DRXE           : FDCAN_IE_DRXE_Field;
+      DRXE           : Boolean;
       --  Read-only. Bit Error Corrected Interrupt Enable
-      BECE           : FDCAN_IE_BECE_Field;
+      BECE           : Boolean;
       --  Read-only. Bit Error Uncorrected Interrupt Enable
-      BEUE           : FDCAN_IE_BEUE_Field;
+      BEUE           : Boolean;
       --  Read-only. Error Logging Overflow Enable
-      ELOE           : FDCAN_IE_ELOE_Field;
+      ELOE           : Boolean;
       --  Read-only. Error Passive Enable
-      EPE            : FDCAN_IE_EPE_Field;
+      EPE            : Boolean;
       --  Read-only. Warning Status Enable
-      EWE            : FDCAN_IE_EWE_Field;
+      EWE            : Boolean;
       --  Read-only. Bus_Off Status Enable
-      BOE            : FDCAN_IE_BOE_Field;
+      BOE            : Boolean;
       --  Read-only. Watchdog Interrupt Enable
-      WDIE           : FDCAN_IE_WDIE_Field;
+      WDIE           : Boolean;
       --  Read-only. Protocol Error in Arbitration Phase Enable
-      PEAE           : FDCAN_IE_PEAE_Field;
+      PEAE           : Boolean;
       --  Read-only. Protocol Error in Data Phase Enable
-      PEDE           : FDCAN_IE_PEDE_Field;
+      PEDE           : Boolean;
       --  Read-only. Access to Reserved Address Enable
-      ARAE           : FDCAN_IE_ARAE_Field;
+      ARAE           : Boolean;
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_IE_Register use record
@@ -694,103 +607,72 @@ package STM32_SVD.FDCAN is
       Reserved_30_31 at 0 range 30 .. 31;
    end record;
 
-   subtype FDCAN_ILS_RF0NL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_RF0WL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_RF0FL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_RF0LL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_RF1NL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_RF1WL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_RF1FL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_RF1LL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_HPML_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TCL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TCFL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TEFL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TEFNL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TEFWL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TEFFL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TEFLL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TSWL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_MRAFL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_TOOL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_DRXL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_BECL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_BEUL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_ELOL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_EPL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_EWL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_BOL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_WDIL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_PEAL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_PEDL_Field is STM32_SVD.Bit;
-   subtype FDCAN_ILS_ARAL_Field is STM32_SVD.Bit;
-
    --  FDCAN Interrupt Line Select Register
    type FDCAN_ILS_Register is record
       --  Read-only. Rx FIFO 0 New Message Interrupt Line
-      RF0NL          : FDCAN_ILS_RF0NL_Field;
+      RF0NL          : Boolean;
       --  Read-only. Rx FIFO 0 Watermark Reached Interrupt Line
-      RF0WL          : FDCAN_ILS_RF0WL_Field;
+      RF0WL          : Boolean;
       --  Read-only. Rx FIFO 0 Full Interrupt Line
-      RF0FL          : FDCAN_ILS_RF0FL_Field;
+      RF0FL          : Boolean;
       --  Read-only. Rx FIFO 0 Message Lost Interrupt Line
-      RF0LL          : FDCAN_ILS_RF0LL_Field;
+      RF0LL          : Boolean;
       --  Read-only. Rx FIFO 1 New Message Interrupt Line
-      RF1NL          : FDCAN_ILS_RF1NL_Field;
+      RF1NL          : Boolean;
       --  Read-only. Rx FIFO 1 Watermark Reached Interrupt Line
-      RF1WL          : FDCAN_ILS_RF1WL_Field;
+      RF1WL          : Boolean;
       --  Read-only. Rx FIFO 1 Full Interrupt Line
-      RF1FL          : FDCAN_ILS_RF1FL_Field;
+      RF1FL          : Boolean;
       --  Read-only. Rx FIFO 1 Message Lost Interrupt Line
-      RF1LL          : FDCAN_ILS_RF1LL_Field;
+      RF1LL          : Boolean;
       --  Read-only. High Priority Message Interrupt Line
-      HPML           : FDCAN_ILS_HPML_Field;
+      HPML           : Boolean;
       --  Read-only. Transmission Completed Interrupt Line
-      TCL            : FDCAN_ILS_TCL_Field;
+      TCL            : Boolean;
       --  Read-only. Transmission Cancellation Finished Interrupt Line
-      TCFL           : FDCAN_ILS_TCFL_Field;
+      TCFL           : Boolean;
       --  Read-only. Tx FIFO Empty Interrupt Line
-      TEFL           : FDCAN_ILS_TEFL_Field;
+      TEFL           : Boolean;
       --  Read-only. Tx Event FIFO New Entry Interrupt Line
-      TEFNL          : FDCAN_ILS_TEFNL_Field;
+      TEFNL          : Boolean;
       --  Read-only. Tx Event FIFO Watermark Reached Interrupt Line
-      TEFWL          : FDCAN_ILS_TEFWL_Field;
+      TEFWL          : Boolean;
       --  Read-only. Tx Event FIFO Full Interrupt Line
-      TEFFL          : FDCAN_ILS_TEFFL_Field;
+      TEFFL          : Boolean;
       --  Read-only. Tx Event FIFO Element Lost Interrupt Line
-      TEFLL          : FDCAN_ILS_TEFLL_Field;
+      TEFLL          : Boolean;
       --  Read-only. Timestamp Wraparound Interrupt Line
-      TSWL           : FDCAN_ILS_TSWL_Field;
+      TSWL           : Boolean;
       --  Read-only. Message RAM Access Failure Interrupt Line
-      MRAFL          : FDCAN_ILS_MRAFL_Field;
+      MRAFL          : Boolean;
       --  Read-only. Timeout Occurred Interrupt Line
-      TOOL           : FDCAN_ILS_TOOL_Field;
+      TOOL           : Boolean;
       --  Read-only. Message stored to Dedicated Rx Buffer Interrupt Line
-      DRXL           : FDCAN_ILS_DRXL_Field;
+      DRXL           : Boolean;
       --  Read-only. Bit Error Corrected Interrupt Line
-      BECL           : FDCAN_ILS_BECL_Field;
+      BECL           : Boolean;
       --  Read-only. Bit Error Uncorrected Interrupt Line
-      BEUL           : FDCAN_ILS_BEUL_Field;
+      BEUL           : Boolean;
       --  Read-only. Error Logging Overflow Interrupt Line
-      ELOL           : FDCAN_ILS_ELOL_Field;
+      ELOL           : Boolean;
       --  Read-only. Error Passive Interrupt Line
-      EPL            : FDCAN_ILS_EPL_Field;
+      EPL            : Boolean;
       --  Read-only. Warning Status Interrupt Line
-      EWL            : FDCAN_ILS_EWL_Field;
+      EWL            : Boolean;
       --  Read-only. Bus_Off Status
-      BOL            : FDCAN_ILS_BOL_Field;
+      BOL            : Boolean;
       --  Read-only. Watchdog Interrupt Line
-      WDIL           : FDCAN_ILS_WDIL_Field;
+      WDIL           : Boolean;
       --  Read-only. Protocol Error in Arbitration Phase Line
-      PEAL           : FDCAN_ILS_PEAL_Field;
+      PEAL           : Boolean;
       --  Read-only. Protocol Error in Data Phase Line
-      PEDL           : FDCAN_ILS_PEDL_Field;
+      PEDL           : Boolean;
       --  Read-only. Access to Reserved Address Line
-      ARAL           : FDCAN_ILS_ARAL_Field;
+      ARAL           : Boolean;
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_ILS_Register use record
@@ -827,12 +709,8 @@ package STM32_SVD.FDCAN is
       Reserved_30_31 at 0 range 30 .. 31;
    end record;
 
-   --  FDCAN_ILE_EINT array element
-   subtype FDCAN_ILE_EINT_Element is STM32_SVD.Bit;
-
    --  FDCAN_ILE_EINT array
-   type FDCAN_ILE_EINT_Field_Array is array (0 .. 1)
-     of FDCAN_ILE_EINT_Element
+   type FDCAN_ILE_EINT_Field_Array is array (0 .. 1) of Boolean
      with Component_Size => 1, Size => 2;
 
    --  Type definition for FDCAN_ILE_EINT
@@ -863,7 +741,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_2_31 : STM32_SVD.UInt30 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_ILE_Register use record
@@ -871,17 +749,15 @@ package STM32_SVD.FDCAN is
       Reserved_2_31 at 0 range 2 .. 31;
    end record;
 
-   subtype FDCAN_GFC_RRFE_Field is STM32_SVD.Bit;
-   subtype FDCAN_GFC_RRFS_Field is STM32_SVD.Bit;
    subtype FDCAN_GFC_ANFE_Field is STM32_SVD.UInt2;
    subtype FDCAN_GFC_ANFS_Field is STM32_SVD.UInt2;
 
    --  FDCAN Global Filter Configuration Register
    type FDCAN_GFC_Register is record
       --  Reject Remote Frames Extended
-      RRFE          : FDCAN_GFC_RRFE_Field := 16#0#;
+      RRFE          : Boolean := False;
       --  Reject Remote Frames Standard
-      RRFS          : FDCAN_GFC_RRFS_Field := 16#0#;
+      RRFS          : Boolean := False;
       --  Accept Non-matching Frames Extended
       ANFE          : FDCAN_GFC_ANFE_Field := 16#0#;
       --  Accept Non-matching Frames Standard
@@ -889,7 +765,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_GFC_Register use record
@@ -914,7 +790,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_SIDFC_Register use record
@@ -938,7 +814,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_XIDFC_Register use record
@@ -957,7 +833,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_XIDAM_Register use record
@@ -968,7 +844,6 @@ package STM32_SVD.FDCAN is
    subtype FDCAN_HPMS_BIDX_Field is STM32_SVD.UInt6;
    subtype FDCAN_HPMS_MSI_Field is STM32_SVD.UInt2;
    subtype FDCAN_HPMS_FIDX_Field is STM32_SVD.UInt7;
-   subtype FDCAN_HPMS_FLST_Field is STM32_SVD.Bit;
 
    --  FDCAN High Priority Message Status Register
    type FDCAN_HPMS_Register is record
@@ -979,11 +854,11 @@ package STM32_SVD.FDCAN is
       --  Read-only. Filter Index
       FIDX           : FDCAN_HPMS_FIDX_Field;
       --  Read-only. Filter List
-      FLST           : FDCAN_HPMS_FLST_Field;
+      FLST           : Boolean;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_HPMS_Register use record
@@ -994,12 +869,8 @@ package STM32_SVD.FDCAN is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   --  FDCAN_NDAT1_ND array element
-   subtype FDCAN_NDAT1_ND_Element is STM32_SVD.Bit;
-
    --  FDCAN_NDAT1_ND array
-   type FDCAN_NDAT1_ND_Field_Array is array (0 .. 31)
-     of FDCAN_NDAT1_ND_Element
+   type FDCAN_NDAT1_ND_Field_Array is array (0 .. 31) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  FDCAN New Data 1 Register
@@ -1015,7 +886,7 @@ package STM32_SVD.FDCAN is
             Arr : FDCAN_NDAT1_ND_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_NDAT1_Register use record
@@ -1023,12 +894,8 @@ package STM32_SVD.FDCAN is
       Arr at 0 range 0 .. 31;
    end record;
 
-   --  FDCAN_NDAT2_ND array element
-   subtype FDCAN_NDAT2_ND_Element is STM32_SVD.Bit;
-
    --  FDCAN_NDAT2_ND array
-   type FDCAN_NDAT2_ND_Field_Array is array (32 .. 63)
-     of FDCAN_NDAT2_ND_Element
+   type FDCAN_NDAT2_ND_Field_Array is array (32 .. 63) of Boolean
      with Component_Size => 1, Size => 32;
 
    --  FDCAN New Data 2 Register
@@ -1044,7 +911,7 @@ package STM32_SVD.FDCAN is
             Arr : FDCAN_NDAT2_ND_Field_Array;
       end case;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access,
+     with Unchecked_Union, Size => 32, Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_NDAT2_Register use record
@@ -1067,7 +934,7 @@ package STM32_SVD.FDCAN is
       --  FIFO 0 Watermark
       F0WM         : FDCAN_RXF0C_F0WM_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RXF0C_Register use record
@@ -1080,8 +947,6 @@ package STM32_SVD.FDCAN is
    subtype FDCAN_RXF0S_F0FL_Field is STM32_SVD.UInt7;
    subtype FDCAN_RXF0S_F0G_Field is STM32_SVD.UInt6;
    subtype FDCAN_RXF0S_F0P_Field is STM32_SVD.UInt6;
-   subtype FDCAN_RXF0S_F0F_Field is STM32_SVD.Bit;
-   subtype FDCAN_RXF0S_RF0L_Field is STM32_SVD.Bit;
 
    --  FDCAN Rx FIFO 0 Status Register
    type FDCAN_RXF0S_Register is record
@@ -1098,13 +963,13 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_22_23 : STM32_SVD.UInt2 := 16#0#;
       --  Rx FIFO 0 Full
-      F0F            : FDCAN_RXF0S_F0F_Field := 16#0#;
+      F0F            : Boolean := False;
       --  Rx FIFO 0 Message Lost
-      RF0L           : FDCAN_RXF0S_RF0L_Field := 16#0#;
+      RF0L           : Boolean := False;
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RXF0S_Register use record
@@ -1128,7 +993,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RXF0A_Register use record
@@ -1147,7 +1012,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RXBC_Register use record
@@ -1175,7 +1040,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RXF1C_Register use record
@@ -1190,8 +1055,6 @@ package STM32_SVD.FDCAN is
    subtype FDCAN_RXF1S_F1FL_Field is STM32_SVD.UInt7;
    subtype FDCAN_RXF1S_F1GI_Field is STM32_SVD.UInt7;
    subtype FDCAN_RXF1S_F1PI_Field is STM32_SVD.UInt7;
-   subtype FDCAN_RXF1S_F1F_Field is STM32_SVD.Bit;
-   subtype FDCAN_RXF1S_RF1L_Field is STM32_SVD.Bit;
    subtype FDCAN_RXF1S_DMS_Field is STM32_SVD.UInt2;
 
    --  FDCAN Rx FIFO 1 Status Register
@@ -1209,15 +1072,15 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_23_23 : STM32_SVD.Bit := 16#0#;
       --  Rx FIFO 1 Full
-      F1F            : FDCAN_RXF1S_F1F_Field := 16#0#;
+      F1F            : Boolean := False;
       --  Rx FIFO 1 Message Lost
-      RF1L           : FDCAN_RXF1S_RF1L_Field := 16#0#;
+      RF1L           : Boolean := False;
       --  unspecified
       Reserved_26_29 : STM32_SVD.UInt4 := 16#0#;
       --  Debug Message Status
       DMS            : FDCAN_RXF1S_DMS_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RXF1S_Register use record
@@ -1242,7 +1105,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RXF1A_Register use record
@@ -1269,7 +1132,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_RXESC_Register use record
@@ -1284,7 +1147,6 @@ package STM32_SVD.FDCAN is
    subtype FDCAN_TXBC_TBSA_Field is STM32_SVD.UInt14;
    subtype FDCAN_TXBC_NDTB_Field is STM32_SVD.UInt6;
    subtype FDCAN_TXBC_TFQS_Field is STM32_SVD.UInt6;
-   subtype FDCAN_TXBC_TFQM_Field is STM32_SVD.Bit;
 
    --  FDCAN Tx Buffer Configuration Register
    type FDCAN_TXBC_Register is record
@@ -1299,11 +1161,11 @@ package STM32_SVD.FDCAN is
       --  Transmit FIFO/Queue Size
       TFQS           : FDCAN_TXBC_TFQS_Field := 16#0#;
       --  Tx FIFO/Queue Mode
-      TFQM           : FDCAN_TXBC_TFQM_Field := 16#0#;
+      TFQM           : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TXBC_Register use record
@@ -1319,7 +1181,6 @@ package STM32_SVD.FDCAN is
    subtype FDCAN_TXFQS_TFFL_Field is STM32_SVD.UInt6;
    subtype FDCAN_TXFQS_TFGI_Field is STM32_SVD.UInt5;
    subtype FDCAN_TXFQS_TFQPI_Field is STM32_SVD.UInt5;
-   subtype FDCAN_TXFQS_TFQF_Field is STM32_SVD.Bit;
 
    --  FDCAN Tx FIFO/Queue Status Register
    type FDCAN_TXFQS_Register is record
@@ -1334,11 +1195,11 @@ package STM32_SVD.FDCAN is
       --  Read-only. Tx FIFO/Queue Put Index
       TFQPI          : FDCAN_TXFQS_TFQPI_Field;
       --  Read-only. Tx FIFO/Queue Full
-      TFQF           : FDCAN_TXFQS_TFQF_Field;
+      TFQF           : Boolean;
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TXFQS_Register use record
@@ -1360,7 +1221,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TXESC_Register use record
@@ -1387,7 +1248,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TXEFC_Register use record
@@ -1401,8 +1262,6 @@ package STM32_SVD.FDCAN is
 
    subtype FDCAN_TXEFS_EFFL_Field is STM32_SVD.UInt6;
    subtype FDCAN_TXEFS_EFGI_Field is STM32_SVD.UInt5;
-   subtype FDCAN_TXEFS_EFF_Field is STM32_SVD.Bit;
-   subtype FDCAN_TXEFS_TEFL_Field is STM32_SVD.Bit;
 
    --  FDCAN Tx Event FIFO Status Register
    type FDCAN_TXEFS_Register is record
@@ -1415,13 +1274,13 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_13_23 : STM32_SVD.UInt11 := 16#0#;
       --  Event FIFO Full.
-      EFF            : FDCAN_TXEFS_EFF_Field := 16#0#;
+      EFF            : Boolean := False;
       --  Tx Event FIFO Element Lost.
-      TEFL           : FDCAN_TXEFS_TEFL_Field := 16#0#;
+      TEFL           : Boolean := False;
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TXEFS_Register use record
@@ -1443,7 +1302,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TXEFA_Register use record
@@ -1465,7 +1324,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_23_31 : STM32_SVD.UInt9 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTTMC_Register use record
@@ -1476,8 +1335,6 @@ package STM32_SVD.FDCAN is
    end record;
 
    subtype FDCAN_TTRMC_RID_Field is STM32_SVD.UInt29;
-   subtype FDCAN_TTRMC_XTD_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTRMC_RMPS_Field is STM32_SVD.Bit;
 
    --  FDCAN TT Reference Message Configuration Register
    type FDCAN_TTRMC_Register is record
@@ -1486,11 +1343,11 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_29_29 : STM32_SVD.Bit := 16#0#;
       --  Extended Identifier
-      XTD            : FDCAN_TTRMC_XTD_Field := 16#0#;
+      XTD            : Boolean := False;
       --  Reference Message Payload Select
-      RMPS           : FDCAN_TTRMC_RMPS_Field := 16#0#;
+      RMPS           : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTRMC_Register use record
@@ -1501,15 +1358,9 @@ package STM32_SVD.FDCAN is
    end record;
 
    subtype FDCAN_TTOCF_OM_Field is STM32_SVD.UInt2;
-   subtype FDCAN_TTOCF_GEN_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCF_TM_Field is STM32_SVD.Bit;
    subtype FDCAN_TTOCF_LDSDL_Field is STM32_SVD.UInt3;
    subtype FDCAN_TTOCF_IRTO_Field is STM32_SVD.UInt7;
-   subtype FDCAN_TTOCF_EECS_Field is STM32_SVD.Bit;
    subtype FDCAN_TTOCF_AWL_Field is STM32_SVD.Byte;
-   subtype FDCAN_TTOCF_EGTF_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCF_ECC_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCF_EVTP_Field is STM32_SVD.Bit;
 
    --  FDCAN TT Operation Configuration Register
    type FDCAN_TTOCF_Register is record
@@ -1518,27 +1369,27 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  Gap Enable
-      GEN            : FDCAN_TTOCF_GEN_Field := 16#0#;
+      GEN            : Boolean := False;
       --  Time Master
-      TM             : FDCAN_TTOCF_TM_Field := 16#0#;
+      TM             : Boolean := False;
       --  LD of Synchronization Deviation Limit
       LDSDL          : FDCAN_TTOCF_LDSDL_Field := 16#0#;
       --  Initial Reference Trigger Offset
       IRTO           : FDCAN_TTOCF_IRTO_Field := 16#0#;
       --  Enable External Clock Synchronization
-      EECS           : FDCAN_TTOCF_EECS_Field := 16#0#;
+      EECS           : Boolean := False;
       --  Application Watchdog Limit
       AWL            : FDCAN_TTOCF_AWL_Field := 16#0#;
       --  Enable Global Time Filtering
-      EGTF           : FDCAN_TTOCF_EGTF_Field := 16#0#;
+      EGTF           : Boolean := False;
       --  Enable Clock Calibration
-      ECC            : FDCAN_TTOCF_ECC_Field := 16#0#;
+      ECC            : Boolean := False;
       --  Event Trigger Polarity
-      EVTP           : FDCAN_TTOCF_EVTP_Field := 16#0#;
+      EVTP           : Boolean := False;
       --  unspecified
       Reserved_27_31 : STM32_SVD.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTOCF_Register use record
@@ -1576,7 +1427,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTMLM_Register use record
@@ -1590,7 +1441,6 @@ package STM32_SVD.FDCAN is
 
    subtype FDCAN_TURCF_NCL_Field is STM32_SVD.UInt16;
    subtype FDCAN_TURCF_DC_Field is STM32_SVD.UInt14;
-   subtype FDCAN_TURCF_ELT_Field is STM32_SVD.Bit;
 
    --  FDCAN TUR Configuration Register
    type FDCAN_TURCF_Register is record
@@ -1601,9 +1451,9 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_30_30 : STM32_SVD.Bit := 16#0#;
       --  Enable Local Time
-      ELT            : FDCAN_TURCF_ELT_Field := 16#0#;
+      ELT            : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TURCF_Register use record
@@ -1613,54 +1463,43 @@ package STM32_SVD.FDCAN is
       ELT            at 0 range 31 .. 31;
    end record;
 
-   subtype FDCAN_TTOCN_SGT_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCN_ECS_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCN_SWP_Field is STM32_SVD.Bit;
    subtype FDCAN_TTOCN_SWS_Field is STM32_SVD.UInt2;
-   subtype FDCAN_TTOCN_RTIE_Field is STM32_SVD.Bit;
    subtype FDCAN_TTOCN_TMC_Field is STM32_SVD.UInt2;
-   subtype FDCAN_TTOCN_TTIE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCN_GCS_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCN_FGP_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCN_TMG_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCN_NIG_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCN_ESCN_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOCN_LCKC_Field is STM32_SVD.Bit;
 
    --  FDCAN TT Operation Control Register
    type FDCAN_TTOCN_Register is record
       --  Set Global time
-      SGT            : FDCAN_TTOCN_SGT_Field := 16#0#;
+      SGT            : Boolean := False;
       --  External Clock Synchronization
-      ECS            : FDCAN_TTOCN_ECS_Field := 16#0#;
+      ECS            : Boolean := False;
       --  Stop Watch Polarity
-      SWP            : FDCAN_TTOCN_SWP_Field := 16#0#;
+      SWP            : Boolean := False;
       --  Stop Watch Source.
       SWS            : FDCAN_TTOCN_SWS_Field := 16#0#;
       --  Register Time Mark Interrupt Pulse Enable
-      RTIE           : FDCAN_TTOCN_RTIE_Field := 16#0#;
+      RTIE           : Boolean := False;
       --  Register Time Mark Compare
       TMC            : FDCAN_TTOCN_TMC_Field := 16#0#;
       --  Trigger Time Mark Interrupt Pulse Enable
-      TTIE           : FDCAN_TTOCN_TTIE_Field := 16#0#;
+      TTIE           : Boolean := False;
       --  Gap Control Select
-      GCS            : FDCAN_TTOCN_GCS_Field := 16#0#;
+      GCS            : Boolean := False;
       --  Finish Gap.
-      FGP            : FDCAN_TTOCN_FGP_Field := 16#0#;
+      FGP            : Boolean := False;
       --  Time Mark Gap
-      TMG            : FDCAN_TTOCN_TMG_Field := 16#0#;
+      TMG            : Boolean := False;
       --  Next is Gap
-      NIG            : FDCAN_TTOCN_NIG_Field := 16#0#;
+      NIG            : Boolean := False;
       --  External Synchronization Control
-      ESCN           : FDCAN_TTOCN_ESCN_Field := 16#0#;
+      ESCN           : Boolean := False;
       --  unspecified
       Reserved_14_14 : STM32_SVD.Bit := 16#0#;
       --  TT Operation Control Register Locked
-      LCKC           : FDCAN_TTOCN_LCKC_Field := 16#0#;
+      LCKC           : Boolean := False;
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTOCN_Register use record
@@ -1691,7 +1530,7 @@ package STM32_SVD.FDCAN is
       --  Cycle Time Target Phase
       CTP : CAN_TTGTP_CTP_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CAN_TTGTP_Register use record
@@ -1701,7 +1540,6 @@ package STM32_SVD.FDCAN is
 
    subtype FDCAN_TTTMK_TM_Field is STM32_SVD.UInt16;
    subtype FDCAN_TTTMK_TICC_Field is STM32_SVD.UInt7;
-   subtype FDCAN_TTTMK_LCKM_Field is STM32_SVD.Bit;
 
    --  FDCAN TT Time Mark Register
    type FDCAN_TTTMK_Register is record
@@ -1712,9 +1550,9 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_23_30 : STM32_SVD.Byte := 16#0#;
       --  TT Time Mark Register Locked
-      LCKM           : FDCAN_TTTMK_LCKM_Field := 16#0#;
+      LCKM           : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTTMK_Register use record
@@ -1724,23 +1562,8 @@ package STM32_SVD.FDCAN is
       LCKM           at 0 range 31 .. 31;
    end record;
 
-   subtype FDCAN_TTIR_SBC_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_SMC_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_CSM_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_SOG_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_RTMI_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_TTMI_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_SWE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_GTW_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_GTD_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_GTE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_TXU_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_TXO_Field is STM32_SVD.Bit;
-   --  FDCAN_TTIR_SE array element
-   subtype FDCAN_TTIR_SE_Element is STM32_SVD.Bit;
-
    --  FDCAN_TTIR_SE array
-   type FDCAN_TTIR_SE_Field_Array is array (1 .. 2) of FDCAN_TTIR_SE_Element
+   type FDCAN_TTIR_SE_Field_Array is array (1 .. 2) of Boolean
      with Component_Size => 1, Size => 2;
 
    --  Type definition for FDCAN_TTIR_SE
@@ -1763,55 +1586,49 @@ package STM32_SVD.FDCAN is
       Arr at 0 range 0 .. 1;
    end record;
 
-   subtype FDCAN_TTIR_ELC_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_IWTG_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_WT_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_AW_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIR_CER_Field is STM32_SVD.Bit;
-
    --  FDCAN TT Interrupt Register
    type FDCAN_TTIR_Register is record
       --  Start of Basic Cycle
-      SBC            : FDCAN_TTIR_SBC_Field := 16#0#;
+      SBC            : Boolean := False;
       --  Start of Matrix Cycle
-      SMC            : FDCAN_TTIR_SMC_Field := 16#0#;
+      SMC            : Boolean := False;
       --  Change of Synchronization Mode
-      CSM            : FDCAN_TTIR_CSM_Field := 16#0#;
+      CSM            : Boolean := False;
       --  Start of Gap
-      SOG            : FDCAN_TTIR_SOG_Field := 16#0#;
+      SOG            : Boolean := False;
       --  Register Time Mark Interrupt.
-      RTMI           : FDCAN_TTIR_RTMI_Field := 16#0#;
+      RTMI           : Boolean := False;
       --  Trigger Time Mark Event Internal
-      TTMI           : FDCAN_TTIR_TTMI_Field := 16#0#;
+      TTMI           : Boolean := False;
       --  Stop Watch Event
-      SWE            : FDCAN_TTIR_SWE_Field := 16#0#;
+      SWE            : Boolean := False;
       --  Global Time Wrap
-      GTW            : FDCAN_TTIR_GTW_Field := 16#0#;
+      GTW            : Boolean := False;
       --  Global Time Discontinuity
-      GTD            : FDCAN_TTIR_GTD_Field := 16#0#;
+      GTD            : Boolean := False;
       --  Global Time Error
-      GTE            : FDCAN_TTIR_GTE_Field := 16#0#;
+      GTE            : Boolean := False;
       --  Tx Count Underflow
-      TXU            : FDCAN_TTIR_TXU_Field := 16#0#;
+      TXU            : Boolean := False;
       --  Tx Count Overflow
-      TXO            : FDCAN_TTIR_TXO_Field := 16#0#;
+      TXO            : Boolean := False;
       --  Scheduling Error 1
       SE             : FDCAN_TTIR_SE_Field :=
                         (As_Array => False, Val => 16#0#);
       --  Error Level Changed.
-      ELC            : FDCAN_TTIR_ELC_Field := 16#0#;
+      ELC            : Boolean := False;
       --  Initialization Watch Trigger
-      IWTG           : FDCAN_TTIR_IWTG_Field := 16#0#;
+      IWTG           : Boolean := False;
       --  Watch Trigger
-      WT             : FDCAN_TTIR_WT_Field := 16#0#;
+      WT             : Boolean := False;
       --  Application Watchdog
-      AW             : FDCAN_TTIR_AW_Field := 16#0#;
+      AW             : Boolean := False;
       --  Configuration Error
-      CER            : FDCAN_TTIR_CER_Field := 16#0#;
+      CER            : Boolean := False;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTIR_Register use record
@@ -1836,70 +1653,50 @@ package STM32_SVD.FDCAN is
       Reserved_19_31 at 0 range 19 .. 31;
    end record;
 
-   subtype FDCAN_TTIE_SBCE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_SMCE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_CSME_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_SOGE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_RTMIE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_TTMIE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_SWEE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_GTWE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_GTDE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_GTEE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_TXUE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_TXOE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_SE1E_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_SE2E_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_ELCE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_IWTGE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_WTE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_AWE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTIE_CERE_Field is STM32_SVD.Bit;
-
    --  FDCAN TT Interrupt Enable Register
    type FDCAN_TTIE_Register is record
       --  Start of Basic Cycle Interrupt Enable
-      SBCE           : FDCAN_TTIE_SBCE_Field := 16#0#;
+      SBCE           : Boolean := False;
       --  Start of Matrix Cycle Interrupt Enable
-      SMCE           : FDCAN_TTIE_SMCE_Field := 16#0#;
+      SMCE           : Boolean := False;
       --  Change of Synchronization Mode Interrupt Enable
-      CSME           : FDCAN_TTIE_CSME_Field := 16#0#;
+      CSME           : Boolean := False;
       --  Start of Gap Interrupt Enable
-      SOGE           : FDCAN_TTIE_SOGE_Field := 16#0#;
+      SOGE           : Boolean := False;
       --  Register Time Mark Interrupt Enable
-      RTMIE          : FDCAN_TTIE_RTMIE_Field := 16#0#;
+      RTMIE          : Boolean := False;
       --  Trigger Time Mark Event Internal Interrupt Enable
-      TTMIE          : FDCAN_TTIE_TTMIE_Field := 16#0#;
+      TTMIE          : Boolean := False;
       --  Stop Watch Event Interrupt Enable
-      SWEE           : FDCAN_TTIE_SWEE_Field := 16#0#;
+      SWEE           : Boolean := False;
       --  Global Time Wrap Interrupt Enable
-      GTWE           : FDCAN_TTIE_GTWE_Field := 16#0#;
+      GTWE           : Boolean := False;
       --  Global Time Discontinuity Interrupt Enable
-      GTDE           : FDCAN_TTIE_GTDE_Field := 16#0#;
+      GTDE           : Boolean := False;
       --  Global Time Error Interrupt Enable
-      GTEE           : FDCAN_TTIE_GTEE_Field := 16#0#;
+      GTEE           : Boolean := False;
       --  Tx Count Underflow Interrupt Enable
-      TXUE           : FDCAN_TTIE_TXUE_Field := 16#0#;
+      TXUE           : Boolean := False;
       --  Tx Count Overflow Interrupt Enable
-      TXOE           : FDCAN_TTIE_TXOE_Field := 16#0#;
+      TXOE           : Boolean := False;
       --  Scheduling Error 1 Interrupt Enable
-      SE1E           : FDCAN_TTIE_SE1E_Field := 16#0#;
+      SE1E           : Boolean := False;
       --  Scheduling Error 2 Interrupt Enable
-      SE2E           : FDCAN_TTIE_SE2E_Field := 16#0#;
+      SE2E           : Boolean := False;
       --  Change Error Level Interrupt Enable
-      ELCE           : FDCAN_TTIE_ELCE_Field := 16#0#;
+      ELCE           : Boolean := False;
       --  Initialization Watch Trigger Interrupt Enable
-      IWTGE          : FDCAN_TTIE_IWTGE_Field := 16#0#;
+      IWTGE          : Boolean := False;
       --  Watch Trigger Interrupt Enable
-      WTE            : FDCAN_TTIE_WTE_Field := 16#0#;
+      WTE            : Boolean := False;
       --  Application Watchdog Interrupt Enable
-      AWE            : FDCAN_TTIE_AWE_Field := 16#0#;
+      AWE            : Boolean := False;
       --  Configuration Error Interrupt Enable
-      CERE           : FDCAN_TTIE_CERE_Field := 16#0#;
+      CERE           : Boolean := False;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTIE_Register use record
@@ -1925,70 +1722,50 @@ package STM32_SVD.FDCAN is
       Reserved_19_31 at 0 range 19 .. 31;
    end record;
 
-   subtype FDCAN_TTILS_SBCL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_SMCL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_CSML_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_SOGL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_RTMIL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_TTMIL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_SWEL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_GTWL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_GTDL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_GTEL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_TXUL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_TXOL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_SE1L_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_SE2L_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_ELCL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_IWTGL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_WTL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_AWL_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTILS_CERL_Field is STM32_SVD.Bit;
-
    --  FDCAN TT Interrupt Line Select Register
    type FDCAN_TTILS_Register is record
       --  Start of Basic Cycle Interrupt Line
-      SBCL           : FDCAN_TTILS_SBCL_Field := 16#0#;
+      SBCL           : Boolean := False;
       --  Start of Matrix Cycle Interrupt Line
-      SMCL           : FDCAN_TTILS_SMCL_Field := 16#0#;
+      SMCL           : Boolean := False;
       --  Change of Synchronization Mode Interrupt Line
-      CSML           : FDCAN_TTILS_CSML_Field := 16#0#;
+      CSML           : Boolean := False;
       --  Start of Gap Interrupt Line
-      SOGL           : FDCAN_TTILS_SOGL_Field := 16#0#;
+      SOGL           : Boolean := False;
       --  Register Time Mark Interrupt Line
-      RTMIL          : FDCAN_TTILS_RTMIL_Field := 16#0#;
+      RTMIL          : Boolean := False;
       --  Trigger Time Mark Event Internal Interrupt Line
-      TTMIL          : FDCAN_TTILS_TTMIL_Field := 16#0#;
+      TTMIL          : Boolean := False;
       --  Stop Watch Event Interrupt Line
-      SWEL           : FDCAN_TTILS_SWEL_Field := 16#0#;
+      SWEL           : Boolean := False;
       --  Global Time Wrap Interrupt Line
-      GTWL           : FDCAN_TTILS_GTWL_Field := 16#0#;
+      GTWL           : Boolean := False;
       --  Global Time Discontinuity Interrupt Line
-      GTDL           : FDCAN_TTILS_GTDL_Field := 16#0#;
+      GTDL           : Boolean := False;
       --  Global Time Error Interrupt Line
-      GTEL           : FDCAN_TTILS_GTEL_Field := 16#0#;
+      GTEL           : Boolean := False;
       --  Tx Count Underflow Interrupt Line
-      TXUL           : FDCAN_TTILS_TXUL_Field := 16#0#;
+      TXUL           : Boolean := False;
       --  Tx Count Overflow Interrupt Line
-      TXOL           : FDCAN_TTILS_TXOL_Field := 16#0#;
+      TXOL           : Boolean := False;
       --  Scheduling Error 1 Interrupt Line
-      SE1L           : FDCAN_TTILS_SE1L_Field := 16#0#;
+      SE1L           : Boolean := False;
       --  Scheduling Error 2 Interrupt Line
-      SE2L           : FDCAN_TTILS_SE2L_Field := 16#0#;
+      SE2L           : Boolean := False;
       --  Change Error Level Interrupt Line
-      ELCL           : FDCAN_TTILS_ELCL_Field := 16#0#;
+      ELCL           : Boolean := False;
       --  Initialization Watch Trigger Interrupt Line
-      IWTGL          : FDCAN_TTILS_IWTGL_Field := 16#0#;
+      IWTGL          : Boolean := False;
       --  Watch Trigger Interrupt Line
-      WTL            : FDCAN_TTILS_WTL_Field := 16#0#;
+      WTL            : Boolean := False;
       --  Application Watchdog Interrupt Line
-      AWL            : FDCAN_TTILS_AWL_Field := 16#0#;
+      AWL            : Boolean := False;
       --  Configuration Error Interrupt Line
-      CERL           : FDCAN_TTILS_CERL_Field := 16#0#;
+      CERL           : Boolean := False;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTILS_Register use record
@@ -2017,17 +1794,8 @@ package STM32_SVD.FDCAN is
    subtype FDCAN_TTOST_EL_Field is STM32_SVD.UInt2;
    subtype FDCAN_TTOST_MS_Field is STM32_SVD.UInt2;
    subtype FDCAN_TTOST_SYS_Field is STM32_SVD.UInt2;
-   subtype FDCAN_TTOST_GTP_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOST_QCS_Field is STM32_SVD.Bit;
    subtype FDCAN_TTOST_RTO_Field is STM32_SVD.Byte;
-   subtype FDCAN_TTOST_WGTD_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOST_GFI_Field is STM32_SVD.Bit;
    subtype FDCAN_TTOST_TMP_Field is STM32_SVD.UInt3;
-   subtype FDCAN_TTOST_GSI_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOST_WFE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOST_AWE_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOST_WECS_Field is STM32_SVD.Bit;
-   subtype FDCAN_TTOST_SPL_Field is STM32_SVD.Bit;
 
    --  FDCAN TT Operation Status Register
    type FDCAN_TTOST_Register is record
@@ -2038,31 +1806,31 @@ package STM32_SVD.FDCAN is
       --  Synchronization State
       SYS            : FDCAN_TTOST_SYS_Field := 16#0#;
       --  Quality of Global Time Phase
-      GTP            : FDCAN_TTOST_GTP_Field := 16#0#;
+      GTP            : Boolean := False;
       --  Quality of Clock Speed
-      QCS            : FDCAN_TTOST_QCS_Field := 16#0#;
+      QCS            : Boolean := False;
       --  Reference Trigger Offset
       RTO            : FDCAN_TTOST_RTO_Field := 16#0#;
       --  unspecified
       Reserved_16_21 : STM32_SVD.UInt6 := 16#0#;
       --  Wait for Global Time Discontinuity
-      WGTD           : FDCAN_TTOST_WGTD_Field := 16#0#;
+      WGTD           : Boolean := False;
       --  Gap Finished Indicator.
-      GFI            : FDCAN_TTOST_GFI_Field := 16#0#;
+      GFI            : Boolean := False;
       --  Time Master Priority
       TMP            : FDCAN_TTOST_TMP_Field := 16#0#;
       --  Gap Started Indicator.
-      GSI            : FDCAN_TTOST_GSI_Field := 16#0#;
+      GSI            : Boolean := False;
       --  Wait for Event
-      WFE            : FDCAN_TTOST_WFE_Field := 16#0#;
+      WFE            : Boolean := False;
       --  Application Watchdog Event
-      AWE            : FDCAN_TTOST_AWE_Field := 16#0#;
+      AWE            : Boolean := False;
       --  Wait for External Clock Synchronization
-      WECS           : FDCAN_TTOST_WECS_Field := 16#0#;
+      WECS           : Boolean := False;
       --  Schedule Phase Lock
-      SPL            : FDCAN_TTOST_SPL_Field := 16#0#;
+      SPL            : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTOST_Register use record
@@ -2092,7 +1860,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TURNA_Register use record
@@ -2110,7 +1878,7 @@ package STM32_SVD.FDCAN is
       --  Read-only. Global Time
       GT : FDCAN_TTLGT_GT_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTLGT_Register use record
@@ -2130,7 +1898,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTCTC_Register use record
@@ -2151,7 +1919,7 @@ package STM32_SVD.FDCAN is
       --  Read-only. Stop Watch Value
       SWV           : FDCAN_TTCPT_SWV_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTCPT_Register use record
@@ -2169,7 +1937,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTCSM_Register use record
@@ -2191,7 +1959,7 @@ package STM32_SVD.FDCAN is
       --  unspecified
       Reserved_6_31 : STM32_SVD.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for FDCAN_TTTS_Register use record
@@ -2407,18 +2175,18 @@ package STM32_SVD.FDCAN is
 
    --  FDCAN1
    CAN_CCU_Periph : aliased FDCAN_Peripheral
-     with Import, Address => System'To_Address (16#4000A800#);
+     with Import, Address => CAN_CCU_Base;
 
    --  FDCAN1
    CAN_Msg_RAM_Periph : aliased FDCAN_Peripheral
-     with Import, Address => System'To_Address (16#4000AC00#);
+     with Import, Address => CAN_Msg_RAM_Base;
 
    --  FDCAN1
    FDCAN1_Periph : aliased FDCAN_Peripheral
-     with Import, Address => System'To_Address (16#4000A000#);
+     with Import, Address => FDCAN1_Base;
 
    --  FDCAN1
    FDCAN2_Periph : aliased FDCAN_Peripheral
-     with Import, Address => System'To_Address (16#4000A400#);
+     with Import, Address => FDCAN2_Base;
 
 end STM32_SVD.FDCAN;

@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -14,7 +14,6 @@ package STM32_SVD.USB_OTG_HS is
    ---------------
 
    subtype OTG_HS_DCFG_DSPD_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_DCFG_NZLSOHSK_Field is STM32_SVD.Bit;
    subtype OTG_HS_DCFG_DAD_Field is STM32_SVD.UInt7;
    subtype OTG_HS_DCFG_PFIVL_Field is STM32_SVD.UInt2;
    subtype OTG_HS_DCFG_PERSCHIVL_Field is STM32_SVD.UInt2;
@@ -24,7 +23,7 @@ package STM32_SVD.USB_OTG_HS is
       --  Device speed
       DSPD           : OTG_HS_DCFG_DSPD_Field := 16#0#;
       --  Nonzero-length status OUT handshake
-      NZLSOHSK       : OTG_HS_DCFG_NZLSOHSK_Field := 16#0#;
+      NZLSOHSK       : Boolean := False;
       --  unspecified
       Reserved_3_3   : STM32_SVD.Bit := 16#0#;
       --  Device address
@@ -38,7 +37,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DCFG_Register use record
@@ -52,43 +51,34 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_26_31 at 0 range 26 .. 31;
    end record;
 
-   subtype OTG_HS_DCTL_RWUSIG_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DCTL_SDIS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DCTL_GINSTS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DCTL_GONSTS_Field is STM32_SVD.Bit;
    subtype OTG_HS_DCTL_TCTL_Field is STM32_SVD.UInt3;
-   subtype OTG_HS_DCTL_SGINAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DCTL_CGINAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DCTL_SGONAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DCTL_CGONAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DCTL_POPRGDNE_Field is STM32_SVD.Bit;
 
    --  OTG_HS device control register
    type OTG_HS_DCTL_Register is record
       --  Remote wakeup signaling
-      RWUSIG         : OTG_HS_DCTL_RWUSIG_Field := 16#0#;
+      RWUSIG         : Boolean := False;
       --  Soft disconnect
-      SDIS           : OTG_HS_DCTL_SDIS_Field := 16#0#;
+      SDIS           : Boolean := False;
       --  Read-only. Global IN NAK status
-      GINSTS         : OTG_HS_DCTL_GINSTS_Field := 16#0#;
+      GINSTS         : Boolean := False;
       --  Read-only. Global OUT NAK status
-      GONSTS         : OTG_HS_DCTL_GONSTS_Field := 16#0#;
+      GONSTS         : Boolean := False;
       --  Test control
       TCTL           : OTG_HS_DCTL_TCTL_Field := 16#0#;
       --  Write-only. Set global IN NAK
-      SGINAK         : OTG_HS_DCTL_SGINAK_Field := 16#0#;
+      SGINAK         : Boolean := False;
       --  Write-only. Clear global IN NAK
-      CGINAK         : OTG_HS_DCTL_CGINAK_Field := 16#0#;
+      CGINAK         : Boolean := False;
       --  Write-only. Set global OUT NAK
-      SGONAK         : OTG_HS_DCTL_SGONAK_Field := 16#0#;
+      SGONAK         : Boolean := False;
       --  Write-only. Clear global OUT NAK
-      CGONAK         : OTG_HS_DCTL_CGONAK_Field := 16#0#;
+      CGONAK         : Boolean := False;
       --  Power-on programming done
-      POPRGDNE       : OTG_HS_DCTL_POPRGDNE_Field := 16#0#;
+      POPRGDNE       : Boolean := False;
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DCTL_Register use record
@@ -105,19 +95,17 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype OTG_HS_DSTS_SUSPSTS_Field is STM32_SVD.Bit;
    subtype OTG_HS_DSTS_ENUMSPD_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_DSTS_EERR_Field is STM32_SVD.Bit;
    subtype OTG_HS_DSTS_FNSOF_Field is STM32_SVD.UInt14;
 
    --  OTG_HS device status register
    type OTG_HS_DSTS_Register is record
       --  Read-only. Suspend status
-      SUSPSTS        : OTG_HS_DSTS_SUSPSTS_Field;
+      SUSPSTS        : Boolean;
       --  Read-only. Enumerated speed
       ENUMSPD        : OTG_HS_DSTS_ENUMSPD_Field;
       --  Read-only. Erratic error
-      EERR           : OTG_HS_DSTS_EERR_Field;
+      EERR           : Boolean;
       --  unspecified
       Reserved_4_7   : STM32_SVD.UInt4;
       --  Read-only. Frame number of the received SOF
@@ -125,7 +113,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DSTS_Register use record
@@ -137,41 +125,32 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_22_31 at 0 range 22 .. 31;
    end record;
 
-   subtype OTG_HS_DIEPMSK_XFRCM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPMSK_EPDM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPMSK_TOM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPMSK_ITTXFEMSK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPMSK_INEPNMM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPMSK_INEPNEM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPMSK_TXFURM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPMSK_BIM_Field is STM32_SVD.Bit;
-
    --  OTG_HS device IN endpoint common interrupt mask register
    type OTG_HS_DIEPMSK_Register is record
       --  Transfer completed interrupt mask
-      XFRCM          : OTG_HS_DIEPMSK_XFRCM_Field := 16#0#;
+      XFRCM          : Boolean := False;
       --  Endpoint disabled interrupt mask
-      EPDM           : OTG_HS_DIEPMSK_EPDM_Field := 16#0#;
+      EPDM           : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  Timeout condition mask (nonisochronous endpoints)
-      TOM            : OTG_HS_DIEPMSK_TOM_Field := 16#0#;
+      TOM            : Boolean := False;
       --  IN token received when TxFIFO empty mask
-      ITTXFEMSK      : OTG_HS_DIEPMSK_ITTXFEMSK_Field := 16#0#;
+      ITTXFEMSK      : Boolean := False;
       --  IN token received with EP mismatch mask
-      INEPNMM        : OTG_HS_DIEPMSK_INEPNMM_Field := 16#0#;
+      INEPNMM        : Boolean := False;
       --  IN endpoint NAK effective mask
-      INEPNEM        : OTG_HS_DIEPMSK_INEPNEM_Field := 16#0#;
+      INEPNEM        : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  FIFO underrun mask
-      TXFURM         : OTG_HS_DIEPMSK_TXFURM_Field := 16#0#;
+      TXFURM         : Boolean := False;
       --  BNA interrupt mask
-      BIM            : OTG_HS_DIEPMSK_BIM_Field := 16#0#;
+      BIM            : Boolean := False;
       --  unspecified
       Reserved_10_31 : STM32_SVD.UInt22 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DIEPMSK_Register use record
@@ -188,40 +167,32 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_10_31 at 0 range 10 .. 31;
    end record;
 
-   subtype OTG_HS_DOEPMSK_XFRCM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPMSK_EPDM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPMSK_STUPM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPMSK_OTEPDM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPMSK_B2BSTUP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPMSK_OPEM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPMSK_BOIM_Field is STM32_SVD.Bit;
-
    --  OTG_HS device OUT endpoint common interrupt mask register
    type OTG_HS_DOEPMSK_Register is record
       --  Transfer completed interrupt mask
-      XFRCM          : OTG_HS_DOEPMSK_XFRCM_Field := 16#0#;
+      XFRCM          : Boolean := False;
       --  Endpoint disabled interrupt mask
-      EPDM           : OTG_HS_DOEPMSK_EPDM_Field := 16#0#;
+      EPDM           : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  SETUP phase done mask
-      STUPM          : OTG_HS_DOEPMSK_STUPM_Field := 16#0#;
+      STUPM          : Boolean := False;
       --  OUT token received when endpoint disabled mask
-      OTEPDM         : OTG_HS_DOEPMSK_OTEPDM_Field := 16#0#;
+      OTEPDM         : Boolean := False;
       --  unspecified
       Reserved_5_5   : STM32_SVD.Bit := 16#0#;
       --  Back-to-back SETUP packets received mask
-      B2BSTUP        : OTG_HS_DOEPMSK_B2BSTUP_Field := 16#0#;
+      B2BSTUP        : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  OUT packet error mask
-      OPEM           : OTG_HS_DOEPMSK_OPEM_Field := 16#0#;
+      OPEM           : Boolean := False;
       --  BNA interrupt mask
-      BOIM           : OTG_HS_DOEPMSK_BOIM_Field := 16#0#;
+      BOIM           : Boolean := False;
       --  unspecified
       Reserved_10_31 : STM32_SVD.UInt22 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DOEPMSK_Register use record
@@ -248,7 +219,7 @@ package STM32_SVD.USB_OTG_HS is
       --  Read-only. OUT endpoint interrupt bits
       OEPINT : OTG_HS_DAINT_OEPINT_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DAINT_Register use record
@@ -266,7 +237,7 @@ package STM32_SVD.USB_OTG_HS is
       --  OUT EP interrupt mask bits
       OEPM : OTG_HS_DAINTMSK_OEPM_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DAINTMSK_Register use record
@@ -283,7 +254,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DVBUSDIS_Register use record
@@ -300,7 +271,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DVBUSPULSE_Register use record
@@ -308,35 +279,31 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
 
-   subtype OTG_HS_DTHRCTL_NONISOTHREN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DTHRCTL_ISOTHREN_Field is STM32_SVD.Bit;
    subtype OTG_HS_DTHRCTL_TXTHRLEN_Field is STM32_SVD.UInt9;
-   subtype OTG_HS_DTHRCTL_RXTHREN_Field is STM32_SVD.Bit;
    subtype OTG_HS_DTHRCTL_RXTHRLEN_Field is STM32_SVD.UInt9;
-   subtype OTG_HS_DTHRCTL_ARPEN_Field is STM32_SVD.Bit;
 
    --  OTG_HS Device threshold control register
    type OTG_HS_DTHRCTL_Register is record
       --  Nonisochronous IN endpoints threshold enable
-      NONISOTHREN    : OTG_HS_DTHRCTL_NONISOTHREN_Field := 16#0#;
+      NONISOTHREN    : Boolean := False;
       --  ISO IN endpoint threshold enable
-      ISOTHREN       : OTG_HS_DTHRCTL_ISOTHREN_Field := 16#0#;
+      ISOTHREN       : Boolean := False;
       --  Transmit threshold length
       TXTHRLEN       : OTG_HS_DTHRCTL_TXTHRLEN_Field := 16#0#;
       --  unspecified
       Reserved_11_15 : STM32_SVD.UInt5 := 16#0#;
       --  Receive threshold enable
-      RXTHREN        : OTG_HS_DTHRCTL_RXTHREN_Field := 16#0#;
+      RXTHREN        : Boolean := False;
       --  Receive threshold length
       RXTHRLEN       : OTG_HS_DTHRCTL_RXTHRLEN_Field := 16#0#;
       --  unspecified
       Reserved_26_26 : STM32_SVD.Bit := 16#0#;
       --  Arbiter parking enable
-      ARPEN          : OTG_HS_DTHRCTL_ARPEN_Field := 16#0#;
+      ARPEN          : Boolean := False;
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DTHRCTL_Register use record
@@ -360,7 +327,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DIEPEMPMSK_Register use record
@@ -368,23 +335,20 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype OTG_HS_DEACHINT_IEP1INT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DEACHINT_OEP1INT_Field is STM32_SVD.Bit;
-
    --  OTG_HS device each endpoint interrupt register
    type OTG_HS_DEACHINT_Register is record
       --  unspecified
       Reserved_0_0   : STM32_SVD.Bit := 16#0#;
       --  IN endpoint 1interrupt bit
-      IEP1INT        : OTG_HS_DEACHINT_IEP1INT_Field := 16#0#;
+      IEP1INT        : Boolean := False;
       --  unspecified
       Reserved_2_16  : STM32_SVD.UInt15 := 16#0#;
       --  OUT endpoint 1 interrupt bit
-      OEP1INT        : OTG_HS_DEACHINT_OEP1INT_Field := 16#0#;
+      OEP1INT        : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DEACHINT_Register use record
@@ -395,23 +359,20 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype OTG_HS_DEACHINTMSK_IEP1INTM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DEACHINTMSK_OEP1INTM_Field is STM32_SVD.Bit;
-
    --  OTG_HS device each endpoint interrupt register mask
    type OTG_HS_DEACHINTMSK_Register is record
       --  unspecified
       Reserved_0_0   : STM32_SVD.Bit := 16#0#;
       --  IN Endpoint 1 interrupt mask bit
-      IEP1INTM       : OTG_HS_DEACHINTMSK_IEP1INTM_Field := 16#0#;
+      IEP1INTM       : Boolean := False;
       --  unspecified
       Reserved_2_16  : STM32_SVD.UInt15 := 16#0#;
       --  OUT Endpoint 1 interrupt mask bit
-      OEP1INTM       : OTG_HS_DEACHINTMSK_OEP1INTM_Field := 16#0#;
+      OEP1INTM       : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DEACHINTMSK_Register use record
@@ -423,18 +384,8 @@ package STM32_SVD.USB_OTG_HS is
    end record;
 
    subtype OTG_HS_DIEPCTL_MPSIZ_Field is STM32_SVD.UInt11;
-   subtype OTG_HS_DIEPCTL_USBAEP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPCTL_EONUM_DPID_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPCTL_NAKSTS_Field is STM32_SVD.Bit;
    subtype OTG_HS_DIEPCTL_EPTYP_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_DIEPCTL_Stall_Field is STM32_SVD.Bit;
    subtype OTG_HS_DIEPCTL_TXFNUM_Field is STM32_SVD.UInt4;
-   subtype OTG_HS_DIEPCTL_CNAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPCTL_SNAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPCTL_SD0PID_SEVNFRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPCTL_SODDFRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPCTL_EPDIS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPCTL_EPENA_Field is STM32_SVD.Bit;
 
    --  OTG device endpoint-0 control register
    type OTG_HS_DIEPCTL_Register is record
@@ -443,33 +394,33 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_11_14 : STM32_SVD.UInt4 := 16#0#;
       --  USB active endpoint
-      USBAEP         : OTG_HS_DIEPCTL_USBAEP_Field := 16#0#;
+      USBAEP         : Boolean := False;
       --  Read-only. Even/odd frame
-      EONUM_DPID     : OTG_HS_DIEPCTL_EONUM_DPID_Field := 16#0#;
+      EONUM_DPID     : Boolean := False;
       --  Read-only. NAK status
-      NAKSTS         : OTG_HS_DIEPCTL_NAKSTS_Field := 16#0#;
+      NAKSTS         : Boolean := False;
       --  Endpoint type
       EPTYP          : OTG_HS_DIEPCTL_EPTYP_Field := 16#0#;
       --  unspecified
       Reserved_20_20 : STM32_SVD.Bit := 16#0#;
       --  STALL handshake
-      Stall          : OTG_HS_DIEPCTL_Stall_Field := 16#0#;
+      Stall          : Boolean := False;
       --  TxFIFO number
       TXFNUM         : OTG_HS_DIEPCTL_TXFNUM_Field := 16#0#;
       --  Write-only. Clear NAK
-      CNAK           : OTG_HS_DIEPCTL_CNAK_Field := 16#0#;
+      CNAK           : Boolean := False;
       --  Write-only. Set NAK
-      SNAK           : OTG_HS_DIEPCTL_SNAK_Field := 16#0#;
+      SNAK           : Boolean := False;
       --  Write-only. Set DATA0 PID
-      SD0PID_SEVNFRM : OTG_HS_DIEPCTL_SD0PID_SEVNFRM_Field := 16#0#;
+      SD0PID_SEVNFRM : Boolean := False;
       --  Write-only. Set odd frame
-      SODDFRM        : OTG_HS_DIEPCTL_SODDFRM_Field := 16#0#;
+      SODDFRM        : Boolean := False;
       --  Endpoint disable
-      EPDIS          : OTG_HS_DIEPCTL_EPDIS_Field := 16#0#;
+      EPDIS          : Boolean := False;
       --  Endpoint enable
-      EPENA          : OTG_HS_DIEPCTL_EPENA_Field := 16#0#;
+      EPENA          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DIEPCTL_Register use record
@@ -490,52 +441,40 @@ package STM32_SVD.USB_OTG_HS is
       EPENA          at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_DIEPINT_XFRC_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_EPDISD_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_TOC_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_ITTXFE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_INEPNE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_TXFE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_TXFIFOUDRN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_BNA_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_PKTDRPSTS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_BERR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DIEPINT_NAK_Field is STM32_SVD.Bit;
-
    --  OTG device endpoint-0 interrupt register
    type OTG_HS_DIEPINT_Register is record
       --  Transfer completed interrupt
-      XFRC           : OTG_HS_DIEPINT_XFRC_Field := 16#0#;
+      XFRC           : Boolean := False;
       --  Endpoint disabled interrupt
-      EPDISD         : OTG_HS_DIEPINT_EPDISD_Field := 16#0#;
+      EPDISD         : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  Timeout condition
-      TOC            : OTG_HS_DIEPINT_TOC_Field := 16#0#;
+      TOC            : Boolean := False;
       --  IN token received when TxFIFO is empty
-      ITTXFE         : OTG_HS_DIEPINT_ITTXFE_Field := 16#0#;
+      ITTXFE         : Boolean := False;
       --  unspecified
       Reserved_5_5   : STM32_SVD.Bit := 16#0#;
       --  IN endpoint NAK effective
-      INEPNE         : OTG_HS_DIEPINT_INEPNE_Field := 16#0#;
+      INEPNE         : Boolean := False;
       --  Read-only. Transmit FIFO empty
-      TXFE           : OTG_HS_DIEPINT_TXFE_Field := 16#1#;
+      TXFE           : Boolean := True;
       --  Transmit Fifo Underrun
-      TXFIFOUDRN     : OTG_HS_DIEPINT_TXFIFOUDRN_Field := 16#0#;
+      TXFIFOUDRN     : Boolean := False;
       --  Buffer not available interrupt
-      BNA            : OTG_HS_DIEPINT_BNA_Field := 16#0#;
+      BNA            : Boolean := False;
       --  unspecified
       Reserved_10_10 : STM32_SVD.Bit := 16#0#;
       --  Packet dropped status
-      PKTDRPSTS      : OTG_HS_DIEPINT_PKTDRPSTS_Field := 16#0#;
+      PKTDRPSTS      : Boolean := False;
       --  Babble error interrupt
-      BERR           : OTG_HS_DIEPINT_BERR_Field := 16#0#;
+      BERR           : Boolean := False;
       --  NAK interrupt
-      NAK            : OTG_HS_DIEPINT_NAK_Field := 16#0#;
+      NAK            : Boolean := False;
       --  unspecified
       Reserved_14_31 : STM32_SVD.UInt18 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DIEPINT_Register use record
@@ -570,7 +509,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DIEPTSIZ0_Register use record
@@ -589,7 +528,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DTXFSTS_Register use record
@@ -612,7 +551,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DIEPTSIZ_Register use record
@@ -623,15 +562,7 @@ package STM32_SVD.USB_OTG_HS is
    end record;
 
    subtype OTG_HS_DOEPCTL0_MPSIZ_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_DOEPCTL0_USBAEP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL0_NAKSTS_Field is STM32_SVD.Bit;
    subtype OTG_HS_DOEPCTL0_EPTYP_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_DOEPCTL0_SNPM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL0_Stall_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL0_CNAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL0_SNAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL0_EPDIS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL0_EPENA_Field is STM32_SVD.Bit;
 
    --  OTG_HS device control OUT endpoint 0 control register
    type OTG_HS_DOEPCTL0_Register is record
@@ -640,31 +571,31 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_2_14  : STM32_SVD.UInt13 := 16#0#;
       --  Read-only. USB active endpoint
-      USBAEP         : OTG_HS_DOEPCTL0_USBAEP_Field := 16#1#;
+      USBAEP         : Boolean := True;
       --  unspecified
       Reserved_16_16 : STM32_SVD.Bit := 16#0#;
       --  Read-only. NAK status
-      NAKSTS         : OTG_HS_DOEPCTL0_NAKSTS_Field := 16#0#;
+      NAKSTS         : Boolean := False;
       --  Read-only. Endpoint type
       EPTYP          : OTG_HS_DOEPCTL0_EPTYP_Field := 16#0#;
       --  Snoop mode
-      SNPM           : OTG_HS_DOEPCTL0_SNPM_Field := 16#0#;
+      SNPM           : Boolean := False;
       --  STALL handshake
-      Stall          : OTG_HS_DOEPCTL0_Stall_Field := 16#0#;
+      Stall          : Boolean := False;
       --  unspecified
       Reserved_22_25 : STM32_SVD.UInt4 := 16#0#;
       --  Write-only. Clear NAK
-      CNAK           : OTG_HS_DOEPCTL0_CNAK_Field := 16#0#;
+      CNAK           : Boolean := False;
       --  Write-only. Set NAK
-      SNAK           : OTG_HS_DOEPCTL0_SNAK_Field := 16#0#;
+      SNAK           : Boolean := False;
       --  unspecified
       Reserved_28_29 : STM32_SVD.UInt2 := 16#0#;
       --  Read-only. Endpoint disable
-      EPDIS          : OTG_HS_DOEPCTL0_EPDIS_Field := 16#0#;
+      EPDIS          : Boolean := False;
       --  Write-only. Endpoint enable
-      EPENA          : OTG_HS_DOEPCTL0_EPENA_Field := 16#0#;
+      EPENA          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DOEPCTL0_Register use record
@@ -684,37 +615,30 @@ package STM32_SVD.USB_OTG_HS is
       EPENA          at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_DOEPINT_XFRC_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPINT_EPDISD_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPINT_STUP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPINT_OTEPDIS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPINT_B2BSTUP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPINT_NYET_Field is STM32_SVD.Bit;
-
    --  OTG_HS device endpoint-0 interrupt register
    type OTG_HS_DOEPINT_Register is record
       --  Transfer completed interrupt
-      XFRC           : OTG_HS_DOEPINT_XFRC_Field := 16#0#;
+      XFRC           : Boolean := False;
       --  Endpoint disabled interrupt
-      EPDISD         : OTG_HS_DOEPINT_EPDISD_Field := 16#0#;
+      EPDISD         : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  SETUP phase done
-      STUP           : OTG_HS_DOEPINT_STUP_Field := 16#0#;
+      STUP           : Boolean := False;
       --  OUT token received when endpoint disabled
-      OTEPDIS        : OTG_HS_DOEPINT_OTEPDIS_Field := 16#0#;
+      OTEPDIS        : Boolean := False;
       --  unspecified
       Reserved_5_5   : STM32_SVD.Bit := 16#0#;
       --  Back-to-back SETUP packets received
-      B2BSTUP        : OTG_HS_DOEPINT_B2BSTUP_Field := 16#0#;
+      B2BSTUP        : Boolean := False;
       --  unspecified
       Reserved_7_13  : STM32_SVD.UInt7 := 16#1#;
       --  NYET interrupt
-      NYET           : OTG_HS_DOEPINT_NYET_Field := 16#0#;
+      NYET           : Boolean := False;
       --  unspecified
       Reserved_15_31 : STM32_SVD.UInt17 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DOEPINT_Register use record
@@ -731,7 +655,6 @@ package STM32_SVD.USB_OTG_HS is
    end record;
 
    subtype OTG_HS_DOEPTSIZ0_XFRSIZ_Field is STM32_SVD.UInt7;
-   subtype OTG_HS_DOEPTSIZ0_PKTCNT_Field is STM32_SVD.Bit;
    subtype OTG_HS_DOEPTSIZ0_STUPCNT_Field is STM32_SVD.UInt2;
 
    --  OTG_HS device endpoint-0 transfer size register
@@ -741,7 +664,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_7_18  : STM32_SVD.UInt12 := 16#0#;
       --  Packet count
-      PKTCNT         : OTG_HS_DOEPTSIZ0_PKTCNT_Field := 16#0#;
+      PKTCNT         : Boolean := False;
       --  unspecified
       Reserved_20_28 : STM32_SVD.UInt9 := 16#0#;
       --  SETUP packet count
@@ -749,7 +672,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DOEPTSIZ0_Register use record
@@ -762,18 +685,7 @@ package STM32_SVD.USB_OTG_HS is
    end record;
 
    subtype OTG_HS_DOEPCTL_MPSIZ_Field is STM32_SVD.UInt11;
-   subtype OTG_HS_DOEPCTL_USBAEP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_EONUM_DPID_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_NAKSTS_Field is STM32_SVD.Bit;
    subtype OTG_HS_DOEPCTL_EPTYP_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_DOEPCTL_SNPM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_Stall_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_CNAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_SNAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_SD0PID_SEVNFRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_SODDFRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_EPDIS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_DOEPCTL_EPENA_Field is STM32_SVD.Bit;
 
    --  OTG device endpoint-1 control register
    type OTG_HS_DOEPCTL_Register is record
@@ -782,33 +694,33 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_11_14 : STM32_SVD.UInt4 := 16#0#;
       --  USB active endpoint
-      USBAEP         : OTG_HS_DOEPCTL_USBAEP_Field := 16#0#;
+      USBAEP         : Boolean := False;
       --  Read-only. Even odd frame/Endpoint data PID
-      EONUM_DPID     : OTG_HS_DOEPCTL_EONUM_DPID_Field := 16#0#;
+      EONUM_DPID     : Boolean := False;
       --  Read-only. NAK status
-      NAKSTS         : OTG_HS_DOEPCTL_NAKSTS_Field := 16#0#;
+      NAKSTS         : Boolean := False;
       --  Endpoint type
       EPTYP          : OTG_HS_DOEPCTL_EPTYP_Field := 16#0#;
       --  Snoop mode
-      SNPM           : OTG_HS_DOEPCTL_SNPM_Field := 16#0#;
+      SNPM           : Boolean := False;
       --  STALL handshake
-      Stall          : OTG_HS_DOEPCTL_Stall_Field := 16#0#;
+      Stall          : Boolean := False;
       --  unspecified
       Reserved_22_25 : STM32_SVD.UInt4 := 16#0#;
       --  Write-only. Clear NAK
-      CNAK           : OTG_HS_DOEPCTL_CNAK_Field := 16#0#;
+      CNAK           : Boolean := False;
       --  Write-only. Set NAK
-      SNAK           : OTG_HS_DOEPCTL_SNAK_Field := 16#0#;
+      SNAK           : Boolean := False;
       --  Write-only. Set DATA0 PID/Set even frame
-      SD0PID_SEVNFRM : OTG_HS_DOEPCTL_SD0PID_SEVNFRM_Field := 16#0#;
+      SD0PID_SEVNFRM : Boolean := False;
       --  Write-only. Set odd frame
-      SODDFRM        : OTG_HS_DOEPCTL_SODDFRM_Field := 16#0#;
+      SODDFRM        : Boolean := False;
       --  Endpoint disable
-      EPDIS          : OTG_HS_DOEPCTL_EPDIS_Field := 16#0#;
+      EPDIS          : Boolean := False;
       --  Endpoint enable
-      EPENA          : OTG_HS_DOEPCTL_EPENA_Field := 16#0#;
+      EPENA          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DOEPCTL_Register use record
@@ -844,7 +756,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DOEPTSIZ_Register use record
@@ -854,50 +766,38 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_GOTGCTL_SRQSCS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_SRQ_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_HNGSCS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_HNPRQ_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_HSHNPEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_DHNPEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_EHEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_CIDSTS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_DBCT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_ASVLD_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGCTL_BSVLD_Field is STM32_SVD.Bit;
-
    --  OTG_HS control and status register
    type OTG_HS_GOTGCTL_Register is record
       --  Read-only. Session request success
-      SRQSCS         : OTG_HS_GOTGCTL_SRQSCS_Field := 16#0#;
+      SRQSCS         : Boolean := False;
       --  Session request
-      SRQ            : OTG_HS_GOTGCTL_SRQ_Field := 16#0#;
+      SRQ            : Boolean := False;
       --  unspecified
       Reserved_2_7   : STM32_SVD.UInt6 := 16#0#;
       --  Read-only. Host negotiation success
-      HNGSCS         : OTG_HS_GOTGCTL_HNGSCS_Field := 16#0#;
+      HNGSCS         : Boolean := False;
       --  HNP request
-      HNPRQ          : OTG_HS_GOTGCTL_HNPRQ_Field := 16#0#;
+      HNPRQ          : Boolean := False;
       --  Host set HNP enable
-      HSHNPEN        : OTG_HS_GOTGCTL_HSHNPEN_Field := 16#0#;
+      HSHNPEN        : Boolean := False;
       --  Device HNP enabled
-      DHNPEN         : OTG_HS_GOTGCTL_DHNPEN_Field := 16#1#;
+      DHNPEN         : Boolean := True;
       --  Embedded host enable
-      EHEN           : OTG_HS_GOTGCTL_EHEN_Field := 16#0#;
+      EHEN           : Boolean := False;
       --  unspecified
       Reserved_13_15 : STM32_SVD.UInt3 := 16#0#;
       --  Read-only. Connector ID status
-      CIDSTS         : OTG_HS_GOTGCTL_CIDSTS_Field := 16#0#;
+      CIDSTS         : Boolean := False;
       --  Read-only. Long/short debounce time
-      DBCT           : OTG_HS_GOTGCTL_DBCT_Field := 16#0#;
+      DBCT           : Boolean := False;
       --  Read-only. A-session valid
-      ASVLD          : OTG_HS_GOTGCTL_ASVLD_Field := 16#0#;
+      ASVLD          : Boolean := False;
       --  Read-only. B-session valid
-      BSVLD          : OTG_HS_GOTGCTL_BSVLD_Field := 16#0#;
+      BSVLD          : Boolean := False;
       --  unspecified
       Reserved_20_31 : STM32_SVD.UInt12 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GOTGCTL_Register use record
@@ -917,40 +817,32 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_20_31 at 0 range 20 .. 31;
    end record;
 
-   subtype OTG_HS_GOTGINT_SEDET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGINT_SRSSCHG_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGINT_HNSSCHG_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGINT_HNGDET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGINT_ADTOCHG_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGINT_DBCDNE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GOTGINT_IDCHNG_Field is STM32_SVD.Bit;
-
    --  OTG_HS interrupt register
    type OTG_HS_GOTGINT_Register is record
       --  unspecified
       Reserved_0_1   : STM32_SVD.UInt2 := 16#0#;
       --  Session end detected
-      SEDET          : OTG_HS_GOTGINT_SEDET_Field := 16#0#;
+      SEDET          : Boolean := False;
       --  unspecified
       Reserved_3_7   : STM32_SVD.UInt5 := 16#0#;
       --  Session request success status change
-      SRSSCHG        : OTG_HS_GOTGINT_SRSSCHG_Field := 16#0#;
+      SRSSCHG        : Boolean := False;
       --  Host negotiation success status change
-      HNSSCHG        : OTG_HS_GOTGINT_HNSSCHG_Field := 16#0#;
+      HNSSCHG        : Boolean := False;
       --  unspecified
       Reserved_10_16 : STM32_SVD.UInt7 := 16#0#;
       --  Host negotiation detected
-      HNGDET         : OTG_HS_GOTGINT_HNGDET_Field := 16#0#;
+      HNGDET         : Boolean := False;
       --  A-device timeout change
-      ADTOCHG        : OTG_HS_GOTGINT_ADTOCHG_Field := 16#0#;
+      ADTOCHG        : Boolean := False;
       --  Debounce done
-      DBCDNE         : OTG_HS_GOTGINT_DBCDNE_Field := 16#0#;
+      DBCDNE         : Boolean := False;
       --  ID input pin changed
-      IDCHNG         : OTG_HS_GOTGINT_IDCHNG_Field := 16#0#;
+      IDCHNG         : Boolean := False;
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GOTGINT_Register use record
@@ -967,30 +859,26 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_21_31 at 0 range 21 .. 31;
    end record;
 
-   subtype OTG_HS_GAHBCFG_GINT_Field is STM32_SVD.Bit;
    subtype OTG_HS_GAHBCFG_HBSTLEN_Field is STM32_SVD.UInt4;
-   subtype OTG_HS_GAHBCFG_DMAEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GAHBCFG_TXFELVL_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GAHBCFG_PTXFELVL_Field is STM32_SVD.Bit;
 
    --  OTG_HS AHB configuration register
    type OTG_HS_GAHBCFG_Register is record
       --  Global interrupt mask
-      GINT          : OTG_HS_GAHBCFG_GINT_Field := 16#0#;
+      GINT          : Boolean := False;
       --  Burst length/type
       HBSTLEN       : OTG_HS_GAHBCFG_HBSTLEN_Field := 16#0#;
       --  DMA enable
-      DMAEN         : OTG_HS_GAHBCFG_DMAEN_Field := 16#0#;
+      DMAEN         : Boolean := False;
       --  unspecified
       Reserved_6_6  : STM32_SVD.Bit := 16#0#;
       --  TxFIFO empty level
-      TXFELVL       : OTG_HS_GAHBCFG_TXFELVL_Field := 16#0#;
+      TXFELVL       : Boolean := False;
       --  Periodic TxFIFO empty level
-      PTXFELVL      : OTG_HS_GAHBCFG_PTXFELVL_Field := 16#0#;
+      PTXFELVL      : Boolean := False;
       --  unspecified
       Reserved_9_31 : STM32_SVD.UInt23 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GAHBCFG_Register use record
@@ -1004,22 +892,7 @@ package STM32_SVD.USB_OTG_HS is
    end record;
 
    subtype OTG_HS_GUSBCFG_TOCAL_Field is STM32_SVD.UInt3;
-   subtype OTG_HS_GUSBCFG_PHYSEL_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_SRPCAP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_HNPCAP_Field is STM32_SVD.Bit;
    subtype OTG_HS_GUSBCFG_TRDT_Field is STM32_SVD.UInt4;
-   subtype OTG_HS_GUSBCFG_PHYLPCS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_ULPIFSLS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_ULPIAR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_ULPICSM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_ULPIEVBUSD_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_ULPIEVBUSI_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_TSDPS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_PCCI_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_PTCI_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_ULPIIPD_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_FHMOD_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GUSBCFG_FDMOD_Field is STM32_SVD.Bit;
 
    --  OTG_HS USB configuration register
    type OTG_HS_GUSBCFG_Register is record
@@ -1029,49 +902,49 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_3_5   : STM32_SVD.UInt3 := 16#0#;
       --  Write-only. USB 2.0 high-speed ULPI PHY or USB 1.1 full-speed serial
       --  transceiver select
-      PHYSEL         : OTG_HS_GUSBCFG_PHYSEL_Field := 16#0#;
+      PHYSEL         : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  SRP-capable
-      SRPCAP         : OTG_HS_GUSBCFG_SRPCAP_Field := 16#0#;
+      SRPCAP         : Boolean := False;
       --  HNP-capable
-      HNPCAP         : OTG_HS_GUSBCFG_HNPCAP_Field := 16#1#;
+      HNPCAP         : Boolean := True;
       --  USB turnaround time
       TRDT           : OTG_HS_GUSBCFG_TRDT_Field := 16#2#;
       --  unspecified
       Reserved_14_14 : STM32_SVD.Bit := 16#0#;
       --  PHY Low-power clock select
-      PHYLPCS        : OTG_HS_GUSBCFG_PHYLPCS_Field := 16#0#;
+      PHYLPCS        : Boolean := False;
       --  unspecified
       Reserved_16_16 : STM32_SVD.Bit := 16#0#;
       --  ULPI FS/LS select
-      ULPIFSLS       : OTG_HS_GUSBCFG_ULPIFSLS_Field := 16#0#;
+      ULPIFSLS       : Boolean := False;
       --  ULPI Auto-resume
-      ULPIAR         : OTG_HS_GUSBCFG_ULPIAR_Field := 16#0#;
+      ULPIAR         : Boolean := False;
       --  ULPI Clock SuspendM
-      ULPICSM        : OTG_HS_GUSBCFG_ULPICSM_Field := 16#0#;
+      ULPICSM        : Boolean := False;
       --  ULPI External VBUS Drive
-      ULPIEVBUSD     : OTG_HS_GUSBCFG_ULPIEVBUSD_Field := 16#0#;
+      ULPIEVBUSD     : Boolean := False;
       --  ULPI external VBUS indicator
-      ULPIEVBUSI     : OTG_HS_GUSBCFG_ULPIEVBUSI_Field := 16#0#;
+      ULPIEVBUSI     : Boolean := False;
       --  TermSel DLine pulsing selection
-      TSDPS          : OTG_HS_GUSBCFG_TSDPS_Field := 16#0#;
+      TSDPS          : Boolean := False;
       --  Indicator complement
-      PCCI           : OTG_HS_GUSBCFG_PCCI_Field := 16#0#;
+      PCCI           : Boolean := False;
       --  Indicator pass through
-      PTCI           : OTG_HS_GUSBCFG_PTCI_Field := 16#0#;
+      PTCI           : Boolean := False;
       --  ULPI interface protect disable
-      ULPIIPD        : OTG_HS_GUSBCFG_ULPIIPD_Field := 16#0#;
+      ULPIIPD        : Boolean := False;
       --  unspecified
       Reserved_26_28 : STM32_SVD.UInt3 := 16#0#;
       --  Forced host mode
-      FHMOD          : OTG_HS_GUSBCFG_FHMOD_Field := 16#0#;
+      FHMOD          : Boolean := False;
       --  Forced peripheral mode
-      FDMOD          : OTG_HS_GUSBCFG_FDMOD_Field := 16#0#;
+      FDMOD          : Boolean := False;
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GUSBCFG_Register use record
@@ -1100,39 +973,32 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_GRSTCTL_CSRST_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GRSTCTL_HSRST_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GRSTCTL_FCRST_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GRSTCTL_RXFFLSH_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GRSTCTL_TXFFLSH_Field is STM32_SVD.Bit;
    subtype OTG_HS_GRSTCTL_TXFNUM_Field is STM32_SVD.UInt5;
-   subtype OTG_HS_GRSTCTL_DMAREQ_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GRSTCTL_AHBIDL_Field is STM32_SVD.Bit;
 
    --  OTG_HS reset register
    type OTG_HS_GRSTCTL_Register is record
       --  Core soft reset
-      CSRST          : OTG_HS_GRSTCTL_CSRST_Field := 16#0#;
+      CSRST          : Boolean := False;
       --  HCLK soft reset
-      HSRST          : OTG_HS_GRSTCTL_HSRST_Field := 16#0#;
+      HSRST          : Boolean := False;
       --  Host frame counter reset
-      FCRST          : OTG_HS_GRSTCTL_FCRST_Field := 16#0#;
+      FCRST          : Boolean := False;
       --  unspecified
       Reserved_3_3   : STM32_SVD.Bit := 16#0#;
       --  RxFIFO flush
-      RXFFLSH        : OTG_HS_GRSTCTL_RXFFLSH_Field := 16#0#;
+      RXFFLSH        : Boolean := False;
       --  TxFIFO flush
-      TXFFLSH        : OTG_HS_GRSTCTL_TXFFLSH_Field := 16#0#;
+      TXFFLSH        : Boolean := False;
       --  TxFIFO number
       TXFNUM         : OTG_HS_GRSTCTL_TXFNUM_Field := 16#0#;
       --  unspecified
       Reserved_11_29 : STM32_SVD.UInt19 := 16#40000#;
       --  Read-only. DMA request signal enabled for USB OTG HS
-      DMAREQ         : OTG_HS_GRSTCTL_DMAREQ_Field := 16#0#;
+      DMAREQ         : Boolean := False;
       --  Read-only. AHB master idle
-      AHBIDL         : OTG_HS_GRSTCTL_AHBIDL_Field := 16#0#;
+      AHBIDL         : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GRSTCTL_Register use record
@@ -1148,97 +1014,70 @@ package STM32_SVD.USB_OTG_HS is
       AHBIDL         at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_GINTSTS_CMOD_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_MMIS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_OTGINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_SOF_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_RXFLVL_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_NPTXFE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_GINAKEFF_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_BOUTNAKEFF_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_ESUSP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_USBSUSP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_USBRST_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_ENUMDNE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_ISOODRP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_EOPF_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_IEPINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_OEPINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_IISOIXFR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_PXFR_INCOMPISOOUT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_DATAFSUSP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_HPRTINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_HCINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_PTXFE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_CIDSCHG_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_DISCINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_SRQINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTSTS_WKUINT_Field is STM32_SVD.Bit;
-
    --  OTG_HS core interrupt register
    type OTG_HS_GINTSTS_Register is record
       --  Read-only. Current mode of operation
-      CMOD              : OTG_HS_GINTSTS_CMOD_Field := 16#0#;
+      CMOD              : Boolean := False;
       --  Mode mismatch interrupt
-      MMIS              : OTG_HS_GINTSTS_MMIS_Field := 16#0#;
+      MMIS              : Boolean := False;
       --  Read-only. OTG interrupt
-      OTGINT            : OTG_HS_GINTSTS_OTGINT_Field := 16#0#;
+      OTGINT            : Boolean := False;
       --  Start of frame
-      SOF               : OTG_HS_GINTSTS_SOF_Field := 16#0#;
+      SOF               : Boolean := False;
       --  Read-only. RxFIFO nonempty
-      RXFLVL            : OTG_HS_GINTSTS_RXFLVL_Field := 16#0#;
+      RXFLVL            : Boolean := False;
       --  Read-only. Nonperiodic TxFIFO empty
-      NPTXFE            : OTG_HS_GINTSTS_NPTXFE_Field := 16#1#;
+      NPTXFE            : Boolean := True;
       --  Read-only. Global IN nonperiodic NAK effective
-      GINAKEFF          : OTG_HS_GINTSTS_GINAKEFF_Field := 16#0#;
+      GINAKEFF          : Boolean := False;
       --  Read-only. Global OUT NAK effective
-      BOUTNAKEFF        : OTG_HS_GINTSTS_BOUTNAKEFF_Field := 16#0#;
+      BOUTNAKEFF        : Boolean := False;
       --  unspecified
       Reserved_8_9      : STM32_SVD.UInt2 := 16#0#;
       --  Early suspend
-      ESUSP             : OTG_HS_GINTSTS_ESUSP_Field := 16#0#;
+      ESUSP             : Boolean := False;
       --  USB suspend
-      USBSUSP           : OTG_HS_GINTSTS_USBSUSP_Field := 16#0#;
+      USBSUSP           : Boolean := False;
       --  USB reset
-      USBRST            : OTG_HS_GINTSTS_USBRST_Field := 16#0#;
+      USBRST            : Boolean := False;
       --  Enumeration done
-      ENUMDNE           : OTG_HS_GINTSTS_ENUMDNE_Field := 16#0#;
+      ENUMDNE           : Boolean := False;
       --  Isochronous OUT packet dropped interrupt
-      ISOODRP           : OTG_HS_GINTSTS_ISOODRP_Field := 16#0#;
+      ISOODRP           : Boolean := False;
       --  End of periodic frame interrupt
-      EOPF              : OTG_HS_GINTSTS_EOPF_Field := 16#0#;
+      EOPF              : Boolean := False;
       --  unspecified
       Reserved_16_17    : STM32_SVD.UInt2 := 16#0#;
       --  Read-only. IN endpoint interrupt
-      IEPINT            : OTG_HS_GINTSTS_IEPINT_Field := 16#0#;
+      IEPINT            : Boolean := False;
       --  Read-only. OUT endpoint interrupt
-      OEPINT            : OTG_HS_GINTSTS_OEPINT_Field := 16#0#;
+      OEPINT            : Boolean := False;
       --  Incomplete isochronous IN transfer
-      IISOIXFR          : OTG_HS_GINTSTS_IISOIXFR_Field := 16#0#;
+      IISOIXFR          : Boolean := False;
       --  Incomplete periodic transfer
-      PXFR_INCOMPISOOUT : OTG_HS_GINTSTS_PXFR_INCOMPISOOUT_Field := 16#0#;
+      PXFR_INCOMPISOOUT : Boolean := False;
       --  Data fetch suspended
-      DATAFSUSP         : OTG_HS_GINTSTS_DATAFSUSP_Field := 16#0#;
+      DATAFSUSP         : Boolean := False;
       --  unspecified
       Reserved_23_23    : STM32_SVD.Bit := 16#0#;
       --  Read-only. Host port interrupt
-      HPRTINT           : OTG_HS_GINTSTS_HPRTINT_Field := 16#0#;
+      HPRTINT           : Boolean := False;
       --  Read-only. Host channels interrupt
-      HCINT             : OTG_HS_GINTSTS_HCINT_Field := 16#0#;
+      HCINT             : Boolean := False;
       --  Read-only. Periodic TxFIFO empty
-      PTXFE             : OTG_HS_GINTSTS_PTXFE_Field := 16#1#;
+      PTXFE             : Boolean := True;
       --  unspecified
       Reserved_27_27    : STM32_SVD.Bit := 16#0#;
       --  Connector ID status change
-      CIDSCHG           : OTG_HS_GINTSTS_CIDSCHG_Field := 16#0#;
+      CIDSCHG           : Boolean := False;
       --  Disconnect detected interrupt
-      DISCINT           : OTG_HS_GINTSTS_DISCINT_Field := 16#0#;
+      DISCINT           : Boolean := False;
       --  Session request/new session detected interrupt
-      SRQINT            : OTG_HS_GINTSTS_SRQINT_Field := 16#0#;
+      SRQINT            : Boolean := False;
       --  Resume/remote wakeup detected interrupt
-      WKUINT            : OTG_HS_GINTSTS_WKUINT_Field := 16#0#;
+      WKUINT            : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GINTSTS_Register use record
@@ -1274,98 +1113,70 @@ package STM32_SVD.USB_OTG_HS is
       WKUINT            at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_GINTMSK_MMISM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_OTGINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_SOFM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_RXFLVLM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_NPTXFEM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_GINAKEFFM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_GONAKEFFM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_ESUSPM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_USBSUSPM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_USBRST_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_ENUMDNEM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_ISOODRPM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_EOPFM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_IEPINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_OEPINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_IISOIXFRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_PXFRM_IISOOXFRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_FSUSPM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_RSTDE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_PRTIM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_HCIM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_PTXFEM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_LPMINTM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_CIDSCHGM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_DISCINT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_SRQIM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GINTMSK_WUIM_Field is STM32_SVD.Bit;
-
    --  OTG_HS interrupt mask register
    type OTG_HS_GINTMSK_Register is record
       --  unspecified
       Reserved_0_0    : STM32_SVD.Bit := 16#0#;
       --  Mode mismatch interrupt mask
-      MMISM           : OTG_HS_GINTMSK_MMISM_Field := 16#0#;
+      MMISM           : Boolean := False;
       --  OTG interrupt mask
-      OTGINT          : OTG_HS_GINTMSK_OTGINT_Field := 16#0#;
+      OTGINT          : Boolean := False;
       --  Start of frame mask
-      SOFM            : OTG_HS_GINTMSK_SOFM_Field := 16#0#;
+      SOFM            : Boolean := False;
       --  Receive FIFO nonempty mask
-      RXFLVLM         : OTG_HS_GINTMSK_RXFLVLM_Field := 16#0#;
+      RXFLVLM         : Boolean := False;
       --  Nonperiodic TxFIFO empty mask
-      NPTXFEM         : OTG_HS_GINTMSK_NPTXFEM_Field := 16#0#;
+      NPTXFEM         : Boolean := False;
       --  Global nonperiodic IN NAK effective mask
-      GINAKEFFM       : OTG_HS_GINTMSK_GINAKEFFM_Field := 16#0#;
+      GINAKEFFM       : Boolean := False;
       --  Global OUT NAK effective mask
-      GONAKEFFM       : OTG_HS_GINTMSK_GONAKEFFM_Field := 16#0#;
+      GONAKEFFM       : Boolean := False;
       --  unspecified
       Reserved_8_9    : STM32_SVD.UInt2 := 16#0#;
       --  Early suspend mask
-      ESUSPM          : OTG_HS_GINTMSK_ESUSPM_Field := 16#0#;
+      ESUSPM          : Boolean := False;
       --  USB suspend mask
-      USBSUSPM        : OTG_HS_GINTMSK_USBSUSPM_Field := 16#0#;
+      USBSUSPM        : Boolean := False;
       --  USB reset mask
-      USBRST          : OTG_HS_GINTMSK_USBRST_Field := 16#0#;
+      USBRST          : Boolean := False;
       --  Enumeration done mask
-      ENUMDNEM        : OTG_HS_GINTMSK_ENUMDNEM_Field := 16#0#;
+      ENUMDNEM        : Boolean := False;
       --  Isochronous OUT packet dropped interrupt mask
-      ISOODRPM        : OTG_HS_GINTMSK_ISOODRPM_Field := 16#0#;
+      ISOODRPM        : Boolean := False;
       --  End of periodic frame interrupt mask
-      EOPFM           : OTG_HS_GINTMSK_EOPFM_Field := 16#0#;
+      EOPFM           : Boolean := False;
       --  unspecified
       Reserved_16_17  : STM32_SVD.UInt2 := 16#0#;
       --  IN endpoints interrupt mask
-      IEPINT          : OTG_HS_GINTMSK_IEPINT_Field := 16#0#;
+      IEPINT          : Boolean := False;
       --  OUT endpoints interrupt mask
-      OEPINT          : OTG_HS_GINTMSK_OEPINT_Field := 16#0#;
+      OEPINT          : Boolean := False;
       --  Incomplete isochronous IN transfer mask
-      IISOIXFRM       : OTG_HS_GINTMSK_IISOIXFRM_Field := 16#0#;
+      IISOIXFRM       : Boolean := False;
       --  Incomplete periodic transfer mask
-      PXFRM_IISOOXFRM : OTG_HS_GINTMSK_PXFRM_IISOOXFRM_Field := 16#0#;
+      PXFRM_IISOOXFRM : Boolean := False;
       --  Data fetch suspended mask
-      FSUSPM          : OTG_HS_GINTMSK_FSUSPM_Field := 16#0#;
+      FSUSPM          : Boolean := False;
       --  Reset detected interrupt mask
-      RSTDE           : OTG_HS_GINTMSK_RSTDE_Field := 16#0#;
+      RSTDE           : Boolean := False;
       --  Read-only. Host port interrupt mask
-      PRTIM           : OTG_HS_GINTMSK_PRTIM_Field := 16#0#;
+      PRTIM           : Boolean := False;
       --  Host channels interrupt mask
-      HCIM            : OTG_HS_GINTMSK_HCIM_Field := 16#0#;
+      HCIM            : Boolean := False;
       --  Periodic TxFIFO empty mask
-      PTXFEM          : OTG_HS_GINTMSK_PTXFEM_Field := 16#0#;
+      PTXFEM          : Boolean := False;
       --  LPM interrupt mask
-      LPMINTM         : OTG_HS_GINTMSK_LPMINTM_Field := 16#0#;
+      LPMINTM         : Boolean := False;
       --  Connector ID status change mask
-      CIDSCHGM        : OTG_HS_GINTMSK_CIDSCHGM_Field := 16#0#;
+      CIDSCHGM        : Boolean := False;
       --  Disconnect detected interrupt mask
-      DISCINT         : OTG_HS_GINTMSK_DISCINT_Field := 16#0#;
+      DISCINT         : Boolean := False;
       --  Session request/new session detected interrupt mask
-      SRQIM           : OTG_HS_GINTMSK_SRQIM_Field := 16#0#;
+      SRQIM           : Boolean := False;
       --  Resume/remote wakeup detected interrupt mask
-      WUIM            : OTG_HS_GINTMSK_WUIM_Field := 16#0#;
+      WUIM            : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GINTMSK_Register use record
@@ -1419,7 +1230,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GRXSTSR_Host_Register use record
@@ -1451,7 +1262,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GRXSTSR_Device_Register use record
@@ -1481,7 +1292,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_21_31 : STM32_SVD.UInt11;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GRXSTSP_Host_Register use record
@@ -1513,7 +1324,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_25_31 : STM32_SVD.UInt7;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GRXSTSP_Device_Register use record
@@ -1534,7 +1345,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GRXFSIZ_Register use record
@@ -1552,7 +1363,7 @@ package STM32_SVD.USB_OTG_HS is
       --  Nonperiodic TxFIFO depth
       NPTXFD  : OTG_HS_HNPTXFSIZ_Host_NPTXFD_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HNPTXFSIZ_Host_Register use record
@@ -1570,7 +1381,7 @@ package STM32_SVD.USB_OTG_HS is
       --  Endpoint 0 TxFIFO depth
       TX0FD  : OTG_HS_DIEPTXF0_Device_TX0FD_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DIEPTXF0_Device_Register use record
@@ -1593,7 +1404,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GNPTXSTS_Register use record
@@ -1603,45 +1414,34 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_GCCFG_DCDET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_PDET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_SDET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_PS2DET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_PWRDWN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_BCDEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_DCDEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_PDEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_SDEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GCCFG_VBDEN_Field is STM32_SVD.Bit;
-
    --  OTG_HS general core configuration register
    type OTG_HS_GCCFG_Register is record
       --  Data contact detection (DCD) status
-      DCDET          : OTG_HS_GCCFG_DCDET_Field := 16#0#;
+      DCDET          : Boolean := False;
       --  Primary detection (PD) status
-      PDET           : OTG_HS_GCCFG_PDET_Field := 16#0#;
+      PDET           : Boolean := False;
       --  Secondary detection (SD) status
-      SDET           : OTG_HS_GCCFG_SDET_Field := 16#0#;
+      SDET           : Boolean := False;
       --  DM pull-up detection status
-      PS2DET         : OTG_HS_GCCFG_PS2DET_Field := 16#0#;
+      PS2DET         : Boolean := False;
       --  unspecified
       Reserved_4_15  : STM32_SVD.UInt12 := 16#0#;
       --  Power down
-      PWRDWN         : OTG_HS_GCCFG_PWRDWN_Field := 16#0#;
+      PWRDWN         : Boolean := False;
       --  Battery charging detector (BCD) enable
-      BCDEN          : OTG_HS_GCCFG_BCDEN_Field := 16#0#;
+      BCDEN          : Boolean := False;
       --  Data contact detection (DCD) mode enable
-      DCDEN          : OTG_HS_GCCFG_DCDEN_Field := 16#0#;
+      DCDEN          : Boolean := False;
       --  Primary detection (PD) mode enable
-      PDEN           : OTG_HS_GCCFG_PDEN_Field := 16#0#;
+      PDEN           : Boolean := False;
       --  Secondary detection (SD) mode enable
-      SDEN           : OTG_HS_GCCFG_SDEN_Field := 16#0#;
+      SDEN           : Boolean := False;
       --  USB VBUS detection enable
-      VBDEN          : OTG_HS_GCCFG_VBDEN_Field := 16#0#;
+      VBDEN          : Boolean := False;
       --  unspecified
       Reserved_22_31 : STM32_SVD.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GCCFG_Register use record
@@ -1659,58 +1459,49 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_22_31 at 0 range 22 .. 31;
    end record;
 
-   subtype OTG_HS_GLPMCFG_LPMEN_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GLPMCFG_LPMACK_Field is STM32_SVD.Bit;
    subtype OTG_HS_GLPMCFG_BESL_Field is STM32_SVD.UInt4;
-   subtype OTG_HS_GLPMCFG_REMWAKE_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GLPMCFG_L1SSEN_Field is STM32_SVD.Bit;
    subtype OTG_HS_GLPMCFG_BESLTHRS_Field is STM32_SVD.UInt4;
-   subtype OTG_HS_GLPMCFG_L1DSEN_Field is STM32_SVD.Bit;
    subtype OTG_HS_GLPMCFG_LPMRST_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_GLPMCFG_SLPSTS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_GLPMCFG_L1RSMOK_Field is STM32_SVD.Bit;
    subtype OTG_HS_GLPMCFG_LPMCHIDX_Field is STM32_SVD.UInt4;
    subtype OTG_HS_GLPMCFG_LPMRCNT_Field is STM32_SVD.UInt3;
-   subtype OTG_HS_GLPMCFG_SNDLPM_Field is STM32_SVD.Bit;
    subtype OTG_HS_GLPMCFG_LPMRCNTSTS_Field is STM32_SVD.UInt3;
-   subtype OTG_HS_GLPMCFG_ENBESL_Field is STM32_SVD.Bit;
 
    --  OTG core LPM configuration register
    type OTG_HS_GLPMCFG_Register is record
       --  LPM support enable
-      LPMEN          : OTG_HS_GLPMCFG_LPMEN_Field := 16#0#;
+      LPMEN          : Boolean := False;
       --  LPM token acknowledge enable
-      LPMACK         : OTG_HS_GLPMCFG_LPMACK_Field := 16#0#;
+      LPMACK         : Boolean := False;
       --  Read-only. Best effort service latency
       BESL           : OTG_HS_GLPMCFG_BESL_Field := 16#0#;
       --  Read-only. bRemoteWake value
-      REMWAKE        : OTG_HS_GLPMCFG_REMWAKE_Field := 16#0#;
+      REMWAKE        : Boolean := False;
       --  L1 Shallow Sleep enable
-      L1SSEN         : OTG_HS_GLPMCFG_L1SSEN_Field := 16#0#;
+      L1SSEN         : Boolean := False;
       --  BESL threshold
       BESLTHRS       : OTG_HS_GLPMCFG_BESLTHRS_Field := 16#0#;
       --  L1 deep sleep enable
-      L1DSEN         : OTG_HS_GLPMCFG_L1DSEN_Field := 16#0#;
+      L1DSEN         : Boolean := False;
       --  Read-only. LPM response
       LPMRST         : OTG_HS_GLPMCFG_LPMRST_Field := 16#0#;
       --  Read-only. Port sleep status
-      SLPSTS         : OTG_HS_GLPMCFG_SLPSTS_Field := 16#0#;
+      SLPSTS         : Boolean := False;
       --  Read-only. Sleep State Resume OK
-      L1RSMOK        : OTG_HS_GLPMCFG_L1RSMOK_Field := 16#0#;
+      L1RSMOK        : Boolean := False;
       --  LPM Channel Index
       LPMCHIDX       : OTG_HS_GLPMCFG_LPMCHIDX_Field := 16#0#;
       --  LPM retry count
       LPMRCNT        : OTG_HS_GLPMCFG_LPMRCNT_Field := 16#0#;
       --  Send LPM transaction
-      SNDLPM         : OTG_HS_GLPMCFG_SNDLPM_Field := 16#0#;
+      SNDLPM         : Boolean := False;
       --  Read-only. LPM retry count status
       LPMRCNTSTS     : OTG_HS_GLPMCFG_LPMRCNTSTS_Field := 16#0#;
       --  Enable best effort service latency
-      ENBESL         : OTG_HS_GLPMCFG_ENBESL_Field := 16#0#;
+      ENBESL         : Boolean := False;
       --  unspecified
       Reserved_29_31 : STM32_SVD.UInt3 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_GLPMCFG_Register use record
@@ -1742,7 +1533,7 @@ package STM32_SVD.USB_OTG_HS is
       --  Host periodic TxFIFO depth
       PTXFD : OTG_HS_HPTXFSIZ_PTXFD_Field := 16#200#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HPTXFSIZ_Register use record
@@ -1760,7 +1551,7 @@ package STM32_SVD.USB_OTG_HS is
       --  IN endpoint TxFIFO depth
       INEPTXFD : OTG_HS_DIEPTXF_INEPTXFD_Field := 16#200#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_DIEPTXF_Register use record
@@ -1769,18 +1560,17 @@ package STM32_SVD.USB_OTG_HS is
    end record;
 
    subtype OTG_HS_HCFG_FSLSPCS_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_HCFG_FSLSS_Field is STM32_SVD.Bit;
 
    --  OTG_HS host configuration register
    type OTG_HS_HCFG_Register is record
       --  FS/LS PHY clock select
       FSLSPCS       : OTG_HS_HCFG_FSLSPCS_Field := 16#0#;
       --  Read-only. FS- and LS-only support
-      FSLSS         : OTG_HS_HCFG_FSLSS_Field := 16#0#;
+      FSLSS         : Boolean := False;
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HCFG_Register use record
@@ -1798,7 +1588,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HFIR_Register use record
@@ -1816,7 +1606,7 @@ package STM32_SVD.USB_OTG_HS is
       --  Read-only. Frame time remaining
       FTREM : OTG_HS_HFNUM_FTREM_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HFNUM_Register use record
@@ -1837,7 +1627,7 @@ package STM32_SVD.USB_OTG_HS is
       --  Read-only. Top of the periodic transmit request queue
       PTXQTOP  : OTG_HS_HPTXSTS_PTXQTOP_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HPTXSTS_Register use record
@@ -1855,7 +1645,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HAINT_Register use record
@@ -1872,7 +1662,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HAINTMSK_Register use record
@@ -1880,46 +1670,36 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype OTG_HS_HPRT_PCSTS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HPRT_PCDET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HPRT_PENA_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HPRT_PENCHNG_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HPRT_POCA_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HPRT_POCCHNG_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HPRT_PRES_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HPRT_PSUSP_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HPRT_PRST_Field is STM32_SVD.Bit;
    subtype OTG_HS_HPRT_PLSTS_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_HPRT_PPWR_Field is STM32_SVD.Bit;
    subtype OTG_HS_HPRT_PTCTL_Field is STM32_SVD.UInt4;
    subtype OTG_HS_HPRT_PSPD_Field is STM32_SVD.UInt2;
 
    --  OTG_HS host port control and status register
    type OTG_HS_HPRT_Register is record
       --  Read-only. Port connect status
-      PCSTS          : OTG_HS_HPRT_PCSTS_Field := 16#0#;
+      PCSTS          : Boolean := False;
       --  Port connect detected
-      PCDET          : OTG_HS_HPRT_PCDET_Field := 16#0#;
+      PCDET          : Boolean := False;
       --  Port enable
-      PENA           : OTG_HS_HPRT_PENA_Field := 16#0#;
+      PENA           : Boolean := False;
       --  Port enable/disable change
-      PENCHNG        : OTG_HS_HPRT_PENCHNG_Field := 16#0#;
+      PENCHNG        : Boolean := False;
       --  Read-only. Port overcurrent active
-      POCA           : OTG_HS_HPRT_POCA_Field := 16#0#;
+      POCA           : Boolean := False;
       --  Port overcurrent change
-      POCCHNG        : OTG_HS_HPRT_POCCHNG_Field := 16#0#;
+      POCCHNG        : Boolean := False;
       --  Port resume
-      PRES           : OTG_HS_HPRT_PRES_Field := 16#0#;
+      PRES           : Boolean := False;
       --  Port suspend
-      PSUSP          : OTG_HS_HPRT_PSUSP_Field := 16#0#;
+      PSUSP          : Boolean := False;
       --  Port reset
-      PRST           : OTG_HS_HPRT_PRST_Field := 16#0#;
+      PRST           : Boolean := False;
       --  unspecified
       Reserved_9_9   : STM32_SVD.Bit := 16#0#;
       --  Read-only. Port line status
       PLSTS          : OTG_HS_HPRT_PLSTS_Field := 16#0#;
       --  Port power
-      PPWR           : OTG_HS_HPRT_PPWR_Field := 16#0#;
+      PPWR           : Boolean := False;
       --  Port test control
       PTCTL          : OTG_HS_HPRT_PTCTL_Field := 16#0#;
       --  Read-only. Port speed
@@ -1927,7 +1707,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HPRT_Register use record
@@ -1950,14 +1730,9 @@ package STM32_SVD.USB_OTG_HS is
 
    subtype OTG_HS_HCCHAR_MPSIZ_Field is STM32_SVD.UInt11;
    subtype OTG_HS_HCCHAR_EPNUM_Field is STM32_SVD.UInt4;
-   subtype OTG_HS_HCCHAR_EPDIR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCCHAR_LSDEV_Field is STM32_SVD.Bit;
    subtype OTG_HS_HCCHAR_EPTYP_Field is STM32_SVD.UInt2;
    subtype OTG_HS_HCCHAR_MC_Field is STM32_SVD.UInt2;
    subtype OTG_HS_HCCHAR_DAD_Field is STM32_SVD.UInt7;
-   subtype OTG_HS_HCCHAR_ODDFRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCCHAR_CHDIS_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCCHAR_CHENA_Field is STM32_SVD.Bit;
 
    --  OTG_HS host channel-0 characteristics register
    type OTG_HS_HCCHAR_Register is record
@@ -1966,11 +1741,11 @@ package STM32_SVD.USB_OTG_HS is
       --  Endpoint number
       EPNUM          : OTG_HS_HCCHAR_EPNUM_Field := 16#0#;
       --  Endpoint direction
-      EPDIR          : OTG_HS_HCCHAR_EPDIR_Field := 16#0#;
+      EPDIR          : Boolean := False;
       --  unspecified
       Reserved_16_16 : STM32_SVD.Bit := 16#0#;
       --  Low-speed device
-      LSDEV          : OTG_HS_HCCHAR_LSDEV_Field := 16#0#;
+      LSDEV          : Boolean := False;
       --  Endpoint type
       EPTYP          : OTG_HS_HCCHAR_EPTYP_Field := 16#0#;
       --  Multi Count (MC) / Error Count (EC)
@@ -1978,13 +1753,13 @@ package STM32_SVD.USB_OTG_HS is
       --  Device address
       DAD            : OTG_HS_HCCHAR_DAD_Field := 16#0#;
       --  Odd frame
-      ODDFRM         : OTG_HS_HCCHAR_ODDFRM_Field := 16#0#;
+      ODDFRM         : Boolean := False;
       --  Channel disable
-      CHDIS          : OTG_HS_HCCHAR_CHDIS_Field := 16#0#;
+      CHDIS          : Boolean := False;
       --  Channel enable
-      CHENA          : OTG_HS_HCCHAR_CHENA_Field := 16#0#;
+      CHENA          : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HCCHAR_Register use record
@@ -2004,8 +1779,6 @@ package STM32_SVD.USB_OTG_HS is
    subtype OTG_HS_HCSPLT_PRTADDR_Field is STM32_SVD.UInt7;
    subtype OTG_HS_HCSPLT_HUBADDR_Field is STM32_SVD.UInt7;
    subtype OTG_HS_HCSPLT_XACTPOS_Field is STM32_SVD.UInt2;
-   subtype OTG_HS_HCSPLT_COMPLSPLT_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCSPLT_SPLITEN_Field is STM32_SVD.Bit;
 
    --  OTG_HS host channel-0 split control register
    type OTG_HS_HCSPLT_Register is record
@@ -2016,13 +1789,13 @@ package STM32_SVD.USB_OTG_HS is
       --  XACTPOS
       XACTPOS        : OTG_HS_HCSPLT_XACTPOS_Field := 16#0#;
       --  Do complete split
-      COMPLSPLT      : OTG_HS_HCSPLT_COMPLSPLT_Field := 16#0#;
+      COMPLSPLT      : Boolean := False;
       --  unspecified
       Reserved_17_30 : STM32_SVD.UInt14 := 16#0#;
       --  Split enable
-      SPLITEN        : OTG_HS_HCSPLT_SPLITEN_Field := 16#0#;
+      SPLITEN        : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HCSPLT_Register use record
@@ -2034,46 +1807,34 @@ package STM32_SVD.USB_OTG_HS is
       SPLITEN        at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_HCINT_XFRC_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_CHH_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_AHBERR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_STALL_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_NAK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_ACK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_NYET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_TXERR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_BBERR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_FRMOR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINT_DTERR_Field is STM32_SVD.Bit;
-
    --  OTG_HS host channel-11 interrupt register
    type OTG_HS_HCINT_Register is record
       --  Transfer completed
-      XFRC           : OTG_HS_HCINT_XFRC_Field := 16#0#;
+      XFRC           : Boolean := False;
       --  Channel halted
-      CHH            : OTG_HS_HCINT_CHH_Field := 16#0#;
+      CHH            : Boolean := False;
       --  AHB error
-      AHBERR         : OTG_HS_HCINT_AHBERR_Field := 16#0#;
+      AHBERR         : Boolean := False;
       --  STALL response received interrupt
-      STALL          : OTG_HS_HCINT_STALL_Field := 16#0#;
+      STALL          : Boolean := False;
       --  NAK response received interrupt
-      NAK            : OTG_HS_HCINT_NAK_Field := 16#0#;
+      NAK            : Boolean := False;
       --  ACK response received/transmitted interrupt
-      ACK            : OTG_HS_HCINT_ACK_Field := 16#0#;
+      ACK            : Boolean := False;
       --  Response received interrupt
-      NYET           : OTG_HS_HCINT_NYET_Field := 16#0#;
+      NYET           : Boolean := False;
       --  Transaction error
-      TXERR          : OTG_HS_HCINT_TXERR_Field := 16#0#;
+      TXERR          : Boolean := False;
       --  Babble error
-      BBERR          : OTG_HS_HCINT_BBERR_Field := 16#0#;
+      BBERR          : Boolean := False;
       --  Frame overrun
-      FRMOR          : OTG_HS_HCINT_FRMOR_Field := 16#0#;
+      FRMOR          : Boolean := False;
       --  Data toggle error
-      DTERR          : OTG_HS_HCINT_DTERR_Field := 16#0#;
+      DTERR          : Boolean := False;
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HCINT_Register use record
@@ -2091,46 +1852,34 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_11_31 at 0 range 11 .. 31;
    end record;
 
-   subtype OTG_HS_HCINTMSK_XFRCM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_CHHM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_AHBERR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_STALLM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_NAKM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_ACKM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_NYET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_TXERRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_BBERRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_FRMORM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK_DTERRM_Field is STM32_SVD.Bit;
-
    --  OTG_HS host channel-11 interrupt mask register
    type OTG_HS_HCINTMSK_Register is record
       --  Transfer completed mask
-      XFRCM          : OTG_HS_HCINTMSK_XFRCM_Field := 16#0#;
+      XFRCM          : Boolean := False;
       --  Channel halted mask
-      CHHM           : OTG_HS_HCINTMSK_CHHM_Field := 16#0#;
+      CHHM           : Boolean := False;
       --  AHB error
-      AHBERR         : OTG_HS_HCINTMSK_AHBERR_Field := 16#0#;
+      AHBERR         : Boolean := False;
       --  STALL response received interrupt mask
-      STALLM         : OTG_HS_HCINTMSK_STALLM_Field := 16#0#;
+      STALLM         : Boolean := False;
       --  NAK response received interrupt mask
-      NAKM           : OTG_HS_HCINTMSK_NAKM_Field := 16#0#;
+      NAKM           : Boolean := False;
       --  ACK response received/transmitted interrupt mask
-      ACKM           : OTG_HS_HCINTMSK_ACKM_Field := 16#0#;
+      ACKM           : Boolean := False;
       --  response received interrupt mask
-      NYET           : OTG_HS_HCINTMSK_NYET_Field := 16#0#;
+      NYET           : Boolean := False;
       --  Transaction error mask
-      TXERRM         : OTG_HS_HCINTMSK_TXERRM_Field := 16#0#;
+      TXERRM         : Boolean := False;
       --  Babble error mask
-      BBERRM         : OTG_HS_HCINTMSK_BBERRM_Field := 16#0#;
+      BBERRM         : Boolean := False;
       --  Frame overrun mask
-      FRMORM         : OTG_HS_HCINTMSK_FRMORM_Field := 16#0#;
+      FRMORM         : Boolean := False;
       --  Data toggle error mask
-      DTERRM         : OTG_HS_HCINTMSK_DTERRM_Field := 16#0#;
+      DTERRM         : Boolean := False;
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HCINTMSK_Register use record
@@ -2163,7 +1912,7 @@ package STM32_SVD.USB_OTG_HS is
       --  unspecified
       Reserved_31_31 : STM32_SVD.Bit := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HCTSIZ_Register use record
@@ -2173,46 +1922,34 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_31_31 at 0 range 31 .. 31;
    end record;
 
-   subtype OTG_HS_HCINTMSK15_XFRCM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_CHHM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_AHBERR_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_STALL_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_NAKM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_ACKM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_NYET_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_TXERRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_BBERRM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_FRMORM_Field is STM32_SVD.Bit;
-   subtype OTG_HS_HCINTMSK15_DTERRM_Field is STM32_SVD.Bit;
-
    --  OTG_HS host channel-15 interrupt mask register
    type OTG_HS_HCINTMSK15_Register is record
       --  Transfer completed mask
-      XFRCM          : OTG_HS_HCINTMSK15_XFRCM_Field := 16#0#;
+      XFRCM          : Boolean := False;
       --  Channel halted mask
-      CHHM           : OTG_HS_HCINTMSK15_CHHM_Field := 16#0#;
+      CHHM           : Boolean := False;
       --  AHB error
-      AHBERR         : OTG_HS_HCINTMSK15_AHBERR_Field := 16#0#;
+      AHBERR         : Boolean := False;
       --  STALL response received interrupt mask
-      STALL          : OTG_HS_HCINTMSK15_STALL_Field := 16#0#;
+      STALL          : Boolean := False;
       --  NAK response received interrupt mask
-      NAKM           : OTG_HS_HCINTMSK15_NAKM_Field := 16#0#;
+      NAKM           : Boolean := False;
       --  ACK response received/transmitted interrupt mask
-      ACKM           : OTG_HS_HCINTMSK15_ACKM_Field := 16#0#;
+      ACKM           : Boolean := False;
       --  Response received interrupt
-      NYET           : OTG_HS_HCINTMSK15_NYET_Field := 16#0#;
+      NYET           : Boolean := False;
       --  Transaction error
-      TXERRM         : OTG_HS_HCINTMSK15_TXERRM_Field := 16#0#;
+      TXERRM         : Boolean := False;
       --  Babble error
-      BBERRM         : OTG_HS_HCINTMSK15_BBERRM_Field := 16#0#;
+      BBERRM         : Boolean := False;
       --  Frame overrun mask
-      FRMORM         : OTG_HS_HCINTMSK15_FRMORM_Field := 16#0#;
+      FRMORM         : Boolean := False;
       --  Data toggle error mask
-      DTERRM         : OTG_HS_HCINTMSK15_DTERRM_Field := 16#0#;
+      DTERRM         : Boolean := False;
       --  unspecified
       Reserved_11_31 : STM32_SVD.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_HCINTMSK15_Register use record
@@ -2230,24 +1967,20 @@ package STM32_SVD.USB_OTG_HS is
       Reserved_11_31 at 0 range 11 .. 31;
    end record;
 
-   subtype OTG_HS_PCGCR_STPPCLK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_PCGCR_GATEHCLK_Field is STM32_SVD.Bit;
-   subtype OTG_HS_PCGCR_PHYSUSP_Field is STM32_SVD.Bit;
-
    --  Power and clock gating control register
    type OTG_HS_PCGCR_Register is record
       --  Stop PHY clock
-      STPPCLK       : OTG_HS_PCGCR_STPPCLK_Field := 16#0#;
+      STPPCLK       : Boolean := False;
       --  Gate HCLK
-      GATEHCLK      : OTG_HS_PCGCR_GATEHCLK_Field := 16#0#;
+      GATEHCLK      : Boolean := False;
       --  unspecified
       Reserved_2_3  : STM32_SVD.UInt2 := 16#0#;
       --  PHY suspended
-      PHYSUSP       : OTG_HS_PCGCR_PHYSUSP_Field := 16#0#;
+      PHYSUSP       : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OTG_HS_PCGCR_Register use record
@@ -2263,8 +1996,7 @@ package STM32_SVD.USB_OTG_HS is
    -----------------
 
    type OTG1_HS_DEVICE_Disc is
-     (
-      Ctl5,
+     (Ctl5,
       Tsiz6,
       Int5,
       Tsiz7);
@@ -2509,15 +2241,14 @@ package STM32_SVD.USB_OTG_HS is
 
    --  USB 1 on the go high speed
    OTG1_HS_DEVICE_Periph : aliased OTG1_HS_DEVICE_Peripheral
-     with Import, Address => System'To_Address (16#40040800#);
+     with Import, Address => OTG1_HS_DEVICE_Base;
 
    --  USB 1 on the go high speed
    OTG2_HS_DEVICE_Periph : aliased OTG1_HS_DEVICE_Peripheral
-     with Import, Address => System'To_Address (16#40080800#);
+     with Import, Address => OTG2_HS_DEVICE_Base;
 
    type OTG1_HS_GLOBAL_Disc is
-     (
-      Host,
+     (Host,
       Device,
       Hnptxfsiz_Host,
       Dieptxf0_Device);
@@ -2619,11 +2350,11 @@ package STM32_SVD.USB_OTG_HS is
 
    --  USB 1 on the go high speed
    OTG1_HS_GLOBAL_Periph : aliased OTG1_HS_GLOBAL_Peripheral
-     with Import, Address => System'To_Address (16#40040000#);
+     with Import, Address => OTG1_HS_GLOBAL_Base;
 
    --  USB 1 on the go high speed
    OTG2_HS_GLOBAL_Periph : aliased OTG1_HS_GLOBAL_Peripheral
-     with Import, Address => System'To_Address (16#40080000#);
+     with Import, Address => OTG2_HS_GLOBAL_Base;
 
    --  USB 1 on the go high speed
    type OTG1_HS_HOST_Peripheral is record
@@ -2944,11 +2675,11 @@ package STM32_SVD.USB_OTG_HS is
 
    --  USB 1 on the go high speed
    OTG1_HS_HOST_Periph : aliased OTG1_HS_HOST_Peripheral
-     with Import, Address => System'To_Address (16#40040400#);
+     with Import, Address => OTG1_HS_HOST_Base;
 
    --  USB 1 on the go high speed
    OTG2_HS_HOST_Periph : aliased OTG1_HS_HOST_Peripheral
-     with Import, Address => System'To_Address (16#40080400#);
+     with Import, Address => OTG2_HS_HOST_Base;
 
    --  USB 1 on the go high speed
    type OTG1_HS_PWRCLK_Peripheral is record
@@ -2963,10 +2694,10 @@ package STM32_SVD.USB_OTG_HS is
 
    --  USB 1 on the go high speed
    OTG1_HS_PWRCLK_Periph : aliased OTG1_HS_PWRCLK_Peripheral
-     with Import, Address => System'To_Address (16#40040E00#);
+     with Import, Address => OTG1_HS_PWRCLK_Base;
 
    --  USB 1 on the go high speed
    OTG2_HS_PWRCLK_Periph : aliased OTG1_HS_PWRCLK_Peripheral
-     with Import, Address => System'To_Address (16#40080E00#);
+     with Import, Address => OTG2_HS_PWRCLK_Base;
 
 end STM32_SVD.USB_OTG_HS;

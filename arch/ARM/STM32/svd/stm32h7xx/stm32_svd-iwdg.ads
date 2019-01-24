@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -28,7 +28,7 @@ package STM32_SVD.IWDG is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IWDG_KR_Register use record
@@ -53,7 +53,7 @@ package STM32_SVD.IWDG is
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IWDG_PR_Register use record
@@ -82,17 +82,13 @@ package STM32_SVD.IWDG is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IWDG_RLR_Register use record
       RL             at 0 range 0 .. 11;
       Reserved_12_31 at 0 range 12 .. 31;
    end record;
-
-   subtype IWDG_SR_PVU_Field is STM32_SVD.Bit;
-   subtype IWDG_SR_RVU_Field is STM32_SVD.Bit;
-   subtype IWDG_SR_WVU_Field is STM32_SVD.Bit;
 
    --  Status register
    type IWDG_SR_Register is record
@@ -101,24 +97,24 @@ package STM32_SVD.IWDG is
       --  ongoing. It is reset by hardware when the prescaler update operation
       --  is completed in the VDD voltage domain (takes up to 5 RC 40 kHz
       --  cycles). Prescaler value can be updated only when PVU bit is reset.
-      PVU           : IWDG_SR_PVU_Field;
+      PVU           : Boolean;
       --  Read-only. Watchdog counter reload value update This bit is set by
       --  hardware to indicate that an update of the reload value is ongoing.
       --  It is reset by hardware when the reload value update operation is
       --  completed in the VDD voltage domain (takes up to 5 RC 40 kHz cycles).
       --  Reload value can be updated only when RVU bit is reset.
-      RVU           : IWDG_SR_RVU_Field;
+      RVU           : Boolean;
       --  Read-only. Watchdog counter window value update This bit is set by
       --  hardware to indicate that an update of the window value is ongoing.
       --  It is reset by hardware when the reload value update operation is
       --  completed in the VDD voltage domain (takes up to 5 RC 40 kHz cycles).
       --  Window value can be updated only when WVU bit is reset. This bit is
       --  generated only if generic window = 1
-      WVU           : IWDG_SR_WVU_Field;
+      WVU           : Boolean;
       --  unspecified
       Reserved_3_31 : STM32_SVD.UInt29;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IWDG_SR_Register use record
@@ -147,7 +143,7 @@ package STM32_SVD.IWDG is
       --  unspecified
       Reserved_12_31 : STM32_SVD.UInt20 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IWDG_WINR_Register use record
@@ -184,6 +180,6 @@ package STM32_SVD.IWDG is
 
    --  IWDG
    IWDG_Periph : aliased IWDG_Peripheral
-     with Import, Address => System'To_Address (16#58004800#);
+     with Import, Address => IWDG_Base;
 
 end STM32_SVD.IWDG;

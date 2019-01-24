@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,27 +13,22 @@ package STM32_SVD.COMP1 is
    -- Registers --
    ---------------
 
-   subtype COMP1_SR_C1VAL_Field is STM32_SVD.Bit;
-   subtype COMP1_SR_C2VAL_Field is STM32_SVD.Bit;
-   subtype COMP1_SR_C1IF_Field is STM32_SVD.Bit;
-   subtype COMP1_SR_C2IF_Field is STM32_SVD.Bit;
-
    --  Comparator status register
    type COMP1_SR_Register is record
       --  Read-only. COMP channel 1 output status bit
-      C1VAL          : COMP1_SR_C1VAL_Field;
+      C1VAL          : Boolean;
       --  Read-only. COMP channel 2 output status bit
-      C2VAL          : COMP1_SR_C2VAL_Field;
+      C2VAL          : Boolean;
       --  unspecified
       Reserved_2_15  : STM32_SVD.UInt14;
       --  Read-only. COMP channel 1 Interrupt Flag
-      C1IF           : COMP1_SR_C1IF_Field;
+      C1IF           : Boolean;
       --  Read-only. COMP channel 2 Interrupt Flag
-      C2IF           : COMP1_SR_C2IF_Field;
+      C2IF           : Boolean;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for COMP1_SR_Register use record
@@ -45,21 +40,18 @@ package STM32_SVD.COMP1 is
       Reserved_18_31 at 0 range 18 .. 31;
    end record;
 
-   subtype COMP1_ICFR_CC1IF_Field is STM32_SVD.Bit;
-   subtype COMP1_ICFR_CC2IF_Field is STM32_SVD.Bit;
-
    --  Comparator interrupt clear flag register
    type COMP1_ICFR_Register is record
       --  unspecified
       Reserved_0_15  : STM32_SVD.UInt16 := 16#0#;
       --  Write-only. Clear COMP channel 1 Interrupt Flag
-      CC1IF          : COMP1_ICFR_CC1IF_Field := 16#0#;
+      CC1IF          : Boolean := False;
       --  Write-only. Clear COMP channel 2 Interrupt Flag
-      CC2IF          : COMP1_ICFR_CC2IF_Field := 16#0#;
+      CC2IF          : Boolean := False;
       --  unspecified
       Reserved_18_31 : STM32_SVD.UInt14 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for COMP1_ICFR_Register use record
@@ -79,7 +71,7 @@ package STM32_SVD.COMP1 is
       --  Option Register
       OR_k : COMP1_OR_OR_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for COMP1_OR_Register use record
@@ -87,32 +79,25 @@ package STM32_SVD.COMP1 is
       OR_k at 0 range 11 .. 31;
    end record;
 
-   subtype COMP1_CFGR1_EN_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR1_BRGEN_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR1_SCALEN_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR1_POLARITY_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR1_ITEN_Field is STM32_SVD.Bit;
    subtype COMP1_CFGR1_HYST_Field is STM32_SVD.UInt2;
    subtype COMP1_CFGR1_PWRMODE_Field is STM32_SVD.UInt2;
    subtype COMP1_CFGR1_INMSEL_Field is STM32_SVD.UInt3;
-   subtype COMP1_CFGR1_INPSEL_Field is STM32_SVD.Bit;
    subtype COMP1_CFGR1_BLANKING_Field is STM32_SVD.UInt4;
-   subtype COMP1_CFGR1_LOCK_Field is STM32_SVD.Bit;
 
    --  Comparator configuration register 1
    type COMP1_CFGR1_Register is record
       --  COMP channel 1 enable bit
-      EN             : COMP1_CFGR1_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Scaler bridge enable
-      BRGEN          : COMP1_CFGR1_BRGEN_Field := 16#0#;
+      BRGEN          : Boolean := False;
       --  Voltage scaler enable bit
-      SCALEN         : COMP1_CFGR1_SCALEN_Field := 16#0#;
+      SCALEN         : Boolean := False;
       --  COMP channel 1 polarity selection bit
-      POLARITY       : COMP1_CFGR1_POLARITY_Field := 16#0#;
+      POLARITY       : Boolean := False;
       --  unspecified
       Reserved_4_5   : STM32_SVD.UInt2 := 16#0#;
       --  COMP channel 1 interrupt enable
-      ITEN           : COMP1_CFGR1_ITEN_Field := 16#0#;
+      ITEN           : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  COMP channel 1 hysteresis selection bits
@@ -128,7 +113,7 @@ package STM32_SVD.COMP1 is
       --  unspecified
       Reserved_19_19 : STM32_SVD.Bit := 16#0#;
       --  COMP channel 1 non-inverting input selection bit
-      INPSEL         : COMP1_CFGR1_INPSEL_Field := 16#0#;
+      INPSEL         : Boolean := False;
       --  unspecified
       Reserved_21_23 : STM32_SVD.UInt3 := 16#0#;
       --  COMP channel 1 blanking source selection bits
@@ -136,9 +121,9 @@ package STM32_SVD.COMP1 is
       --  unspecified
       Reserved_28_30 : STM32_SVD.UInt3 := 16#0#;
       --  Lock bit
-      LOCK           : COMP1_CFGR1_LOCK_Field := 16#0#;
+      LOCK           : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for COMP1_CFGR1_Register use record
@@ -162,35 +147,27 @@ package STM32_SVD.COMP1 is
       LOCK           at 0 range 31 .. 31;
    end record;
 
-   subtype COMP1_CFGR2_EN_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR2_BRGEN_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR2_SCALEN_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR2_POLARITY_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR2_WINMODE_Field is STM32_SVD.Bit;
-   subtype COMP1_CFGR2_ITEN_Field is STM32_SVD.Bit;
    subtype COMP1_CFGR2_HYST_Field is STM32_SVD.UInt2;
    subtype COMP1_CFGR2_PWRMODE_Field is STM32_SVD.UInt2;
    subtype COMP1_CFGR2_INMSEL_Field is STM32_SVD.UInt3;
-   subtype COMP1_CFGR2_INPSEL_Field is STM32_SVD.Bit;
    subtype COMP1_CFGR2_BLANKING_Field is STM32_SVD.UInt4;
-   subtype COMP1_CFGR2_LOCK_Field is STM32_SVD.Bit;
 
    --  Comparator configuration register 2
    type COMP1_CFGR2_Register is record
       --  COMP channel 1 enable bit
-      EN             : COMP1_CFGR2_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Scaler bridge enable
-      BRGEN          : COMP1_CFGR2_BRGEN_Field := 16#0#;
+      BRGEN          : Boolean := False;
       --  Voltage scaler enable bit
-      SCALEN         : COMP1_CFGR2_SCALEN_Field := 16#0#;
+      SCALEN         : Boolean := False;
       --  COMP channel 1 polarity selection bit
-      POLARITY       : COMP1_CFGR2_POLARITY_Field := 16#0#;
+      POLARITY       : Boolean := False;
       --  Window comparator mode selection bit
-      WINMODE        : COMP1_CFGR2_WINMODE_Field := 16#0#;
+      WINMODE        : Boolean := False;
       --  unspecified
       Reserved_5_5   : STM32_SVD.Bit := 16#0#;
       --  COMP channel 1 interrupt enable
-      ITEN           : COMP1_CFGR2_ITEN_Field := 16#0#;
+      ITEN           : Boolean := False;
       --  unspecified
       Reserved_7_7   : STM32_SVD.Bit := 16#0#;
       --  COMP channel 1 hysteresis selection bits
@@ -206,7 +183,7 @@ package STM32_SVD.COMP1 is
       --  unspecified
       Reserved_19_19 : STM32_SVD.Bit := 16#0#;
       --  COMP channel 1 non-inverting input selection bit
-      INPSEL         : COMP1_CFGR2_INPSEL_Field := 16#0#;
+      INPSEL         : Boolean := False;
       --  unspecified
       Reserved_21_23 : STM32_SVD.UInt3 := 16#0#;
       --  COMP channel 1 blanking source selection bits
@@ -214,9 +191,9 @@ package STM32_SVD.COMP1 is
       --  unspecified
       Reserved_28_30 : STM32_SVD.UInt3 := 16#0#;
       --  Lock bit
-      LOCK           : COMP1_CFGR2_LOCK_Field := 16#0#;
+      LOCK           : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for COMP1_CFGR2_Register use record
@@ -270,6 +247,6 @@ package STM32_SVD.COMP1 is
 
    --  COMP1
    COMP1_Periph : aliased COMP1_Peripheral
-     with Import, Address => System'To_Address (16#58003800#);
+     with Import, Address => COMP1_Base;
 
 end STM32_SVD.COMP1;

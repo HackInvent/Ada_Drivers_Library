@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -32,7 +32,7 @@ package STM32_SVD.SCB is
       --  Read-only. Implementer code
       Implementer : CPUID_Implementer_Field;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CPUID_Register use record
@@ -44,14 +44,7 @@ package STM32_SVD.SCB is
    end record;
 
    subtype ICSR_VECTACTIVE_Field is STM32_SVD.UInt9;
-   subtype ICSR_RETTOBASE_Field is STM32_SVD.Bit;
    subtype ICSR_VECTPENDING_Field is STM32_SVD.UInt7;
-   subtype ICSR_ISRPENDING_Field is STM32_SVD.Bit;
-   subtype ICSR_PENDSTCLR_Field is STM32_SVD.Bit;
-   subtype ICSR_PENDSTSET_Field is STM32_SVD.Bit;
-   subtype ICSR_PENDSVCLR_Field is STM32_SVD.Bit;
-   subtype ICSR_PENDSVSET_Field is STM32_SVD.Bit;
-   subtype ICSR_NMIPENDSET_Field is STM32_SVD.Bit;
 
    --  Interrupt control and state register
    type ICSR_Register is record
@@ -60,29 +53,29 @@ package STM32_SVD.SCB is
       --  unspecified
       Reserved_9_10  : STM32_SVD.UInt2 := 16#0#;
       --  Return to base level
-      RETTOBASE      : ICSR_RETTOBASE_Field := 16#0#;
+      RETTOBASE      : Boolean := False;
       --  Pending vector
       VECTPENDING    : ICSR_VECTPENDING_Field := 16#0#;
       --  unspecified
       Reserved_19_21 : STM32_SVD.UInt3 := 16#0#;
       --  Interrupt pending flag
-      ISRPENDING     : ICSR_ISRPENDING_Field := 16#0#;
+      ISRPENDING     : Boolean := False;
       --  unspecified
       Reserved_23_24 : STM32_SVD.UInt2 := 16#0#;
       --  SysTick exception clear-pending bit
-      PENDSTCLR      : ICSR_PENDSTCLR_Field := 16#0#;
+      PENDSTCLR      : Boolean := False;
       --  SysTick exception set-pending bit
-      PENDSTSET      : ICSR_PENDSTSET_Field := 16#0#;
+      PENDSTSET      : Boolean := False;
       --  PendSV clear-pending bit
-      PENDSVCLR      : ICSR_PENDSVCLR_Field := 16#0#;
+      PENDSVCLR      : Boolean := False;
       --  PendSV set-pending bit
-      PENDSVSET      : ICSR_PENDSVSET_Field := 16#0#;
+      PENDSVSET      : Boolean := False;
       --  unspecified
       Reserved_29_30 : STM32_SVD.UInt2 := 16#0#;
       --  NMI set-pending bit.
-      NMIPENDSET     : ICSR_NMIPENDSET_Field := 16#0#;
+      NMIPENDSET     : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ICSR_Register use record
@@ -112,7 +105,7 @@ package STM32_SVD.SCB is
       --  unspecified
       Reserved_30_31 : STM32_SVD.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for VTOR_Register use record
@@ -121,21 +114,17 @@ package STM32_SVD.SCB is
       Reserved_30_31 at 0 range 30 .. 31;
    end record;
 
-   subtype AIRCR_VECTRESET_Field is STM32_SVD.Bit;
-   subtype AIRCR_VECTCLRACTIVE_Field is STM32_SVD.Bit;
-   subtype AIRCR_SYSRESETREQ_Field is STM32_SVD.Bit;
    subtype AIRCR_PRIGROUP_Field is STM32_SVD.UInt3;
-   subtype AIRCR_ENDIANESS_Field is STM32_SVD.Bit;
    subtype AIRCR_VECTKEYSTAT_Field is STM32_SVD.UInt16;
 
    --  Application interrupt and reset control register
    type AIRCR_Register is record
       --  VECTRESET
-      VECTRESET      : AIRCR_VECTRESET_Field := 16#0#;
+      VECTRESET      : Boolean := False;
       --  VECTCLRACTIVE
-      VECTCLRACTIVE  : AIRCR_VECTCLRACTIVE_Field := 16#0#;
+      VECTCLRACTIVE  : Boolean := False;
       --  SYSRESETREQ
-      SYSRESETREQ    : AIRCR_SYSRESETREQ_Field := 16#0#;
+      SYSRESETREQ    : Boolean := False;
       --  unspecified
       Reserved_3_7   : STM32_SVD.UInt5 := 16#0#;
       --  PRIGROUP
@@ -143,11 +132,11 @@ package STM32_SVD.SCB is
       --  unspecified
       Reserved_11_14 : STM32_SVD.UInt4 := 16#0#;
       --  ENDIANESS
-      ENDIANESS      : AIRCR_ENDIANESS_Field := 16#0#;
+      ENDIANESS      : Boolean := False;
       --  Register key
       VECTKEYSTAT    : AIRCR_VECTKEYSTAT_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AIRCR_Register use record
@@ -161,26 +150,22 @@ package STM32_SVD.SCB is
       VECTKEYSTAT    at 0 range 16 .. 31;
    end record;
 
-   subtype SCR_SLEEPONEXIT_Field is STM32_SVD.Bit;
-   subtype SCR_SLEEPDEEP_Field is STM32_SVD.Bit;
-   subtype SCR_SEVEONPEND_Field is STM32_SVD.Bit;
-
    --  System control register
    type SCR_Register is record
       --  unspecified
       Reserved_0_0  : STM32_SVD.Bit := 16#0#;
       --  SLEEPONEXIT
-      SLEEPONEXIT   : SCR_SLEEPONEXIT_Field := 16#0#;
+      SLEEPONEXIT   : Boolean := False;
       --  SLEEPDEEP
-      SLEEPDEEP     : SCR_SLEEPDEEP_Field := 16#0#;
+      SLEEPDEEP     : Boolean := False;
       --  unspecified
       Reserved_3_3  : STM32_SVD.Bit := 16#0#;
       --  Send Event on Pending bit
-      SEVEONPEND    : SCR_SEVEONPEND_Field := 16#0#;
+      SEVEONPEND    : Boolean := False;
       --  unspecified
       Reserved_5_31 : STM32_SVD.UInt27 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SCR_Register use record
@@ -192,46 +177,36 @@ package STM32_SVD.SCB is
       Reserved_5_31 at 0 range 5 .. 31;
    end record;
 
-   subtype CCR_NONBASETHRDENA_Field is STM32_SVD.Bit;
-   subtype CCR_USERSETMPEND_Field is STM32_SVD.Bit;
-   subtype CCR_UNALIGN_TRP_Field is STM32_SVD.Bit;
-   subtype CCR_DIV_0_TRP_Field is STM32_SVD.Bit;
-   subtype CCR_BFHFNMIGN_Field is STM32_SVD.Bit;
-   subtype CCR_STKALIGN_Field is STM32_SVD.Bit;
-   subtype CCR_DC_Field is STM32_SVD.Bit;
-   subtype CCR_IC_Field is STM32_SVD.Bit;
-   subtype CCR_BP_Field is STM32_SVD.Bit;
-
    --  Configuration and control register
    type CCR_Register is record
       --  Configures how the processor enters Thread mode
-      NONBASETHRDENA : CCR_NONBASETHRDENA_Field := 16#0#;
+      NONBASETHRDENA : Boolean := False;
       --  USERSETMPEND
-      USERSETMPEND   : CCR_USERSETMPEND_Field := 16#0#;
+      USERSETMPEND   : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  UNALIGN_ TRP
-      UNALIGN_TRP    : CCR_UNALIGN_TRP_Field := 16#0#;
+      UNALIGN_TRP    : Boolean := False;
       --  DIV_0_TRP
-      DIV_0_TRP      : CCR_DIV_0_TRP_Field := 16#0#;
+      DIV_0_TRP      : Boolean := False;
       --  unspecified
       Reserved_5_7   : STM32_SVD.UInt3 := 16#0#;
       --  BFHFNMIGN
-      BFHFNMIGN      : CCR_BFHFNMIGN_Field := 16#0#;
+      BFHFNMIGN      : Boolean := False;
       --  STKALIGN
-      STKALIGN       : CCR_STKALIGN_Field := 16#0#;
+      STKALIGN       : Boolean := False;
       --  unspecified
       Reserved_10_15 : STM32_SVD.UInt6 := 16#0#;
       --  DC
-      DC             : CCR_DC_Field := 16#0#;
+      DC             : Boolean := False;
       --  IC
-      IC             : CCR_IC_Field := 16#0#;
+      IC             : Boolean := False;
       --  BP
-      BP             : CCR_BP_Field := 16#0#;
+      BP             : Boolean := False;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCR_Register use record
@@ -265,7 +240,7 @@ package STM32_SVD.SCB is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SHPR1_Register use record
@@ -284,7 +259,7 @@ package STM32_SVD.SCB is
       --  Priority of system handler 11
       PRI_11        : SHPR2_PRI_11_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SHPR2_Register use record
@@ -304,7 +279,7 @@ package STM32_SVD.SCB is
       --  Priority of system handler 15
       PRI_15        : SHPR3_PRI_15_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SHPR3_Register use record
@@ -313,61 +288,46 @@ package STM32_SVD.SCB is
       PRI_15        at 0 range 24 .. 31;
    end record;
 
-   subtype SHCRS_MEMFAULTACT_Field is STM32_SVD.Bit;
-   subtype SHCRS_BUSFAULTACT_Field is STM32_SVD.Bit;
-   subtype SHCRS_USGFAULTACT_Field is STM32_SVD.Bit;
-   subtype SHCRS_SVCALLACT_Field is STM32_SVD.Bit;
-   subtype SHCRS_MONITORACT_Field is STM32_SVD.Bit;
-   subtype SHCRS_PENDSVACT_Field is STM32_SVD.Bit;
-   subtype SHCRS_SYSTICKACT_Field is STM32_SVD.Bit;
-   subtype SHCRS_USGFAULTPENDED_Field is STM32_SVD.Bit;
-   subtype SHCRS_MEMFAULTPENDED_Field is STM32_SVD.Bit;
-   subtype SHCRS_BUSFAULTPENDED_Field is STM32_SVD.Bit;
-   subtype SHCRS_SVCALLPENDED_Field is STM32_SVD.Bit;
-   subtype SHCRS_MEMFAULTENA_Field is STM32_SVD.Bit;
-   subtype SHCRS_BUSFAULTENA_Field is STM32_SVD.Bit;
-   subtype SHCRS_USGFAULTENA_Field is STM32_SVD.Bit;
-
    --  System handler control and state register
    type SHCRS_Register is record
       --  Memory management fault exception active bit
-      MEMFAULTACT    : SHCRS_MEMFAULTACT_Field := 16#0#;
+      MEMFAULTACT    : Boolean := False;
       --  Bus fault exception active bit
-      BUSFAULTACT    : SHCRS_BUSFAULTACT_Field := 16#0#;
+      BUSFAULTACT    : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  Usage fault exception active bit
-      USGFAULTACT    : SHCRS_USGFAULTACT_Field := 16#0#;
+      USGFAULTACT    : Boolean := False;
       --  unspecified
       Reserved_4_6   : STM32_SVD.UInt3 := 16#0#;
       --  SVC call active bit
-      SVCALLACT      : SHCRS_SVCALLACT_Field := 16#0#;
+      SVCALLACT      : Boolean := False;
       --  Debug monitor active bit
-      MONITORACT     : SHCRS_MONITORACT_Field := 16#0#;
+      MONITORACT     : Boolean := False;
       --  unspecified
       Reserved_9_9   : STM32_SVD.Bit := 16#0#;
       --  PendSV exception active bit
-      PENDSVACT      : SHCRS_PENDSVACT_Field := 16#0#;
+      PENDSVACT      : Boolean := False;
       --  SysTick exception active bit
-      SYSTICKACT     : SHCRS_SYSTICKACT_Field := 16#0#;
+      SYSTICKACT     : Boolean := False;
       --  Usage fault exception pending bit
-      USGFAULTPENDED : SHCRS_USGFAULTPENDED_Field := 16#0#;
+      USGFAULTPENDED : Boolean := False;
       --  Memory management fault exception pending bit
-      MEMFAULTPENDED : SHCRS_MEMFAULTPENDED_Field := 16#0#;
+      MEMFAULTPENDED : Boolean := False;
       --  Bus fault exception pending bit
-      BUSFAULTPENDED : SHCRS_BUSFAULTPENDED_Field := 16#0#;
+      BUSFAULTPENDED : Boolean := False;
       --  SVC call pending bit
-      SVCALLPENDED   : SHCRS_SVCALLPENDED_Field := 16#0#;
+      SVCALLPENDED   : Boolean := False;
       --  Memory management fault enable bit
-      MEMFAULTENA    : SHCRS_MEMFAULTENA_Field := 16#0#;
+      MEMFAULTENA    : Boolean := False;
       --  Bus fault enable bit
-      BUSFAULTENA    : SHCRS_BUSFAULTENA_Field := 16#0#;
+      BUSFAULTENA    : Boolean := False;
       --  Usage fault enable bit
-      USGFAULTENA    : SHCRS_USGFAULTENA_Field := 16#0#;
+      USGFAULTENA    : Boolean := False;
       --  unspecified
       Reserved_19_31 : STM32_SVD.UInt13 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SHCRS_Register use record
@@ -391,78 +351,58 @@ package STM32_SVD.SCB is
       Reserved_19_31 at 0 range 19 .. 31;
    end record;
 
-   subtype CFSR_UFSR_BFSR_MMFSR_IACCVIOL_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_DACCVIOL_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_MUNSTKERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_MSTKERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_MLSPERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_MMARVALID_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_IBUSERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_PRECISERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_IMPRECISERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_UNSTKERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_STKERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_LSPERR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_BFARVALID_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_UNDEFINSTR_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_INVSTATE_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_INVPC_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_NOCP_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_UNALIGNED_Field is STM32_SVD.Bit;
-   subtype CFSR_UFSR_BFSR_MMFSR_DIVBYZERO_Field is STM32_SVD.Bit;
-
    --  Configurable fault status register
    type CFSR_UFSR_BFSR_MMFSR_Register is record
       --  IACCVIOL
-      IACCVIOL       : CFSR_UFSR_BFSR_MMFSR_IACCVIOL_Field := 16#0#;
+      IACCVIOL       : Boolean := False;
       --  DACCVIOL
-      DACCVIOL       : CFSR_UFSR_BFSR_MMFSR_DACCVIOL_Field := 16#0#;
+      DACCVIOL       : Boolean := False;
       --  unspecified
       Reserved_2_2   : STM32_SVD.Bit := 16#0#;
       --  MUNSTKERR
-      MUNSTKERR      : CFSR_UFSR_BFSR_MMFSR_MUNSTKERR_Field := 16#0#;
+      MUNSTKERR      : Boolean := False;
       --  MSTKERR
-      MSTKERR        : CFSR_UFSR_BFSR_MMFSR_MSTKERR_Field := 16#0#;
+      MSTKERR        : Boolean := False;
       --  MLSPERR
-      MLSPERR        : CFSR_UFSR_BFSR_MMFSR_MLSPERR_Field := 16#0#;
+      MLSPERR        : Boolean := False;
       --  unspecified
       Reserved_6_6   : STM32_SVD.Bit := 16#0#;
       --  MMARVALID
-      MMARVALID      : CFSR_UFSR_BFSR_MMFSR_MMARVALID_Field := 16#0#;
+      MMARVALID      : Boolean := False;
       --  Instruction bus error
-      IBUSERR        : CFSR_UFSR_BFSR_MMFSR_IBUSERR_Field := 16#0#;
+      IBUSERR        : Boolean := False;
       --  Precise data bus error
-      PRECISERR      : CFSR_UFSR_BFSR_MMFSR_PRECISERR_Field := 16#0#;
+      PRECISERR      : Boolean := False;
       --  Imprecise data bus error
-      IMPRECISERR    : CFSR_UFSR_BFSR_MMFSR_IMPRECISERR_Field := 16#0#;
+      IMPRECISERR    : Boolean := False;
       --  Bus fault on unstacking for a return from exception
-      UNSTKERR       : CFSR_UFSR_BFSR_MMFSR_UNSTKERR_Field := 16#0#;
+      UNSTKERR       : Boolean := False;
       --  Bus fault on stacking for exception entry
-      STKERR         : CFSR_UFSR_BFSR_MMFSR_STKERR_Field := 16#0#;
+      STKERR         : Boolean := False;
       --  Bus fault on floating-point lazy state preservation
-      LSPERR         : CFSR_UFSR_BFSR_MMFSR_LSPERR_Field := 16#0#;
+      LSPERR         : Boolean := False;
       --  unspecified
       Reserved_14_14 : STM32_SVD.Bit := 16#0#;
       --  Bus Fault Address Register (BFAR) valid flag
-      BFARVALID      : CFSR_UFSR_BFSR_MMFSR_BFARVALID_Field := 16#0#;
+      BFARVALID      : Boolean := False;
       --  Undefined instruction usage fault
-      UNDEFINSTR     : CFSR_UFSR_BFSR_MMFSR_UNDEFINSTR_Field := 16#0#;
+      UNDEFINSTR     : Boolean := False;
       --  Invalid state usage fault
-      INVSTATE       : CFSR_UFSR_BFSR_MMFSR_INVSTATE_Field := 16#0#;
+      INVSTATE       : Boolean := False;
       --  Invalid PC load usage fault
-      INVPC          : CFSR_UFSR_BFSR_MMFSR_INVPC_Field := 16#0#;
+      INVPC          : Boolean := False;
       --  No coprocessor usage fault.
-      NOCP           : CFSR_UFSR_BFSR_MMFSR_NOCP_Field := 16#0#;
+      NOCP           : Boolean := False;
       --  unspecified
       Reserved_20_23 : STM32_SVD.UInt4 := 16#0#;
       --  Unaligned access usage fault
-      UNALIGNED      : CFSR_UFSR_BFSR_MMFSR_UNALIGNED_Field := 16#0#;
+      UNALIGNED      : Boolean := False;
       --  Divide by zero usage fault
-      DIVBYZERO      : CFSR_UFSR_BFSR_MMFSR_DIVBYZERO_Field := 16#0#;
+      DIVBYZERO      : Boolean := False;
       --  unspecified
       Reserved_26_31 : STM32_SVD.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CFSR_UFSR_BFSR_MMFSR_Register use record
@@ -492,24 +432,20 @@ package STM32_SVD.SCB is
       Reserved_26_31 at 0 range 26 .. 31;
    end record;
 
-   subtype HFSR_VECTTBL_Field is STM32_SVD.Bit;
-   subtype HFSR_FORCED_Field is STM32_SVD.Bit;
-   subtype HFSR_DEBUG_VT_Field is STM32_SVD.Bit;
-
    --  Hard fault status register
    type HFSR_Register is record
       --  unspecified
       Reserved_0_0  : STM32_SVD.Bit := 16#0#;
       --  Vector table hard fault
-      VECTTBL       : HFSR_VECTTBL_Field := 16#0#;
+      VECTTBL       : Boolean := False;
       --  unspecified
       Reserved_2_29 : STM32_SVD.UInt28 := 16#0#;
       --  Forced hard fault
-      FORCED        : HFSR_FORCED_Field := 16#0#;
+      FORCED        : Boolean := False;
       --  Reserved for Debug use
-      DEBUG_VT      : HFSR_DEBUG_VT_Field := 16#0#;
+      DEBUG_VT      : Boolean := False;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for HFSR_Register use record
@@ -520,29 +456,24 @@ package STM32_SVD.SCB is
       DEBUG_VT      at 0 range 31 .. 31;
    end record;
 
-   subtype ACTRL_DISFOLD_Field is STM32_SVD.Bit;
-   subtype ACTRL_FPEXCODIS_Field is STM32_SVD.Bit;
-   subtype ACTRL_DISRAMODE_Field is STM32_SVD.Bit;
-   subtype ACTRL_DISITMATBFLUSH_Field is STM32_SVD.Bit;
-
    --  Auxiliary control register
    type ACTRL_Register is record
       --  unspecified
       Reserved_0_1   : STM32_SVD.UInt2 := 16#0#;
       --  DISFOLD
-      DISFOLD        : ACTRL_DISFOLD_Field := 16#0#;
+      DISFOLD        : Boolean := False;
       --  unspecified
       Reserved_3_9   : STM32_SVD.UInt7 := 16#0#;
       --  FPEXCODIS
-      FPEXCODIS      : ACTRL_FPEXCODIS_Field := 16#0#;
+      FPEXCODIS      : Boolean := False;
       --  DISRAMODE
-      DISRAMODE      : ACTRL_DISRAMODE_Field := 16#0#;
+      DISRAMODE      : Boolean := False;
       --  DISITMATBFLUSH
-      DISITMATBFLUSH : ACTRL_DISITMATBFLUSH_Field := 16#0#;
+      DISITMATBFLUSH : Boolean := False;
       --  unspecified
       Reserved_13_31 : STM32_SVD.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ACTRL_Register use record
@@ -611,7 +542,7 @@ package STM32_SVD.SCB is
 
    --  System control block
    SCB_Periph : aliased SCB_Peripheral
-     with Import, Address => System'To_Address (16#E000ED00#);
+     with Import, Address => SCB_Base;
 
    --  System control block ACTLR
    type SCB_ACTRL_Peripheral is record
@@ -626,6 +557,6 @@ package STM32_SVD.SCB is
 
    --  System control block ACTLR
    SCB_ACTRL_Periph : aliased SCB_ACTRL_Peripheral
-     with Import, Address => System'To_Address (16#E000E008#);
+     with Import, Address => SCB_ACTRL_Base;
 
 end STM32_SVD.SCB;

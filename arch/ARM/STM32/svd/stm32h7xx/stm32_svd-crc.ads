@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,15 +13,13 @@ package STM32_SVD.CRC is
    -- Registers --
    ---------------
 
-   subtype CR_RESET_Field is STM32_SVD.Bit;
    subtype CR_POLYSIZE_Field is STM32_SVD.UInt2;
    subtype CR_REV_IN_Field is STM32_SVD.UInt2;
-   subtype CR_REV_OUT_Field is STM32_SVD.Bit;
 
    --  Control register
    type CR_Register is record
       --  Write-only. RESET bit
-      RESET         : CR_RESET_Field := 16#0#;
+      RESET         : Boolean := False;
       --  unspecified
       Reserved_1_2  : STM32_SVD.UInt2 := 16#0#;
       --  Polynomial size
@@ -29,11 +27,11 @@ package STM32_SVD.CRC is
       --  Reverse input data
       REV_IN        : CR_REV_IN_Field := 16#0#;
       --  Reverse output data
-      REV_OUT       : CR_REV_OUT_Field := 16#0#;
+      REV_OUT       : Boolean := False;
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -74,6 +72,6 @@ package STM32_SVD.CRC is
 
    --  Cryptographic processor
    CRC_Periph : aliased CRC_Peripheral
-     with Import, Address => System'To_Address (16#58024C00#);
+     with Import, Address => CRC_Base;
 
 end STM32_SVD.CRC;

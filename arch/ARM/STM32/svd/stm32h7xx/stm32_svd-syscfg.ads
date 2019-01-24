@@ -1,4 +1,4 @@
---  This spec has been automatically generated from stm32_svd.svd
+--  This spec has been automatically generated from STM32H7x3.svd
 
 pragma Restrictions (No_Elaboration_Code);
 pragma Ada_2012;
@@ -13,57 +13,44 @@ package STM32_SVD.SYSCFG is
    -- Registers --
    ---------------
 
-   subtype PMCR_I2C1FMP_Field is STM32_SVD.Bit;
-   subtype PMCR_I2C2FMP_Field is STM32_SVD.Bit;
-   subtype PMCR_I2C3FMP_Field is STM32_SVD.Bit;
-   subtype PMCR_I2C4FMP_Field is STM32_SVD.Bit;
-   subtype PMCR_PB6FMP_Field is STM32_SVD.Bit;
-   subtype PMCR_PB7FMP_Field is STM32_SVD.Bit;
-   subtype PMCR_PB8FMP_Field is STM32_SVD.Bit;
-   subtype PMCR_PB9FMP_Field is STM32_SVD.Bit;
-   subtype PMCR_BOOSTE_Field is STM32_SVD.Bit;
    subtype PMCR_EPIS_Field is STM32_SVD.UInt3;
-   subtype PMCR_PA0SO_Field is STM32_SVD.Bit;
-   subtype PMCR_PA1SO_Field is STM32_SVD.Bit;
-   subtype PMCR_PC2SO_Field is STM32_SVD.Bit;
-   subtype PMCR_PC3SO_Field is STM32_SVD.Bit;
 
    --  peripheral mode configuration register
    type PMCR_Register is record
       --  I2C1 Fm+
-      I2C1FMP        : PMCR_I2C1FMP_Field := 16#0#;
+      I2C1FMP        : Boolean := False;
       --  I2C2 Fm+
-      I2C2FMP        : PMCR_I2C2FMP_Field := 16#0#;
+      I2C2FMP        : Boolean := False;
       --  I2C3 Fm+
-      I2C3FMP        : PMCR_I2C3FMP_Field := 16#0#;
+      I2C3FMP        : Boolean := False;
       --  I2C4 Fm+
-      I2C4FMP        : PMCR_I2C4FMP_Field := 16#0#;
+      I2C4FMP        : Boolean := False;
       --  PB(6) Fm+
-      PB6FMP         : PMCR_PB6FMP_Field := 16#0#;
+      PB6FMP         : Boolean := False;
       --  PB(7) Fast Mode Plus
-      PB7FMP         : PMCR_PB7FMP_Field := 16#0#;
+      PB7FMP         : Boolean := False;
       --  PB(8) Fast Mode Plus
-      PB8FMP         : PMCR_PB8FMP_Field := 16#0#;
+      PB8FMP         : Boolean := False;
       --  PB(9) Fm+
-      PB9FMP         : PMCR_PB9FMP_Field := 16#0#;
+      PB9FMP         : Boolean := False;
       --  Booster Enable
-      BOOSTE         : PMCR_BOOSTE_Field := 16#0#;
+      BOOSTE         : Boolean := False;
       --  unspecified
       Reserved_9_20  : STM32_SVD.UInt12 := 16#0#;
       --  Ethernet PHY Interface Selection
       EPIS           : PMCR_EPIS_Field := 16#0#;
       --  PA0 Switch Open
-      PA0SO          : PMCR_PA0SO_Field := 16#0#;
+      PA0SO          : Boolean := False;
       --  PA1 Switch Open
-      PA1SO          : PMCR_PA1SO_Field := 16#0#;
+      PA1SO          : Boolean := False;
       --  PC2 Switch Open
-      PC2SO          : PMCR_PC2SO_Field := 16#0#;
+      PC2SO          : Boolean := False;
       --  PC3 Switch Open
-      PC3SO          : PMCR_PC3SO_Field := 16#0#;
+      PC3SO          : Boolean := False;
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PMCR_Register use record
@@ -120,7 +107,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for EXTICR1_Register use record
@@ -163,7 +150,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for EXTICR2_Register use record
@@ -206,7 +193,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for EXTICR3_Register use record
@@ -249,7 +236,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_16_31 : STM32_SVD.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for EXTICR4_Register use record
@@ -257,29 +244,24 @@ package STM32_SVD.SYSCFG is
       Reserved_16_31 at 0 range 16 .. 31;
    end record;
 
-   subtype CCCSR_EN_Field is STM32_SVD.Bit;
-   subtype CCCSR_CS_Field is STM32_SVD.Bit;
-   subtype CCCSR_READY_Field is STM32_SVD.Bit;
-   subtype CCCSR_HSLV_Field is STM32_SVD.Bit;
-
    --  compensation cell control/status register
    type CCCSR_Register is record
       --  enable
-      EN             : CCCSR_EN_Field := 16#0#;
+      EN             : Boolean := False;
       --  Code selection
-      CS             : CCCSR_CS_Field := 16#0#;
+      CS             : Boolean := False;
       --  unspecified
       Reserved_2_7   : STM32_SVD.UInt6 := 16#0#;
       --  Compensation cell ready flag
-      READY          : CCCSR_READY_Field := 16#0#;
+      READY          : Boolean := False;
       --  unspecified
       Reserved_9_15  : STM32_SVD.UInt7 := 16#0#;
       --  High-speed at low-voltage
-      HSLV           : CCCSR_HSLV_Field := 16#0#;
+      HSLV           : Boolean := False;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCCSR_Register use record
@@ -304,7 +286,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCVR_Register use record
@@ -325,7 +307,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_8_31 : STM32_SVD.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CCCR_Register use record
@@ -343,7 +325,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_4_31 : STM32_SVD.UInt28;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for PKGR_Register use record
@@ -351,13 +333,12 @@ package STM32_SVD.SYSCFG is
       Reserved_4_31 at 0 range 4 .. 31;
    end record;
 
-   subtype UR0_BKS_Field is STM32_SVD.Bit;
    subtype UR0_RDP_Field is STM32_SVD.Byte;
 
    --  SYSCFG user register 0
    type UR0_Register is record
       --  Read-only. Bank Swap
-      BKS            : UR0_BKS_Field;
+      BKS            : Boolean;
       --  unspecified
       Reserved_1_15  : STM32_SVD.UInt15;
       --  Read-only. Readout protection
@@ -365,7 +346,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR0_Register use record
@@ -387,7 +368,7 @@ package STM32_SVD.SYSCFG is
       --  Boot Address 0
       BOOT_ADD0     : UR2_BOOT_ADD0_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR2_Register use record
@@ -405,7 +386,7 @@ package STM32_SVD.SYSCFG is
       --  Boot Address 1
       BOOT_ADD1     : UR3_BOOT_ADD1_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR3_Register use record
@@ -413,18 +394,16 @@ package STM32_SVD.SYSCFG is
       BOOT_ADD1     at 0 range 16 .. 31;
    end record;
 
-   subtype UR4_MEPAD_1_Field is STM32_SVD.Bit;
-
    --  SYSCFG user register 4
    type UR4_Register is record
       --  unspecified
       Reserved_0_15  : STM32_SVD.UInt16;
       --  Read-only. Mass Erase Protected Area Disabled for bank 1
-      MEPAD_1        : UR4_MEPAD_1_Field;
+      MEPAD_1        : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR4_Register use record
@@ -433,13 +412,12 @@ package STM32_SVD.SYSCFG is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype UR5_MESAD_1_Field is STM32_SVD.Bit;
    subtype UR5_WRPN_1_Field is STM32_SVD.Byte;
 
    --  SYSCFG user register 5
    type UR5_Register is record
       --  Read-only. Mass erase secured area disabled for bank 1
-      MESAD_1        : UR5_MESAD_1_Field;
+      MESAD_1        : Boolean;
       --  unspecified
       Reserved_1_15  : STM32_SVD.UInt15;
       --  Read-only. Write protection for flash bank 1
@@ -447,7 +425,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_24_31 : STM32_SVD.Byte;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR5_Register use record
@@ -471,7 +449,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR6_Register use record
@@ -495,7 +473,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR7_Register use record
@@ -505,21 +483,18 @@ package STM32_SVD.SYSCFG is
       Reserved_28_31 at 0 range 28 .. 31;
    end record;
 
-   subtype UR8_MEPAD_2_Field is STM32_SVD.Bit;
-   subtype UR8_MESAD_2_Field is STM32_SVD.Bit;
-
    --  SYSCFG user register 8
    type UR8_Register is record
       --  Read-only. Mass erase protected area disabled for bank 2
-      MEPAD_2        : UR8_MEPAD_2_Field;
+      MEPAD_2        : Boolean;
       --  unspecified
       Reserved_1_15  : STM32_SVD.UInt15;
       --  Read-only. Mass erase secured area disabled for bank 2
-      MESAD_2        : UR8_MESAD_2_Field;
+      MESAD_2        : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR8_Register use record
@@ -543,7 +518,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR9_Register use record
@@ -567,7 +542,7 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_28_31 : STM32_SVD.UInt4;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR10_Register use record
@@ -578,7 +553,6 @@ package STM32_SVD.SYSCFG is
    end record;
 
    subtype UR11_SA_END_2_Field is STM32_SVD.UInt12;
-   subtype UR11_IWDG1M_Field is STM32_SVD.Bit;
 
    --  SYSCFG user register 11
    type UR11_Register is record
@@ -587,11 +561,11 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_12_15 : STM32_SVD.UInt4;
       --  Read-only. Independent Watchdog 1 mode
-      IWDG1M         : UR11_IWDG1M_Field;
+      IWDG1M         : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR11_Register use record
@@ -601,18 +575,16 @@ package STM32_SVD.SYSCFG is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype UR12_SECURE_Field is STM32_SVD.Bit;
-
    --  SYSCFG user register 12
    type UR12_Register is record
       --  unspecified
       Reserved_0_15  : STM32_SVD.UInt16;
       --  Read-only. Secure mode
-      SECURE         : UR12_SECURE_Field;
+      SECURE         : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR12_Register use record
@@ -622,7 +594,6 @@ package STM32_SVD.SYSCFG is
    end record;
 
    subtype UR13_SDRS_Field is STM32_SVD.UInt2;
-   subtype UR13_D1SBRST_Field is STM32_SVD.Bit;
 
    --  SYSCFG user register 13
    type UR13_Register is record
@@ -631,11 +602,11 @@ package STM32_SVD.SYSCFG is
       --  unspecified
       Reserved_2_15  : STM32_SVD.UInt14;
       --  Read-only. D1 Standby reset
-      D1SBRST        : UR13_D1SBRST_Field;
+      D1SBRST        : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR13_Register use record
@@ -645,16 +616,14 @@ package STM32_SVD.SYSCFG is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype UR14_D1STPRST_Field is STM32_SVD.Bit;
-
    --  SYSCFG user register 14
    type UR14_Register is record
       --  D1 Stop Reset
-      D1STPRST      : UR14_D1STPRST_Field := 16#0#;
+      D1STPRST      : Boolean := False;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR14_Register use record
@@ -662,18 +631,16 @@ package STM32_SVD.SYSCFG is
       Reserved_1_31 at 0 range 1 .. 31;
    end record;
 
-   subtype UR15_FZIWDGSTB_Field is STM32_SVD.Bit;
-
    --  SYSCFG user register 15
    type UR15_Register is record
       --  unspecified
       Reserved_0_15  : STM32_SVD.UInt16;
       --  Read-only. Freeze independent watchdog in Standby mode
-      FZIWDGSTB      : UR15_FZIWDGSTB_Field;
+      FZIWDGSTB      : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR15_Register use record
@@ -682,21 +649,18 @@ package STM32_SVD.SYSCFG is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype UR16_FZIWDGSTP_Field is STM32_SVD.Bit;
-   subtype UR16_PKP_Field is STM32_SVD.Bit;
-
    --  SYSCFG user register 16
    type UR16_Register is record
       --  Read-only. Freeze independent watchdog in Stop mode
-      FZIWDGSTP      : UR16_FZIWDGSTP_Field;
+      FZIWDGSTP      : Boolean;
       --  unspecified
       Reserved_1_15  : STM32_SVD.UInt15;
       --  Read-only. Private key programmed
-      PKP            : UR16_PKP_Field;
+      PKP            : Boolean;
       --  unspecified
       Reserved_17_31 : STM32_SVD.UInt15;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR16_Register use record
@@ -706,16 +670,14 @@ package STM32_SVD.SYSCFG is
       Reserved_17_31 at 0 range 17 .. 31;
    end record;
 
-   subtype UR17_IO_HSLV_Field is STM32_SVD.Bit;
-
    --  SYSCFG user register 17
    type UR17_Register is record
       --  Read-only. I/O high speed / low voltage
-      IO_HSLV       : UR17_IO_HSLV_Field;
+      IO_HSLV       : Boolean;
       --  unspecified
       Reserved_1_31 : STM32_SVD.UInt31;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for UR17_Register use record
@@ -815,6 +777,6 @@ package STM32_SVD.SYSCFG is
 
    --  System configuration controller
    SYSCFG_Periph : aliased SYSCFG_Peripheral
-     with Import, Address => System'To_Address (16#58000400#);
+     with Import, Address => SYSCFG_Base;
 
 end STM32_SVD.SYSCFG;
