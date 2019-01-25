@@ -71,15 +71,29 @@ package body STM32.SPI is
 
    procedure testConfigure (This : in out SPI_Port; Conf : SPI_Configuration) is
    begin
-
-      This.Periph.CFG2.LSBFRST := True; -- LSB first
+      --  we disable to configure
+      if not This.Enabled then
+         This.Disable ;
+      end if;
+      --
+      This.Periph.CFG2.LSBFRST  := True; -- LSB first
       This.Periph.CFG1.MBR := 4#0#; -- baud rate div 2
       This.Periph.CFG1.DSIZE      := 16#7#; -- format 8bit
       This.Periph.CFG2.CPOL     := True; -- clock polarity high
       This.Periph.CFG2.CPHA     := True; -- clock P1Edge
-      This.Periph.CFG2.SSM      := True; -- software managed
       This.Periph.CFG2.SP := 3#0#; -- We use motorola protocol
       This.Periph.CFG2.COMM := 16#0#; -- by default the SPI is set to full duplex
+      -- SS configuration, master mode with multi slave
+      This.Periph.CR1.SSI := True;  -- ?
+      This.Periph.CFG2.SSM      := True; -- ?
+      This.Periph.CFG2.SSOE := False;
+
+      -- AFCNTR:  alternate function GPIOs control
+      -- This.Periph.CFG2.AFCNTR := True;   -- we keep ontrol on the MISO/MOSI
+
+      while This.Periph.CFG2.MASTER /= True loop
+         This.Periph.CFG2.MASTER := True;
+      end loop;
 
    end testConfigure;
 
@@ -88,20 +102,57 @@ package body STM32.SPI is
 
       if This.CRC_Enabled then
          This.Reset_CRC;
+         This.Periph.CFG1.CRCEN := False;
       end if;
       This.Clear_Overrun;
-      if not This.Enabled then
-         This.Enable ;
-      end if;
 
-      while This.Periph.TXDR /= Data loop
-         This.Periph.TXDR := Data;
+      while This.Periph.SR.MODF = True loop
+         This.Periph.IFCR.MODFC := True;
+         This.Periph.CFG2.MASTER := True;
       end loop;
 
+--        while This.Periph.TXDR /= Data loop
+--           This.Periph.TXDR := Data;
+--        end loop;
+    This.Periph.TXDR := Data;
+      This.Periph.CR2.TSIZE := 1;
+      if This.Periph.CR2.TSIZE>0 then
+         null;
+      end if;
+
+
+
+      -- enable the SPI
+      while This.Periph.CR1.SPE /= True loop
+         This.Periph.CR1.SPE := True;
+      end loop;
+
+      -- start the work
       This.Periph.CR1.CSTART := True;
+
+      -- wait for TXP flag : spare ready
+      while This.Periph.SR.TXP /= True loop
+         null;
+      end loop;
+
+      This.Periph.TXDR := Data;
+
+--        while This.Periph.SR.TXTF /= True loop
+--           null;
+--        end loop;
+
+      --
       while This.Periph.SR.EOT = False loop
          null;
       end loop;
+
+      -- close SPI
+      This.Periph.IFCR.EOTC := True;
+      This.Periph.IFCR.TXTFC := True;
+      This.Periph.CR1.SPE := False;
+      This.Periph.CR1.CSTART := False;
+      This.Periph.CR2.TSIZE := 0;
+
    end testTrasmit;
 
 

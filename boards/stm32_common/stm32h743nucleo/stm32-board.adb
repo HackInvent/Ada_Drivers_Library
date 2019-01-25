@@ -91,19 +91,18 @@ package body STM32.Board is
       GPIO_Conf : STM32.GPIO.GPIO_Port_Configuration;
       Status : HAL.SPI.SPI_Status;
    begin
+      Enable_Clock(GPIO_E);
       Enable_Clock(SPI4_Points);
 
       GPIO_Conf := (Mode           => STM32.GPIO.Mode_AF,
                     AF             => GPIO_AF_SPI4_5,
-                    Resistors      => STM32.GPIO.Pull_Down, --  SPI low polarity
+                    Resistors      => STM32.GPIO.Floating,
                     AF_Speed       => STM32.GPIO.Speed_100MHz,
                     AF_Output_Type => STM32.GPIO.Push_Pull);
 
+      Enable_Clock (EXT_SPI);
+
       STM32.GPIO.Configure_IO (SPI4_Points, GPIO_Conf);
-
-      STM32.Device.Enable_Clock (EXT_SPI);
-
-
 
       -- disable the SPI before configuration
       EXT_SPI.Disable;
@@ -124,8 +123,7 @@ package body STM32.Board is
       -- enable the SPI
       EXT_SPI.Enable;
 
-      -- Test transmission
-      EXT_SPI.testTrasmit(Data => 5);
+
 
       -- set the configuration
 

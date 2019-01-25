@@ -15,7 +15,7 @@ is
       Configure_IO
         (PB0,
          (Mode        => Mode_Out,
-          Resistors   => Floating,
+          Resistors   => Pull_Down,
           Speed       => Speed_100MHz,
           Output_Type => Push_Pull));
    end Initialize_LEDs;
@@ -27,14 +27,15 @@ begin
    --  Enable board leds
    Initialize_LEDs;
 
-   --Initialize_SPI4;
+   Initialize_SPI4;
 
 
    --  Loop
    loop
       PB0.Toggle;
-      delay until Clock + Milliseconds (100);
-      -- WriteRegister_SPI4(10,10);
+      delay until Clock + Microseconds (10);
+      -- Test transmission
+      EXT_SPI.testTrasmit(Data => 5);
    end loop;
 
 end Spi;

@@ -34,7 +34,7 @@
 --  BEH: modified to be for STM32H7
 
 --  with Ada.Interrupts.Names; use Ada.Interrupts;
-
+With Ada.Real_Time;        use Ada.Real_Time;
 with STM32.Device;         use STM32.Device;
 with STM32.GPIO;           use STM32.GPIO;
 with STM32.SPI;            use STM32.SPI;
