@@ -99,7 +99,8 @@ package body STM32.SPI is
             This.Periph.CR1.RXONLY   := False;
       end case;
 
-      This.Periph.CR1.DFF      := Conf.Data_Size = HAL.SPI.Data_Size_16b;
+      This.Periph.CR1.DFF      := Conf.Data_Size = HAL.SPI.Data_Size_16b;--CRCL
+      This.Periph.CR2.DS      := STM32_SVD.SPI.Size_4Bit;
       This.Periph.CR1.CPOL     := Conf.Clock_Polarity = High;
       This.Periph.CR1.CPHA     := Conf.Clock_Phase = P2Edge;
       This.Periph.CR1.SSM      := Conf.Slave_Management = Software_Managed;
@@ -905,9 +906,12 @@ package body STM32.SPI is
    is
       Tx_Count : Natural := Outgoing'Length;
       Index    : Natural := Outgoing'First;
+      Tmp : UInt16;
    begin
       if Current_Mode (This) = Slave or else Tx_Count = 1 then
-         This.Periph.DR.DR := UInt16 (Outgoing (Index));
+         Tmp := UInt16 ((Outgoing (Index) and 16#0F#))*256 + UInt16((Outgoing (Index) and 16#F0#))/16;
+         This.Periph.DR.DR := Tmp;
+
          Index := Index + 1;
          Tx_Count := Tx_Count - 1;
       end if;
@@ -958,6 +962,7 @@ package body STM32.SPI is
       Incoming : out HAL.SPI.SPI_Data_8b)
    is
       Generate_Clock : constant Boolean := Current_Mode (This) = Master;
+      Tmp : Uint16;
    begin
       for K of Incoming loop
          if Generate_Clock then
@@ -966,7 +971,12 @@ package body STM32.SPI is
          while Rx_Is_Empty (This) loop
             null;
          end loop;
-         K := UInt8 (This.Periph.DR.DR);
+         Tmp := This.Periph.DR.DR;
+         K := UInt8 (Tmp and 16#000F#)*16+ UInt8 ((Tmp and 16#0F00#)/256);
+         null;
+         -- K := UInt8(Tmp and 16#FF#);
+         -- K := UInt8 (Tmp - (Tmp/256)*256); -- ToDo improve the shift operation
+         -- K := UInt8 (This.Periph.DR.DR);
       end loop;
    end Receive_8bit_Mode;
 

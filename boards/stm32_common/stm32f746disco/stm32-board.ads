@@ -55,11 +55,11 @@ package STM32.Board is
 
    subtype User_LED is GPIO_Point;
 
-   Green_LED : User_LED renames PI1;
-   LED1      : User_LED renames Green_LED;
-   LCH_LED   : User_LED renames Green_LED;
+   Blue_LED : User_LED renames PB7;
+   LED1      : User_LED renames Blue_LED;
+   LCH_LED   : User_LED renames Blue_LED;
 
-   All_LEDs : GPIO_Points := (1 => Green_LED);
+   All_LEDs : GPIO_Points := (1 => Blue_LED);
 
    procedure Initialize_LEDs;
    --  MUST be called prior to any use of the LEDs
@@ -203,5 +203,5 @@ package STM32.Board is
    --  Configures the GPIO port/pin for the blue user button. Sufficient
    --  for polling the button, and necessary for having the button generate
    --  interrupts.
-
+sqdf
 end STM32.Board;

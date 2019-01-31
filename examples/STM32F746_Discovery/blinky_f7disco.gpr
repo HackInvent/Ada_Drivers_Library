@@ -1,15 +1,79 @@
-with "../../boards/stm32f746_discovery/stm32f746_discovery_full.gpr";
+with "../../boards/stm32f746_nucleo/stm32f746_discovery_full.gpr";
 
 project Blinky_F7Disco extends "../shared/common/common.gpr" is
 
-  for Runtime ("Ada") use STM32F746_Discovery_Full'Runtime("Ada");
-  for Target use "arm-eabi";
-  for Main use ("blinky.adb");
-  for Languages use ("Ada");
-  for Source_Dirs use ("../shared/hello_world_blinky/src");
-  for Object_Dir use "../shared/hello_world_blinky/obj/stm32f7disco";
-  for Create_Missing_Dirs use "True";
+   for Runtime ("ada") use Stm32F746_Discovery_Full'Runtime ("Ada");
+   for Target use "arm-eabi";
+   for Main use ("blinky.adb");
+   for Languages use ("Ada");
+   for Source_Dirs use ("../shared/hello_world_blinky/src");
+   for Object_Dir use "../shared/hello_world_blinky/obj/stm32f7disco";
+   for Create_Missing_Dirs use "True";
+   type Lch_Type is
+      ("led", "lcd");
+   Lch : Lch_Type := external ("LCH");
+   type Rts_Type is
+      ("ravenscar-sfp", "ravenscar-full");
+   Rts_Profile : Rts_Type := external ("RTS_Profile");
+   type Loader_Type is
+      ("RAM", "ROM");
+   Loader : Loader_Type := external ("LOADER");
+   type Build_Checks_Type is
+      ("Disabled", "Enabled");
+   Adl_Build_Checks : Build_Checks_Type := external ("ADL_BUILD_CHECKS");
+   type Build_Type is
+      ("Debug", "Production");
+   Adl_Build : Build_Type := external ("ADL_BUILD");
 
-  package Compiler renames STM32F746_Discovery_Full.Compiler;
+   package Compiler renames Stm32F746_Discovery_Full.Compiler;
+
+   package Ide is
+
+      case Lch is
+
+         when "led" =>
+
+            case Rts_Profile is
+
+               when "ravenscar-sfp" =>
+
+                  case Loader is
+
+                     when "RAM" =>
+
+                     when "ROM" =>
+
+                        case Adl_Build_Checks is
+
+                           when "Disabled" =>
+
+                              case Adl_Build is
+
+                                 when "Debug" =>
+                                    for Connection_Tool use "openocd";
+                                    for Connection_Config_File use "../STM32H743_Nucleo/board/stm32f7discovery.cfg";
+                                    for Program_Host use "localhost:3333";
+                                    for Communication_Protocol use "remote";
+
+                                 when "Production" =>
+                                    for Connection_Tool use "openocd";
+                                    for Connection_Config_File use "../STM32H743_Nucleo/board/stm32f7discovery.cfg";
+                                    for Program_Host use "localhost:3333";
+                              end case;
+
+                           when "Enabled" =>
+
+                        end case;
+                  end case;
+
+               when "ravenscar-full" =>
+
+            end case;
+
+         when "lcd" =>
+
+      end case;
+   end Ide;
 
 end Blinky_F7Disco;
+

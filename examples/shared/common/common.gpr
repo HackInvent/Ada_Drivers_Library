@@ -39,13 +39,13 @@ project Common is
          "-Wl,--print-memory-usage");
    end Linker;
 
-   package Ide is
-      for Gnat use "arm-eabi-gnat";
-      for Gnatlist use "arm-eabi-gnatls";
-      for Debugger_Command use "arm-eabi-gdb";
-      for Program_Host use "localhost:4242";
-      for Communication_Protocol use "remote";
-      for Connection_Tool use "st-util";
-   end Ide;
+--     package Ide is
+--        for Gnat use "arm-eabi-gnat";
+--        for Gnatlist use "arm-eabi-gnatls";
+--        for Debugger_Command use "arm-eabi-gdb";
+--        for Program_Host use "localhost:4242";
+--        for Communication_Protocol use "remote";
+--        for Connection_Tool use "st-util";
+--     end Ide;
 
 end Common;

@@ -52,7 +52,7 @@ with STM32.ADC;       use STM32.ADC;
 with STM32.DAC;       use STM32.DAC;
 with STM32.DMA;       use STM32.DMA;
 with STM32.GPIO;      use STM32.GPIO;
---  with STM32.USARTs;  use STM32.USARTs;
+with STM32.USARTs;    use STM32.USARTs;
 with STM32.I2C;       use STM32.I2C;
 with STM32.SDMMC;     use STM32.SDMMC;
 with STM32.SPI;       use STM32.SPI;
@@ -385,18 +385,27 @@ package STM32.Device is
    procedure Enable_Clock (This : aliased in out Digital_To_Analog_Converter);
    procedure Reset (This : aliased in out Digital_To_Analog_Converter);
 
---     USART_1 : aliased USART with Import, Volatile, Address => USART1_Base;
---     USART_2 : aliased USART with Import, Volatile, Address => USART2_Base;
---     USART_3 : aliased USART with Import, Volatile, Address => USART3_Base;
---     UART_4  : aliased USART with Import, Volatile, Address => UART4_Base;
---     UART_5  : aliased USART with Import, Volatile, Address => UART5_Base;
---     USART_6 : aliased USART with Import, Volatile, Address => USART6_Base;
---     USART_7 : aliased USART with Import, Volatile, Address => UART7_Base;
---     USART_8 : aliased USART with Import, Volatile, Address => UART8_Base;
---
---     procedure Enable_Clock (This : aliased in out USART);
---
---     procedure Reset (This : aliased in out USART);
+   Internal_USART_1 : aliased Internal_USART with Import, Volatile, Address => USART1_Base;
+   Internal_USART_2 : aliased Internal_USART with Import, Volatile, Address => USART2_Base;
+   Internal_USART_3 : aliased Internal_USART with Import, Volatile, Address => USART3_Base;
+   Internal_UART_4  : aliased Internal_USART with Import, Volatile, Address => UART4_Base;
+   Internal_UART_5  : aliased Internal_USART with Import, Volatile, Address => UART5_Base;
+   Internal_USART_6 : aliased Internal_USART with Import, Volatile, Address => USART6_Base;
+   Internal_UART_7  : aliased Internal_USART with Import, Volatile, Address => UART7_Base;
+   Internal_UART_8  : aliased Internal_USART with Import, Volatile, Address => UART8_Base;
+
+   USART_1 : aliased USART (Internal_USART_1'Access);
+   USART_2 : aliased USART (Internal_USART_2'Access);
+   USART_3 : aliased USART (Internal_USART_3'Access);
+   UART_4  : aliased USART (Internal_UART_4'Access);
+   UART_5  : aliased USART (Internal_UART_5'Access);
+   USART_6 : aliased USART (Internal_USART_6'Access);
+   UART_7  : aliased USART (Internal_UART_7'Access);
+   UART_8  : aliased USART (Internal_UART_8'Access);
+
+   procedure Enable_Clock (This : aliased in out USART);
+
+   procedure Reset (This : aliased in out USART);
 
    ---------
    -- DMA --
