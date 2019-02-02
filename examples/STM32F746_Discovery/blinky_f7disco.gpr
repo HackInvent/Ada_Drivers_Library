@@ -52,10 +52,12 @@ project Blinky_F7Disco extends "../shared/common/common.gpr" is
                                  when "Debug" =>
                                     for Connection_Tool use "openocd";
                                     for Connection_Config_File use "../STM32H743_Nucleo/board/stm32f7discovery.cfg";
-                                    for Program_Host use "localhost:3333";
-                                    for Communication_Protocol use "remote";
+                                    for Program_Host use "localhost:4242";
+                                    for Communication_Protocol use "extended-remote";
+
 
                                  when "Production" =>
+                                    for Gnat use "arm-eabi-gnat";
                                     for Connection_Tool use "openocd";
                                     for Connection_Config_File use "../STM32H743_Nucleo/board/stm32f7discovery.cfg";
                                     for Program_Host use "localhost:3333";
@@ -68,6 +70,36 @@ project Blinky_F7Disco extends "../shared/common/common.gpr" is
 
                when "ravenscar-full" =>
 
+                  case Loader is
+
+                     when "RAM" =>
+
+                     when "ROM" =>
+
+                        case Adl_Build_Checks is
+
+                           when "Disabled" =>
+
+                              case Adl_Build is
+
+                                 when "Debug" =>
+                                    for Gnat use "arm-eabi-gnat";
+                                    for Connection_Tool use "openocd";
+                                    for Connection_Config_File use "../STM32H743_Nucleo/board/stm32f7discovery.cfg";
+                                    for Program_Host use "localhost:3333";
+                                    for Communication_Protocol use "extended-remote";
+
+                                 when "Production" =>
+                                    for Gnat use "arm-eabi-gnat";
+                                    for Connection_Tool use "openocd";
+                                    for Connection_Config_File use "../STM32H743_Nucleo/board/stm32f7discovery.cfg";
+                                    for Program_Host use "localhost:3333";
+                              end case;
+
+                           when "Enabled" =>
+
+                        end case;
+                  end case;
             end case;
 
          when "lcd" =>

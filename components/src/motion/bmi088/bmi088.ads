@@ -32,12 +32,13 @@ package BMI088 is
    end record;
 
    type Axis is (X, Y, Z);
-   type Sensor_Data is array (Axis) of Float;
+   type Sensor_Accel_Data is array (Axis) of Float;
+   type Sensor_Gyro_Data is array (Axis) of Float;
 
    procedure ReadAccelRates (This : in out Six_Axis_Imu;
-                             Result   : out Sensor_Data);
+                             Result   : out Sensor_Accel_Data);
    procedure ReadGyroRates (This : in out Six_Axis_Imu;
-                             Result   : out Sensor_Data);
+                             Result   : out Sensor_Gyro_Data);
 
 
    procedure test (This        : in out Six_Axis_Imu);
@@ -102,6 +103,7 @@ package BMI088 is
    G         : constant Float := 9.807;
    Pi        : constant Float := 3.14159_26535_89793_23846;
    DegToRad  : constant Float := (Pi / 180.0);
+   RadToDeg  : constant Float := (180.0 / Pi);
 
    --  BMI088 Registers
    ACC_CHIP_ID_ADDR            : constant Register := 16#00#; -- Todo: move to bmi ads

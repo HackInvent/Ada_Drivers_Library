@@ -127,7 +127,7 @@ package body STM32.Board is
 
       Enable (UART_OUT);
 
-      Set_Baud_Rate    (UART_OUT, 115_200);
+      Set_Baud_Rate    (UART_OUT, 2_000_000);
       Set_Mode         (UART_OUT, Tx_Rx_Mode);
       Set_Stop_Bits    (UART_OUT, Stopbits_1);
       Set_Word_Length  (UART_OUT, Word_Length_8);

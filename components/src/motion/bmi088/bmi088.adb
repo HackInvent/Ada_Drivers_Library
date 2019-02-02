@@ -323,7 +323,7 @@ package body BMI088 is
    --------------------
 
    procedure ReadAccelRates (This : in out Six_Axis_Imu;
-                             Result   : out Sensor_Data)
+                             Result   : out Sensor_Accel_Data)
    is
       Received        : SPI_Data_8b (1 .. 6); -- 2 bytes per axis
       AccelRates : BMI088.IMU_Rates;-- todo create AccelRate type
@@ -346,13 +346,13 @@ package body BMI088 is
    -------------------
 
    procedure ReadGyroRates (This : in out Six_Axis_Imu;
-                             Result   : out Sensor_Data)
+                             Result   : out Sensor_Gyro_Data)
    is
       Received        : SPI_Data_8b (1 .. 6); -- 2 bytes per axis
       GyroRates : BMI088.IMU_Rates;-- todo create AccelRate type
    begin
 
-      This.AccelRead_UInt8s(ACC_ACCEL_DATA_ADDR,Received,6);
+      This.GyroRead_UInt8s(ACC_ACCEL_DATA_ADDR,Received,6);
 
       GyroRates.X := As_IMU_Rates_Pointer (Received (1)'Address).all;
       GyroRates.Y := As_IMU_Rates_Pointer (Received (3)'Address).all;

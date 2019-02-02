@@ -54,11 +54,12 @@ with HAL; use HAL;
 with HAL.SPI; use HAL.SPI;
 with HAL.UART; use HAL.UART;
 with Ada.Unchecked_Conversion;
+with Ada.Numerics.Elementary_Functions;
 
 procedure Blinky is
    Bmi_1        : BMI088.Six_Axis_Imu;
-   AccelRates   : Sensor_Data;
-   GyroRates    : Sensor_Data;
+   AccelRates   : Sensor_Accel_Data;
+   GyroRates    : Sensor_Gyro_Data;
 --     Received        : SPI_Data_8b (1 .. 6); -- 2 bytes per axis
 --     AccelRates : BMI088.IMU_Rates;-- todo create AccelRate type
 --     GyroRates : BMI088.IMU_Rates;-- todo create AccelRate type
@@ -72,7 +73,33 @@ procedure Blinky is
       new Ada.Unchecked_Conversion (Source => Float,
                                     Target => UART_Data_8b_4);
    type FixedFloat is delta 0.00001 digits 18;
-   c : Character;
+
+   -- IMUs filter
+
+   -- Estimator
+   startTime         : Time;  -- start time of the main loop
+   dt                : constant Float := 0.0005; -- sampling in second (ex. 0.01 = 10ms)
+   dt_micros         : constant Integer := Integer(dt*1000000.0); -- sampling in microseconds
+   estimatedPitch    : Float := 0.0;  -- in deg
+   estimatedRoll     : Float := 0.0;  -- in deg
+
+   procedure ComplementaryFilter(accelData : Sensor_Accel_Data; gyroData : Sensor_Gyro_Data) is
+      pitchAccel : Float := 0.0; -- pitch computed from the accel
+      rollAccel  : Float := 0.0; -- roll computed from the accel
+   begin
+      -- integrate the gyroscope data
+      estimatedPitch := estimatedPitch + gyroData(X)*dt;
+      estimatedRoll := estimatedRoll + gyroData(Y)*dt;
+
+      -- compensate the drift using the acceleration
+      pitchAccel := Ada.Numerics.Elementary_Functions.Arctan(accelData(Y),accelData(Z))*RadToDeg;
+      estimatedPitch :=  estimatedPitch * 0.98 + pitchAccel * 0.02;
+
+      rollAccel := Ada.Numerics.Elementary_Functions.Arctan(accelData(X),accelData(Z))*RadToDeg;
+      estimatedRoll := estimatedRoll * 0.98 + rollAccel * 0.02;
+
+      null;
+   end ComplementaryFilter;
 
 begin
 
@@ -105,12 +132,17 @@ begin
    -- read the accel value
    ---- read the value
    loop
+      startTime := Clock;
 
+      --
       PG1.Set;
       Bmi_1.ReadAccelRates(AccelRates);
       Bmi_1.ReadGyroRates(GyroRates);
-      PG1.Clear;
-      Toggle (All_LEDs);
+
+      -- estimate the pitch and the roll
+      ComplementaryFilter(AccelRates, GyroRates);
+
+      Blue_LED.Toggle;
 
 --        data_1B(0) := UInt8(36); -- '$'
 --        UART_OUT.Transmit(data_1B,status);
@@ -123,12 +155,24 @@ begin
 --        data_1B(0) := UInt8(59); -- ';'
 --        UART_OUT.Transmit(data_1B,status);
 
+      -- visualize the pitch
       data_1B(0) := UInt8(36); -- '$'
       UART_OUT.Transmit(data_1B,status);
 
-      for ch of FixedFloat(AccelRates(X))'Img loop
-         c := Character(ch);
-         data_1B(0) := Character'Pos(c);
+      for ch of FixedFloat(estimatedPitch)'Img loop
+         data_1B(0) := Character'Pos(ch);
+         if data_1B(0) /= 32 then -- we don't send " "
+            UART_OUT.Transmit(data_1B,status);
+         end if;
+      end loop;
+
+      data_1B(0) := UInt8(32); -- ' '
+      UART_OUT.Transmit(data_1B,status);
+
+      -- visualize the roll
+
+      for ch of FixedFloat(estimatedRoll)'Img loop
+         data_1B(0) := Character'Pos(ch);
          if data_1B(0) /= 32 then -- we don't send " "
             UART_OUT.Transmit(data_1B,status);
          end if;
@@ -137,7 +181,15 @@ begin
       data_1B(0) := UInt8(59); -- ';'
       UART_OUT.Transmit(data_1B,status);
 
-      delay until Clock + Microseconds (1000);
+--        while True loop
+--           startTime := Clock;
+--           PG1.Set;
+--           delay until startTime + Microseconds (1);
+--           PG1.Clear;
+--        end loop;
+      PG1.Clear;
+      delay until startTime + Microseconds (dt_micros);
+
    end loop;
 
 end Blinky;

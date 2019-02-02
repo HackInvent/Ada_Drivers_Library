@@ -62,7 +62,7 @@ package STM32.Board is
    LCH_LED   : User_LED renames Blue_LED;
    IO_PIN : User_LED renames PG1;
 
-   All_LEDs : GPIO_Points := (1 => Blue_LED,2 => IO_PIN);
+   All_LEDs : GPIO_Points := (1 => Blue_LED, 2 => IO_PIN);
 
    procedure Initialize_LEDs;
    --  MUST be called prior to any use of the LEDs
