@@ -222,9 +222,6 @@ package STM32.Board is
    ---------------------------------
    --  SPI1 / IMU BMI088 example  --
    ---------------------------------
-   -- BMI
-   -- BMI_1 : BMI088.Three_Axis_Gyroscope;
-
    -- SPI Port
    IMU_SPI1 : SPI_Port renames SPI_1;
 
@@ -238,9 +235,69 @@ package STM32.Board is
       SPI1_MOSI);
 
    -- IMU select
-   IMU_SPI1_SELC    : GPIO_Point renames PF15; -- D2 in connector CN10
-   IMU_SPI1_SELG    : GPIO_Point renames PE13; -- D3 in connector CN10
-   IMU_SPI1_SEL_Points : constant STM32.GPIO.GPIO_Points := (IMU_SPI1_SELC,IMU_SPI1_SELG);
+   IMU1_SPI1_SELC    : GPIO_Point renames PC8;
+   IMU1_SPI1_SELG    : GPIO_Point renames PC9;
+
+   IMU2_SPI1_SELC    : GPIO_Point renames PC10;
+   IMU2_SPI1_SELG    : GPIO_Point renames PC11;
+
+   IMU3_SPI1_SELC    : GPIO_Point renames PC12;
+   IMU3_SPI1_SELG    : GPIO_Point renames PD2;
+
+   IMU4_SPI1_SELC    : GPIO_Point renames PG2;
+   IMU4_SPI1_SELG    : GPIO_Point renames PG3;
+
+   IMU5_SPI1_SELC    : GPIO_Point renames PD7;
+   IMU5_SPI1_SELG    : GPIO_Point renames PD6;
+
+   IMU6_SPI1_SELC    : GPIO_Point renames PD5;
+   IMU6_SPI1_SELG    : GPIO_Point renames PD4;
+
+   IMU7_SPI1_SELC    : GPIO_Point renames PD3;
+   IMU7_SPI1_SELG    : GPIO_Point renames PE2;
+
+   IMU8_SPI1_SELC    : GPIO_Point renames PE4;
+   IMU8_SPI1_SELG    : GPIO_Point renames PE5;
+
+   IMU9_SPI1_SELC    : GPIO_Point renames PE6;
+   IMU9_SPI1_SELG    : GPIO_Point renames PE3;
+
+   IMU10_SPI1_SELC   : GPIO_Point renames PF8;
+   IMU10_SPI1_SELG   : GPIO_Point renames PF7;
+
+   IMU11_SPI1_SELC   : GPIO_Point renames PF9;
+   IMU11_SPI1_SELG   : GPIO_Point renames PG1;
+
+   IMU12_SPI1_SELC   : GPIO_Point renames PA3;
+   IMU12_SPI1_SELG   : GPIO_Point renames PC0;
+
+   IMU13_SPI1_SELC   : GPIO_Point renames PC3;
+   IMU13_SPI1_SELG   : GPIO_Point renames PF3;
+
+   IMU_SPI1_SEL_Points : constant STM32.GPIO.GPIO_Points := (IMU1_SPI1_SELC,
+                                                             IMU1_SPI1_SELG,
+                                                             IMU2_SPI1_SELC,
+                                                             IMU2_SPI1_SELG,
+                                                             IMU3_SPI1_SELC,
+                                                             IMU3_SPI1_SELG,
+                                                             IMU4_SPI1_SELC,
+                                                             IMU4_SPI1_SELG,
+                                                             IMU5_SPI1_SELC,
+                                                             IMU5_SPI1_SELG,
+                                                             IMU6_SPI1_SELC,
+                                                             IMU6_SPI1_SELG,
+                                                             IMU7_SPI1_SELC,
+                                                             IMU7_SPI1_SELG,
+                                                             IMU8_SPI1_SELC,
+                                                             IMU8_SPI1_SELG,
+                                                             IMU9_SPI1_SELC,
+                                                             IMU9_SPI1_SELG,
+                                                             IMU10_SPI1_SELC,
+                                                             IMU10_SPI1_SELG,
+                                                             IMU12_SPI1_SELC,
+                                                             IMU12_SPI1_SELG,
+                                                             IMU13_SPI1_SELC,
+                                                             IMU13_SPI1_SELG);
 
    -- To initialize the SPI1 port for the BMI088
    procedure Initialize_SPI1_For_BMI088;

@@ -56,7 +56,7 @@ with HAL.UART; use HAL.UART;
 with Ada.Unchecked_Conversion;
 with Ada.Numerics.Elementary_Functions;
 
-procedure Blinky is
+procedure SuperIMU is
    Bmi_1        : BMI088.Six_Axis_Imu;
    AccelRates   : Sensor_Accel_Data;
    GyroRates    : Sensor_Gyro_Data;
@@ -230,4 +230,4 @@ begin
 
    end loop;
 
-end Blinky;
+end SuperIMU;
