@@ -139,8 +139,46 @@ begin
       Bmi_1.ReadAccelRates(AccelRates);
       Bmi_1.ReadGyroRates(GyroRates);
 
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
+      Bmi_1.ReadAccelRates(AccelRates);
+      Bmi_1.ReadGyroRates(GyroRates);
+
       -- estimate the pitch and the roll
       ComplementaryFilter(AccelRates, GyroRates);
+
+      PG1.Clear;
 
       Blue_LED.Toggle;
 
@@ -187,7 +225,7 @@ begin
 --           delay until startTime + Microseconds (1);
 --           PG1.Clear;
 --        end loop;
-      PG1.Clear;
+
       delay until startTime + Microseconds (dt_micros);
 
    end loop;
